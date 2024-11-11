@@ -55,6 +55,8 @@ output		 	received_data_en;
 wire [7:0] the_command_w;
 wire send_command_w, command_was_sent_w, error_communication_timed_out_w;
 
+reg init_done;
+
 generate
 	if(INITIALIZE_MOUSE) begin
 		assign the_command_w = init_done ? the_command : 8'hf4;
@@ -62,7 +64,6 @@ generate
 		assign command_was_sent = init_done ? command_was_sent_w : 0;
 		assign error_communication_timed_out = init_done ? error_communication_timed_out_w : 1;
 		
-		reg init_done;
 		
 		always @(posedge CLOCK_50)
 			if(reset) init_done <= 0;

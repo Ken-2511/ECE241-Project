@@ -1,17 +1,17 @@
-Fitter Status : Successful - Mon Nov 11 07:43:28 2024
+Fitter Status : Successful - Mon Nov 11 11:51:50 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : milestone1
 Top-level Entity Name : milestone1
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 108 / 32,070 ( < 1 % )
-Total registers : 94
+Logic utilization (in ALMs) : 88 / 32,070 ( < 1 % )
+Total registers : 87
 Total pins : 70 / 457 ( 15 % )
 Total virtual pins : 0
-Total block memory bits : 230,400 / 4,065,280 ( 6 % )
-Total RAM Blocks : 29 / 397 ( 7 % )
-Total DSP Blocks : 0 / 87 ( 0 % )
+Total block memory bits : 230,912 / 4,065,280 ( 6 % )
+Total RAM Blocks : 30 / 397 ( 8 % )
+Total DSP Blocks : 1 / 87 ( 1 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0

@@ -1,5 +1,5 @@
 Assembler report for milestone1
-Mon Nov 11 07:43:34 2024
+Mon Nov 11 11:51:56 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Nov 11 07:43:34 2024 ;
+; Assembler Status      ; Successful - Mon Nov 11 11:51:56 2024 ;
 ; Revision Name         ; milestone1                            ;
 ; Top-level Entity Name ; milestone1                            ;
 ; Family                ; Cyclone V                             ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+----------------------------------------------------+
 ; Option         ; Setting                                            ;
 +----------------+----------------------------------------------------+
-; JTAG usercode  ; 0x01475F45                                         ;
-; Checksum       ; 0x01475F45                                         ;
+; JTAG usercode  ; 0x014B926B                                         ;
+; Checksum       ; 0x014B926B                                         ;
 +----------------+----------------------------------------------------+
 
 
@@ -78,13 +78,13 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Nov 11 07:43:30 2024
+    Info: Processing started: Mon Nov 11 11:51:52 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off milestone1 -c milestone1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 5233 megabytes
-    Info: Processing ended: Mon Nov 11 07:43:34 2024
+    Info: Processing ended: Mon Nov 11 11:51:56 2024
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:03
 

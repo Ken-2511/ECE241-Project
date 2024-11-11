@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone1
-Mon Nov 11 07:42:17 2024
+Mon Nov 11 11:50:39 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -14,30 +14,35 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated
- 14. Parameter Settings for User Entity Instance: regn:U1
- 15. Parameter Settings for User Entity Instance: regn:U2
- 16. Parameter Settings for User Entity Instance: draw_big_maze:U3
- 17. Parameter Settings for User Entity Instance: draw_big_maze:U3|draw_maze:U1
- 18. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 19. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 20. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 21. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 24. altsyncram Parameter Settings by Entity Instance
- 25. altpll Parameter Settings by Entity Instance
- 26. Port Connectivity Checks: "hex7seg:H1"
- 27. Port Connectivity Checks: "draw_big_maze:U3"
- 28. Port Connectivity Checks: "regn:U2"
- 29. Port Connectivity Checks: "regn:U1"
- 30. Post-Synthesis Netlist Statistics for Top Partition
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated
+ 16. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated
+ 17. Parameter Settings for User Entity Instance: regn:U1
+ 18. Parameter Settings for User Entity Instance: regn:U2
+ 19. Parameter Settings for User Entity Instance: draw_big_maze:U3
+ 20. Parameter Settings for User Entity Instance: draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component
+ 21. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 25. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 26. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 27. altsyncram Parameter Settings by Entity Instance
+ 28. altpll Parameter Settings by Entity Instance
+ 29. Port Connectivity Checks: "hex7seg:H1"
+ 30. Port Connectivity Checks: "draw_big_maze:U3|blocks:U1"
+ 31. Port Connectivity Checks: "draw_big_maze:U3"
+ 32. Port Connectivity Checks: "regn:U2"
+ 33. Port Connectivity Checks: "regn:U1"
+ 34. Post-Synthesis Netlist Statistics for Top Partition
+ 35. Elapsed Time Per Partition
+ 36. Analysis & Synthesis Messages
+ 37. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -64,17 +69,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 11 07:42:17 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 11 11:50:39 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone1                                     ;
 ; Top-level Entity Name           ; milestone1                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 86                                             ;
+; Total registers                 ; 79                                             ;
 ; Total pins                      ; 70                                             ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 230,400                                        ;
-; Total DSP Blocks                ; 0                                              ;
+; Total block memory bits         ; 230,912                                        ;
+; Total DSP Blocks                ; 1                                              ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
 ; Total HSSI TX PCSs              ; 0                                              ;
@@ -198,6 +203,8 @@ https://fpgasoftware.intel.com/eula.
 ; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File                  ; F:/milestone1/vga_adapter/vga_address_translator.v                              ;         ;
 ; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File                  ; F:/milestone1/vga_adapter/vga_adapter.v                                         ;         ;
 ; milestone1.v                         ; yes             ; User Verilog HDL File                  ; F:/milestone1/milestone1.v                                                      ;         ;
+; utils.v                              ; yes             ; User Verilog HDL File                  ; F:/milestone1/utils.v                                                           ;         ;
+; blocks.v                             ; yes             ; User Wizard-Generated File             ; F:/milestone1/blocks.v                                                          ;         ;
 ; altsyncram.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -207,6 +214,8 @@ https://fpgasoftware.intel.com/eula.
 ; altrom.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc            ;         ;
 ; altram.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_8do1.tdf               ; yes             ; Auto-Generated Megafunction            ; F:/milestone1/db/altsyncram_8do1.tdf                                            ;         ;
+; blocks.mif                           ; yes             ; Auto-Found Memory Initialization File  ; F:/milestone1/blocks.mif                                                        ;         ;
 ; db/altsyncram_c7m1.tdf               ; yes             ; Auto-Generated Megafunction            ; F:/milestone1/db/altsyncram_c7m1.tdf                                            ;         ;
 ; black.mif                            ; yes             ; Auto-Found Memory Initialization File  ; F:/milestone1/black.mif                                                         ;         ;
 ; db/decode_nma.tdf                    ; yes             ; Auto-Generated Megafunction            ; F:/milestone1/db/decode_nma.tdf                                                 ;         ;
@@ -225,30 +234,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 112            ;
+; Estimate of Logic utilization (ALMs needed) ; 89             ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 186            ;
+; Combinational ALUT usage for logic          ; 158            ;
 ;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 33             ;
+;     -- 6 input functions                    ; 15             ;
 ;     -- 5 input functions                    ; 28             ;
-;     -- 4 input functions                    ; 52             ;
-;     -- <=3 input functions                  ; 73             ;
+;     -- 4 input functions                    ; 35             ;
+;     -- <=3 input functions                  ; 80             ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 86             ;
+; Dedicated logic registers                   ; 79             ;
 ;                                             ;                ;
 ; I/O pins                                    ; 70             ;
 ; Total MLAB memory bits                      ; 0              ;
-; Total block memory bits                     ; 230400         ;
+; Total block memory bits                     ; 230912         ;
 ;                                             ;                ;
-; Total DSP Blocks                            ; 0              ;
+; Total DSP Blocks                            ; 1              ;
 ;                                             ;                ;
 ; Total PLLs                                  ; 1              ;
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 83             ;
-; Total fan-out                               ; 2072           ;
-; Average fan-out                             ; 4.68           ;
+; Maximum fan-out                             ; 77             ;
+; Total fan-out                               ; 1899           ;
+; Average fan-out                             ; 4.63           ;
 +---------------------------------------------+----------------+
 
 
@@ -257,16 +266,18 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                        ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |milestone1                                             ; 186 (0)             ; 86 (0)                    ; 230400            ; 0          ; 70   ; 0            ; |milestone1                                                                                                ; milestone1             ; work         ;
-;    |draw_big_maze:U3|                                   ; 59 (16)             ; 37 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone1|draw_big_maze:U3                                                                               ; draw_big_maze          ; work         ;
-;       |draw_maze:U1|                                    ; 43 (43)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone1|draw_big_maze:U3|draw_maze:U1                                                                  ; draw_maze              ; work         ;
+; |milestone1                                             ; 158 (1)             ; 79 (0)                    ; 230912            ; 1          ; 70   ; 0            ; |milestone1                                                                                                ; milestone1             ; work         ;
+;    |draw_big_maze:U3|                                   ; 31 (31)             ; 30 (30)                   ; 512               ; 1          ; 0    ; 0            ; |milestone1|draw_big_maze:U3                                                                               ; draw_big_maze          ; work         ;
+;       |blocks:U1|                                       ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |milestone1|draw_big_maze:U3|blocks:U1                                                                     ; blocks                 ; work         ;
+;          |altsyncram:altsyncram_component|              ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |milestone1|draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component                                     ; altsyncram             ; work         ;
+;             |altsyncram_8do1:auto_generated|            ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |milestone1|draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated      ; altsyncram_8do1        ; work         ;
 ;    |hex7seg:H0|                                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone1|hex7seg:H0                                                                                     ; hex7seg                ; work         ;
 ;    |hex7seg:H1|                                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone1|hex7seg:H1                                                                                     ; hex7seg                ; work         ;
 ;    |hex7seg:H2|                                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone1|hex7seg:H2                                                                                     ; hex7seg                ; work         ;
 ;    |hex7seg:H3|                                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone1|hex7seg:H3                                                                                     ; hex7seg                ; work         ;
 ;    |regn:U1|                                            ; 8 (8)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone1|regn:U1                                                                                        ; regn                   ; work         ;
 ;    |regn:U2|                                            ; 1 (1)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone1|regn:U2                                                                                        ; regn                   ; work         ;
-;    |vga_adapter:VGA|                                    ; 90 (1)              ; 34 (0)                    ; 230400            ; 0          ; 0    ; 0            ; |milestone1|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
+;    |vga_adapter:VGA|                                    ; 89 (0)              ; 34 (0)                    ; 230400            ; 0          ; 0    ; 0            ; |milestone1|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 26 (0)              ; 8 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |milestone1|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
 ;          |altsyncram_c7m1:auto_generated|               ; 26 (0)              ; 8 (8)                     ; 230400            ; 0          ; 0    ; 0            ; |milestone1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated                          ; altsyncram_c7m1        ; work         ;
 ;             |decode_g2a:rden_decode_b|                  ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|decode_g2a:rden_decode_b ; decode_g2a             ; work         ;
@@ -282,26 +293,48 @@ https://fpgasoftware.intel.com/eula.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                            ;
-+----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-----------+
-; Name                                                                             ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF       ;
-+----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-----------+
-; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 76800        ; 3            ; 76800        ; 3            ; 230400 ; black.mif ;
-+----------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-----------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                 ;
++------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------------+
+; Name                                                                                                 ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF        ;
++------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------------+
+; draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; 512          ; 1            ; --           ; --           ; 512    ; blocks.mif ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|ALTSYNCRAM                     ; AUTO ; Simple Dual Port ; 76800        ; 3            ; 76800        ; 3            ; 230400 ; black.mif  ;
++------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------------+
 
 
-+---------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                          ;
-+----------------------------------------+----------------------------------------------------+
-; Register name                          ; Reason for Removal                                 ;
-+----------------------------------------+----------------------------------------------------+
-; draw_big_maze:U3|color[2]              ; Merged with draw_big_maze:U3|color[0]              ;
-; draw_big_maze:U3|draw_maze:U1|color[2] ; Merged with draw_big_maze:U3|draw_maze:U1|color[0] ;
-; draw_big_maze:U3|dx[3]                 ; Stuck at GND due to stuck port data_in             ;
-; draw_big_maze:U3|vga_x[8]              ; Stuck at GND due to stuck port data_in             ;
-; Total Number of Removed Registers = 4  ;                                                    ;
-+----------------------------------------+----------------------------------------------------+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Independent 9x9                 ; 1           ;
+; Total number of DSP blocks      ; 1           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 1           ;
++---------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                    ;
++--------+--------------+---------+--------------+--------------+----------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                        ; IP Include File ;
++--------+--------------+---------+--------------+--------------+----------------------------------------+-----------------+
+; Altera ; RAM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |milestone1|draw_big_maze:U3|blocks:U1 ; blocks.v        ;
++--------+--------------+---------+--------------+--------------+----------------------------------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; draw_big_maze:U3|dx[3]                ; Stuck at GND due to stuck port data_in ;
+; draw_big_maze:U3|dy[3]                ; Stuck at GND due to stuck port data_in ;
+; draw_big_maze:U3|vga_x[8]             ; Stuck at GND due to stuck port data_in ;
+; draw_big_maze:U3|vga_y[7]             ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 4 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------+
@@ -311,6 +344,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------+---------------------------+----------------------------------------+
 ; draw_big_maze:U3|dx[3] ; Stuck at GND              ; draw_big_maze:U3|vga_x[8]              ;
 ;                        ; due to stuck port data_in ;                                        ;
+; draw_big_maze:U3|dy[3] ; Stuck at GND              ; draw_big_maze:U3|vga_y[7]              ;
+;                        ; due to stuck port data_in ;                                        ;
 +------------------------+---------------------------+----------------------------------------+
 
 
@@ -319,12 +354,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 86    ;
-; Number of registers using Synchronous Clear  ; 48    ;
+; Total registers                              ; 79    ;
+; Number of registers using Synchronous Clear  ; 43    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 62    ;
+; Number of registers using Clock Enable       ; 55    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -335,18 +370,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |milestone1|vga_adapter:VGA|vga_controller:controller|yCounter[1]                                                   ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |milestone1|regn:U2|Q[5]                                                                                            ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |milestone1|regn:U1|Q[2]                                                                                            ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |milestone1|draw_big_maze:U3|maze_enable                                                                            ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |milestone1|draw_big_maze:U3|draw_maze:U1|x[4]                                                                      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone1|draw_big_maze:U3|dx[1]                                                                                  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone1|draw_big_maze:U3|draw_maze:U1|y[1]                                                                      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |milestone1|regn:U2|Q[2]                                                                                            ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |milestone1|regn:U1|Q[5]                                                                                            ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |milestone1|draw_big_maze:U3|vga_y[6]                                                                               ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |milestone1|draw_big_maze:U3|maze_x[4]                                                                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone1|draw_big_maze:U3|dx[3]                                                                                  ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone1|draw_big_maze:U3|dy[3]                                                                                  ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |milestone1|draw_big_maze:U3|draw_maze:U1|ShiftLeft0                                                                ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |milestone1|draw_big_maze:U3|draw_maze:U1|ShiftLeft0                                                                ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |milestone1|draw_big_maze:U3|draw_maze:U1|ShiftLeft0                                                                ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone1|draw_big_maze:U3|maze_y[3]                                                                              ;
 ; 9:1                ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |milestone1|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|mux_2hb:mux3|l4_w1_n0_mux_dataout ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Source assignments for draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                 ;
++---------------------------------+--------------------+------+----------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                  ;
++---------------------------------+--------------------+------+----------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------+
@@ -388,14 +429,64 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: draw_big_maze:U3|draw_maze:U1 ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; maze_width     ; 29    ; Signed Integer                                    ;
-; maze_height    ; 13    ; Signed Integer                                    ;
-+----------------+-------+---------------------------------------------------+
++---------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                        ;
++------------------------------------+----------------------+---------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                     ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                              ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                     ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                     ;
+; WIDTH_A                            ; 1                    ; Signed Integer                              ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer                              ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer                              ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                     ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                     ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                     ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                     ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                     ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                     ;
+; WIDTH_B                            ; 1                    ; Untyped                                     ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                     ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                     ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                     ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                     ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                     ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                     ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                     ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                     ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                     ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                     ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                     ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                     ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                              ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                     ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                     ;
+; INIT_FILE                          ; blocks.mif           ; Untyped                                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                     ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                     ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                     ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                     ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                     ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                     ;
+; CBXI_PARAMETER                     ; altsyncram_8do1      ; Untyped                                     ;
++------------------------------------+----------------------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -887,24 +978,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                   ;
-+-------------------------------------------+----------------------------------------+
-; Name                                      ; Value                                  ;
-+-------------------------------------------+----------------------------------------+
-; Number of entity instances                ; 1                                      ;
-; Entity Instance                           ; vga_adapter:VGA|altsyncram:VideoMemory ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                              ;
-;     -- WIDTH_A                            ; 3                                      ;
-;     -- NUMWORDS_A                         ; 76800                                  ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                           ;
-;     -- WIDTH_B                            ; 3                                      ;
-;     -- NUMWORDS_B                         ; 76800                                  ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                 ;
-;     -- OUTDATA_REG_B                      ; CLOCK1                                 ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                   ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                              ;
-+-------------------------------------------+----------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                       ;
++-------------------------------------------+------------------------------------------------------------+
+; Name                                      ; Value                                                      ;
++-------------------------------------------+------------------------------------------------------------+
+; Number of entity instances                ; 2                                                          ;
+; Entity Instance                           ; draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                ;
+;     -- WIDTH_A                            ; 1                                                          ;
+;     -- NUMWORDS_A                         ; 512                                                        ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                               ;
+;     -- WIDTH_B                            ; 1                                                          ;
+;     -- NUMWORDS_B                         ; 1                                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                     ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                               ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                  ;
+; Entity Instance                           ; vga_adapter:VGA|altsyncram:VideoMemory                     ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                  ;
+;     -- WIDTH_A                            ; 3                                                          ;
+;     -- NUMWORDS_A                         ; 76800                                                      ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                               ;
+;     -- WIDTH_B                            ; 3                                                          ;
+;     -- NUMWORDS_B                         ; 76800                                                      ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                     ;
+;     -- OUTDATA_REG_B                      ; CLOCK1                                                     ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                  ;
++-------------------------------------------+------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------+
@@ -931,6 +1033,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+-------+----------+--------------+
 ; hex[3] ; Input ; Info     ; Stuck at GND ;
 +--------+-------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "draw_big_maze:U3|blocks:U1"                                                                                                                                                          ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (9 bits) it drives.  The 23 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; data    ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (1 bits) it drives.  The 7 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
+; data[0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; wren    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -967,34 +1081,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 86                          ;
+; arriav_ff             ; 79                          ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 24                          ;
+;     ENA               ; 22                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     ENA SCLR          ; 28                          ;
+;     ENA SCLR          ; 23                          ;
 ;     plain             ; 14                          ;
-; arriav_lcell_comb     ; 190                         ;
-;     arith             ; 20                          ;
-;         1 data inputs ; 20                          ;
-;     normal            ; 148                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 16                          ;
-;         3 data inputs ; 15                          ;
-;         4 data inputs ; 52                          ;
-;         5 data inputs ; 28                          ;
-;         6 data inputs ; 33                          ;
-;     shared            ; 22                          ;
+; arriav_lcell_comb     ; 162                         ;
+;     arith             ; 29                          ;
+;         1 data inputs ; 24                          ;
+;         2 data inputs ; 5                           ;
+;     normal            ; 111                         ;
 ;         0 data inputs ; 2                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 13                          ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 35                          ;
+;         5 data inputs ; 28                          ;
+;         6 data inputs ; 15                          ;
+;     shared            ; 22                          ;
+;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 15                          ;
+;         2 data inputs ; 14                          ;
 ;         3 data inputs ; 1                           ;
+; arriav_mac            ; 1                           ;
 ; boundary_port         ; 70                          ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 30                          ;
+; stratixv_ram_block    ; 31                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.03                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.82                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1013,10 +1129,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Nov 11 07:42:10 2024
+    Info: Processing started: Mon Nov 11 11:50:33 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone1 -c milestone1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file fsm.v
+    Info (12023): Found entity 1: game_state_control File: F:/milestone1/fsm.v Line: 1
+Info (12021): Found 5 design units, including 5 entities, in source file ps2.v
+    Info (12023): Found entity 1: ps2 File: F:/milestone1/ps2.v Line: 1
+    Info (12023): Found entity 2: get_direction File: F:/milestone1/ps2.v Line: 61
+    Info (12023): Found entity 3: movement_FSM File: F:/milestone1/ps2.v Line: 84
+    Info (12023): Found entity 4: player_movement File: F:/milestone1/ps2.v Line: 148
+    Info (12023): Found entity 5: half_sec_counter File: F:/milestone1/ps2.v Line: 181
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/ps2_controller.v
     Info (12023): Found entity 1: PS2_Controller File: F:/milestone1/PS2_Controller/PS2_Controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/altera_up_ps2_data_in.v
@@ -1031,33 +1155,52 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_ada
     Info (12023): Found entity 1: vga_address_translator File: F:/milestone1/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
     Info (12023): Found entity 1: vga_adapter File: F:/milestone1/vga_adapter/vga_adapter.v Line: 51
-Info (12021): Found 7 design units, including 7 entities, in source file milestone1.v
+Info (12021): Found 2 design units, including 2 entities, in source file milestone1.v
     Info (12023): Found entity 1: milestone1 File: F:/milestone1/milestone1.v Line: 8
-    Info (12023): Found entity 2: regn File: F:/milestone1/milestone1.v Line: 69
-    Info (12023): Found entity 3: count File: F:/milestone1/milestone1.v Line: 82
-    Info (12023): Found entity 4: hex7seg File: F:/milestone1/milestone1.v Line: 94
-    Info (12023): Found entity 5: object_mem File: F:/milestone1/milestone1.v Line: 120
-    Info (12023): Found entity 6: draw_big_maze File: F:/milestone1/milestone1.v Line: 129
-    Info (12023): Found entity 7: draw_maze File: F:/milestone1/milestone1.v Line: 183
-Info (12021): Found 0 design units, including 0 entities, in source file utils.v
+    Info (12023): Found entity 2: draw_big_maze File: F:/milestone1/milestone1.v Line: 69
+Info (12021): Found 4 design units, including 4 entities, in source file utils.v
+    Info (12023): Found entity 1: regn File: F:/milestone1/utils.v Line: 1
+    Info (12023): Found entity 2: count File: F:/milestone1/utils.v Line: 14
+    Info (12023): Found entity 3: hex7seg File: F:/milestone1/utils.v Line: 26
+    Info (12023): Found entity 4: object_mem File: F:/milestone1/utils.v Line: 52
 Info (12021): Found 1 design units, including 1 entities, in source file blocks.v
     Info (12023): Found entity 1: blocks File: F:/milestone1/blocks.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at ps2.v(54): created implicit net for "w" File: F:/milestone1/ps2.v Line: 54
+Warning (10236): Verilog HDL Implicit Net warning at ps2.v(55): created implicit net for "z_reg" File: F:/milestone1/ps2.v Line: 55
 Warning (10236): Verilog HDL Implicit Net warning at milestone1.v(44): created implicit net for "plot" File: F:/milestone1/milestone1.v Line: 44
 Info (12127): Elaborating entity "milestone1" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at milestone1.v(44): object "plot" assigned a value but never read File: F:/milestone1/milestone1.v Line: 44
 Info (12128): Elaborating entity "regn" for hierarchy "regn:U1" File: F:/milestone1/milestone1.v Line: 32
 Info (12128): Elaborating entity "regn" for hierarchy "regn:U2" File: F:/milestone1/milestone1.v Line: 34
 Info (12128): Elaborating entity "draw_big_maze" for hierarchy "draw_big_maze:U3" File: F:/milestone1/milestone1.v Line: 37
-Warning (10230): Verilog HDL assignment warning at milestone1.v(167): truncated value with size 32 to match size of target (4) File: F:/milestone1/milestone1.v Line: 167
-Warning (10230): Verilog HDL assignment warning at milestone1.v(170): truncated value with size 32 to match size of target (4) File: F:/milestone1/milestone1.v Line: 170
-Warning (10230): Verilog HDL assignment warning at milestone1.v(172): truncated value with size 32 to match size of target (9) File: F:/milestone1/milestone1.v Line: 172
-Warning (10230): Verilog HDL assignment warning at milestone1.v(173): truncated value with size 32 to match size of target (8) File: F:/milestone1/milestone1.v Line: 173
-Info (12128): Elaborating entity "draw_maze" for hierarchy "draw_big_maze:U3|draw_maze:U1" File: F:/milestone1/milestone1.v Line: 179
-Warning (10230): Verilog HDL assignment warning at milestone1.v(231): truncated value with size 32 to match size of target (4) File: F:/milestone1/milestone1.v Line: 231
-Warning (10230): Verilog HDL assignment warning at milestone1.v(234): truncated value with size 32 to match size of target (5) File: F:/milestone1/milestone1.v Line: 234
-Warning (10030): Net "maze_data.data_a" at milestone1.v(190) has no driver or initial value, using a default initial value '0' File: F:/milestone1/milestone1.v Line: 190
-Warning (10030): Net "maze_data.waddr_a" at milestone1.v(190) has no driver or initial value, using a default initial value '0' File: F:/milestone1/milestone1.v Line: 190
-Warning (10030): Net "maze_data.we_a" at milestone1.v(190) has no driver or initial value, using a default initial value '0' File: F:/milestone1/milestone1.v Line: 190
+Warning (10230): Verilog HDL assignment warning at milestone1.v(107): truncated value with size 32 to match size of target (4) File: F:/milestone1/milestone1.v Line: 107
+Warning (10230): Verilog HDL assignment warning at milestone1.v(110): truncated value with size 32 to match size of target (5) File: F:/milestone1/milestone1.v Line: 110
+Warning (10230): Verilog HDL assignment warning at milestone1.v(113): truncated value with size 32 to match size of target (4) File: F:/milestone1/milestone1.v Line: 113
+Warning (10230): Verilog HDL assignment warning at milestone1.v(116): truncated value with size 32 to match size of target (4) File: F:/milestone1/milestone1.v Line: 116
+Warning (10230): Verilog HDL assignment warning at milestone1.v(118): truncated value with size 32 to match size of target (9) File: F:/milestone1/milestone1.v Line: 118
+Warning (10230): Verilog HDL assignment warning at milestone1.v(119): truncated value with size 32 to match size of target (8) File: F:/milestone1/milestone1.v Line: 119
+Info (12128): Elaborating entity "blocks" for hierarchy "draw_big_maze:U3|blocks:U1" File: F:/milestone1/milestone1.v Line: 133
+Info (12128): Elaborating entity "altsyncram" for hierarchy "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component" File: F:/milestone1/blocks.v Line: 86
+Info (12130): Elaborated megafunction instantiation "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component" File: F:/milestone1/blocks.v Line: 86
+Info (12133): Instantiated megafunction "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component" with the following parameter: File: F:/milestone1/blocks.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "blocks.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "512"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "width_a" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8do1.tdf
+    Info (12023): Found entity 1: altsyncram_8do1 File: F:/milestone1/db/altsyncram_8do1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_8do1" for hierarchy "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:H3" File: F:/milestone1/milestone1.v Line: 39
 Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: F:/milestone1/milestone1.v Line: 61
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: F:/milestone1/vga_adapter/vga_adapter.v Line: 157
@@ -1110,27 +1253,32 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
     Info (12023): Found entity 1: altpll_80u File: F:/milestone1/db/altpll_80u.tdf Line: 26
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: F:/milestone1/vga_adapter/vga_adapter.v Line: 216
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276004): RAM logic "draw_big_maze:U3|draw_maze:U1|maze_data" is uninferred due to inappropriate RAM size File: F:/milestone1/milestone1.v Line: 190
-Critical Warning (127005): Memory depth (16) in the design file differs from memory depth (13) in the Memory Initialization File "F:/milestone1/db/milestone1.ram0_draw_maze_5c43a7c5.hdl.mif" -- setting initial value for remaining addresses to 0
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: F:/milestone1/milestone1.v Line: 22
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file F:/milestone1/output_files/milestone1.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: F:/milestone1/db/altpll_80u.tdf Line: 34
     Info: Must be connected
-Info (21057): Implemented 320 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 295 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
     Info (21059): Implemented 57 output pins
-    Info (21061): Implemented 219 logic cells
-    Info (21064): Implemented 30 RAM segments
+    Info (21061): Implemented 192 logic cells
+    Info (21064): Implemented 31 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
-    Info: Peak virtual memory: 4889 megabytes
-    Info: Processing ended: Mon Nov 11 07:42:17 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:15
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Peak virtual memory: 4897 megabytes
+    Info: Processing ended: Mon Nov 11 11:50:39 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:12
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in F:/milestone1/output_files/milestone1.map.smsg.
 
 

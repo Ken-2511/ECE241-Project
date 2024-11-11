@@ -70,7 +70,7 @@ module draw_big_maze(clock, resetn, vga_x, vga_y, color, enable);
 	// draw a maze with blocks of 8x8 pixels
 
 	input clock, resetn, enable;
-	output reg [7:0] color;
+	output [7:0] color;
 	output reg [8:0] vga_x;
 	output reg [7:0] vga_y;
 
@@ -89,7 +89,7 @@ module draw_big_maze(clock, resetn, vga_x, vga_y, color, enable);
             maze_y <= 0;
 			vga_x <= 0;
 			vga_y <= 0;
-			color <= 0;
+			// color <= 0;
 		end
 		else if (enable) begin
 			// start drawing maze
@@ -114,13 +114,15 @@ module draw_big_maze(clock, resetn, vga_x, vga_y, color, enable);
 			end
 			else
 				dx <= dx + 1;
-			// update the color
-			color <= maze_color == 1'b1 ? 8'hff : 8'h00;
 			// update the VGA position
 			vga_x <= maze_x * n + dx;
 			vga_y <= maze_y * n + dy;
+			// update the color
+			// color <= maze_color == 1'b1 ? 8'hff : 8'h00;
 		end
 	end
+
+	assign color = maze_color == 1'b1 ? 8'hff : 8'h00;
 
     blocks U1 (
 	.address({maze_y * 29 + maze_x}),

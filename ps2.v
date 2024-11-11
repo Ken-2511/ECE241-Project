@@ -1,4 +1,4 @@
-module top(CLOCK_50, KEY, VGA_R, VGA_G, VGA_B, 
+module ps2(CLOCK_50, KEY, VGA_R, VGA_G, VGA_B, 
 				VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK,
 				PS2_CLK, PS2_DAT);
 
@@ -19,7 +19,7 @@ module top(CLOCK_50, KEY, VGA_R, VGA_G, VGA_B,
 	reg [7:0] last_key_received;
 	
 	wire hs_enable;
-	half_sec_counter(CLOCK_50, KEY[0], hs_enable);
+	half_sec_counter U4 (CLOCK_50, KEY[0], hs_enable);
 	
 	//for getting keystrokes
 	always @(CLOCK_50) begin
@@ -48,15 +48,18 @@ module top(CLOCK_50, KEY, VGA_R, VGA_G, VGA_B,
 	reg [1:0] game_state;
 	
 	//player character
-	reg [9:0] x = 9'b000000000;
-	reg [9:0] y = 9'b000000000;
-	reg [9:0] new_x, new_y;
-	reg [2:0] z = 3'b000;
+	reg [8:0] x, y;
+	wire [2:0] z;
+	
+	get_direction U1 (last_key_received, hs_enable, w);
+	movement_FSM U2(CLOCK_50, KEY[0], hs_enable, w, z_reg);
+	player_movement U3(hs_enable, z, x, y);
 	
 endmodule 
 
-//get the for for FSM from WASD keyboard input
+//get the inputs for FSM from WASD keyboard input
 module get_direction(key, enable, w);
+
 	input [7:0] key;
 	input enable;
 	output reg [3:0] w;
@@ -79,6 +82,7 @@ endmodule
 
 //handles states of moving
 module movement_FSM(clock, Resetn, enable, w, z); //add wall collision later
+
 	input clock, Resetn, enable;
 	input [2:0] w;
 	output reg [3:0] z;
@@ -115,11 +119,17 @@ module movement_FSM(clock, Resetn, enable, w, z); //add wall collision later
 				else if (w == 3'b011) next_state = down;
 				else if (w == 3'b100) next_state = right;
 				else next_state = up;
+			right:
+				if (w == 3'b001) next_state = up;
+				else if (w == 3'b010) next_state = left;
+				else if (w == 3'b011) next_state = down;
+				else next_state = right;
+			default: next_state = still;
 		endcase 
 	end 
 	
 	//move to next state
-	always @(posedge clock) begin 
+	always @(posedge clock) begin
 		if(!Resetn)
 			state <= still;
 		else
@@ -135,43 +145,43 @@ module movement_FSM(clock, Resetn, enable, w, z); //add wall collision later
 			down: z = 3'b011;
 			right: z = 3'b100;
 			default: z = 3'b000;
-		endcase 
-	end 
+		endcase
+	end
 
 endmodule 
 
 //moves the player
-module player_movement(enable, z, x, y, new_x, new_y);
+module player_movement(enable, z, x, y);
+
 	input enable;
 	input [3:0] z;
-	input [9:0] x, y;
-	output reg [9:0] new_x, new_y;
+	output reg [9:0] x, y;
 	
 	always @(enable) begin 
 		if(z == 3'b001) begin //up
-			new_x = x;
-			new_y = y - 1;
+			x = x;
+			y = y - 1;
 		end
 		else if(z == 3'b010) begin //left
-			new_x = x - 1;
-			new_x = y;
+			x = x - 1;
+			y = y;
 		end 
 		else if(z == 3'b011) begin //down
-			new_x = x;
-			new_y = y + 1;
+			x = x;
+			y = y + 1;
 		end
 		else if(z == 3'b100) begin  //right
-			new_x = x + 1;
-			new_y = y;
+			x = x + 1;
+			y = y;
 		end
 		else begin
-			new_x = x;
-			new_y = y;
+			x = x;
+			y = y;
 		end
 	end 
-	
-	
+
 endmodule 
+
 
 //for half-second enable - we might have to change it to quarter second
 module half_sec_counter(clock, resetn, enable);
@@ -199,8 +209,4 @@ module half_sec_counter(clock, resetn, enable);
 		end
 	end
 	
-endmodule 
-
-
-
-
+endmodule
