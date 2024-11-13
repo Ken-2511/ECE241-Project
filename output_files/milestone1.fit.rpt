@@ -1,5 +1,5 @@
 Fitter report for milestone1
-Wed Nov 13 15:46:38 2024
+Wed Nov 13 15:54:37 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Wed Nov 13 15:46:38 2024       ;
+; Fitter Status                   ; Successful - Wed Nov 13 15:54:37 2024       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; milestone1                                  ;
 ; Top-level Entity Name           ; milestone1                                  ;
@@ -175,8 +175,8 @@ refer to the applicable agreement for further details.
 ;     Processor 12           ;   0.7%      ;
 ;     Processor 13           ;   0.7%      ;
 ;     Processor 14           ;   0.7%      ;
-;     Processor 15           ;   0.7%      ;
-;     Processor 16           ;   0.7%      ;
+;     Processor 15           ;   0.6%      ;
+;     Processor 16           ;   0.6%      ;
 +----------------------------+-------------+
 
 
@@ -2647,7 +2647,7 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "USB_SCL" is assigned to location or region, but does not exist in design
     Warning (15706): Node "USB_SDA" is assigned to location or region, but does not exist in design
     Warning (15706): Node "USB_WR_N" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:11
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:09
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:08
@@ -2661,19 +2661,19 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.75 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.74 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:04
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file D:/milestone1/output_files/milestone1.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 198 warnings
-    Info: Peak virtual memory: 8001 megabytes
-    Info: Processing ended: Wed Nov 13 15:46:39 2024
-    Info: Elapsed time: 00:00:50
-    Info: Total CPU time (on all processors): 00:02:11
+Info: Quartus Prime Fitter was successful. 0 errors, 199 warnings
+    Info: Peak virtual memory: 8008 megabytes
+    Info: Processing ended: Wed Nov 13 15:54:38 2024
+    Info: Elapsed time: 00:00:43
+    Info: Total CPU time (on all processors): 00:02:08
 
 
 +----------------------------+

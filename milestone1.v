@@ -89,10 +89,8 @@ module draw_big_maze(clock, resetn, vga_x, vga_y, color, enable);
             maze_y <= 0;
 			vga_x <= 0;
 			vga_y <= 0;
-			// color <= 0;
 		end
 		else if (enable) begin
-			// start drawing maze
 			// update the position
 			if (dx == n - 1) begin
 				dx <= 0;
@@ -117,8 +115,6 @@ module draw_big_maze(clock, resetn, vga_x, vga_y, color, enable);
 			// update the VGA position
 			vga_x <= maze_x * n + dx;
 			vga_y <= maze_y * n + dy;
-			// update the color
-			// color <= maze_color == 1'b1 ? 8'hff : 8'h00;
 		end
 	end
 
@@ -131,6 +127,5 @@ module draw_big_maze(clock, resetn, vga_x, vga_y, color, enable);
 	.wren(1'b0),
 	.q(maze_color)
     );
-	// draw_maze U1 (clock, resetn, maze_x, maze_y, maze_color, maze_enable);
 
 endmodule
