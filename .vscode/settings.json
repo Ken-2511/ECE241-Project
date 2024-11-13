@@ -1,0 +1,16 @@
+{
+    "files.exclude": {
+        "**/*.qpf": true,
+        "**/*.qdf": true,
+        "**/*.qsf": true,
+        "**/*.mti": true,
+        "**/*.mpf": true,
+        "**/db": true,
+        "**/incremental_db": true,
+        "**/greybox_tmp": true,
+        "**/output_files": true,
+        "**/work": true,
+        "**/tb": true,
+        "**/sim": true,
+    }
+}
