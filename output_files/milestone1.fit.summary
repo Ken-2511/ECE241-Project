@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Nov 11 11:51:50 2024
-Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Fitter Status : Successful - Wed Nov 13 15:46:38 2024
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : milestone1
 Top-level Entity Name : milestone1
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 88 / 32,070 ( < 1 % )
-Total registers : 87
+Logic utilization (in ALMs) : 89 / 32,070 ( < 1 % )
+Total registers : 91
 Total pins : 70 / 457 ( 15 % )
 Total virtual pins : 0
 Total block memory bits : 230,912 / 4,065,280 ( 6 % )

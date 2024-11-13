@@ -1,6 +1,6 @@
 Analysis & Synthesis report for milestone1
-Mon Nov 11 11:50:39 2024
-Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Wed Nov 13 15:45:48 2024
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -49,9 +49,9 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2024  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -61,32 +61,31 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
-+---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 11 11:50:39 2024          ;
-; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
-; Revision Name                   ; milestone1                                     ;
-; Top-level Entity Name           ; milestone1                                     ;
-; Family                          ; Cyclone V                                      ;
-; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 79                                             ;
-; Total pins                      ; 70                                             ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 230,912                                        ;
-; Total DSP Blocks                ; 1                                              ;
-; Total HSSI RX PCSs              ; 0                                              ;
-; Total HSSI PMA RX Deserializers ; 0                                              ;
-; Total HSSI TX PCSs              ; 0                                              ;
-; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 1                                              ;
-; Total DLLs                      ; 0                                              ;
-+---------------------------------+------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Nov 13 15:45:48 2024       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; milestone1                                  ;
+; Top-level Entity Name           ; milestone1                                  ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 79                                          ;
+; Total pins                      ; 70                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 230,912                                     ;
+; Total DSP Blocks                ; 1                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -181,7 +180,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 32          ;
+; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -193,40 +192,40 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                      ;
-+--------------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path     ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                    ; Library ;
-+--------------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
-; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File             ; F:/milestone1/vga_adapter/vga_pll.v                                             ;         ;
-; vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File                  ; F:/milestone1/vga_adapter/vga_controller.v                                      ;         ;
-; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File                  ; F:/milestone1/vga_adapter/vga_address_translator.v                              ;         ;
-; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File                  ; F:/milestone1/vga_adapter/vga_adapter.v                                         ;         ;
-; milestone1.v                         ; yes             ; User Verilog HDL File                  ; F:/milestone1/milestone1.v                                                      ;         ;
-; utils.v                              ; yes             ; User Verilog HDL File                  ; F:/milestone1/utils.v                                                           ;         ;
-; blocks.v                             ; yes             ; User Wizard-Generated File             ; F:/milestone1/blocks.v                                                          ;         ;
-; altsyncram.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
-; stratix_ram_block.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
-; lpm_mux.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
-; lpm_decode.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
-; aglobal231.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc        ;         ;
-; a_rdenreg.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
-; altrom.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc            ;         ;
-; altram.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc            ;         ;
-; altdpram.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_8do1.tdf               ; yes             ; Auto-Generated Megafunction            ; F:/milestone1/db/altsyncram_8do1.tdf                                            ;         ;
-; blocks.mif                           ; yes             ; Auto-Found Memory Initialization File  ; F:/milestone1/blocks.mif                                                        ;         ;
-; db/altsyncram_c7m1.tdf               ; yes             ; Auto-Generated Megafunction            ; F:/milestone1/db/altsyncram_c7m1.tdf                                            ;         ;
-; black.mif                            ; yes             ; Auto-Found Memory Initialization File  ; F:/milestone1/black.mif                                                         ;         ;
-; db/decode_nma.tdf                    ; yes             ; Auto-Generated Megafunction            ; F:/milestone1/db/decode_nma.tdf                                                 ;         ;
-; db/decode_g2a.tdf                    ; yes             ; Auto-Generated Megafunction            ; F:/milestone1/db/decode_g2a.tdf                                                 ;         ;
-; db/mux_2hb.tdf                       ; yes             ; Auto-Generated Megafunction            ; F:/milestone1/db/mux_2hb.tdf                                                    ;         ;
-; altpll.tdf                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf            ;         ;
-; stratix_pll.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
-; stratixii_pll.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
-; cycloneii_pll.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
-; db/altpll_80u.tdf                    ; yes             ; Auto-Generated Megafunction            ; F:/milestone1/db/altpll_80u.tdf                                                 ;         ;
-+--------------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                   ;
++--------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path     ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                 ; Library ;
++--------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File             ; D:/milestone1/vga_adapter/vga_pll.v                                          ;         ;
+; vga_adapter/vga_controller.v         ; yes             ; User Verilog HDL File                  ; D:/milestone1/vga_adapter/vga_controller.v                                   ;         ;
+; vga_adapter/vga_address_translator.v ; yes             ; User Verilog HDL File                  ; D:/milestone1/vga_adapter/vga_address_translator.v                           ;         ;
+; vga_adapter/vga_adapter.v            ; yes             ; User Verilog HDL File                  ; D:/milestone1/vga_adapter/vga_adapter.v                                      ;         ;
+; milestone1.v                         ; yes             ; User Verilog HDL File                  ; D:/milestone1/milestone1.v                                                   ;         ;
+; utils.v                              ; yes             ; User Verilog HDL File                  ; D:/milestone1/utils.v                                                        ;         ;
+; blocks.v                             ; yes             ; User Wizard-Generated File             ; D:/milestone1/blocks.v                                                       ;         ;
+; altsyncram.tdf                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal181.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
+; a_rdenreg.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                         ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_8do1.tdf               ; yes             ; Auto-Generated Megafunction            ; D:/milestone1/db/altsyncram_8do1.tdf                                         ;         ;
+; blocks.mif                           ; yes             ; Auto-Found Memory Initialization File  ; D:/milestone1/blocks.mif                                                     ;         ;
+; db/altsyncram_c7m1.tdf               ; yes             ; Auto-Generated Megafunction            ; D:/milestone1/db/altsyncram_c7m1.tdf                                         ;         ;
+; black.mif                            ; yes             ; Auto-Found Memory Initialization File  ; D:/milestone1/black.mif                                                      ;         ;
+; db/decode_nma.tdf                    ; yes             ; Auto-Generated Megafunction            ; D:/milestone1/db/decode_nma.tdf                                              ;         ;
+; db/decode_g2a.tdf                    ; yes             ; Auto-Generated Megafunction            ; D:/milestone1/db/decode_g2a.tdf                                              ;         ;
+; db/mux_2hb.tdf                       ; yes             ; Auto-Generated Megafunction            ; D:/milestone1/db/mux_2hb.tdf                                                 ;         ;
+; altpll.tdf                           ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf            ;         ;
+; stratix_pll.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_pll.inc       ;         ;
+; stratixii_pll.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratixii_pll.inc     ;         ;
+; cycloneii_pll.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cycloneii_pll.inc     ;         ;
+; db/altpll_80u.tdf                    ; yes             ; Auto-Generated Megafunction            ; D:/milestone1/db/altpll_80u.tdf                                              ;         ;
++--------------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -1128,61 +1127,61 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Nov 11 11:50:33 2024
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Wed Nov 13 15:45:37 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone1 -c milestone1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file fsm.v
-    Info (12023): Found entity 1: game_state_control File: F:/milestone1/fsm.v Line: 1
+    Info (12023): Found entity 1: game_state_control File: D:/milestone1/fsm.v Line: 1
 Info (12021): Found 5 design units, including 5 entities, in source file ps2.v
-    Info (12023): Found entity 1: ps2 File: F:/milestone1/ps2.v Line: 1
-    Info (12023): Found entity 2: get_direction File: F:/milestone1/ps2.v Line: 61
-    Info (12023): Found entity 3: movement_FSM File: F:/milestone1/ps2.v Line: 84
-    Info (12023): Found entity 4: player_movement File: F:/milestone1/ps2.v Line: 148
-    Info (12023): Found entity 5: half_sec_counter File: F:/milestone1/ps2.v Line: 181
+    Info (12023): Found entity 1: ps2 File: D:/milestone1/ps2.v Line: 1
+    Info (12023): Found entity 2: get_direction File: D:/milestone1/ps2.v Line: 61
+    Info (12023): Found entity 3: movement_FSM File: D:/milestone1/ps2.v Line: 84
+    Info (12023): Found entity 4: player_movement File: D:/milestone1/ps2.v Line: 154
+    Info (12023): Found entity 5: half_sec_counter File: D:/milestone1/ps2.v Line: 187
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/ps2_controller.v
-    Info (12023): Found entity 1: PS2_Controller File: F:/milestone1/PS2_Controller/PS2_Controller.v Line: 9
+    Info (12023): Found entity 1: PS2_Controller File: D:/milestone1/PS2_Controller/PS2_Controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/altera_up_ps2_data_in.v
-    Info (12023): Found entity 1: Altera_UP_PS2_Data_In File: F:/milestone1/PS2_Controller/Altera_UP_PS2_Data_In.v Line: 10
+    Info (12023): Found entity 1: Altera_UP_PS2_Data_In File: D:/milestone1/PS2_Controller/Altera_UP_PS2_Data_In.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/altera_up_ps2_command_out.v
-    Info (12023): Found entity 1: Altera_UP_PS2_Command_Out File: F:/milestone1/PS2_Controller/Altera_UP_PS2_Command_Out.v Line: 10
+    Info (12023): Found entity 1: Altera_UP_PS2_Command_Out File: D:/milestone1/PS2_Controller/Altera_UP_PS2_Command_Out.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
-    Info (12023): Found entity 1: vga_pll File: F:/milestone1/vga_adapter/vga_pll.v Line: 36
+    Info (12023): Found entity 1: vga_pll File: D:/milestone1/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_controller.v
-    Info (12023): Found entity 1: vga_controller File: F:/milestone1/vga_adapter/vga_controller.v Line: 8
+    Info (12023): Found entity 1: vga_controller File: D:/milestone1/vga_adapter/vga_controller.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_address_translator.v
-    Info (12023): Found entity 1: vga_address_translator File: F:/milestone1/vga_adapter/vga_address_translator.v Line: 4
+    Info (12023): Found entity 1: vga_address_translator File: D:/milestone1/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
-    Info (12023): Found entity 1: vga_adapter File: F:/milestone1/vga_adapter/vga_adapter.v Line: 51
+    Info (12023): Found entity 1: vga_adapter File: D:/milestone1/vga_adapter/vga_adapter.v Line: 51
 Info (12021): Found 2 design units, including 2 entities, in source file milestone1.v
-    Info (12023): Found entity 1: milestone1 File: F:/milestone1/milestone1.v Line: 8
-    Info (12023): Found entity 2: draw_big_maze File: F:/milestone1/milestone1.v Line: 69
+    Info (12023): Found entity 1: milestone1 File: D:/milestone1/milestone1.v Line: 8
+    Info (12023): Found entity 2: draw_big_maze File: D:/milestone1/milestone1.v Line: 69
 Info (12021): Found 4 design units, including 4 entities, in source file utils.v
-    Info (12023): Found entity 1: regn File: F:/milestone1/utils.v Line: 1
-    Info (12023): Found entity 2: count File: F:/milestone1/utils.v Line: 14
-    Info (12023): Found entity 3: hex7seg File: F:/milestone1/utils.v Line: 26
-    Info (12023): Found entity 4: object_mem File: F:/milestone1/utils.v Line: 52
+    Info (12023): Found entity 1: regn File: D:/milestone1/utils.v Line: 1
+    Info (12023): Found entity 2: count File: D:/milestone1/utils.v Line: 14
+    Info (12023): Found entity 3: hex7seg File: D:/milestone1/utils.v Line: 26
+    Info (12023): Found entity 4: object_mem File: D:/milestone1/utils.v Line: 52
 Info (12021): Found 1 design units, including 1 entities, in source file blocks.v
-    Info (12023): Found entity 1: blocks File: F:/milestone1/blocks.v Line: 40
-Warning (10236): Verilog HDL Implicit Net warning at ps2.v(54): created implicit net for "w" File: F:/milestone1/ps2.v Line: 54
-Warning (10236): Verilog HDL Implicit Net warning at ps2.v(55): created implicit net for "z_reg" File: F:/milestone1/ps2.v Line: 55
-Warning (10236): Verilog HDL Implicit Net warning at milestone1.v(44): created implicit net for "plot" File: F:/milestone1/milestone1.v Line: 44
+    Info (12023): Found entity 1: blocks File: D:/milestone1/blocks.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at ps2.v(54): created implicit net for "w" File: D:/milestone1/ps2.v Line: 54
+Warning (10236): Verilog HDL Implicit Net warning at ps2.v(55): created implicit net for "z_reg" File: D:/milestone1/ps2.v Line: 55
+Warning (10236): Verilog HDL Implicit Net warning at milestone1.v(44): created implicit net for "plot" File: D:/milestone1/milestone1.v Line: 44
 Info (12127): Elaborating entity "milestone1" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at milestone1.v(44): object "plot" assigned a value but never read File: F:/milestone1/milestone1.v Line: 44
-Info (12128): Elaborating entity "regn" for hierarchy "regn:U1" File: F:/milestone1/milestone1.v Line: 32
-Info (12128): Elaborating entity "regn" for hierarchy "regn:U2" File: F:/milestone1/milestone1.v Line: 34
-Info (12128): Elaborating entity "draw_big_maze" for hierarchy "draw_big_maze:U3" File: F:/milestone1/milestone1.v Line: 37
-Warning (10230): Verilog HDL assignment warning at milestone1.v(107): truncated value with size 32 to match size of target (4) File: F:/milestone1/milestone1.v Line: 107
-Warning (10230): Verilog HDL assignment warning at milestone1.v(110): truncated value with size 32 to match size of target (5) File: F:/milestone1/milestone1.v Line: 110
-Warning (10230): Verilog HDL assignment warning at milestone1.v(113): truncated value with size 32 to match size of target (4) File: F:/milestone1/milestone1.v Line: 113
-Warning (10230): Verilog HDL assignment warning at milestone1.v(116): truncated value with size 32 to match size of target (4) File: F:/milestone1/milestone1.v Line: 116
-Warning (10230): Verilog HDL assignment warning at milestone1.v(118): truncated value with size 32 to match size of target (9) File: F:/milestone1/milestone1.v Line: 118
-Warning (10230): Verilog HDL assignment warning at milestone1.v(119): truncated value with size 32 to match size of target (8) File: F:/milestone1/milestone1.v Line: 119
-Info (12128): Elaborating entity "blocks" for hierarchy "draw_big_maze:U3|blocks:U1" File: F:/milestone1/milestone1.v Line: 133
-Info (12128): Elaborating entity "altsyncram" for hierarchy "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component" File: F:/milestone1/blocks.v Line: 86
-Info (12130): Elaborated megafunction instantiation "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component" File: F:/milestone1/blocks.v Line: 86
-Info (12133): Instantiated megafunction "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component" with the following parameter: File: F:/milestone1/blocks.v Line: 86
+Warning (10036): Verilog HDL or VHDL warning at milestone1.v(44): object "plot" assigned a value but never read File: D:/milestone1/milestone1.v Line: 44
+Info (12128): Elaborating entity "regn" for hierarchy "regn:U1" File: D:/milestone1/milestone1.v Line: 32
+Info (12128): Elaborating entity "regn" for hierarchy "regn:U2" File: D:/milestone1/milestone1.v Line: 34
+Info (12128): Elaborating entity "draw_big_maze" for hierarchy "draw_big_maze:U3" File: D:/milestone1/milestone1.v Line: 37
+Warning (10230): Verilog HDL assignment warning at milestone1.v(107): truncated value with size 32 to match size of target (4) File: D:/milestone1/milestone1.v Line: 107
+Warning (10230): Verilog HDL assignment warning at milestone1.v(110): truncated value with size 32 to match size of target (5) File: D:/milestone1/milestone1.v Line: 110
+Warning (10230): Verilog HDL assignment warning at milestone1.v(113): truncated value with size 32 to match size of target (4) File: D:/milestone1/milestone1.v Line: 113
+Warning (10230): Verilog HDL assignment warning at milestone1.v(116): truncated value with size 32 to match size of target (4) File: D:/milestone1/milestone1.v Line: 116
+Warning (10230): Verilog HDL assignment warning at milestone1.v(118): truncated value with size 32 to match size of target (9) File: D:/milestone1/milestone1.v Line: 118
+Warning (10230): Verilog HDL assignment warning at milestone1.v(119): truncated value with size 32 to match size of target (8) File: D:/milestone1/milestone1.v Line: 119
+Info (12128): Elaborating entity "blocks" for hierarchy "draw_big_maze:U3|blocks:U1" File: D:/milestone1/milestone1.v Line: 133
+Info (12128): Elaborating entity "altsyncram" for hierarchy "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component" File: D:/milestone1/blocks.v Line: 86
+Info (12130): Elaborated megafunction instantiation "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component" File: D:/milestone1/blocks.v Line: 86
+Info (12133): Instantiated megafunction "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component" with the following parameter: File: D:/milestone1/blocks.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "blocks.mif"
@@ -1199,14 +1198,15 @@ Info (12133): Instantiated megafunction "draw_big_maze:U3|blocks:U1|altsyncram:a
     Info (12134): Parameter "width_a" = "1"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8do1.tdf
-    Info (12023): Found entity 1: altsyncram_8do1 File: F:/milestone1/db/altsyncram_8do1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_8do1" for hierarchy "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:H3" File: F:/milestone1/milestone1.v Line: 39
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: F:/milestone1/milestone1.v Line: 61
-Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: F:/milestone1/vga_adapter/vga_adapter.v Line: 157
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: F:/milestone1/vga_adapter/vga_adapter.v Line: 178
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: F:/milestone1/vga_adapter/vga_adapter.v Line: 178
-Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: F:/milestone1/vga_adapter/vga_adapter.v Line: 178
+    Info (12023): Found entity 1: altsyncram_8do1 File: D:/milestone1/db/altsyncram_8do1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_8do1" for hierarchy "draw_big_maze:U3|blocks:U1|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (377) in the Memory Initialization File "D:/milestone1/blocks.mif" -- setting initial value for remaining addresses to 0 File: D:/milestone1/blocks.v Line: 86
+Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:H3" File: D:/milestone1/milestone1.v Line: 39
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: D:/milestone1/milestone1.v Line: 61
+Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: D:/milestone1/vga_adapter/vga_adapter.v Line: 157
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: D:/milestone1/vga_adapter/vga_adapter.v Line: 178
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: D:/milestone1/vga_adapter/vga_adapter.v Line: 178
+Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: D:/milestone1/vga_adapter/vga_adapter.v Line: 178
     Info (12134): Parameter "width_a" = "3"
     Info (12134): Parameter "width_b" = "3"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
@@ -1223,21 +1223,22 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "power_up_uninitialized" = "FALSE"
     Info (12134): Parameter "init_file" = "black.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_c7m1.tdf
-    Info (12023): Found entity 1: altsyncram_c7m1 File: F:/milestone1/db/altsyncram_c7m1.tdf Line: 34
-Info (12128): Elaborating entity "altsyncram_c7m1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12023): Found entity 1: altsyncram_c7m1 File: D:/milestone1/db/altsyncram_c7m1.tdf Line: 33
+Info (12128): Elaborating entity "altsyncram_c7m1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Critical Warning (127005): Memory depth (76800) in the design file differs from memory depth (19200) in the Memory Initialization File "D:/milestone1/black.mif" -- setting initial value for remaining addresses to 0 File: D:/milestone1/vga_adapter/vga_adapter.v Line: 178
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_nma.tdf
-    Info (12023): Found entity 1: decode_nma File: F:/milestone1/db/decode_nma.tdf Line: 23
-Info (12128): Elaborating entity "decode_nma" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|decode_nma:decode2" File: F:/milestone1/db/altsyncram_c7m1.tdf Line: 47
+    Info (12023): Found entity 1: decode_nma File: D:/milestone1/db/decode_nma.tdf Line: 22
+Info (12128): Elaborating entity "decode_nma" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|decode_nma:decode2" File: D:/milestone1/db/altsyncram_c7m1.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_g2a.tdf
-    Info (12023): Found entity 1: decode_g2a File: F:/milestone1/db/decode_g2a.tdf Line: 23
-Info (12128): Elaborating entity "decode_g2a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|decode_g2a:rden_decode_b" File: F:/milestone1/db/altsyncram_c7m1.tdf Line: 48
+    Info (12023): Found entity 1: decode_g2a File: D:/milestone1/db/decode_g2a.tdf Line: 22
+Info (12128): Elaborating entity "decode_g2a" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|decode_g2a:rden_decode_b" File: D:/milestone1/db/altsyncram_c7m1.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
-    Info (12023): Found entity 1: mux_2hb File: F:/milestone1/db/mux_2hb.tdf Line: 23
-Info (12128): Elaborating entity "mux_2hb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|mux_2hb:mux3" File: F:/milestone1/db/altsyncram_c7m1.tdf Line: 50
-Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: F:/milestone1/vga_adapter/vga_adapter.v Line: 201
-Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: F:/milestone1/vga_adapter/vga_pll.v Line: 53
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: F:/milestone1/vga_adapter/vga_pll.v Line: 53
-Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: F:/milestone1/vga_adapter/vga_pll.v Line: 53
+    Info (12023): Found entity 1: mux_2hb File: D:/milestone1/db/mux_2hb.tdf Line: 22
+Info (12128): Elaborating entity "mux_2hb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_c7m1:auto_generated|mux_2hb:mux3" File: D:/milestone1/db/altsyncram_c7m1.tdf Line: 49
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: D:/milestone1/vga_adapter/vga_adapter.v Line: 201
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: D:/milestone1/vga_adapter/vga_pll.v Line: 53
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: D:/milestone1/vga_adapter/vga_pll.v Line: 53
+Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: D:/milestone1/vga_adapter/vga_pll.v Line: 53
     Info (12134): Parameter "operation_mode" = "NORMAL"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
     Info (12134): Parameter "lpm_type" = "altpll"
@@ -1250,17 +1251,17 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_80u.tdf
-    Info (12023): Found entity 1: altpll_80u File: F:/milestone1/db/altpll_80u.tdf Line: 26
-Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: F:/milestone1/vga_adapter/vga_adapter.v Line: 216
+    Info (12023): Found entity 1: altpll_80u File: D:/milestone1/db/altpll_80u.tdf Line: 25
+Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: D:/milestone1/vga_adapter/vga_adapter.v Line: 216
 Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: F:/milestone1/milestone1.v Line: 22
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: D:/milestone1/milestone1.v Line: 22
 Info (286030): Timing-Driven Synthesis is running
-Info (144001): Generated suppressed messages file F:/milestone1/output_files/milestone1.map.smsg
+Info (144001): Generated suppressed messages file D:/milestone1/output_files/milestone1.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: F:/milestone1/db/altpll_80u.tdf Line: 34
+Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: D:/milestone1/db/altpll_80u.tdf Line: 33
     Info: Must be connected
 Info (21057): Implemented 295 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
@@ -1269,16 +1270,16 @@ Info (21057): Implemented 295 device resources after synthesis - the final resou
     Info (21064): Implemented 31 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 4897 megabytes
-    Info: Processing ended: Mon Nov 11 11:50:39 2024
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:12
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Peak virtual memory: 4923 megabytes
+    Info: Processing ended: Wed Nov 13 15:45:48 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in F:/milestone1/output_files/milestone1.map.smsg.
+The suppressed messages can be found in D:/milestone1/output_files/milestone1.map.smsg.
 
 
