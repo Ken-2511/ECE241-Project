@@ -11,7 +11,11 @@ if {[file exists ../black.mif]} {
 vlib work;
 
 # compile the Verilog source code in the parent folder
-vlog ../milestone1.v ../vga_adapter/*.v ../utils.v *.v ../*.v ../PS2_Controller/*
+vlog ../milestone1.v
+vlog ../vga_adapter/*.v
+vlog ../utils.v
+vlog *.v
+vlog ../*.v
 # start the Simulator, including some libraries that may be needed
 vsim work.testbench -Lf 220model -Lf altera_mf_ver -Lf verilog
 # show waveforms specified in wave.do
