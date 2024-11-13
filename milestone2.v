@@ -5,7 +5,7 @@
 *   coordinates are displayed (in hexadecimal) on (HEX3-2,HEX1-0). Finally, press KEY[3]
 *   to draw the pattern at location (x,y).
 */
-module milestone1(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
+module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 				VGA_R, VGA_G, VGA_B,
 				VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK);
 	

@@ -99,7 +99,7 @@ module testbench ( );
 	// endtask
 
 
-	milestone1 U1 (CLOCK_50, SW, KEY[3:0], HEX3, HEX2, HEX1, HEX0, VGA_R, VGA_G, VGA_B,
+	milestone2 U1 (CLOCK_50, SW, KEY[3:0], HEX3, HEX2, HEX1, HEX0, VGA_R, VGA_G, VGA_B,
 				VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK);
 	
 	// ps2 U2(CLOCK_50, KEY, VGA_R, VGA_G, VGA_B, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK, PS2_CLK, PS2_DAT);

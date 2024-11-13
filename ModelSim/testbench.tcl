@@ -11,7 +11,7 @@ if {[file exists ../black.mif]} {
 vlib work;
 
 # compile the Verilog source code in the parent folder
-vlog ../milestone1.v
+vlog ../milestone2.v
 vlog ../vga_adapter/*.v
 vlog ../utils.v
 vlog *.v
