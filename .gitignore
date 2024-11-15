@@ -1,2 +1,3 @@
 *.tdf
 *db
+output_files/*

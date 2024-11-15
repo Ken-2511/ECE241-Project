@@ -1,238 +1,238 @@
-module top(CLOCK_50, KEY, VGA_R, VGA_G, VGA_B, 
-				VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK,
-				PS2_CLK, PS2_DAT);
+// module top(CLOCK_50, KEY, VGA_R, VGA_G, VGA_B, 
+// 				VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK,
+// 				PS2_CLK, PS2_DAT);
 
-	input CLOCK_50;
-	input [3:0] KEY;
-	output [7:0] VGA_R;
-	output [7:0] VGA_B;
-	output [7:0] VGA_G;
-	output VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK;
+// 	input CLOCK_50;
+// 	input [3:0] KEY;
+// 	output [7:0] VGA_R;
+// 	output [7:0] VGA_B;
+// 	output [7:0] VGA_G;
+// 	output VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK;
 	
-	inout PS2_CLK;
-	inout PS2_DAT;
+// 	inout PS2_CLK;
+// 	inout PS2_DAT;
 	
-	//note: the VGA stuff is just for reference here, I'm focusing on PS2 rn
+// 	//note: the VGA stuff is just for reference here, I'm focusing on PS2 rn
 	
-	wire [7:0] ps2_key_data;
-	wire ps2_key_pressed;
-	reg [7:0] last_key_received;
+// 	wire [7:0] ps2_key_data;
+// 	wire ps2_key_pressed;
+// 	reg [7:0] last_key_received;
 	
-	wire hs_enable;
-	half_sec_counter counter(CLOCK_50, KEY[0], hs_enable);
+// 	wire hs_enable;
+// 	half_sec_counter counter(CLOCK_50, KEY[0], hs_enable);
 	
-	//for getting keystrokes
-	always @(CLOCK_50) begin
-		if(!KEY[0])
-			last_key_received = 8'b0;
-		else if(hs_enable)
-			last_key_received <= ps2_key_data;
-	end 
+// 	//for getting keystrokes
+// 	always @(CLOCK_50) begin
+// 		if(!KEY[0])
+// 			last_key_received = 8'b0;
+// 		else if(hs_enable)
+// 			last_key_received <= ps2_key_data;
+// 	end 
 	
-	PS2_Controller PS2 (
-		// Inputs
-		.CLOCK_50				(CLOCK_50),
-		.reset				(~KEY[0]),
+// 	PS2_Controller PS2 (
+// 		// Inputs
+// 		.CLOCK_50				(CLOCK_50),
+// 		.reset				(~KEY[0]),
 
-		// Bidirectionals
-		.PS2_CLK			(PS2_CLK),
-		.PS2_DAT			(PS2_DAT),
+// 		// Bidirectionals
+// 		.PS2_CLK			(PS2_CLK),
+// 		.PS2_DAT			(PS2_DAT),
 
-		// Outputs
-		.received_data		(ps2_key_data),
-		.received_data_en	(ps2_key_pressed)
-	);
+// 		// Outputs
+// 		.received_data		(ps2_key_data),
+// 		.received_data_en	(ps2_key_pressed)
+// 	);
 					
-	//game state
-	parameter start = 2'b00, gaming = 2'b01, won = 2'b10, lost = 2'b11;
-	reg [1:0] game_state;
+// 	//game state
+// 	parameter start = 2'b00, gaming = 2'b01, won = 2'b10, lost = 2'b11;
+// 	reg [1:0] game_state;
 	
-	//player character
-	wire [8:0] vga_x, vga_y;
-	reg [8:0] x, y;
-	wire [3:0] w; //internal carry to deal with the movement FSM
-	wire [2:0] direction;
-	parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
+// 	//player character
+// 	wire [8:0] vga_x, vga_y;
+// 	reg [8:0] x, y;
+// 	wire [3:0] w; //internal carry to deal with the movement FSM
+// 	wire [2:0] direction;
+// 	parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
 	
-	initial begin
-		x = 9'b0;
-		y = 9'b0;
-	end 
+// 	initial begin
+// 		x = 9'b0;
+// 		y = 9'b0;
+// 	end 
 	
-	get_direction U1(last_key_received, hs_enable, w);
-	movement_FSM U2(CLOCK_50, KEY[0], hs_enable, w, direction);
-	//player_movement U3(enable, direction, x, y);
+// 	get_direction U1(last_key_received, hs_enable, w);
+// 	movement_FSM U2(CLOCK_50, KEY[0], hs_enable, w, direction);
+// 	//player_movement U3(enable, direction, x, y);
 	
-	always @(hs_enable) begin 
-		if(direction == up) begin 
-			x = x;
-			y = y - 1;
-		end 
-		else if (direction == left) begin 
-			x = x - 1;
-			y = y;
-		end 
-		else if(direction == down) begin 
-			x = x;
-			y = y + 1;
-		end 
-		else if(direction == right) begin 
-			x = x + 1;
-			y = y;
-		end 
-	end 
+// 	always @(hs_enable) begin 
+// 		if(direction == up) begin 
+// 			x = x;
+// 			y = y - 1;
+// 		end 
+// 		else if (direction == left) begin 
+// 			x = x - 1;
+// 			y = y;
+// 		end 
+// 		else if(direction == down) begin 
+// 			x = x;
+// 			y = y + 1;
+// 		end 
+// 		else if(direction == right) begin 
+// 			x = x + 1;
+// 			y = y;
+// 		end 
+// 	end 
 	
-	assign vga_x = x;
-	assign vga_y = y;
+// 	assign vga_x = x;
+// 	assign vga_y = y;
 	
 	
-endmodule 
+// endmodule 
 
-//get the inputs for FSM from WASD keyboard input
-module get_direction(key, enable, w);
-	input [7:0] key;
-	input enable;
-	output reg [3:0] w;
+// //get the inputs for FSM from WASD keyboard input
+// module get_direction(key, enable, w);
+// 	input [7:0] key;
+// 	input enable;
+// 	output reg [3:0] w;
 	
-	parameter W = 8'b00011101, A = 8'b00011100, S = 8'b00011010, D = 8'b00100011;
+// 	parameter W = 8'b00011101, A = 8'b00011100, S = 8'b00011010, D = 8'b00100011;
 	
-	//note: still = 000, up = 001, left = 010, down = 011, right = 100
+// 	//note: still = 000, up = 001, left = 010, down = 011, right = 100
 	
-	always @(enable) begin 
-		case(key)
-			W: w = 3'b001;
-			A: w = 3'b010;
-			S: w = 3'b011;
-			D: w = 3'b100;
-			default: w = 3'b000;
-		endcase 
-	end 
+// 	always @(enable) begin 
+// 		case(key)
+// 			W: w = 3'b001;
+// 			A: w = 3'b010;
+// 			S: w = 3'b011;
+// 			D: w = 3'b100;
+// 			default: w = 3'b000;
+// 		endcase 
+// 	end 
 	
-endmodule 
+// endmodule 
 
-//handles states of moving
-module movement_FSM(clock, Resetn, enable, w, z); //add wall collision later
-	input clock, Resetn, enable;
-	input [2:0] w;
-	output reg [3:0] z;
+// //handles states of moving
+// module movement_FSM(clock, Resetn, enable, w, z); //add wall collision later
+// 	input clock, Resetn, enable;
+// 	input [2:0] w;
+// 	output reg [3:0] z;
 	
-	reg [2:0] state, next_state;
-	parameter still = 3'b000, up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
+// 	reg [2:0] state, next_state;
+// 	parameter still = 3'b000, up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
 	
-	//state selection
-	always @(enable or Resetn) begin
-		case(state)
-			still:
-				if (w == 3'b001) next_state <= up;
-				else if (w == 3'b010) next_state <= left;
-				else if (w == 3'b011) next_state <= down;
-				else if (w == 3'b100) next_state <= right;
-				else next_state = still;
-			up:
-				if (w == 3'b010) next_state <= left;
-				else if (w == 3'b011) next_state <= down;
-				else if (w == 3'b100) next_state <= right;
-				else next_state <= up;
-			left: 
-				if (w == 3'b001) next_state = up;
-				else if (w == 3'b011) next_state = down;
-				else if (w == 3'b100) next_state = right;
-				else next_state = left;
-			down: 
-				if (w == 3'b001) next_state = up;
-				else if (w == 3'b010) next_state = left;
-				else if (w == 3'b100) next_state = right;
-				else next_state = down;
-			right: 
-				if (w == 3'b001) next_state = up;
-				else if (w == 3'b010) next_state = left;
-				else if (w == 3'b011) next_state = down;
-				else next_state = up;
-			default: next_state = still;
-		endcase 
-	end 
+// 	//state selection
+// 	always @(enable or Resetn) begin
+// 		case(state)
+// 			still:
+// 				if (w == 3'b001) next_state <= up;
+// 				else if (w == 3'b010) next_state <= left;
+// 				else if (w == 3'b011) next_state <= down;
+// 				else if (w == 3'b100) next_state <= right;
+// 				else next_state = still;
+// 			up:
+// 				if (w == 3'b010) next_state <= left;
+// 				else if (w == 3'b011) next_state <= down;
+// 				else if (w == 3'b100) next_state <= right;
+// 				else next_state <= up;
+// 			left: 
+// 				if (w == 3'b001) next_state = up;
+// 				else if (w == 3'b011) next_state = down;
+// 				else if (w == 3'b100) next_state = right;
+// 				else next_state = left;
+// 			down: 
+// 				if (w == 3'b001) next_state = up;
+// 				else if (w == 3'b010) next_state = left;
+// 				else if (w == 3'b100) next_state = right;
+// 				else next_state = down;
+// 			right: 
+// 				if (w == 3'b001) next_state = up;
+// 				else if (w == 3'b010) next_state = left;
+// 				else if (w == 3'b011) next_state = down;
+// 				else next_state = up;
+// 			default: next_state = still;
+// 		endcase 
+// 	end 
 	
-	//move to next state
-	always @(posedge clock) begin 
-		if(!Resetn)
-			state <= still;
-		else
-			state <= next_state;
-	end 
+// 	//move to next state
+// 	always @(posedge clock) begin 
+// 		if(!Resetn)
+// 			state <= still;
+// 		else
+// 			state <= next_state;
+// 	end 
 	
-	//outputs
-	always @(posedge clock) begin
-		case (state)
-			still: z = 3'b000;
-			up: z = 3'b001;
-			left: z = 3'b010;
-			down: z = 3'b011;
-			right: z = 3'b100;
-			default: z = 3'b000;
-		endcase 
-	end 
+// 	//outputs
+// 	always @(posedge clock) begin
+// 		case (state)
+// 			still: z = 3'b000;
+// 			up: z = 3'b001;
+// 			left: z = 3'b010;
+// 			down: z = 3'b011;
+// 			right: z = 3'b100;
+// 			default: z = 3'b000;
+// 		endcase 
+// 	end 
 
-endmodule 
+// endmodule 
 
-////moves the player
-//module player_movement(enable, z, x, y);
-//	input enable;
-//	input [3:0] z;
-//	output reg [9:0] x, y;
-//	
-//	always @(enable) begin 
-//		if(z == 3'b001) begin //up
-//			x = x;
-//			y = y - 1;
-//		end
-//		else if(z == 3'b010) begin //left
-//			x = x - 1;
-//			y = y;
-//		end 
-//		else if(z == 3'b011) begin //down
-//			x = x;
-//			y = y + 1;
-//		end
-//		else if(z == 3'b100) begin  //right
-//			x = x + 1;
-//			y = y;
-//		end
-//		else begin
-//			x = x;
-//			y = y;
-//		end
-//	end 
-//	
-//	
-//endmodule 
+// ////moves the player
+// //module player_movement(enable, z, x, y);
+// //	input enable;
+// //	input [3:0] z;
+// //	output reg [9:0] x, y;
+// //	
+// //	always @(enable) begin 
+// //		if(z == 3'b001) begin //up
+// //			x = x;
+// //			y = y - 1;
+// //		end
+// //		else if(z == 3'b010) begin //left
+// //			x = x - 1;
+// //			y = y;
+// //		end 
+// //		else if(z == 3'b011) begin //down
+// //			x = x;
+// //			y = y + 1;
+// //		end
+// //		else if(z == 3'b100) begin  //right
+// //			x = x + 1;
+// //			y = y;
+// //		end
+// //		else begin
+// //			x = x;
+// //			y = y;
+// //		end
+// //	end 
+// //	
+// //	
+// //endmodule 
 
-//for half-second enable - we might have to change it to quarter second
-module half_sec_counter(clock, resetn, enable);
-	input clock, resetn;
-	output reg enable;
-	reg [24:0] count;
+// //for half-second enable - we might have to change it to quarter second
+// module half_sec_counter(clock, resetn, enable);
+// 	input clock, resetn;
+// 	output reg enable;
+// 	reg [24:0] count;
 	
-	initial begin 
-		count <= 25'b0;
-		enable <= 1'b0;
-	end 
+// 	initial begin 
+// 		count <= 25'b0;
+// 		enable <= 1'b0;
+// 	end 
 	
-	always @(posedge clock) begin
-		if(!resetn) begin
-			count <= 25'b0;
-			enable <= 1'b0;
-		end
-		else if(count == 25000000) begin
-			enable <= 1'b1;
-			count <= 25'b0;
-		end
-		else begin
-			enable <= 1'b0;
-			count <= count + 1;
-		end
-	end
+// 	always @(posedge clock) begin
+// 		if(!resetn) begin
+// 			count <= 25'b0;
+// 			enable <= 1'b0;
+// 		end
+// 		else if(count == 25000000) begin
+// 			enable <= 1'b1;
+// 			count <= 25'b0;
+// 		end
+// 		else begin
+// 			enable <= 1'b0;
+// 			count <= count + 1;
+// 		end
+// 	end
 	
-endmodule 
+// endmodule 
 
 
 
