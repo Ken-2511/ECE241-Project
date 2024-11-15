@@ -5,11 +5,12 @@
         "**/*.qsf": true,
         "**/*.mti": true,
         "**/*.mpf": true,
+        "**/*.qws": true,
         "**/db": true,
         "**/incremental_db": true,
         "**/greybox_tmp": true,
         "**/output_files": true,
-        "**/work": true,
+        "**/work": false,
         "**/tb": true,
         "**/sim": true,
     }

@@ -1,3 +1,0 @@
-Warning (10268): Verilog HDL information at ps2.v(25): always construct contains both blocking and non-blocking assignments File: D:/milestone1/ps2.v Line: 25
-Info (10281): Verilog HDL Declaration information at ps2.v(65): object "w" differs only in case from object "W" in the same scope File: D:/milestone1/ps2.v Line: 65
-Warning (10268): Verilog HDL information at ps2.v(94): always construct contains both blocking and non-blocking assignments File: D:/milestone1/ps2.v Line: 94
