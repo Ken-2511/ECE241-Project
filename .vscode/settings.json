@@ -6,6 +6,7 @@
         "**/*.mti": true,
         "**/*.mpf": true,
         "**/*.qws": true,
+        "**/*.qip": true,
         "**/db": true,
         "**/incremental_db": true,
         "**/greybox_tmp": true,
