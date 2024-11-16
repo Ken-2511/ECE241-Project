@@ -19,7 +19,7 @@
 	
 	// PS2_Controller PS2 (
 	// 	// Inputs
-	// 	.CLOCK_50				(CLOCK_50),
+	// 	.CLOCK_50			(CLOCK_50),
 	// 	.reset				(~KEY[0]),
 
 	// 	// Bidirectionals

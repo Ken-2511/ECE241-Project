@@ -56,7 +56,7 @@ module m_playing(clock, resetn, enable, finished);
     // basic inputs
     input clock, resetn, enable;
     // finish signal
-    input finished;
+    output finished;
     // State encoding
     parameter CLEAR_SCREEN = 4'b0000;
     parameter UPDATE_POSITION = 4'b0001;
