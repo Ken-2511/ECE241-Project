@@ -263,6 +263,15 @@ module m_playing(clock, resetn, enable, finished, data, addr);
     m_ghost_collision           m_ghost_collision           (clock, resetn, e_ghost_collision, f_ghost_collision, dt_ghost_collision, ad_ghost_collision);
     m_update_vga                m_update_vga                (clock, resetn, e_update_vga, f_update_vga, dt_update_vga, ad_update_vga);
 
+    // on chip memory
+    canvas CANVAS (
+        .address(addr),
+        .clock(clock),
+        .data(data),
+        .wren(enable),
+        .q()
+    );
+
 endmodule
 
 
@@ -625,90 +634,6 @@ module m_update_vga(clock, resetn, enable, finished, data, addr);
         end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
-    end
-
-endmodule
-
-
-
-module arbiter(clock, resetn, enable, requests, grant);
-
-    // basic inputs
-    input clock, resetn, enable;
-    // inputs for arbitration
-    input [3:0] requests;
-    // output of the arbiter
-    output reg [3:0] grant;
-
-    // State encoding
-    parameter IDLE = 4'b0000, CLEAR_SCREEN = 4'b0001, UPDATE_POSITION = 4'b0010, EAT_FOOD = 4'b0011;
-    parameter UPDATE_GHOST_DIRECTIONS = 4'b0100, UPDATE_GHOST_POSITIONS = 4'b0101, FILL_SCREEN = 4'b0110;
-    parameter RENDER_BLOCKS = 4'b0111, RENDER_PLAYER = 4'b1000, RENDER_FOOD = 4'b1001, RENDER_GHOSTS = 4'b1010;
-    parameter GHOST_COLLISION = 4'b1011, GAME_OVER = 4'b1100;
-    // State register
-    reg [3:0] next_grant;
-
-    // State transition logic
-    always @ (posedge clock) begin
-        if (!resetn)
-            grant <= IDLE;  // Reset to initial state
-        else if (enable)
-            grant <= next_grant;  // Move to the next state if enabled
-    end
-
-    // Next state logic
-    always @ (*) begin
-        case (grant)
-            IDLE: begin
-                if (requests[0])
-                    next_grant = CLEAR_SCREEN;  // Grant CLEAR_SCREEN if requested
-                else if (requests[1])
-                    next_grant = UPDATE_POSITION;  // Grant UPDATE_POSITION if requested
-                else if (requests[2])
-                    next_grant = EAT_FOOD;  // Grant EAT_FOOD if requested
-                else if (requests[3])
-                    next_grant = UPDATE_GHOST_DIRECTIONS;  // Grant UPDATE_GHOST_DIRECTIONS if requested
-                else
-                    next_grant = IDLE; // Stay in IDLE if no requests
-            end
-            CLEAR_SCREEN: begin
-                next_grant = IDLE; // CLEAR_SCREEN is a one-time grant, so move back to IDLE
-            end
-            UPDATE_POSITION: begin
-                next_grant = IDLE; // UPDATE_POSITION is a one-time grant, so move back to IDLE
-            end
-            EAT_FOOD: begin
-                next_grant = IDLE; // EAT_FOOD is a one-time grant, so move back to IDLE
-            end
-            UPDATE_GHOST_DIRECTIONS: begin
-                next_grant = IDLE; // UPDATE_GHOST_DIRECTIONS is a one-time grant, so move back to IDLE
-            end
-            UPDATE_GHOST_POSITIONS: begin
-                next_grant = IDLE; // UPDATE_GHOST_POSITIONS is a one-time grant, so move back to IDLE
-            end
-            FILL_SCREEN: begin
-                next_grant = IDLE; // FILL_SCREEN is a one-time grant, so move back to IDLE
-            end
-            RENDER_BLOCKS: begin
-                next_grant = IDLE; // RENDER_BLOCKS is a one-time grant, so move back to IDLE
-            end
-            RENDER_PLAYER: begin
-                next_grant = IDLE; // RENDER_PLAYER is a one-time grant, so move back to IDLE
-            end
-            RENDER_FOOD: begin
-                next_grant = IDLE; // RENDER_FOOD is a one-time grant, so move back to IDLE
-            end
-            RENDER_GHOSTS: begin
-                next_grant = IDLE; // RENDER_GHOSTS is a one-time grant, so move back to IDLE
-            end
-            GHOST_COLLISION: begin
-                next_grant = IDLE; // GHOST_COLLISION is a one-time grant, so move back to IDLE
-            end
-            GAME_OVER: begin
-                next_grant = IDLE; // GAME_OVER is a one-time grant, so move back to IDLE
-            end
-            default: next_grant = IDLE; // Default state is IDLE
-        endcase
     end
 
 endmodule
