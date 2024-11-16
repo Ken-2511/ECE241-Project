@@ -54,13 +54,13 @@ module fsm_game_state(clock, resetn, enable, key3);
     end
 
     m_greeting m_greeting(clock, resetn, e_greeting, f_greeting);
-    m_playing m_playing (clock, resetn, e_playing, f_playing);
+    m_playing m_playing (clock, resetn, e_playing, f_playing, data, addr);
     m_game_over m_game_over(clock, resetn, e_game_over, f_game_over);
 
 endmodule
 
 
-module m_playing(clock, resetn, enable, finished);
+module m_playing(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
@@ -80,6 +80,13 @@ module m_playing(clock, resetn, enable, finished);
     // finish signals
     wire f_clear_screen, f_update_position, f_eat_food, f_update_ghost_directions, f_update_ghost_positions;
     wire f_fill_screen, f_render_blocks, f_render_player, f_render_food, f_render_ghosts, f_ghost_collision, f_update_vga;
+    // data control (always write, never read)
+    output reg [2:0] data;
+    output reg [16:0] addr;
+    wire [2:0] dt_clear_screen, dt_update_position, dt_eat_food, dt_update_ghost_directions, dt_update_ghost_positions;
+    wire [2:0] dt_fill_screen, dt_render_blocks, dt_render_player, dt_render_food, dt_render_ghosts, dt_ghost_collision, dt_update_vga;
+    wire [16:0] ad_clear_screen, ad_update_position, ad_eat_food, ad_update_ghost_directions, ad_update_ghost_positions;
+    wire [16:0] ad_fill_screen, ad_render_blocks, ad_render_player, ad_render_food, ad_render_ghosts, ad_ghost_collision, ad_update_vga;
 
     // State transition logic
     always @ (posedge clock) begin
@@ -174,7 +181,7 @@ module m_playing(clock, resetn, enable, finished);
         endcase
     end
 
-    // Output logic
+    // Enable logic and grant logic
     always @ (*) begin
         e_clear_screen = (game_state == CLEAR_SCREEN);
         e_update_position = (game_state == UPDATE_POSITION);
@@ -189,21 +196,72 @@ module m_playing(clock, resetn, enable, finished);
         e_ghost_collision = (game_state == GHOST_COLLISION);
         e_update_vga = (game_state == UPDATE_VGA);
         finished = (game_state == GAME_OVER);  // Set finished flag when in GAME_OVER state
+        
+        case (game_state)
+            CLEAR_SCREEN: begin
+                data = dt_clear_screen;
+                addr = ad_clear_screen;
+            end
+            UPDATE_POSITION: begin
+                data = dt_update_position;
+                addr = ad_update_position;
+            end
+            EAT_FOOD: begin
+                data = dt_eat_food;
+                addr = ad_eat_food;
+            end
+            UPDATE_GHOST_DIRECTIONS: begin
+                data = dt_update_ghost_directions;
+                addr = ad_update_ghost_directions;
+            end
+            UPDATE_GHOST_POSITIONS: begin
+                data = dt_update_ghost_positions;
+                addr = ad_update_ghost_positions;
+            end
+            FILL_SCREEN: begin
+                data = dt_fill_screen;
+                addr = ad_fill_screen;
+            end
+            RENDER_BLOCKS: begin
+                data = dt_render_blocks;
+                addr = ad_render_blocks;
+            end
+            RENDER_PLAYER: begin
+                data = dt_render_player;
+                addr = ad_render_player;
+            end
+            RENDER_FOOD: begin
+                data = dt_render_food;
+                addr = ad_render_food;
+            end
+            RENDER_GHOSTS: begin
+                data = dt_render_ghosts;
+                addr = ad_render_ghosts;
+            end
+            GHOST_COLLISION: begin
+                data = dt_ghost_collision;
+                addr = ad_ghost_collision;
+            end
+            UPDATE_VGA: begin
+                data = dt_update_vga;
+                addr = ad_update_vga;
+            end
+        endcase
     end
 
     // Modules
-    m_clear_screen              m_clear_screen              (clock, resetn, e_clear_screen, f_clear_screen);
-    m_update_position           m_update_position           (clock, resetn, e_update_position, f_update_position);
-    m_eat_food                  m_eat_food                  (clock, resetn, e_eat_food, f_eat_food);
-    m_update_ghost_directions   m_update_ghost_directions   (clock, resetn, e_update_ghost_directions, f_update_ghost_directions);
-    m_update_ghost_positions    m_update_ghost_positions    (clock, resetn, e_update_ghost_positions, f_update_ghost_positions);
-    m_fill_screen               m_fill_screen               (clock, resetn, e_fill_screen, f_fill_screen);
-    m_render_blocks             m_render_blocks             (clock, resetn, e_render_blocks, f_render_blocks);
-    m_render_player             m_render_player             (clock, resetn, e_render_player, f_render_player);
-    m_render_food               m_render_food               (clock, resetn, e_render_food, f_render_food);
-    m_render_ghosts             m_render_ghosts             (clock, resetn, e_render_ghosts, f_render_ghosts);
-    m_ghost_collision           m_ghost_collision           (clock, resetn, e_ghost_collision, f_ghost_collision);
-    m_update_vga                m_update_vga                (clock, resetn, e_update_vga, f_update_vga);
+    m_clear_screen              m_clear_screen              (clock, resetn, e_clear_screen, f_clear_screen, dt_clear_screen, ad_clear_screen);
+    m_update_position           m_update_position           (clock, resetn, e_update_position, f_update_position, dt_update_position, ad_update_position);
+    m_eat_food                  m_eat_food                  (clock, resetn, e_eat_food, f_eat_food, dt_eat_food, ad_eat_food);
+    m_update_ghost_directions   m_update_ghost_directions   (clock, resetn, e_update_ghost_directions, f_update_ghost_directions, dt_update_ghost_directions, ad_update_ghost_directions);
+    m_update_ghost_positions    m_update_ghost_positions    (clock, resetn, e_update_ghost_positions, f_update_ghost_positions, dt_update_ghost_positions, ad_update_ghost_positions);
+    m_fill_screen               m_fill_screen               (clock, resetn, e_fill_screen, f_fill_screen, dt_fill_screen, ad_fill_screen);
+    m_render_blocks             m_render_blocks             (clock, resetn, e_render_blocks, f_render_blocks, dt_render_blocks, ad_render_blocks);
+    m_render_player             m_render_player             (clock, resetn, e_render_player, f_render_player, dt_render_player, ad_render_player);
+    m_render_food               m_render_food               (clock, resetn, e_render_food, f_render_food, dt_render_food, ad_render_food);
+    m_render_ghosts             m_render_ghosts             (clock, resetn, e_render_ghosts, f_render_ghosts, dt_render_ghosts, ad_render_ghosts);
+    m_ghost_collision           m_ghost_collision           (clock, resetn, e_ghost_collision, f_ghost_collision, dt_ghost_collision, ad_ghost_collision);
+    m_update_vga                m_update_vga                (clock, resetn, e_update_vga, f_update_vga, dt_update_vga, ad_update_vga);
 
 endmodule
 
@@ -247,222 +305,330 @@ endmodule
 
 // This file contains the modules for the game logic and rendering of the game.
 
-module m_clear_screen(clock, resetn, enable, finished);
+module m_clear_screen(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b001; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_update_position(clock, resetn, enable, finished);
+module m_update_position(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b010; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_eat_food(clock, resetn, enable, finished);
+module m_eat_food(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b011; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_update_ghost_directions(clock, resetn, enable, finished);
+module m_update_ghost_directions(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b100; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_update_ghost_positions(clock, resetn, enable, finished);
+module m_update_ghost_positions(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b101; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_fill_screen(clock, resetn, enable, finished);
+module m_fill_screen(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b110; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_render_blocks(clock, resetn, enable, finished);
+module m_render_blocks(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b111; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_render_player(clock, resetn, enable, finished);
+module m_render_player(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b001; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_render_food(clock, resetn, enable, finished);
+module m_render_food(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b010; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_render_ghosts(clock, resetn, enable, finished);
+module m_render_ghosts(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b011; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-module m_ghost_collision(clock, resetn, enable, finished);
+module m_ghost_collision(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b100; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
 
-
-module m_update_vga(clock, resetn, enable, finished);
+module m_update_vga(clock, resetn, enable, finished, data, addr);
 
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
+    // data and addr control
+    output reg [2:0] data;
+    output reg [16:0] addr;
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
+            data <= 3'b000;
+            addr <= 17'b0;
+        end
+        else if (enable) begin
             finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b101; // Example data value
+            addr <= addr + 1; // Increment address
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
+
 
 
 module arbiter(clock, resetn, enable, requests, grant);
