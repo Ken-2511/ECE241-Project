@@ -54,28 +54,26 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 
     assign plot = ~KEY[3];
 
-	// `ifndef SIMULATION
-    // // connect to VGA controller
-    // vga_adapter VGA (
-	// 		.resetn(KEY[0]),
-	// 		.clock(CLOCK_50),
-	// 		.colour(VGA_COLOR),
-	// 		.x(VGA_X),
-	// 		.y(VGA_Y),
-	// 		.plot(~KEY[3]),
-	// 		.VGA_R(VGA_R),
-	// 		.VGA_G(VGA_G),
-	// 		.VGA_B(VGA_B),
-	// 		.VGA_HS(VGA_HS),
-	// 		.VGA_VS(VGA_VS),
-	// 		.VGA_BLANK_N(VGA_BLANK_N),
-	// 		.VGA_SYNC_N(VGA_SYNC_N),
-	// 		.VGA_CLK(VGA_CLK));
-	// 	defparam VGA.RESOLUTION = "320x240";
-	// 	defparam VGA.MONOCHROME = "FALSE";
-	// 	defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-	// 	defparam VGA.BACKGROUND_IMAGE = "my_mem.mif";
-	// `endif
+    // connect to VGA controller
+    vga_adapter VGA (
+			.resetn(KEY[0]),
+			.clock(CLOCK_50),
+			.colour(VGA_COLOR),
+			.x(VGA_X),
+			.y(VGA_Y),
+			.plot(~KEY[3]),
+			.VGA_R(VGA_R),
+			.VGA_G(VGA_G),
+			.VGA_B(VGA_B),
+			.VGA_HS(VGA_HS),
+			.VGA_VS(VGA_VS),
+			.VGA_BLANK_N(VGA_BLANK_N),
+			.VGA_SYNC_N(VGA_SYNC_N),
+			.VGA_CLK(VGA_CLK));
+		defparam VGA.RESOLUTION = "320x240";
+		defparam VGA.MONOCHROME = "FALSE";
+		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
+		defparam VGA.BACKGROUND_IMAGE = "my_mem.mif";
 
 endmodule
 

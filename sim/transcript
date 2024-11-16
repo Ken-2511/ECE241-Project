@@ -1,5 +1,5 @@
 # vsim "+define+SIMULATION" -pli "simfpga.vpi" -Lf 220model -Lf altera_mf_ver -Lf verilog -c -do "run -all" tb 
-# Start time: 06:33:55 on Nov 16,2024
+# Start time: 11:26:33 on Nov 16,2024
 # Loading work.tb
 # Loading work.milestone2_desim
 # Loading work.regn
@@ -33,8 +33,8 @@
 # 
 # Connected to server!
 # ** Note: $finish    : /build/swbuild/SJ/nightly/18.1std/625/l64/work/modelsim/eda/sim_lib/altera_mf.v(48976)
-#    Time: 12482867280 ns  Iteration: 1  Instance: /tb
+#    Time: 1862710 ns  Iteration: 1  Instance: /tb
 # 
 # Quitting...
-# End time: 10:03:39 on Nov 16,2024, Elapsed time: 3:29:44
+# End time: 11:26:52 on Nov 16,2024, Elapsed time: 0:00:19
 # Errors: 0, Warnings: 8

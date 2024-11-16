@@ -1,4 +1,4 @@
-module game_state_control(clock, resetn, enable, key3);
+module fsm_game_state(clock, resetn, enable, key3);
 
     // basic inputs
     input clock, resetn, enable;
@@ -7,7 +7,7 @@ module game_state_control(clock, resetn, enable, key3);
     // State encoding
     parameter GREETING = 2'b00, PLAYING = 2'b01, GAME_OVER = 2'b10;
     // State register
-    reg [1:0] next_game_state;
+    reg [1:0] next_game_state, game_state;
     // finish signals
     wire f_greeting, f_playing, f_game_over;
 
@@ -44,10 +44,14 @@ module game_state_control(clock, resetn, enable, key3);
         endcase
     end
 
+    m_greeting m_greeting(clock, resetn, enable, f_greeting);
+    m_playing m_playing (clock, resetn, enable, f_playing);
+    m_game_over m_game_over(clock, resetn, enable, f_game_over);
+
 endmodule
 
 
-module game_running(clock, resetn, enable, finished);
+module m_playing(clock, resetn, enable, finished);
 
     // basic inputs
     input clock, resetn, enable;
@@ -94,25 +98,10 @@ module game_running(clock, resetn, enable, finished);
     wire f_render_ghosts;
     wire f_ghost_collision;
 
-    initial begin
-        game_state = CLEAR_SCREEN;
-        f_clear_screen = 0;
-        f_update_position = 0;
-        f_eat_food = 0;
-        f_update_ghost_directions = 0;
-        f_update_ghost_positions = 0;
-        f_fill_screen = 0;
-        f_render_blocks = 0;
-        f_render_player = 0;
-        f_render_food = 0;
-        f_render_ghosts = 0;
-        f_ghost_collision = 0;
-    end
-
     // State transition logic
     always @ (posedge clock) begin
         if (!resetn)
-            game_state <= UPDATE_POSITION;  // Reset to initial state
+            game_state <= CLEAR_SCREEN;  // Reset to initial state
         else if (enable)
             game_state <= next_game_state;  // Move to the next state if enabled
     end
@@ -194,18 +183,246 @@ module game_running(clock, resetn, enable, finished);
     end
 
     // Output logic
-    assign e_clear_screen = (game_state == CLEAR_SCREEN);
-    assign e_update_position = (game_state == UPDATE_POSITION);
-    assign e_eat_food = (game_state == EAT_FOOD);
-    assign e_update_ghost_directions = (game_state == UPDATE_GHOST_DIRECTIONS);
-    assign e_update_ghost_positions = (game_state == UPDATE_GHOST_POSITIONS);
-    assign e_fill_screen = (game_state == FILL_SCREEN);
-    assign e_render_blocks = (game_state == RENDER_BLOCKS);
-    assign e_render_player = (game_state == RENDER_PLAYER);
-    assign e_render_food = (game_state == RENDER_FOOD);
-    assign e_render_ghosts = (game_state == RENDER_GHOSTS);
-    assign e_ghost_collision = (game_state == GHOST_COLLISION);
+    always @ (*) begin
+        e_clear_screen = (game_state == CLEAR_SCREEN);
+        e_update_position = (game_state == UPDATE_POSITION);
+        e_eat_food = (game_state == EAT_FOOD);
+        e_update_ghost_directions = (game_state == UPDATE_GHOST_DIRECTIONS);
+        e_update_ghost_positions = (game_state == UPDATE_GHOST_POSITIONS);
+        e_fill_screen = (game_state == FILL_SCREEN);
+        e_render_blocks = (game_state == RENDER_BLOCKS);
+        e_render_player = (game_state == RENDER_PLAYER);
+        e_render_food = (game_state == RENDER_FOOD);
+        e_render_ghosts = (game_state == RENDER_GHOSTS);
+        e_ghost_collision = (game_state == GHOST_COLLISION);
+    end
+
     assign finished = (game_state == GAME_OVER);
+
+    // Modules
+    m_clear_screen              m_clear_screen              (clock, resetn, e_clear_screen, f_clear_screen);
+    m_update_position           m_update_position           (clock, resetn, e_update_position, f_update_position);
+    m_eat_food                  m_eat_food                  (clock, resetn, e_eat_food, f_eat_food);
+    m_update_ghost_directions   m_update_ghost_directions   (clock, resetn, e_update_ghost_directions, f_update_ghost_directions);
+    m_update_ghost_positions    m_update_ghost_positions    (clock, resetn, e_update_ghost_positions, f_update_ghost_positions);
+    m_fill_screen               m_fill_screen               (clock, resetn, e_fill_screen, f_fill_screen);
+    m_render_blocks             m_render_blocks             (clock, resetn, e_render_blocks, f_render_blocks);
+    m_render_player             m_render_player             (clock, resetn, e_render_player, f_render_player);
+    m_render_food               m_render_food               (clock, resetn, e_render_food, f_render_food);
+    m_render_ghosts             m_render_ghosts             (clock, resetn, e_render_ghosts, f_render_ghosts);
+    m_ghost_collision           m_ghost_collision           (clock, resetn, e_ghost_collision, f_ghost_collision);
+
+endmodule
+
+
+module m_greeting(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+
+module m_game_over(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+// This file contains the modules for the game logic and rendering of the game.
+
+module m_clear_screen(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_update_position(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_eat_food(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_update_ghost_directions(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_update_ghost_positions(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_fill_screen(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_render_blocks(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_render_player(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_render_food(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_render_ghosts(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
+
+endmodule
+
+module m_ghost_collision(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+    end
 
 endmodule
 
