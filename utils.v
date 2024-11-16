@@ -49,11 +49,27 @@ module hex7seg (hex, display);
         endcase
 endmodule
 
+
 module object_mem (address, clock, data);
+
 	input [9:0] address;
 	input clock;
 	output [7:0] data;
 
 	assign data = 8'hee;
+
+endmodule
+
+
+module delay_one_cycle(clock, resetn, signal_in, signal_out);
+
+    input clock, resetn, signal_in;
+    output reg signal_out;
+
+    always @(posedge clock)
+        if (!resetn)
+            signal_out <= 0;
+        else
+            signal_out <= signal_in;
 
 endmodule

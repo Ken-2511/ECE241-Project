@@ -1,3 +1,4 @@
 *.tdf
 *db
 output_files/*
+ModelSim/work/*

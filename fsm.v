@@ -8,6 +8,8 @@ module fsm_game_state(clock, resetn, enable, key3);
     parameter GREETING = 2'b00, PLAYING = 2'b01, GAME_OVER = 2'b10;
     // State register
     reg [1:0] next_game_state, game_state;
+    // enable signals
+    reg e_greeting, e_playing, e_game_over;
     // finish signals
     wire f_greeting, f_playing, f_game_over;
 
@@ -44,9 +46,16 @@ module fsm_game_state(clock, resetn, enable, key3);
         endcase
     end
 
-    m_greeting m_greeting(clock, resetn, enable, f_greeting);
-    m_playing m_playing (clock, resetn, enable, f_playing);
-    m_game_over m_game_over(clock, resetn, enable, f_game_over);
+    // Output logic
+    always @ (*) begin
+        e_greeting = (game_state == GREETING);
+        e_playing = (game_state == PLAYING);
+        e_game_over = (game_state == GAME_OVER);
+    end
+
+    m_greeting m_greeting(clock, resetn, e_greeting, f_greeting);
+    m_playing m_playing (clock, resetn, e_playing, f_playing);
+    m_game_over m_game_over(clock, resetn, e_game_over, f_game_over);
 
 endmodule
 
@@ -56,52 +65,26 @@ module m_playing(clock, resetn, enable, finished);
     // basic inputs
     input clock, resetn, enable;
     // finish signal
-    output finished;
+    output reg finished;
     // State encoding
-    parameter CLEAR_SCREEN = 4'b0000;
-    parameter UPDATE_POSITION = 4'b0001;
-    parameter EAT_FOOD = 4'b0010;
-    parameter UPDATE_GHOST_DIRECTIONS = 4'b0011;
-    parameter UPDATE_GHOST_POSITIONS = 4'b0100;
-    parameter FILL_SCREEN = 4'b0101;
-    parameter RENDER_BLOCKS = 4'b0110;
-    parameter RENDER_PLAYER = 4'b0111;
-    parameter RENDER_FOOD = 4'b1000;
-    parameter RENDER_GHOSTS = 4'b1001;
-    parameter GHOST_COLLISION = 4'b1010;
-    parameter GAME_OVER = 4'b1011;
+    parameter IDLE = 4'b0000, CLEAR_SCREEN = 4'b0001, UPDATE_POSITION = 4'b0010, EAT_FOOD = 4'b0011;
+    parameter UPDATE_GHOST_DIRECTIONS = 4'b0100, UPDATE_GHOST_POSITIONS = 4'b0101, FILL_SCREEN = 4'b0110;
+    parameter RENDER_BLOCKS = 4'b0111, RENDER_PLAYER = 4'b1000, RENDER_FOOD = 4'b1001, RENDER_GHOSTS = 4'b1010;
+    parameter GHOST_COLLISION = 4'b1011, UPDATE_VGA = 4'b1100, GAME_OVER = 4'b1101;
     // State register
     reg [3:0] game_state;
     reg [3:0] next_game_state;
     //enable signals
-    reg e_clear_screen;
-    reg e_update_position;
-    reg e_eat_food;
-    reg e_update_ghost_directions;
-    reg e_update_ghost_positions;
-    reg e_fill_screen;
-    reg e_render_blocks;
-    reg e_render_player;
-    reg e_render_food;
-    reg e_render_ghosts;
-    reg e_ghost_collision;
+    reg e_clear_screen, e_update_position, e_eat_food, e_update_ghost_directions, e_update_ghost_positions;
+    reg e_fill_screen, e_render_blocks, e_render_player, e_render_food, e_render_ghosts, e_ghost_collision, e_update_vga;
     // finish signals
-    wire f_clear_screen;
-    wire f_update_position;
-    wire f_eat_food;
-    wire f_update_ghost_directions;
-    wire f_update_ghost_positions;
-    wire f_fill_screen;
-    wire f_render_blocks;
-    wire f_render_player;
-    wire f_render_food;
-    wire f_render_ghosts;
-    wire f_ghost_collision;
+    wire f_clear_screen, f_update_position, f_eat_food, f_update_ghost_directions, f_update_ghost_positions;
+    wire f_fill_screen, f_render_blocks, f_render_player, f_render_food, f_render_ghosts, f_ghost_collision, f_update_vga;
 
     // State transition logic
     always @ (posedge clock) begin
         if (!resetn)
-            game_state <= CLEAR_SCREEN;  // Reset to initial state
+            game_state <= IDLE;  // Reset to initial state
         else if (enable)
             game_state <= next_game_state;  // Move to the next state if enabled
     end
@@ -109,6 +92,9 @@ module m_playing(clock, resetn, enable, finished);
     // Next state logic
     always @ (*) begin
         case (game_state)
+            IDLE: begin
+                next_game_state = CLEAR_SCREEN; // Move to CLEAR_SCREEN immediately
+            end
             CLEAR_SCREEN: begin
                 if (f_clear_screen)
                     next_game_state = UPDATE_POSITION;  // Move to UPDATE_POSITION when CLEAR_SCREEN is high
@@ -171,12 +157,18 @@ module m_playing(clock, resetn, enable, finished);
             end
             GHOST_COLLISION: begin
                 if (f_ghost_collision)
-                    next_game_state = GAME_OVER;  // Move to GAME_OVER when GHOST_COLLISION is high
+                    next_game_state = UPDATE_VGA;  // Move to UPDATE_VGA when GHOST_COLLISION is high
                 else
                     next_game_state = GHOST_COLLISION; // Stay in GHOST_COLLISION if not finished
             end
+            UPDATE_VGA: begin
+                if (f_update_vga)
+                    next_game_state = GAME_OVER;  // Move to GAME_OVER when UPDATE_VGA is high
+                else
+                    next_game_state = UPDATE_VGA; // Stay in UPDATE_VGA if not finished
+            end
             GAME_OVER: begin
-                next_game_state = GAME_OVER; // GAME_OVER is the final state, so stay in GAME_OVER until reset
+                next_game_state = IDLE; // Move back to IDLE immediately
             end
             default: next_game_state = CLEAR_SCREEN; // Default state is CLEAR_SCREEN
         endcase
@@ -195,9 +187,9 @@ module m_playing(clock, resetn, enable, finished);
         e_render_food = (game_state == RENDER_FOOD);
         e_render_ghosts = (game_state == RENDER_GHOSTS);
         e_ghost_collision = (game_state == GHOST_COLLISION);
+        e_update_vga = (game_state == UPDATE_VGA);
+        finished = (game_state == GAME_OVER);  // Set finished flag when in GAME_OVER state
     end
-
-    assign finished = (game_state == GAME_OVER);
 
     // Modules
     m_clear_screen              m_clear_screen              (clock, resetn, e_clear_screen, f_clear_screen);
@@ -211,6 +203,7 @@ module m_playing(clock, resetn, enable, finished);
     m_render_food               m_render_food               (clock, resetn, e_render_food, f_render_food);
     m_render_ghosts             m_render_ghosts             (clock, resetn, e_render_ghosts, f_render_ghosts);
     m_ghost_collision           m_ghost_collision           (clock, resetn, e_ghost_collision, f_ghost_collision);
+    m_update_vga                m_update_vga                (clock, resetn, e_update_vga, f_update_vga);
 
 endmodule
 
@@ -227,6 +220,8 @@ module m_greeting(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -243,7 +238,9 @@ module m_game_over(clock, resetn, enable, finished);
         if (!resetn)
             finished <= 0;  // Reset to initial state
         else if (enable)
-            finished <= 1;  // Finish immediately when enabled, for testing
+            finished <= 0;  // Never finish, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -262,6 +259,8 @@ module m_clear_screen(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -278,6 +277,8 @@ module m_update_position(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -294,6 +295,8 @@ module m_eat_food(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -310,6 +313,8 @@ module m_update_ghost_directions(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -326,6 +331,8 @@ module m_update_ghost_positions(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -342,6 +349,8 @@ module m_fill_screen(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -358,6 +367,8 @@ module m_render_blocks(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -374,6 +385,8 @@ module m_render_player(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -390,6 +403,8 @@ module m_render_food(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -406,6 +421,8 @@ module m_render_ghosts(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule
@@ -422,6 +439,27 @@ module m_ghost_collision(clock, resetn, enable, finished);
             finished <= 0;  // Reset to initial state
         else if (enable)
             finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
+    end
+
+endmodule
+
+
+module m_update_vga(clock, resetn, enable, finished);
+
+    // basic inputs
+    input clock, resetn, enable;
+    // finish signal
+    output reg finished;
+
+    always @ (posedge clock) begin
+        if (!resetn)
+            finished <= 0;  // Reset to initial state
+        else if (enable)
+            finished <= 1;  // Finish immediately when enabled, for testing
+        else if (finished)
+            finished <= 0;  // Reset to initial state when finished
     end
 
 endmodule

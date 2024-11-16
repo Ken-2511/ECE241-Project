@@ -11,8 +11,11 @@ add wave -noupdate -label key3 -radix binary /fsm_testbench/key3
 add wave -noupdate -divider game_state_control
 add wave -noupdate -label game_state -radix binary /fsm_testbench/UUT/game_state
 add wave -noupdate -label next_game_state -radix binary /fsm_testbench/UUT/next_game_state
+add wave -noupdate -label e_greeting -radix binary /fsm_testbench/UUT/e_greeting
 add wave -noupdate -label f_greeting -radix binary /fsm_testbench/UUT/f_greeting
+add wave -noupdate -label e_playing -radix binary /fsm_testbench/UUT/e_playing
 add wave -noupdate -label f_playing -radix binary /fsm_testbench/UUT/f_playing
+add wave -noupdate -label e_game_over -radix binary /fsm_testbench/UUT/e_game_over
 add wave -noupdate -label f_game_over -radix binary /fsm_testbench/UUT/f_game_over
 
 # Greeting Module Signals
@@ -22,6 +25,7 @@ add wave -noupdate -label finished_greeting -radix binary /fsm_testbench/UUT/m_g
 
 # Playing Module Signals
 add wave -noupdate -divider m_playing
+add wave -noupdate -label enable_playing -radix binary /fsm_testbench/UUT/m_playing/enable
 add wave -noupdate -label game_state_playing -radix binary /fsm_testbench/UUT/m_playing/game_state
 add wave -noupdate -label next_game_state_playing -radix binary /fsm_testbench/UUT/m_playing/next_game_state
 add wave -noupdate -label e_clear_screen -radix binary /fsm_testbench/UUT/m_playing/e_clear_screen
@@ -71,4 +75,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {3000 ns}
+WaveRestoreZoom {0 ps} {700 ns}

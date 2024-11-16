@@ -19,7 +19,7 @@ module fsm_testbench ();
     end
 
     // Instantiate game_state_control module
-    game_state_control UUT (
+    fsm_game_state UUT (
         .clock(clock),
         .resetn(resetn),
         .enable(enable),
