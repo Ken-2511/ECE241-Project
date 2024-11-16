@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="28a128f8-91da-4d8e-867b-022073e9d182" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/PacMan/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/.idea/PacMan.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/.idea/deployment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/blocks.mif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/game_logic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/my_mem.mif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/processed_image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/render.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/test_modules.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PacMan/test_picture.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2ow8d72tD3uJq2f5M66UAGEjLR0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/python_prototype",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="28a128f8-91da-4d8e-867b-022073e9d182" name="Changes" comment="" />
+      <created>1731769362240</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731769362240</updated>
+      <workItem from="1731769363288" duration="29000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
