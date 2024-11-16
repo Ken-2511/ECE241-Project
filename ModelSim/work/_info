@@ -51,12 +51,12 @@ R9
 R10
 n@altera_@u@p_@p@s2_@data_@in
 vblocks
-Z11 !s110 1731534903
+Z11 !s110 1731705860
 !i10b 1
 !s100 EDm0f9?R^P2U^3=e_cMg;0
 I9=BHh]2kz1LO9bR^@;BJB1
 R2
-R3
+Z12 dC:/Users/IWMAI/Desktop/milestone2/ModelSim
 w1731311954
 8../blocks.v
 F../blocks.v
@@ -65,9 +65,9 @@ R6
 r1
 !s85 0
 31
-Z12 !s108 1731534903.000000
-Z13 !s107 ../utils.v|../top.v|../ps2.v|../milestone2.v|../fsm.v|../blocks.v|
-Z14 !s90 -reportprogress|300|../blocks.v|../fsm.v|../milestone2.v|../ps2.v|../top.v|../utils.v|
+Z13 !s108 1731705860.000000
+Z14 !s107 ../utils.v|../top.v|../ps2.v|../milestone2.v|../fsm.v|../blocks.v|
+Z15 !s90 -reportprogress|300|../blocks.v|../fsm.v|../milestone2.v|../ps2.v|../top.v|../utils.v|
 !i113 1
 R10
 vcount
@@ -76,18 +76,18 @@ R11
 !s100 C;?RL:Sk5Qh[Z_d7Z=zMm1
 I:IXN?R709OdU<P8UL[YV90
 R2
-R3
-Z15 w1731533464
-Z16 8../utils.v
-Z17 F../utils.v
+R12
+Z16 w1731533464
+Z17 8../utils.v
+Z18 F../utils.v
 L0 14
 R6
 r1
 !s85 0
 31
-R12
 R13
 R14
+R15
 !i113 1
 R10
 vdraw_big_maze
@@ -96,18 +96,18 @@ R11
 !s100 WWWiMk1`6>J0=nRIiLI8^1
 I4eCQkFK9VVCBIY^icT40>1
 R2
-R3
-Z18 w1731534758
-Z19 8../milestone2.v
-Z20 F../milestone2.v
+R12
+Z19 w1731704431
+Z20 8../milestone2.v
+Z21 F../milestone2.v
 L0 69
 R6
 r1
 !s85 0
 31
-R12
 R13
 R14
+R15
 !i113 1
 R10
 vdraw_block
@@ -118,16 +118,16 @@ IaMiz3@HQ<RV0M6?[F8Vbz1
 R2
 dF:/milestone1/modelSim
 w1731319182
-Z21 8../milestone1.v
-Z22 F../milestone1.v
+Z22 8../milestone1.v
+Z23 F../milestone1.v
 L0 307
 R6
 r1
 !s85 0
 31
 !s108 1731319199.000000
-Z23 !s107 ../utils.v|../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|../milestone1.v|
-Z24 !s90 -reportprogress|300|../milestone1.v|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|../utils.v|
+Z24 !s107 ../utils.v|../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|../milestone1.v|
+Z25 !s90 -reportprogress|300|../milestone1.v|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|../utils.v|
 !i113 1
 R10
 vdraw_maze
@@ -138,16 +138,16 @@ IQdVM]O^V2[@7NlgIC@A;Q0
 R2
 dF:/milestone1/ModelSim
 w1731328876
-R21
 R22
+R23
 L0 183
 R6
 r1
 !s85 0
 31
 !s108 1731328927.000000
-R23
 R24
+R25
 !i113 1
 R10
 vgame_state_control
@@ -156,7 +156,7 @@ R11
 !s100 bZj4RTAd2EL;GMWM0=iRi1
 ISg>fCHFdbb:gEbEBWVB`i0
 R2
-R3
+R12
 w1731341820
 8../fsm.v
 F../fsm.v
@@ -165,49 +165,49 @@ R6
 r1
 !s85 0
 31
-R12
 R13
 R14
+R15
 !i113 1
 R10
 vget_direction
-R11
+Z26 !s110 1731534903
 !i10b 1
 !s100 dmFb?1m`KzGLehk_ci<mD2
 I3>B1>3JjUH_PMWXA8;GBZ1
 R2
 R3
-Z25 w1731370956
-Z26 8../ps2.v
-Z27 F../ps2.v
+Z27 w1731370956
+Z28 8../ps2.v
+Z29 F../ps2.v
 L0 61
 R6
 r1
 !s85 0
 31
-R12
-R13
+Z30 !s108 1731534903.000000
 R14
+R15
 !i113 1
 R10
 vhalf_sec_counter
-R11
+R26
 !i10b 1
 !s100 :?3EVT4QfMoF9JN5oE`cN3
 Ie7jW8glWFG67?`ez7CzoZ3
 R2
 R3
-R25
-R26
 R27
+R28
+R29
 L0 187
 R6
 r1
 !s85 0
 31
-R12
-R13
+R30
 R14
+R15
 !i113 1
 R10
 vhex7seg
@@ -216,18 +216,18 @@ R11
 !s100 9GZOZAIRMiXg<cL<fm3;=3
 I;A[Do4mDiC8C>LIMR>30o1
 R2
-R3
-R15
+R12
 R16
 R17
+R18
 L0 26
 R6
 r1
 !s85 0
 31
-R12
 R13
 R14
+R15
 !i113 1
 R10
 vmilestone1
@@ -238,8 +238,8 @@ InniTh7f>BF;b_lK>IGOk[2
 R2
 R3
 w1731533588
-R21
 R22
+R23
 L0 8
 R6
 r1
@@ -253,41 +253,41 @@ R10
 vmilestone2
 R11
 !i10b 1
-!s100 ]Q;2i3:U?[PM3Fo?Qd<o52
-I4629a2a1o=kSnOgmWYn1e0
+!s100 LV=EJLF@zfd19^d__a<;g3
+I3lGPT;:R7_:nga_]Jzhl?2
 R2
-R3
-R18
+R12
 R19
 R20
+R21
 L0 8
 R6
 r1
 !s85 0
 31
-R12
 R13
 R14
+R15
 !i113 1
 R10
 vmovement_FSM
-R11
+R26
 !i10b 1
 !s100 9XnCdP2fBk3z[8lHloLQ[1
 Izh5`>7CkYlGWSgcm8IhQM3
 R2
 R3
-R25
-R26
 R27
+R28
+R29
 L0 84
 R6
 r1
 !s85 0
 31
-R12
-R13
+R30
 R14
+R15
 !i113 1
 R10
 nmovement_@f@s@m
@@ -297,58 +297,58 @@ R11
 !s100 Ebo_E<:Un0>He@^ZWLoQ80
 I8C4ZNUc`omLDJc2`5<]9R2
 R2
-R3
-R15
+R12
 R16
 R17
+R18
 L0 52
 R6
 r1
 !s85 0
 31
-R12
 R13
 R14
+R15
 !i113 1
 R10
 vplayer_movement
-R11
+R26
 !i10b 1
 !s100 ECnzO^Alo3iPV^k@ELEC<3
 I8`?02<XPd=foTZX3B[5S41
 R2
 R3
-R25
-R26
 R27
+R28
+R29
 L0 154
 R6
 r1
 !s85 0
 31
-R12
-R13
+R30
 R14
+R15
 !i113 1
 R10
 vps2
-R11
+R26
 !i10b 1
 !s100 XA>i[P:E4om<7JehRFYm90
 IA6>X@2G1?7:4a;S:ZS7P`2
 R2
 R3
-R25
-R26
 R27
+R28
+R29
 L0 1
 R6
 r1
 !s85 0
 31
-R12
-R13
+R30
 R14
+R15
 !i113 1
 R10
 vPS2_Controller
@@ -378,28 +378,28 @@ R11
 !s100 iV=8QY<I=hT92;7m>>ba[2
 IZG>hFTkE>bkE]hMk`YFJ?3
 R2
-R3
-R15
+R12
 R16
 R17
+R18
 L0 1
 R6
 r1
 !s85 0
 31
-R12
 R13
 R14
+R15
 !i113 1
 R10
 vtestbench
-Z28 !s110 1731534902
+R11
 !i10b 1
-!s100 3S7=z9VlHD7Ac_A=MK3cA0
-I2_o00[UZ4bB9B]2628I;50
+!s100 Y=U]=cleVAOd[jI73Dag93
+IUYh]Ze5CE]<9Fn?^oWMI?1
 R2
-R3
-w1731534854
+R12
+w1731705690
 8testbench.v
 Ftestbench.v
 L0 3
@@ -407,7 +407,7 @@ R6
 r1
 !s85 0
 31
-Z29 !s108 1731534902.000000
+R13
 !s107 testbench.v|
 !s90 -reportprogress|300|testbench.v|
 !i113 1
@@ -433,12 +433,12 @@ r1
 !i113 1
 R10
 vvga_adapter
-R28
+R11
 !i10b 1
 !s100 7KR=8CAUOI3dU[Wldj_DZ2
 I:g9eeSE^;=g6mOEhT^R@d1
 R2
-R3
+R12
 w1730181910
 8../vga_adapter/vga_adapter.v
 F../vga_adapter/vga_adapter.v
@@ -447,19 +447,19 @@ R6
 r1
 !s85 0
 31
-R29
-Z30 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
-Z31 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
+R13
+Z31 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
+Z32 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
 !i113 1
 R10
 vvga_address_translator
-R28
+R11
 !i10b 1
 !s100 C0DfW0_9[5co`@boeR]Pi1
 I?Q@JOgk]Bc9AlPBHeDF221
 R2
-R3
-Z32 w1729787522
+R12
+Z33 w1729787522
 8../vga_adapter/vga_address_translator.v
 F../vga_adapter/vga_address_translator.v
 L0 4
@@ -467,18 +467,18 @@ R6
 r1
 !s85 0
 31
-R29
-R30
+R13
 R31
+R32
 !i113 1
 R10
 vvga_controller
-R28
+R11
 !i10b 1
 !s100 ejdRBhaHBe8PnOV9UFIVf2
 IgjX;<0RkHEiUm^BREgP>Y2
 R2
-R3
+R12
 w1730183234
 8../vga_adapter/vga_controller.v
 F../vga_adapter/vga_controller.v
@@ -487,9 +487,9 @@ R6
 r1
 !s85 0
 31
-R29
-R30
+R13
 R31
+R32
 !i113 1
 R10
 vvga_demo
@@ -513,13 +513,13 @@ r1
 !i113 1
 R10
 vvga_pll
-R28
+R11
 !i10b 1
 !s100 4XSTjD`VEiamX^n1@5J`b3
 IiS55lg7TQ1f5@h1imQboh3
 R2
-R3
-R32
+R12
+R33
 8../vga_adapter/vga_pll.v
 F../vga_adapter/vga_pll.v
 L0 36
@@ -527,8 +527,8 @@ R6
 r1
 !s85 0
 31
-R29
-R30
+R13
 R31
+R32
 !i113 1
 R10

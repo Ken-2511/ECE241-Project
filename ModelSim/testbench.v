@@ -28,7 +28,7 @@ module testbench ( );
 	end
 	
 	initial begin
-        KEY <= 4'b0;
+        KEY[0] <= 1'b0;
         #20 KEY[0] <= 1'b1; // reset
 	end // initial
 

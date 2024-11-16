@@ -1,8 +1,7 @@
-# vsim -pli "simfpga.vpi" -Lf 220model -Lf altera_mf_ver -Lf verilog -c -do "run -all" tb 
-# Start time: 15:58:02 on Nov 13,2024
+# vsim "+define+SIMULATION" -pli "simfpga.vpi" -Lf 220model -Lf altera_mf_ver -Lf verilog -c -do "run -all" tb 
+# Start time: 06:33:55 on Nov 16,2024
 # Loading work.tb
-# Loading work.top
-# Loading work.milestone1
+# Loading work.milestone2_desim
 # Loading work.regn
 # Loading work.draw_big_maze
 # Loading work.blocks
@@ -11,38 +10,25 @@
 # Loading altera_mf_ver.altsyncram_body
 # Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
 # Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
-# ** Warning: (vsim-3015) ../top.v(24): [PCDPC] - Port size (8) does not match connection size (10) for port 'SW'. The port definition is at: ../milestone1.v(8).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1 File: ../milestone1.v
-# ** Warning: (vsim-3015) ../top.v(24): [PCDPC] - Port size (8) does not match connection size (1) for port 'VGA_R'. The port definition is at: ../milestone1.v(9).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1 File: ../milestone1.v
-# ** Warning: (vsim-3015) ../top.v(24): [PCDPC] - Port size (8) does not match connection size (1) for port 'VGA_G'. The port definition is at: ../milestone1.v(9).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1 File: ../milestone1.v
-# ** Warning: (vsim-3015) ../top.v(24): [PCDPC] - Port size (8) does not match connection size (1) for port 'VGA_B'. The port definition is at: ../milestone1.v(9).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1 File: ../milestone1.v
-# ** Warning: (vsim-3015) ../top.v(24): [PCDPC] - Port size (1) does not match connection size (8) for port 'VGA_HS'. The port definition is at: ../milestone1.v(10).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1 File: ../milestone1.v
-# ** Warning: (vsim-3015) ../top.v(24): [PCDPC] - Port size (1) does not match connection size (7) for port 'VGA_VS'. The port definition is at: ../milestone1.v(10).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1 File: ../milestone1.v
-# ** Warning: (vsim-3015) ../milestone1.v(32): [PCDPC] - Port size (8) does not match connection size (7) for port 'R'. The port definition is at: ../utils.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1/U1 File: ../utils.v
-# ** Warning: (vsim-3015) ../milestone1.v(34): [PCDPC] - Port size (9) does not match connection size (8) for port 'R'. The port definition is at: ../utils.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1/U2 File: ../utils.v
-# ** Warning: (vsim-3015) ../milestone1.v(37): [PCDPC] - Port size (8) does not match connection size (3) for port 'color'. The port definition is at: ../milestone1.v(69).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1/U3 File: ../milestone1.v
-# ** Warning: (vsim-3015) ../milestone1.v(123): [PCDPC] - Port size (9) does not match connection size (32) for port 'address'. The port definition is at: ../blocks.v(41).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1/U3/U1 File: ../blocks.v
-# ** Warning: (vsim-3015) ../milestone1.v(123): [PCDPC] - Port size (1) does not match connection size (8) for port 'data'. The port definition is at: ../blocks.v(43).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1/U3/U1 File: ../blocks.v
+# ** Warning: (vsim-3015) ../tb/tb.v(46): [PCDPC] - Port size (8) does not match connection size (10) for port 'SW'. The port definition is at: ../milestone2.v(85).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT File: ../milestone2.v
+# ** Warning: (vsim-3015) ../tb/tb.v(46): [PCDPC] - Port size (9) does not match connection size (8) for port 'VGA_X'. The port definition is at: ../milestone2.v(85).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT File: ../milestone2.v
+# ** Warning: (vsim-3015) ../tb/tb.v(46): [PCDPC] - Port size (8) does not match connection size (7) for port 'VGA_Y'. The port definition is at: ../milestone2.v(85).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT File: ../milestone2.v
+# ** Warning: (vsim-3015) ../milestone2.v(100): [PCDPC] - Port size (8) does not match connection size (7) for port 'R'. The port definition is at: ../utils.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1 File: ../utils.v
+# ** Warning: (vsim-3015) ../milestone2.v(102): [PCDPC] - Port size (9) does not match connection size (8) for port 'R'. The port definition is at: ../utils.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U2 File: ../utils.v
+# ** Warning: (vsim-3015) ../milestone2.v(105): [PCDPC] - Port size (8) does not match connection size (3) for port 'color'. The port definition is at: ../milestone2.v(117).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U3 File: ../milestone2.v
+# ** Warning: (vsim-3015) ../milestone2.v(171): [PCDPC] - Port size (9) does not match connection size (32) for port 'address'. The port definition is at: ../blocks.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U3/U1 File: ../blocks.v
+# ** Warning: (vsim-3015) ../milestone2.v(171): [PCDPC] - Port size (1) does not match connection size (8) for port 'data'. The port definition is at: ../blocks.v(43).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U3/U1 File: ../blocks.v
 # Loading ./simfpga.vpi
 # run -all
 # Time scaling: 0.0001 sim seconds per real-time second
 # 
 # 
 # Connected to server!
-# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "blocks.mif" for reading.
-# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/18.1std/625/l64/work/modelsim/eda/sim_lib/altera_mf.v(263)
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1/U3/U1/altsyncram_component/m_default/altsyncram_inst
-# ERROR: cannot read blocks.mif.
-# ** Warning: (vsim-7) Failed to open readmem file "blocks.ver" in read mode.
-# No such file or directory. (errno = ENOENT)    : /build/swbuild/SJ/nightly/18.1std/625/l64/work/modelsim/eda/sim_lib/altera_mf.v(48976)
-#    Time: 0 ps  Iteration: 0  Instance: /tb/DUT/U1/U3/U1/altsyncram_component/m_default/altsyncram_inst

@@ -11,7 +11,7 @@
         "**/greybox_tmp": true,
         "**/output_files": true,
         "**/work": false,
-        "**/tb": true,
-        "**/sim": true,
+        "**/tb": false,
+        "**/sim": false,
     }
 }
