@@ -466,6 +466,8 @@ module m_update_vga(
     VGA_COLOR   // 新增输出
 );
 
+    parameter cbit = 23;
+
     // 基本输入
     input clock, resetn, enable;
 
@@ -480,7 +482,7 @@ module m_update_vga(
     // 新增输出用于VGA
     output reg [8:0] VGA_X;
     output reg [7:0] VGA_Y;
-    output reg [2:0] VGA_COLOR;
+    output reg [cbit:0] VGA_COLOR;
 
     // 内部计数器
     reg [8:0] x_counter;

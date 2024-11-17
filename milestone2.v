@@ -11,7 +11,9 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 				PS2_CLK, PS2_DAT,
 				HEX4, HEX5, LEDR, VGA_X, VGA_Y, VGA_COLOR, plot);
 	
-	input CLOCK_50;	
+    parameter cbit = 23;
+
+	input CLOCK_50;
 	input [7:0] SW;
 	input [3:0] KEY;
     output [6:0] HEX3, HEX2, HEX1, HEX0;
@@ -28,9 +30,9 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 	output [6:0] HEX4;
 	output [6:0] HEX5;
 	output [9:0] LEDR;
-	output [8:0] VGA_X;
-	output [7:0] VGA_Y;
-	output [2:0] VGA_COLOR;
+	output wire [8:0] VGA_X;
+	output wire [7:0] VGA_Y;
+	output wire [cbit:0] VGA_COLOR;
 	output plot;
 
 	// for data memory
@@ -41,9 +43,6 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 
 	wire [8:0] X;           // starting x location of object
 	wire [7:0] Y;           // starting y location of object
-	wire [8:0] VGA_X;       // x location of each object pixel
-	wire [7:0] VGA_Y;       // y location of each object pixel
-	wire [2:0] VGA_COLOR;   // color of each object pixel
 
 	// store (x,y) starting location
     regn U1 (SW[6:0], KEY[0], ~KEY[1], CLOCK_50, Y);
@@ -99,8 +98,8 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 			.VGA_CLK(VGA_CLK));
 		defparam VGA.RESOLUTION = "320x240";
 		defparam VGA.MONOCHROME = "FALSE";
-		defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-		defparam VGA.BACKGROUND_IMAGE = "black.mif";
+		defparam VGA.BITS_PER_COLOUR_CHANNEL = 8;
+		defparam VGA.BACKGROUND_IMAGE = "canvas.mif";
 
 endmodule
 

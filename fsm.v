@@ -1,5 +1,7 @@
 module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, VGA_COLOR);
 
+    parameter cbit = 23;
+
     // 基本输入
     input clock, resetn, enable;
 
@@ -12,7 +14,7 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
     // 新增输出用于VGA
     output reg [8:0] VGA_X;
     output reg [7:0] VGA_Y;
-    output reg [2:0] VGA_COLOR;
+    output reg [11:0] VGA_COLOR;
 
     // 状态编码
     parameter GREETING = 2'b00, PLAYING = 2'b01, GAME_OVER = 2'b10;
@@ -34,7 +36,7 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
     // 来自子模块的VGA控制线
     wire [8:0] vga_x_greeting, vga_x_playing, vga_x_game_over;
     wire [7:0] vga_y_greeting, vga_y_playing, vga_y_game_over;
-    wire [2:0] vga_color_greeting, vga_color_playing, vga_color_game_over;
+    wire [cbit:0] vga_color_greeting, vga_color_playing, vga_color_game_over;
 
     // 状态转移逻辑
     always @ (posedge clock) begin
@@ -105,7 +107,7 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
                 wren = 1'b0;
                 VGA_X = 9'b0;
                 VGA_Y = 8'b0;
-                VGA_COLOR = 3'b0;
+                VGA_COLOR = 23'b0; // cbit be aware that it is related to the parameter
             end
         endcase
     end
@@ -162,6 +164,8 @@ module m_playing(
     VGA_COLOR   // 新增输出
 );
 
+    parameter cbit = 23;
+
     // 基本输入
     input clock, resetn, enable;
 
@@ -175,7 +179,7 @@ module m_playing(
     // 新增输出用于VGA
     output reg [8:0] VGA_X;
     output reg [7:0] VGA_Y;
-    output reg [2:0] VGA_COLOR;
+    output reg [cbit:0] VGA_COLOR;
 
     // 状态编码
     parameter IDLE = 4'b0000, CLEAR_SCREEN = 4'b0001, UPDATE_POSITION = 4'b0010, EAT_FOOD = 4'b0011;
@@ -208,8 +212,8 @@ module m_playing(
     wire [8:0] vga_x_fill_screen, vga_x_render_blocks, vga_x_render_player, vga_x_render_food, vga_x_render_ghosts, vga_x_ghost_collision, vga_x_update_vga;
     wire [7:0] vga_y_clear_screen, vga_y_update_position, vga_y_eat_food, vga_y_update_ghost_directions, vga_y_update_ghost_positions;
     wire [7:0] vga_y_fill_screen, vga_y_render_blocks, vga_y_render_player, vga_y_render_food, vga_y_render_ghosts, vga_y_ghost_collision, vga_y_update_vga;
-    wire [2:0] vga_color_clear_screen, vga_color_update_position, vga_color_eat_food, vga_color_update_ghost_directions, vga_color_update_ghost_positions;
-    wire [2:0] vga_color_fill_screen, vga_color_render_blocks, vga_color_render_player, vga_color_render_food, vga_color_render_ghosts, vga_color_ghost_collision, vga_color_update_vga;
+    wire [cbit:0] vga_color_clear_screen, vga_color_update_position, vga_color_eat_food, vga_color_update_ghost_directions, vga_color_update_ghost_positions;
+    wire [cbit:0] vga_color_fill_screen, vga_color_render_blocks, vga_color_render_player, vga_color_render_food, vga_color_render_ghosts, vga_color_ghost_collision, vga_color_update_vga;
 
     // 状态转移逻辑
     always @ (posedge clock) begin
