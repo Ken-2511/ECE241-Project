@@ -46,31 +46,60 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 	wire [8:0] X;           // starting x location of object
 	wire [7:0] Y;           // starting y location of object
 
-	// store (x,y) starting location
-    regn U1 (SW[6:0], KEY[0], ~KEY[1], CLOCK_50, Y);
-        defparam U1.n = 8;
-    regn U2 (SW[7:0], KEY[0], ~KEY[2], CLOCK_50, X);
-        defparam U2.n = 9;
+	// For PS2 controller
+	wire [7:0] ps2_key_data;
+	wire ps2_key_pressed;
+	reg [7:0] last_key_received;
 
-	// draw_big_maze U3 (CLOCK_50, KEY[0], VGA_X, VGA_Y, VGA_COLOR, ~KEY[3]);
+	// For PS2 controller
+	PS2_Controller PS2 (
+		// Inputs
+		.CLOCK_50				(CLOCK_50),
+		.reset				(~KEY[0]),
+
+		// Bidirectionals
+		.PS2_CLK			(PS2_CLK),
+		.PS2_DAT			(PS2_DAT),
+
+		// Outputs
+		.received_data		(ps2_key_data),
+		.received_data_en	(ps2_key_pressed)
+	);
+
+	always @(CLOCK_50) begin
+		if(!KEY[0])
+			last_key_received = 8'b0;
+		else if (ps2_key_pressed)
+			last_key_received <= ps2_key_data;
+	end
+
+	// // store (x,y) starting location
+    // regn U1 (SW[6:0], KEY[0], ~KEY[1], CLOCK_50, Y);
+    //     defparam U1.n = 8;
+    // regn U2 (SW[7:0], KEY[0], ~KEY[2], CLOCK_50, X);
+    //     defparam U2.n = 9;
+	hex7seg H3 (last_key_received[7:4], HEX3);
+    hex7seg H2 (last_key_received[3:0], HEX2);
+
 
 	fsm_game_state U3 (
 		.clock(CLOCK_50),
 		.resetn(KEY[0]),
-		.enable(~KEY[3]),
+		.enable(KEY[3]),
 		.data(data),
 		.addr(addr),
 		.wren(wren),
 		.q(q),
 		.VGA_X(VGA_X),
 		.VGA_Y(VGA_Y),
-		.VGA_COLOR(VGA_COLOR)
+		.VGA_COLOR(VGA_COLOR),
+		.last_key_received(last_key_received)
 	);
 
-    hex7seg H3 (X[7:4], HEX3);
-    hex7seg H2 (X[3:0], HEX2);
-    hex7seg H1 ({1'b0, Y[6:4]}, HEX1);
-    hex7seg H0 (Y[3:0], HEX0);
+    // hex7seg H3 (X[7:4], HEX3);
+    // hex7seg H2 (X[3:0], HEX2);
+    // hex7seg H1 ({1'b0, Y[6:4]}, HEX1);
+    // hex7seg H0 (Y[3:0], HEX0);
 
     assign plot = ~KEY[3];
 

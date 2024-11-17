@@ -16,6 +16,7 @@ module fsm_testbench ();
     wire [8:0] VGA_X;
     wire [7:0] VGA_Y;
     wire [2:0] VGA_COLOR;
+    reg [7:0] last_key_received;
 
     // Clock generation
     initial begin
@@ -26,18 +27,20 @@ module fsm_testbench ();
     end
 
     // Instantiate game_state_control module
+    // module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, VGA_COLOR, last_key_received);
+
     fsm_game_state UUT (
         .clock(clock),
         .resetn(resetn),
         .enable(enable),
-        .key3(key3),
         .data(data),
         .addr(addr),
         .wren(wren),
         .q(q),
         .VGA_X(VGA_X),
         .VGA_Y(VGA_Y),
-        .VGA_COLOR(VGA_COLOR)
+        .VGA_COLOR(VGA_COLOR),
+        .last_key_received(last_key_received)
     );
 
     // Test stimulus
@@ -46,6 +49,7 @@ module fsm_testbench ();
         resetn = 1'b0;
         enable = 1'b0;
         key3 = 1'b1;
+        last_key_received = 8'h00;
         
         // Apply reset
         #20 resetn = 1'b1; // Release reset
@@ -56,10 +60,12 @@ module fsm_testbench ();
         // Test GREETING state transition
         #40 key3 = 1'b0; // Simulate key press to progress from GREETING to PLAYING
         #20 key3 = 1'b1;
-
-        // Wait for a while
-        #100;
         
+    end
+
+    initial begin
+        #10200 last_key_received = 8'h29;
+        #100 last_key_received = 8'h2a;
     end
 
 endmodule

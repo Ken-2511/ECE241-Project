@@ -74,12 +74,12 @@ def convert_picture(image_path, bits_per_color_channel=8, target_width=320, targ
 if __name__ == '__main__':
     # Specify parameters
     bits_per_channel = 4  # Example: 4 bits per color channel
-    target_width = 8    # Custom width
-    target_height = 8   # Custom height
+    target_width = 320    # Custom width
+    target_height = 240   # Custom height
     pad = False            # Enable padding or disable for stretching
 
     # Convert and process the image
-    converted_image = convert_picture("player.png", bits_per_color_channel=bits_per_channel,
+    converted_image = convert_picture("test_picture.png", bits_per_color_channel=bits_per_channel,
                                       target_width=target_width, target_height=target_height, pad=pad)
 
     # Generate memory file

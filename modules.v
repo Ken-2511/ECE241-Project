@@ -49,7 +49,7 @@ endmodule
 
 // This file contains the modules for the game logic and rendering of the game.
 
-module m_clear_screen(clock, resetn, enable, wren, finished, data, addr);
+module m_clear_screen(clock, resetn, enable, wren, finished, data, addr, last_key_received);
 
     parameter cbit = 11;
 
@@ -66,6 +66,9 @@ module m_clear_screen(clock, resetn, enable, wren, finished, data, addr);
     output reg [cbit:0] data;
     output reg [16:0] addr;
 
+    // Last key received
+    input [7:0] last_key_received;
+
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
@@ -74,10 +77,11 @@ module m_clear_screen(clock, resetn, enable, wren, finished, data, addr);
             wren <= 0; // Disable write
         end
         else if (enable) begin
-            wren <= 0; // Disable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b001; // Example data value
-            addr <= addr + 1; // Increment address
+            // 8'h29 <- this is for the SPACE key
+            // wait for the SPACE key to be pressed
+            // if (last_key_received == 8'h29) begin
+                finished <= 1;  // Finish immediately when enabled, for testing
+            // end
         end
         else if (finished) begin
             wren <= 0; // Disable write when finished
@@ -484,7 +488,7 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
 endmodule
 
 
-module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost_x, ghost_y, direct);
+module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost_x, ghost_y, direct, last_key_received);
 
     parameter cbit = 11;
     parameter num_ghosts = 4;
@@ -508,31 +512,39 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     output reg [cbit:0] VGA_COLOR;
 
     // Ghost position and direction
-    input [5:0] ghost_x [0:num_ghosts-1];
-    input [4:0] ghost_y [0:num_ghosts-1];
-    input [1:0] direct [0:num_ghosts-1];
+    input [5:0] ghost_x;
+    input [4:0] ghost_y;
+    input [1:0] direct;
 
-    // Intermediate variables
+    // PS2 inputs
+    input [7:0] last_key_received;
+
+    // // Ghost position and direction
+    // input [5:0] ghost_x [0:num_ghosts-1];
+    // input [4:0] ghost_y [0:num_ghosts-1];
+    // input [1:0] direct [0:num_ghosts-1];
+
+    // // Intermediate variables
     reg [2:0] dx, dy; // Offset within the ghost's sprite
     reg [1:0] ghost_index; // Track which ghost we are rendering
     wire [8:0] canvas_x;
     wire [7:0] canvas_y;
     wire [cbit:0] color;
 
-    // Convert game coordinates to canvas coordinates
-    game_coord_2_canvas_coord coord_converter (
-        .game_x(ghost_x[ghost_index]), 
-        .game_y(ghost_y[ghost_index]), 
-        .canvas_x(canvas_x),
-        .canvas_y(canvas_y)
-    );
+    // // Convert game coordinates to canvas coordinates
+    // game_coord_2_canvas_coord coord_converter (
+    //     .game_x(ghost_x[ghost_index]), 
+    //     .game_y(ghost_y[ghost_index]), 
+    //     .canvas_x(canvas_x),
+    //     .canvas_y(canvas_y)
+    // );
 
-    // Ghost sprite memory read (each ghost has an 8x8 sprite)
-    ghost_sprite ghost_sprite_memory (
-        .address({dy, dx}), 
-        .clock(clock), 
-        .q(color)
-    );
+    // // Ghost sprite memory read (each ghost has an 8x8 sprite)
+    // ghost_sprite ghost_sprite_memory (
+    //     .address({dy, dx}), 
+    //     .clock(clock), 
+    //     .q(color)
+    // );
 
     always @(posedge clock) begin
         if (!resetn) begin
@@ -549,37 +561,39 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X,
             ghost_index <= 0;
         end 
         else if (enable) begin
-            wren <= 1; // Enable write
-            data <= color;
-            VGA_X <= canvas_x + dx;
-            VGA_Y <= canvas_y + dy;
-            VGA_COLOR <= color;
-            addr <= (canvas_y + dy) * 320 + (canvas_x + dx);
+    //         wren <= 1; // Enable write
+    //         data <= color;
+    //         VGA_X <= canvas_x + dx;
+    //         VGA_Y <= canvas_y + dy;
+    //         VGA_COLOR <= color;
+    //         addr <= (canvas_y + dy) * 320 + (canvas_x + dx);
 
-            // Update sprite coordinates
-            if (dx < 7) begin
-                dx <= dx + 1;
-            end
-            else if (dy < 7) begin
-                dx <= 0;
-                dy <= dy + 1;
-            end
-            else begin
-                // Finished rendering current ghost, move to the next one
-                if (ghost_index < num_ghosts - 1) begin
-                    ghost_index <= ghost_index + 1;
-                    dx <= 0;
-                    dy <= 0;
-                end
-                else begin
-                    // All ghosts rendered
+    //         // Update sprite coordinates
+    //         if (dx < 7) begin
+    //             dx <= dx + 1;
+    //         end
+    //         else if (dy < 7) begin
+    //             dx <= 0;
+    //             dy <= dy + 1;
+    //         end
+    //         else begin
+    //             // Finished rendering current ghost, move to the next one
+    //             if (ghost_index < num_ghosts - 1) begin
+    //                 ghost_index <= ghost_index + 1;
+    //                 dx <= 0;
+    //                 dy <= 0;
+    //             end
+    //             else begin
+    //                 // All ghosts rendered
+                //  if (last_key_received == 8'h29) begin
                     finished <= 1;
-                    wren <= 0;
-                    ghost_index <= 0;
-                    dx <= 0;
-                    dy <= 0;
-                end
-            end
+                //  end
+    //                 wren <= 0;
+    //                 ghost_index <= 0;
+    //                 dx <= 0;
+    //                 dy <= 0;
+    //             end
+    //         end
         end
         else if (finished) begin
             wren <= 0; // Disable write when finished

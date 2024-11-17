@@ -1,4 +1,4 @@
-module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, VGA_COLOR);
+module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, VGA_COLOR, last_key_received);
 
     parameter cbit = 11;
 
@@ -37,6 +37,9 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
     wire [8:0] vga_x_greeting, vga_x_playing, vga_x_game_over;
     wire [7:0] vga_y_greeting, vga_y_playing, vga_y_game_over;
     wire [cbit:0] vga_color_greeting, vga_color_playing, vga_color_game_over;
+
+    // PS2 controller input
+    input [7:0] last_key_received;
 
     // State transition logic
     always @ (posedge clock) begin
@@ -134,7 +137,8 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
         .q(q),
         .VGA_X(vga_x_playing),
         .VGA_Y(vga_y_playing),
-        .VGA_COLOR(vga_color_playing)
+        .VGA_COLOR(vga_color_playing),
+        .last_key_received(last_key_received)
     );
 
     m_game_over m_game_over_inst(
@@ -161,7 +165,8 @@ module m_playing(
     q,
     VGA_X,      // Additional output
     VGA_Y,      // Additional output
-    VGA_COLOR   // Additional output
+    VGA_COLOR,   // Additional output
+    last_key_received
 );
 
     parameter cbit = 11;
@@ -214,6 +219,9 @@ module m_playing(
     wire [7:0] vga_y_fill_screen, vga_y_render_blocks, vga_y_render_player, vga_y_render_food, vga_y_render_ghosts, vga_y_ghost_collision, vga_y_update_vga;
     wire [cbit:0] vga_color_clear_screen, vga_color_update_position, vga_color_eat_food, vga_color_update_ghost_directions, vga_color_update_ghost_positions;
     wire [cbit:0] vga_color_fill_screen, vga_color_render_blocks, vga_color_render_player, vga_color_render_food, vga_color_render_ghosts, vga_color_ghost_collision, vga_color_update_vga;
+
+    // PS2 controller input
+    input [7:0] last_key_received;
 
     // State transition logic
     always @ (posedge clock) begin
@@ -440,7 +448,8 @@ module m_playing(
         .wren(wr_clear_screen),
         .finished(f_clear_screen),
         .data(dt_clear_screen),
-        .addr(ad_clear_screen)
+        .addr(ad_clear_screen),
+        .last_key_received(last_key_received)
     );
 
     m_update_position m_update_position_inst(
@@ -548,7 +557,8 @@ module m_playing(
         .VGA_COLOR(vga_color_render_ghosts),
         .ghost_x(6'b0),
         .ghost_y(5'b0),
-        .direct(2'b0)
+        .direct(2'b0),
+        .last_key_received(last_key_received)
     );
     defparam m_render_ghosts_inst.num_ghosts = 1;
 
