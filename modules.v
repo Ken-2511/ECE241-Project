@@ -2,11 +2,11 @@ module m_greeting(clock, resetn, enable, finished, data, addr, wren);
 
     parameter cbit = 11;
 
-    // basic inputs
+    // Basic inputs
     input clock, resetn, enable;
-    // finish signal
+    // Finish signal
     output reg finished;
-    // data and address control
+    // Data and address control
     output reg [cbit:0] data;
     output reg [16:0] addr;
     output reg wren;
@@ -27,11 +27,11 @@ module m_game_over(clock, resetn, enable, finished, data, addr, wren);
 
     parameter cbit = 11;
 
-    // basic inputs
+    // Basic inputs
     input clock, resetn, enable;
-    // finish signal
+    // Finish signal
     output reg finished;
-    // data and address control
+    // Data and address control
     output reg [cbit:0] data;
     output reg [16:0] addr;
     output reg wren;
@@ -74,7 +74,7 @@ module m_clear_screen(clock, resetn, enable, wren, finished, data, addr);
             wren <= 0; // Disable write
         end
         else if (enable) begin
-            wren <= 0; // Enable write
+            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b001; // Example data value
             addr <= addr + 1; // Increment address
@@ -113,7 +113,7 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr);
             wren <= 0; // Disable write
         end
         else if (enable) begin
-            wren <= 0; // Enable write
+            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b010; // Example data value
             addr <= addr + 1; // Increment address
@@ -152,7 +152,7 @@ module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
             wren <= 0; // Disable write
         end
         else if (enable) begin
-            wren <= 0; // Enable write
+            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b011; // Example data value
             addr <= addr + 1; // Increment address
@@ -191,7 +191,7 @@ module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, ad
             wren <= 0; // Disable write
         end
         else if (enable) begin
-            wren <= 0; // Enable write
+            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b100; // Example data value
             addr <= addr + 1; // Increment address
@@ -230,7 +230,7 @@ module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, add
             wren <= 0; // Disable write
         end
         else if (enable) begin
-            wren <= 0; // Enable write
+            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b101; // Example data value
             addr <= addr + 1; // Increment address
@@ -269,7 +269,7 @@ module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
             wren <= 0; // Disable write
         end
         else if (enable) begin
-            wren <= 0; // Enable write
+            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b110; // Example data value
             addr <= addr + 1; // Increment address
@@ -308,7 +308,7 @@ module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
             wren <= 0; // Disable write
         end
         else if (enable) begin
-            wren <= 0; // Enable write
+            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b111; // Example data value
             addr <= addr + 1; // Increment address
@@ -433,7 +433,7 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
     reg [4:0] game_y;
     wire [8:0] canvas_x;
     wire [7:0] canvas_y;
-    wire [cbit:0] color; assign color = 12'b111;
+    wire [cbit:0] color; assign color = 12'b111101110111;
     wire food_exists;
 
     game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
@@ -463,7 +463,7 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
             else begin
                 wren <= 0; // Disable write
             end
-            // increment food position
+            // Increment food position
             if (game_x < 29) begin
                 game_x <= game_x + 1;
             end
@@ -484,9 +484,10 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
 endmodule
 
 
-module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr);
+module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost_x, ghost_y, direct);
 
     parameter cbit = 11;
+    parameter num_ghosts = 4;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -501,22 +502,88 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr);
     output reg [cbit:0] data;
     output reg [16:0] addr;
 
-    always @ (posedge clock) begin
+    // VGA outputs
+    output reg [8:0] VGA_X;
+    output reg [7:0] VGA_Y;
+    output reg [cbit:0] VGA_COLOR;
+
+    // Ghost position and direction
+    input [5:0] ghost_x [0:num_ghosts-1];
+    input [4:0] ghost_y [0:num_ghosts-1];
+    input [1:0] direct [0:num_ghosts-1];
+
+    // Intermediate variables
+    reg [2:0] dx, dy; // Offset within the ghost's sprite
+    reg [1:0] ghost_index; // Track which ghost we are rendering
+    wire [8:0] canvas_x;
+    wire [7:0] canvas_y;
+    wire [cbit:0] color;
+
+    // Convert game coordinates to canvas coordinates
+    game_coord_2_canvas_coord coord_converter (
+        .game_x(ghost_x[ghost_index]), 
+        .game_y(ghost_y[ghost_index]), 
+        .canvas_x(canvas_x),
+        .canvas_y(canvas_y)
+    );
+
+    // Ghost sprite memory read (each ghost has an 8x8 sprite)
+    ghost_sprite ghost_sprite_memory (
+        .address({dy, dx}), 
+        .clock(clock), 
+        .q(color)
+    );
+
+    always @(posedge clock) begin
         if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
+            // Reset state
+            finished <= 0;
+            data <= 12'b000;
             addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
+            wren <= 0;
+            VGA_X <= 0;
+            VGA_Y <= 0;
+            VGA_COLOR <= 0;
+            dx <= 0;
+            dy <= 0;
+            ghost_index <= 0;
+        end 
         else if (enable) begin
-            wren <= 0; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b011; // Example data value
-            addr <= addr + 1; // Increment address
+            wren <= 1; // Enable write
+            data <= color;
+            VGA_X <= canvas_x + dx;
+            VGA_Y <= canvas_y + dy;
+            VGA_COLOR <= color;
+            addr <= (canvas_y + dy) * 320 + (canvas_x + dx);
+
+            // Update sprite coordinates
+            if (dx < 7) begin
+                dx <= dx + 1;
+            end
+            else if (dy < 7) begin
+                dx <= 0;
+                dy <= dy + 1;
+            end
+            else begin
+                // Finished rendering current ghost, move to the next one
+                if (ghost_index < num_ghosts - 1) begin
+                    ghost_index <= ghost_index + 1;
+                    dx <= 0;
+                    dy <= 0;
+                end
+                else begin
+                    // All ghosts rendered
+                    finished <= 1;
+                    wren <= 0;
+                    ghost_index <= 0;
+                    dx <= 0;
+                    dy <= 0;
+                end
+            end
         end
         else if (finished) begin
             wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
+            finished <= 0; // Reset to initial state
         end
     end
 
@@ -548,7 +615,7 @@ module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr);
             wren <= 0; // Disable write
         end
         else if (enable) begin
-            wren <= 0; // Enable write
+            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b100; // Example data value
             addr <= addr + 1; // Increment address
@@ -571,35 +638,35 @@ module m_update_vga(
     data,
     addr,
     q,
-    VGA_X,      // 新增输出
-    VGA_Y,      // 新增输出
-    VGA_COLOR   // 新增输出
+    VGA_X,      // Additional output
+    VGA_Y,      // Additional output
+    VGA_COLOR   // Additional output
 );
 
     parameter cbit = 11;
 
-    // 基本输入
+    // Basic inputs
     input clock, resetn, enable;
 
-    // 输出
+    // Outputs
     output reg wren;
     output reg finished;
     output reg [cbit:0] data;
     output reg [16:0] addr;
-    // 输入
+    // Input
     input [cbit:0] q;
 
-    // 新增输出用于VGA
+    // Additional outputs for VGA
     output reg [8:0] VGA_X;
     output reg [7:0] VGA_Y;
     output reg [cbit:0] VGA_COLOR;
 
-    // 内部计数器
+    // Internal counters
     reg [8:0] x_counter;
     reg [7:0] y_counter;
 
-    // 假设RAM的数据输出连接到data线（wren=0时读取）
-    // 如果有专门的RAM数据输出信号，请根据实际情况调整
+    // Assume RAM data output is connected to the data line (read when wren=0)
+    // If there is a dedicated RAM data output signal, adjust accordingly
 
     always @ (posedge clock) begin
         if (!resetn) begin
@@ -613,12 +680,12 @@ module m_update_vga(
             addr <= 0;
         end else if (enable) begin
             if (!finished) begin
-                wren <= 0; // 读取模式，不写入RAM
+                wren <= 0; // Read mode, do not write to RAM
                 if (x_counter < 320) begin
                     VGA_X <= x_counter;
                     VGA_Y <= y_counter;
-                    addr <= y_counter * 320 + x_counter; // 假设屏幕分辨率为320x240
-                    VGA_COLOR <= q; // 从RAM读取的颜色数据
+                    addr <= y_counter * 320 + x_counter; // Assume screen resolution is 320x240
+                    VGA_COLOR <= q; // Color data read from RAM
                     x_counter <= x_counter + 1;
                 end else if (y_counter < 240) begin
                     x_counter <= 0;
@@ -632,7 +699,7 @@ module m_update_vga(
                     VGA_COLOR <= 0;
                 end
             end else begin
-                finished <= 0; // 重置完成标志
+                finished <= 0; // Reset finished flag
             end
         end else begin
             wren <= 0;

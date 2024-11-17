@@ -1,5 +1,5 @@
 Flow report for milestone2
-Sun Nov 17 00:50:52 2024
+Sun Nov 17 01:07:43 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,19 +41,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Sun Nov 17 00:50:46 2024          ;
+; Flow Status                     ; Successful - Sun Nov 17 01:07:37 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; milestone2                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 405 / 32,070 ( 1 % )                           ;
-; Total registers                 ; 414                                            ;
+; Logic utilization (in ALMs)     ; 413 / 32,070 ( 1 % )                           ;
+; Total registers                 ; 413                                            ;
 ; Total pins                      ; 126 / 457 ( 28 % )                             ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 1,843,968 / 4,065,280 ( 45 % )                 ;
-; Total DSP Blocks                ; 0 / 87 ( 0 % )                                 ;
+; Total block memory bits         ; 1,844,345 / 4,065,280 ( 45 % )                 ;
+; Total DSP Blocks                ; 1 / 87 ( 1 % )                                 ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
 ; Total HSSI TX PCSs              ; 0                                              ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/17/2024 00:47:25 ;
+; Start date & time ; 11/17/2024 01:04:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; milestone2          ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 255638748126082.173182244506944        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 255638748126082.173182346526660        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -96,11 +96,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4945 MB             ; 00:00:13                           ;
-; Fitter               ; 00:03:08     ; 1.1                     ; 8020 MB             ; 00:28:15                           ;
+; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 4942 MB             ; 00:00:13                           ;
+; Fitter               ; 00:03:00     ; 1.1                     ; 8020 MB             ; 00:27:50                           ;
 ; Assembler            ; 00:00:04     ; 1.0                     ; 5248 MB             ; 00:00:04                           ;
 ; Timing Analyzer      ; 00:00:05     ; 2.7                     ; 5485 MB             ; 00:00:12                           ;
-; Total                ; 00:03:23     ; --                      ; --                  ; 00:28:44                           ;
+; Total                ; 00:03:14     ; --                      ; --                  ; 00:28:19                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
