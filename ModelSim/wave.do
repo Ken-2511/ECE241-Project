@@ -25,14 +25,23 @@ add wave -noupdate -divider fsm1
 add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/U3/VGA_COLOR
 add wave -noupdate -label q -radix hexadecimal /testbench/U1/U3/q
 
+add wave -noupdate -divider vga_adapter
+add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/VGA/colour
+add wave -noupdate -label VGA_X -radix hexadecimal /testbench/U1/VGA/x
+add wave -noupdate -label VGA_Y -radix hexadecimal /testbench/U1/VGA/y
+
 add wave -noupdate -divider fsm2
 add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/U3/m_playing_inst/VGA_COLOR
 add wave -noupdate -label q -radix hexadecimal /testbench/U1/U3/m_playing_inst/q
+add wave -noupdate -label VGA_X -radix hexadecimal /testbench/U1/U3/m_playing_inst/VGA_X
+add wave -noupdate -label VGA_Y -radix hexadecimal /testbench/U1/U3/m_playing_inst/VGA_Y
 
 add wave -noupdate -divider update_vga_signals
 add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_update_vga_inst/VGA_COLOR
 add wave -noupdate -label q -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_update_vga_inst/q
 add wave -noupdate -label wren -radix binary /testbench/U1/U3/m_playing_inst/m_update_vga_inst/wren
+add wave -noupdate -label VGA_X -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_update_vga_inst/VGA_X
+add wave -noupdate -label VGA_Y -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_update_vga_inst/VGA_Y
 
 add wave -noupdate -divider canvas
 add wave -noupdate -label data -radix hexadecimal /testbench/U1/canvas_inst/data

@@ -21,4 +21,4 @@ vsim work.testbench -Lf 220model -Lf altera_mf_ver -Lf verilog
 # show waveforms specified in wave.do
 do wave.do
 # advance the simulation the desired amount of time
-run 100000 ns
+run 3000 ns

@@ -1,20 +1,7 @@
-module fsm_game_state(
-    clock,
-    resetn,
-    enable,
-    key3,
-    data,
-    addr,
-    wren,
-    q,
-    VGA_X,      // 新增输出
-    VGA_Y,      // 新增输出
-    VGA_COLOR   // 新增输出
-);
+module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, VGA_COLOR);
 
     // 基本输入
     input clock, resetn, enable;
-    input key3;
 
     // 输出用于RAM控制
     output reg [2:0] data;
