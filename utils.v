@@ -61,18 +61,57 @@ module object_mem (address, clock, data);
 endmodule
 
 
-module delay_one_cycle(clock, resetn, signal_in, signal_out);
+module delay_one_cycle #(parameter n = 8, parameter n_cycles = 1) (
+    input clock, 
+    input resetn,
+    input [n-1:0] signal_in,
+    output reg [n-1:0] signal_out
+);
 
-    parameter n = 8;
+    // 定义一个移位寄存器，用于存储中间延迟值
+    reg [n-1:0] shift_reg [n_cycles-1:0];
+    integer i;
 
-    input clock, resetn;
-    input [n-1:0] signal_in;
-    output reg [n-1:0] signal_out;
-
-    always @(posedge clock)
-        if (!resetn)
+    always @(posedge clock) begin
+        if (!resetn) begin
+            // 复位移位寄存器和输出
+            for (i = 0; i < n_cycles; i = i + 1) begin
+                shift_reg[i] <= 0;
+            end
             signal_out <= 0;
-        else
-            signal_out <= signal_in;
+        end else begin
+            // 在移位寄存器中依次传递数据
+            shift_reg[0] <= signal_in;
+            for (i = 1; i < n_cycles; i = i + 1) begin
+                shift_reg[i] <= shift_reg[i-1];
+            end
+            // 输出延迟后的数据
+            signal_out <= shift_reg[n_cycles-1];
+        end
+    end
+endmodule
+
+
+
+module game_coord_2_canvas_coord (game_x, game_y, canvas_x, canvas_y);
+
+    input [5:0] game_x;
+    input [4:0] game_y;
+    output [8:0] canvas_x;
+    output [7:0] canvas_y;
+
+    assign canvas_x = game_x * 8;
+    assign canvas_y = game_y * 8;
+
+endmodule
+
+
+module canvas_coord_2_mem_addr (canvas_x, canvas_y, mem_addr);
+
+    input [8:0] canvas_x;
+    input [7:0] canvas_y;
+    output [16:0] mem_addr;
+
+    assign mem_addr = canvas_x * 320 + canvas_y;
 
 endmodule

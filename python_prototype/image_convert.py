@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import cv2
 
 
 def array2memory(array, bits_per_color_channel, depth, filename=None):
@@ -24,42 +25,45 @@ def array2memory(array, bits_per_color_channel, depth, filename=None):
     return memory
 
 
-def convert_picture(image_path, bits_per_color_channel=8):
-    import cv2
-    import numpy as np
-
+def convert_picture(image_path, bits_per_color_channel=8, target_width=320, target_height=240, pad=False):
     # Read the image
     image = cv2.imread(image_path)
 
-    # Get the original image dimensions
-    original_height, original_width = image.shape[:2]
-
-    # Calculate the scaling factor and resize the image
-    scale_factor = min(320 / original_width, 240 / original_height)
-    new_width = int(original_width * scale_factor)
-    new_height = int(original_height * scale_factor)
-    resized_image = cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_AREA)
-
-    # Pad the image to 240x320 size
-    top_pad = (240 - new_height) // 2
-    bottom_pad = 240 - new_height - top_pad
-    left_pad = (320 - new_width) // 2
-    right_pad = 320 - new_width - left_pad
-
-    # Pad the image with a black border
-    padded_image = cv2.copyMakeBorder(resized_image, top_pad, bottom_pad, left_pad, right_pad, cv2.BORDER_CONSTANT, value=[0, 0, 0])
-
     # Convert the image from BGR to RGB format
-    rgb_image = cv2.cvtColor(padded_image, cv2.COLOR_BGR2RGB)
+    rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    if pad:
+        # Resize the image while maintaining aspect ratio and add padding
+        scale_factor = min(target_width / rgb_image.shape[1], target_height / rgb_image.shape[0])
+        new_width = int(rgb_image.shape[1] * scale_factor)
+        new_height = int(rgb_image.shape[0] * scale_factor)
+        resized_image = cv2.resize(rgb_image, (new_width, new_height), interpolation=cv2.INTER_NEAREST)
+
+        # Calculate padding for each side to make the resized image match the target size
+        top_pad = (target_height - new_height) // 2
+        bottom_pad = target_height - new_height - top_pad
+        left_pad = (target_width - new_width) // 2
+        right_pad = target_width - new_width - left_pad
+
+        # Add padding with black color (0, 0, 0)
+        padded_image = cv2.copyMakeBorder(resized_image, top_pad, bottom_pad, left_pad, right_pad,
+                                          cv2.BORDER_CONSTANT, value=[0, 0, 0])
+        final_image = padded_image
+
+    else:
+        # Directly resize the image to the target size, stretching or compressing it as necessary
+        final_image = cv2.resize(rgb_image, (target_width, target_height), interpolation=cv2.INTER_NEAREST)
 
     # Apply the bit depth quantization
     max_value = (2 ** bits_per_color_channel) - 1
-    quantized_image = (rgb_image // (256 // (max_value + 1))).astype(np.uint8)
+    quantized_image = (final_image // (256 // (max_value + 1))).astype(np.uint8)
 
     # Check the result
-    print("Original size:", original_width, "x", original_height)
-    print("Resized size:", new_width, "x", new_height)
-    print("Padded size:", quantized_image.shape)
+    print("Original size:", image.shape[1], "x", image.shape[0])
+    if pad:
+        print("Resized size (with padding):", final_image.shape)
+    else:
+        print("Resized size (stretched):", final_image.shape)
 
     # Save or display the quantized image (optional)
     cv2.imwrite("processed_image.jpg", (quantized_image * (255 // max_value)))  # Scale back for visualization
@@ -68,7 +72,15 @@ def convert_picture(image_path, bits_per_color_channel=8):
 
 
 if __name__ == '__main__':
-    # Specify bit depth per channel
+    # Specify parameters
     bits_per_channel = 4  # Example: 4 bits per color channel
-    converted_image = convert_picture("test_picture.png", bits_per_color_channel=bits_per_channel)
-    memory = array2memory(converted_image, bits_per_channel, 240 * 320, "my_mem.mif")
+    target_width = 8    # Custom width
+    target_height = 8   # Custom height
+    pad = False            # Enable padding or disable for stretching
+
+    # Convert and process the image
+    converted_image = convert_picture("player.png", bits_per_color_channel=bits_per_channel,
+                                      target_width=target_width, target_height=target_height, pad=pad)
+
+    # Generate memory file
+    memory = array2memory(converted_image, bits_per_channel, target_width * target_height, "my_mem.mif")

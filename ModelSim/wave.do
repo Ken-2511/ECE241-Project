@@ -1,36 +1,38 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -label CLOCK_50 -radix binary /testbench/CLOCK_50
-add wave -noupdate -label KEY -radix binary /testbench/KEY
-add wave -noupdate -label SW -radix binary /testbench/SW
-add wave -noupdate -label VGA_R -radix hexadecimal /testbench/VGA_R
-add wave -noupdate -label VGA_G -radix hexadecimal /testbench/VGA_G
-add wave -noupdate -label VGA_B -radix hexadecimal /testbench/VGA_B
-add wave -noupdate -label VGA_HS -radix binary /testbench/VGA_HS
-add wave -noupdate -label VGA_VS -radix binary /testbench/VGA_VS
-add wave -noupdate -label VGA_BLANK_N -radix binary /testbench/VGA_BLANK_N
-add wave -noupdate -label VGA_SYNC_N -radix binary /testbench/VGA_SYNC_N
-add wave -noupdate -label VGA_CLK -radix binary /testbench/VGA_CLK
 
-add wave -noupdate -divider milestone2
-add wave -noupdate -label data -radix hexadecimal /testbench/U1/data
-add wave -noupdate -label addr -radix hexadecimal /testbench/U1/addr
-add wave -noupdate -label wren -radix binary /testbench/U1/wren
-add wave -noupdate -label q -radix hexadecimal /testbench/U1/q
-add wave -noupdate -label VGA_X -radix hexadecimal /testbench/U1/VGA_X
-add wave -noupdate -label VGA_Y -radix hexadecimal /testbench/U1/VGA_Y
-add wave -noupdate -label VGA_X_D -radix hexadecimal /testbench/U1/VGA_X_D
-add wave -noupdate -label VGA_Y_D -radix hexadecimal /testbench/U1/VGA_Y_D
-add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/VGA_COLOR
 
-add wave -noupdate -divider fsm1
-add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/U3/VGA_COLOR
-add wave -noupdate -label q -radix hexadecimal /testbench/U1/U3/q
+#add wave -noupdate -label CLOCK_50 -radix binary /testbench/CLOCK_50
+#add wave -noupdate -label KEY -radix binary /testbench/KEY
+#add wave -noupdate -label SW -radix binary /testbench/SW
+#add wave -noupdate -label VGA_R -radix hexadecimal /testbench/VGA_R
+#add wave -noupdate -label VGA_G -radix hexadecimal /testbench/VGA_G
+#add wave -noupdate -label VGA_B -radix hexadecimal /testbench/VGA_B
+#add wave -noupdate -label VGA_HS -radix binary /testbench/VGA_HS
+#add wave -noupdate -label VGA_VS -radix binary /testbench/VGA_VS
+#add wave -noupdate -label VGA_BLANK_N -radix binary /testbench/VGA_BLANK_N
+#add wave -noupdate -label VGA_SYNC_N -radix binary /testbench/VGA_SYNC_N
+#add wave -noupdate -label VGA_CLK -radix binary /testbench/VGA_CLK
 
-add wave -noupdate -divider vga_adapter
-add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/VGA/colour
-add wave -noupdate -label VGA_X -radix hexadecimal /testbench/U1/VGA/x
-add wave -noupdate -label VGA_Y -radix hexadecimal /testbench/U1/VGA/y
+#add wave -noupdate -divider milestone2
+#add wave -noupdate -label data -radix hexadecimal /testbench/U1/data
+#add wave -noupdate -label addr -radix hexadecimal /testbench/U1/addr
+#add wave -noupdate -label wren -radix binary /testbench/U1/wren
+#add wave -noupdate -label q -radix hexadecimal /testbench/U1/q
+#add wave -noupdate -label VGA_X -radix hexadecimal /testbench/U1/VGA_X
+#add wave -noupdate -label VGA_Y -radix hexadecimal /testbench/U1/VGA_Y
+#add wave -noupdate -label VGA_X_D -radix hexadecimal /testbench/U1/VGA_X_D
+#add wave -noupdate -label VGA_Y_D -radix hexadecimal /testbench/U1/VGA_Y_D
+#add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/VGA_COLOR
+
+#add wave -noupdate -divider fsm1
+#add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/U3/VGA_COLOR
+#add wave -noupdate -label q -radix hexadecimal /testbench/U1/U3/q
+
+#add wave -noupdate -divider vga_adapter
+#add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/VGA/colour
+#add wave -noupdate -label VGA_X -radix hexadecimal /testbench/U1/VGA/x
+#add wave -noupdate -label VGA_Y -radix hexadecimal /testbench/U1/VGA/y
 
 add wave -noupdate -divider fsm2
 add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/U3/m_playing_inst/VGA_COLOR
@@ -50,6 +52,24 @@ add wave -noupdate -label data -radix hexadecimal /testbench/U1/canvas_inst/data
 add wave -noupdate -label addr -radix hexadecimal /testbench/U1/canvas_inst/address
 add wave -noupdate -label wren -radix binary /testbench/U1/canvas_inst/wren
 add wave -noupdate -label q -radix hexadecimal /testbench/U1/canvas_inst/q
+
+#add wave -noupdate -divider player
+#add wave -noupdate -label color -radix hexadecimal sim:/testbench/U1/U3/m_playing_inst/m_render_player_inst/color
+#add wave -noupdate -label dx -radix hexadecimal sim:/testbench/U1/U3/m_playing_inst/m_render_player_inst/dx
+#add wave -noupdate -label dy -radix hexadecimal sim:/testbench/U1/U3/m_playing_inst/m_render_player_inst/dy
+#add wave -noupdate -label addr -radix hexadecimal sim:/testbench/U1/U3/m_playing_inst/m_render_player_inst/addr
+
+#add wave -noupdate -divider player-memory
+#add wave -noupdate -label address -radix hexadecimal sim:/testbench/U1/U3/m_playing_inst/m_render_player_inst/U2/address
+#add wave -noupdate -label q -radix hexadecimal sim:/testbench/U1/U3/m_playing_inst/m_render_player_inst/U2/q
+
+add wave -noupdate -divider render_food
+add wave -noupdate -label color -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_render_food_inst/color
+add wave -noupdate -label game_x -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_render_food_inst/game_x
+add wave -noupdate -label game_y -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_render_food_inst/game_y
+add wave -noupdate -label addr -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_render_food_inst/addr
+add wave -noupdate -label data -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_render_food_inst/data
+add wave -noupdate -label food_exists -radix binary /testbench/U1/U3/m_playing_inst/m_render_food_inst/food_exists
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {10000 ps} 0}

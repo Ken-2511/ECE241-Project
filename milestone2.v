@@ -84,8 +84,10 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 
 	delay_one_cycle U4 (CLOCK_50, KEY[0], VGA_X, VGA_X_D);
 	defparam U4.n = 9;
+	defparam U4.n_cycles = 1;
 	delay_one_cycle U5 (CLOCK_50, KEY[0], VGA_Y, VGA_Y_D);
 	defparam U5.n = 8;
+	defparam U5.n_cycles = 1;
 
     // connect to VGA controller
     vga_adapter VGA (

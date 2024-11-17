@@ -503,6 +503,7 @@ module m_playing(
         .addr(ad_render_blocks)
     );
 
+// m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, game_x, game_y, direct);
     m_render_player m_render_player_inst(
         .clock(clock),
         .resetn(resetn),
@@ -510,7 +511,13 @@ module m_playing(
         .wren(wr_render_player),
         .finished(f_render_player),
         .data(dt_render_player),
-        .addr(ad_render_player)
+        .addr(ad_render_player),
+        .VGA_X(vga_x_render_player),
+        .VGA_Y(vga_y_render_player),
+        .VGA_COLOR(vga_color_render_player),
+        .game_x(6'b0),
+        .game_y(5'b0),
+        .direct(2'b0)
     );
 
     m_render_food m_render_food_inst(

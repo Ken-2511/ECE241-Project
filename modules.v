@@ -322,7 +322,7 @@ module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
 endmodule
 
 
-module m_render_player(clock, resetn, enable, wren, finished, data, addr);
+module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, game_x, game_y, direct);
 
     parameter cbit = 11;
 
@@ -339,21 +339,66 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr);
     output reg [cbit:0] data;
     output reg [16:0] addr;
 
+    // VGA outputs
+    output reg [8:0] VGA_X;
+    output reg [7:0] VGA_Y;
+    output reg [cbit:0] VGA_COLOR;
+
+    // Player position and direction
+    input [5:0] game_x;
+    input [4:0] game_y;
+    input [1:0] direct;
+    wire [8:0] canvas_x;
+    wire [7:0] canvas_y;
+    reg [2:0] dx, dy;
+    wire [cbit:0] color;
+
+    game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
+
+    player U2 (
+        .address({dy * 8 + dx}),
+        .clock(clock),
+        .q(color)
+    );
+
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
-            data <= 3'b000;
+            data <= 12'b000;
             addr <= 17'b0;
             wren <= 0; // Disable write
+            dx <= 0;
+            dy <= 0;
         end
         else if (enable) begin
-            wren <= 0; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b001; // Example data value
-            addr <= addr + 1; // Increment address
+            wren <= 1; // Enable write
+            data <= color;
+            if (dx == 0 && dy == 0) begin
+                addr <= canvas_y * 320 + canvas_x;
+                dx <= dx + 1;
+            end
+            else if (dx < 7) begin
+                VGA_X <= canvas_x + dx;
+                VGA_Y <= canvas_y + dy;
+                dx <= dx + 1;
+                addr <= addr + 1;
+            end
+            else if (dy < 7) begin
+                VGA_X <= canvas_x + dx;
+                VGA_Y <= canvas_y + dy;
+                dy <= dy + 1;
+                dx <= 0;
+                addr <= addr + 1;
+            end
+            else begin
+                finished <= 1;  // Finish immediately when enabled, for testing
+                wren <= 0;
+                addr <= 0;
+                dx <= 0;
+                dy <= 0;
+            end
         end
         else if (finished) begin
-            wren <= 0; // Disable write when finished
             finished <= 0;  // Reset to initial state
         end
     end
@@ -361,7 +406,7 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr);
 endmodule
 
 
-module m_render_food(clock, resetn, enable, wren, finished, data, addr);
+module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR);
 
     parameter cbit = 11;
 
@@ -378,18 +423,57 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr);
     output reg [cbit:0] data;
     output reg [16:0] addr;
 
+    // VGA outputs
+    output reg [8:0] VGA_X;
+    output reg [7:0] VGA_Y;
+    output reg [cbit:0] VGA_COLOR;
+
+    // Food position
+    reg [5:0] game_x;
+    reg [4:0] game_y;
+    wire [8:0] canvas_x;
+    wire [7:0] canvas_y;
+    wire [cbit:0] color; assign color = 12'b111;
+    wire food_exists;
+
+    game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
+
+    food U2 (
+        .address({game_y * 29 + game_x}),
+        .clock(clock),
+        .q(food_exists)
+    );
+
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
             data <= 3'b000;
             addr <= 17'b0;
             wren <= 0; // Disable write
+            game_x <= 0;
+            game_y <= 0;
         end
         else if (enable) begin
-            wren <= 0; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b010; // Example data value
-            addr <= addr + 1; // Increment address
+            // Check if food exists
+            if (food_exists) begin
+                wren <= 1; // Enable write
+                data <= color;
+                addr <= canvas_y * 320 + canvas_x;
+            end
+            else begin
+                wren <= 0; // Disable write
+            end
+            // increment food position
+            if (game_x < 29) begin
+                game_x <= game_x + 1;
+            end
+            else if (game_y < 13) begin
+                game_x <= 0;
+                game_y <= game_y + 1;
+            end
+            else begin
+                finished <= 1;
+            end
         end
         else if (finished) begin
             wren <= 0; // Disable write when finished
