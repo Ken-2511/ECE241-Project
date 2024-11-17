@@ -1,72 +1,60 @@
-	// inout PS2_CLK;
-	// inout PS2_DAT;
+    // top DUT (.CLOCK_50(CLOCK_50), .SW(SW), .KEY(KEY), .HEX0(HEX0), .HEX1(HEX1), 
+    //          .HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5), .LEDR(LEDR), 
+    //          .VGA_X(VGA_X), .VGA_Y(VGA_Y), .VGA_COLOR(VGA_COLOR), .plot(plot));
 
-    // // for PS2 controller
-	// wire [7:0] ps2_key_data;
-	// wire ps2_key_pressed;
-	// reg [7:0] last_key_received;
+module top(CLOCK_50, SW, KEY, HEX5, HEX4, HEX3, HEX2, HEX1, HEX0, LEDR, VGA_X, VGA_Y, VGA_COLOR, plot);
 	
-	// wire hs_enable;
-	// half_sec_counter counter(CLOCK_50, KEY[0], hs_enable);
-	
-	// //for getting keystrokes
-	// always @(CLOCK_50) begin
-	// 	if(!KEY[0])
-	// 		last_key_received = 8'b0;
-	// 	else if(hs_enable)
-	// 		last_key_received <= ps2_key_data;
-	// end 
-	
-	// PS2_Controller PS2 (
-	// 	// Inputs
-	// 	.CLOCK_50			(CLOCK_50),
-	// 	.reset				(~KEY[0]),
+	input CLOCK_50;
+	input [9:0] SW;
+	input [3:0] KEY;
+    output [6:0] HEX5, HEX4, HEX3, HEX2, HEX1, HEX0;
+	output [8:0] VGA_X;
+	output [7:0] VGA_Y;
+	output [2:0] VGA_COLOR;
+	output plot;
+	output [9:0] LEDR;
 
-	// 	// Bidirectionals
-	// 	.PS2_CLK			(PS2_CLK),
-	// 	.PS2_DAT			(PS2_DAT),
+	// for data memory
+	wire [2:0] data;
+	wire [16:0] addr;
+	wire wren;
+	wire [2:0] q;
 
-	// 	// Outputs
-	// 	.received_data		(ps2_key_data),
-	// 	.received_data_en	(ps2_key_pressed)
-	// );
+	wire [8:0] X;           // starting x location of object
+	wire [7:0] Y;           // starting y location of object
 
-    
-	// //note: may have to put the current top module in another module later
-	// //player character
-	// wire [8:0] vga_player_x, vga_player_y;
-	// reg [8:0] x, y;
-	// wire [3:0] w; //internal carry to deal with the movement FSM
-	// wire [2:0] direction;
-	// parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
-	
-	// initial begin
-	// 	x = 9'b0;
-	// 	y = 9'b0;
-	// end 
-	
-	// get_direction U4 (last_key_received, hs_enable, w);
-	// movement_FSM U5 (CLOCK_50, KEY[0], hs_enable, w, direction);
-	
-	// always @(hs_enable) begin 
-	// 	if(direction == up) begin 
-	// 		x = x;
-	// 		y = y - 1;
-	// 	end 
-	// 	else if (direction == left) begin 
-	// 		x = x - 1;
-	// 		y = y;
-	// 	end 
-	// 	else if(direction == down) begin 
-	// 		x = x;
-	// 		y = y + 1;
-	// 	end 
-	// 	else if(direction == right) begin 
-	// 		x = x + 1;
-	// 		y = y;
-	// 	end 
-	// end 
-	
-	// assign vga_player_x = x;
-	// assign vga_player_y = y;
-	
+	// store (x,y) starting location
+    regn U1 (SW[7:0], KEY[0], ~KEY[1], CLOCK_50, Y);
+        defparam U1.n = 8;
+    regn U2 (SW[8:0], KEY[0], ~KEY[2], CLOCK_50, X);
+        defparam U2.n = 9;
+
+    hex7seg H3 (X[7:4], HEX3);
+    hex7seg H2 (X[3:0], HEX2);
+    hex7seg H1 ({1'b0, Y[6:4]}, HEX1);
+    hex7seg H0 (Y[3:0], HEX0);
+
+    assign plot = ~KEY[3];
+
+	fsm_game_state U3 (
+		.clock(CLOCK_50),
+		.resetn(KEY[0]),
+		.enable(~KEY[3]),
+		.data(data),
+		.addr(addr),
+		.wren(wren),
+		.q(q),
+		.VGA_X(VGA_X),
+		.VGA_Y(VGA_Y),
+		.VGA_COLOR(VGA_COLOR)
+	);
+
+	canvas canvas_inst(
+        .address(addr),
+        .clock(CLOCK_50),
+        .data(data),
+        .wren(wren),
+        .q(q)
+    );
+
+endmodule
