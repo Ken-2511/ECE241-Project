@@ -69,6 +69,6 @@ def convert_picture(image_path, bits_per_color_channel=8):
 
 if __name__ == '__main__':
     # Specify bit depth per channel
-    bits_per_channel = 8  # Example: 4 bits per color channel
+    bits_per_channel = 4  # Example: 4 bits per color channel
     converted_image = convert_picture("test_picture.png", bits_per_color_channel=bits_per_channel)
     memory = array2memory(converted_image, bits_per_channel, 240 * 320, "my_mem.mif")

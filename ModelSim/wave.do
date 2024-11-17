@@ -19,6 +19,8 @@ add wave -noupdate -label wren -radix binary /testbench/U1/wren
 add wave -noupdate -label q -radix hexadecimal /testbench/U1/q
 add wave -noupdate -label VGA_X -radix hexadecimal /testbench/U1/VGA_X
 add wave -noupdate -label VGA_Y -radix hexadecimal /testbench/U1/VGA_Y
+add wave -noupdate -label VGA_X_D -radix hexadecimal /testbench/U1/VGA_X_D
+add wave -noupdate -label VGA_Y_D -radix hexadecimal /testbench/U1/VGA_Y_D
 add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/VGA_COLOR
 
 add wave -noupdate -divider fsm1

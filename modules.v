@@ -1,11 +1,13 @@
 module m_greeting(clock, resetn, enable, finished, data, addr, wren);
 
+    parameter cbit = 11;
+
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
     // data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
     output reg wren;
 
@@ -23,12 +25,14 @@ endmodule
 
 module m_game_over(clock, resetn, enable, finished, data, addr, wren);
 
+    parameter cbit = 11;
+
     // basic inputs
     input clock, resetn, enable;
     // finish signal
     output reg finished;
     // data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
     output reg wren;
 
@@ -47,6 +51,8 @@ endmodule
 
 module m_clear_screen(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
     
@@ -57,7 +63,7 @@ module m_clear_screen(clock, resetn, enable, wren, finished, data, addr);
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -84,6 +90,8 @@ endmodule
 
 module m_update_position(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -94,7 +102,7 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr);
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -121,6 +129,8 @@ endmodule
 
 module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -131,7 +141,7 @@ module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -158,6 +168,8 @@ endmodule
 
 module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -168,7 +180,7 @@ module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, ad
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -195,6 +207,8 @@ endmodule
 
 module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -205,7 +219,7 @@ module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, add
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -232,6 +246,8 @@ endmodule
 
 module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -242,7 +258,7 @@ module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -269,6 +285,8 @@ endmodule
 
 module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -279,7 +297,7 @@ module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -306,6 +324,8 @@ endmodule
 
 module m_render_player(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -316,7 +336,7 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr);
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -343,6 +363,8 @@ endmodule
 
 module m_render_food(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -353,7 +375,7 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr);
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -380,6 +402,8 @@ endmodule
 
 module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -390,7 +414,7 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr);
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -417,6 +441,8 @@ endmodule
 
 module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr);
 
+    parameter cbit = 11;
+
     // Basic inputs
     input clock, resetn, enable;
 
@@ -427,7 +453,7 @@ module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr);
     output reg finished;
 
     // Data and address control
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
 
     always @ (posedge clock) begin
@@ -466,7 +492,7 @@ module m_update_vga(
     VGA_COLOR   // 新增输出
 );
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // 基本输入
     input clock, resetn, enable;
@@ -474,10 +500,10 @@ module m_update_vga(
     // 输出
     output reg wren;
     output reg finished;
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
     // 输入
-    input [2:0] q;
+    input [cbit:0] q;
 
     // 新增输出用于VGA
     output reg [8:0] VGA_X;

@@ -9,9 +9,9 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 				VGA_R, VGA_G, VGA_B,
 				VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK,
 				PS2_CLK, PS2_DAT,
-				HEX4, HEX5, LEDR, VGA_X, VGA_Y, VGA_COLOR, plot);
+				HEX4, HEX5, LEDR, VGA_X_D, VGA_Y_D, VGA_COLOR, plot);
 	
-    parameter cbit = 23;
+    parameter cbit = 11;
 
 	input CLOCK_50;
 	input [7:0] SW;
@@ -30,16 +30,18 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 	output [6:0] HEX4;
 	output [6:0] HEX5;
 	output [9:0] LEDR;
-	output wire [8:0] VGA_X;
-	output wire [7:0] VGA_Y;
+	output wire [8:0] VGA_X_D; // delayed signal
+	output wire [7:0] VGA_Y_D;
+	wire [8:0] VGA_X;
+	wire [7:0] VGA_Y;
 	output wire [cbit:0] VGA_COLOR;
 	output plot;
 
 	// for data memory
-	wire [2:0] data;
+	wire [cbit:0] data;
 	wire [16:0] addr;
 	wire wren;
-	wire [2:0] q;
+	wire [cbit:0] q;
 
 	wire [8:0] X;           // starting x location of object
 	wire [7:0] Y;           // starting y location of object
@@ -80,13 +82,18 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
         .q(q)
     );
 
+	delay_one_cycle U4 (CLOCK_50, KEY[0], VGA_X, VGA_X_D);
+	defparam U4.n = 9;
+	delay_one_cycle U5 (CLOCK_50, KEY[0], VGA_Y, VGA_Y_D);
+	defparam U5.n = 8;
+
     // connect to VGA controller
     vga_adapter VGA (
 			.resetn(KEY[0]),
 			.clock(CLOCK_50),
 			.colour(VGA_COLOR),
-			.x(VGA_X),
-			.y(VGA_Y),
+			.x(VGA_X_D),
+			.y(VGA_Y_D),
 			.plot(~KEY[3]),
 			.VGA_R(VGA_R),
 			.VGA_G(VGA_G),
@@ -98,7 +105,7 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 			.VGA_CLK(VGA_CLK));
 		defparam VGA.RESOLUTION = "320x240";
 		defparam VGA.MONOCHROME = "FALSE";
-		defparam VGA.BITS_PER_COLOUR_CHANNEL = 8;
+		defparam VGA.BITS_PER_COLOUR_CHANNEL = 4;
 		defparam VGA.BACKGROUND_IMAGE = "canvas.mif";
 
 endmodule

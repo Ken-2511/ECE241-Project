@@ -1,20 +1,20 @@
 module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, VGA_COLOR);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // 基本输入
     input clock, resetn, enable;
 
     // 输出用于RAM控制
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
     output reg wren;
-    input [2:0] q;
+    input [cbit:0] q;
 
     // 新增输出用于VGA
     output reg [8:0] VGA_X;
     output reg [7:0] VGA_Y;
-    output reg [11:0] VGA_COLOR;
+    output reg [cbit:0] VGA_COLOR;
 
     // 状态编码
     parameter GREETING = 2'b00, PLAYING = 2'b01, GAME_OVER = 2'b10;
@@ -29,7 +29,7 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
     wire f_greeting, f_playing, f_game_over;
 
     // 来自子模块的数据控制线
-    wire [2:0] dt_greeting, dt_playing, dt_game_over;
+    wire [cbit:0] dt_greeting, dt_playing, dt_game_over;
     wire [16:0] ad_greeting, ad_playing, ad_game_over;
     wire wr_greeting, wr_playing, wr_game_over;
 
@@ -102,12 +102,12 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
                 VGA_COLOR = vga_color_game_over;
             end
             default: begin
-                data = 3'b000;
+                data = 12'b000;
                 addr = 17'b0;
                 wren = 1'b0;
                 VGA_X = 9'b0;
                 VGA_Y = 8'b0;
-                VGA_COLOR = 23'b0; // cbit be aware that it is related to the parameter
+                VGA_COLOR = 12'b0; // cbit be aware that it is related to the parameter
             end
         endcase
     end
@@ -164,17 +164,17 @@ module m_playing(
     VGA_COLOR   // 新增输出
 );
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // 基本输入
     input clock, resetn, enable;
 
     // 输出
     output reg finished;
-    output reg [2:0] data;
+    output reg [cbit:0] data;
     output reg [16:0] addr;
     output reg wren;
-    input [2:0] q;
+    input [cbit:0] q;
 
     // 新增输出用于VGA
     output reg [8:0] VGA_X;
@@ -200,8 +200,8 @@ module m_playing(
     wire f_fill_screen, f_render_blocks, f_render_player, f_render_food, f_render_ghosts, f_ghost_collision, f_update_vga;
 
     // 来自子模块的数据控制线
-    wire [2:0] dt_clear_screen, dt_update_position, dt_eat_food, dt_update_ghost_directions, dt_update_ghost_positions;
-    wire [2:0] dt_fill_screen, dt_render_blocks, dt_render_player, dt_render_food, dt_render_ghosts, dt_ghost_collision, dt_update_vga;
+    wire [cbit:0] dt_clear_screen, dt_update_position, dt_eat_food, dt_update_ghost_directions, dt_update_ghost_positions;
+    wire [cbit:0] dt_fill_screen, dt_render_blocks, dt_render_player, dt_render_food, dt_render_ghosts, dt_ghost_collision, dt_update_vga;
     wire [16:0] ad_clear_screen, ad_update_position, ad_eat_food, ad_update_ghost_directions, ad_update_ghost_positions;
     wire [16:0] ad_fill_screen, ad_render_blocks, ad_render_player, ad_render_food, ad_render_ghosts, ad_ghost_collision, ad_update_vga;
     wire wr_clear_screen, wr_update_position, wr_eat_food, wr_update_ghost_directions, wr_update_ghost_positions;

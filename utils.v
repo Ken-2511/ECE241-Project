@@ -63,8 +63,11 @@ endmodule
 
 module delay_one_cycle(clock, resetn, signal_in, signal_out);
 
-    input clock, resetn, signal_in;
-    output reg signal_out;
+    parameter n = 8;
+
+    input clock, resetn;
+    input [n-1:0] signal_in;
+    output reg [n-1:0] signal_out;
 
     always @(posedge clock)
         if (!resetn)

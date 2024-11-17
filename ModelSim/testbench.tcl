@@ -6,6 +6,10 @@ if {[file exists ../black.mif]} {
 	file delete black.mif
 	file copy ../black.mif .
 }
+if {[file exists ../canvas.mif]} {
+	file delete canvas.mif
+	file copy ../canvas.mif .
+}
 
 # create the default "work" library
 vlib work;
