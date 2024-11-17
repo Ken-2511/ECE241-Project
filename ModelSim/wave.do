@@ -12,29 +12,33 @@ add wave -noupdate -label VGA_BLANK_N -radix binary /testbench/VGA_BLANK_N
 add wave -noupdate -label VGA_SYNC_N -radix binary /testbench/VGA_SYNC_N
 add wave -noupdate -label VGA_CLK -radix binary /testbench/VGA_CLK
 
-add wave -noupdate -divider vga_demo
-add wave -noupdate -label x -radix hexadecimal /testbench/U1/X
-add wave -noupdate -label y -radix hexadecimal /testbench/U1/Y
-add wave -noupdate -label object_address -radix hexadecimal /testbench/U1/U6/address
-add wave -noupdate -label object_color -radix hexadecimal /testbench/U1/U6/q
+add wave -noupdate -divider milestone2
+add wave -noupdate -label data -radix hexadecimal /testbench/U1/data
+add wave -noupdate -label addr -radix hexadecimal /testbench/U1/addr
+add wave -noupdate -label wren -radix binary /testbench/U1/wren
+add wave -noupdate -label q -radix hexadecimal /testbench/U1/q
+add wave -noupdate -label VGA_X -radix hexadecimal /testbench/U1/VGA_X
+add wave -noupdate -label VGA_Y -radix hexadecimal /testbench/U1/VGA_Y
+add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/VGA_COLOR
 
-add wave -noupdate -divider vga_adapter
-add wave -noupdate -label colour -radix hexadecimal /testbench/U1/VGA/colour
-add wave -noupdate -label x -radix hexadecimal /testbench/U1/VGA/x
-add wave -noupdate -label y -radix hexadecimal /testbench/U1/VGA/y
-add wave -noupdate -label plot -radix hexadecimal /testbench/U1/VGA/plot
+add wave -noupdate -divider fsm1
+add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/U3/VGA_COLOR
+add wave -noupdate -label q -radix hexadecimal /testbench/U1/U3/q
 
-add wave -noupdate -divider draw_big_maze
-add wave -noupdate -label clock -radix hexadecimal /testbench/U1/U3/clock
-add wave -noupdate -label resetn -radix hexadecimal /testbench/U1/U3/resetn
-add wave -noupdate -label x -radix hexadecimal /testbench/U1/U3/vga_x
-add wave -noupdate -label y -radix hexadecimal /testbench/U1/U3/vga_y
-add wave -noupdate -label color -radix octal /testbench/U1/U3/color
-add wave -noupdate -label enable -radix hexadecimal /testbench/U1/U3/enable
-add wave -noupdate -label maze_x -radix hexadecimal /testbench/U1/U3/maze_x
-add wave -noupdate -label maze_y -radix hexadecimal /testbench/U1/U3/maze_y
-add wave -noupdate -label maze_color -radix hexadecimal /testbench/U1/U3/maze_color
-add wave -noupdate -label maze_enable -radix hexadecimal /testbench/U1/U3/maze_enable
+add wave -noupdate -divider fsm2
+add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/U3/m_playing_inst/VGA_COLOR
+add wave -noupdate -label q -radix hexadecimal /testbench/U1/U3/m_playing_inst/q
+
+add wave -noupdate -divider update_vga_signals
+add wave -noupdate -label VGA_COLOR -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_update_vga_inst/VGA_COLOR
+add wave -noupdate -label q -radix hexadecimal /testbench/U1/U3/m_playing_inst/m_update_vga_inst/q
+add wave -noupdate -label wren -radix binary /testbench/U1/U3/m_playing_inst/m_update_vga_inst/wren
+
+add wave -noupdate -divider canvas
+add wave -noupdate -label data -radix hexadecimal /testbench/U1/canvas_inst/data
+add wave -noupdate -label addr -radix hexadecimal /testbench/U1/canvas_inst/address
+add wave -noupdate -label wren -radix binary /testbench/U1/canvas_inst/wren
+add wave -noupdate -label q -radix hexadecimal /testbench/U1/canvas_inst/q
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {10000 ps} 0}

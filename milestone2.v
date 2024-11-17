@@ -33,6 +33,12 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 	output [2:0] VGA_COLOR;
 	output plot;
 
+	// for data memory
+	wire [2:0] data;
+	wire [16:0] addr;
+	wire wren;
+	wire [2:0] q;
+
 	wire [8:0] X;           // starting x location of object
 	wire [7:0] Y;           // starting y location of object
 	wire [8:0] VGA_X;       // x location of each object pixel
@@ -45,7 +51,21 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
     regn U2 (SW[7:0], KEY[0], ~KEY[2], CLOCK_50, X);
         defparam U2.n = 9;
 
-	draw_big_maze U3 (CLOCK_50, KEY[0], VGA_X, VGA_Y, VGA_COLOR, ~KEY[3]);
+	// draw_big_maze U3 (CLOCK_50, KEY[0], VGA_X, VGA_Y, VGA_COLOR, ~KEY[3]);
+
+	fsm_game_state U3 (
+		.clock(CLOCK_50),
+		.resetn(KEY[0]),
+		.enable(KEY[1]),
+		.key3(KEY[2]),
+		.data(data),
+		.addr(addr),
+		.wren(wren),
+		.q(q),
+		.VGA_X(VGA_X),
+		.VGA_Y(VGA_Y),
+		.VGA_COLOR(VGA_COLOR)
+	);
 
     hex7seg H3 (X[7:4], HEX3);
     hex7seg H2 (X[3:0], HEX2);
@@ -53,6 +73,14 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
     hex7seg H0 (Y[3:0], HEX0);
 
     assign plot = ~KEY[3];
+
+	canvas canvas_inst(
+        .address(addr),
+        .clock(CLOCK_50),
+        .data(data),
+        .wren(wren),
+        .q(q)
+    );
 
     // connect to VGA controller
     vga_adapter VGA (

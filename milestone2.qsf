@@ -309,6 +309,8 @@ set_location_assignment PIN_E12 -to VGA_R[6]
 set_location_assignment PIN_F13 -to VGA_R[7]
 set_location_assignment PIN_C10 -to VGA_SYNC_N
 set_location_assignment PIN_D11 -to VGA_VS
+set_global_assignment -name VERILOG_FILE modules.v
+set_global_assignment -name VERILOG_FILE legacy_code.v
 set_global_assignment -name VERILOG_FILE PS2_Controller/PS2_Controller.v
 set_global_assignment -name VERILOG_FILE PS2_Controller/Altera_UP_PS2_Data_In.v
 set_global_assignment -name VERILOG_FILE PS2_Controller/Altera_UP_PS2_Command_Out.v

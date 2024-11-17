@@ -1,123 +1,214 @@
-module fsm_game_state(clock, resetn, enable, key3, data, addr, wren);
+module fsm_game_state(
+    clock,
+    resetn,
+    enable,
+    key3,
+    data,
+    addr,
+    wren,
+    q,
+    VGA_X,      // 新增输出
+    VGA_Y,      // 新增输出
+    VGA_COLOR   // 新增输出
+);
 
-    // basic inputs
+    // 基本输入
     input clock, resetn, enable;
-    // inputs for state transitions
     input key3;
-    // State encoding
-    parameter GREETING = 2'b00, PLAYING = 2'b01, GAME_OVER = 2'b10;
-    // State register
-    reg [1:0] next_game_state, game_state;
-    // enable signals
-    reg e_greeting, e_playing, e_game_over;
-    // finish signals
-    wire f_greeting, f_playing, f_game_over;
 
-    // State transition logic
-    always @ (posedge clock) begin
-        if (!resetn)
-            game_state <= GREETING;  // Reset to initial state
-        else if (enable)
-            game_state <= next_game_state;  // Move to the next state if enabled
-    end
-
-    // Data control
+    // 输出用于RAM控制
     output reg [2:0] data;
     output reg [16:0] addr;
     output reg wren;
+    input [2:0] q;
 
+    // 新增输出用于VGA
+    output reg [8:0] VGA_X;
+    output reg [7:0] VGA_Y;
+    output reg [2:0] VGA_COLOR;
+
+    // 状态编码
+    parameter GREETING = 2'b00, PLAYING = 2'b01, GAME_OVER = 2'b10;
+
+    // 状态寄存器
+    reg [1:0] next_game_state, game_state;
+
+    // 使能信号
+    reg e_greeting, e_playing, e_game_over;
+
+    // 完成信号
+    wire f_greeting, f_playing, f_game_over;
+
+    // 来自子模块的数据控制线
     wire [2:0] dt_greeting, dt_playing, dt_game_over;
     wire [16:0] ad_greeting, ad_playing, ad_game_over;
     wire wr_greeting, wr_playing, wr_game_over;
 
-    // Next state logic
+    // 来自子模块的VGA控制线
+    wire [8:0] vga_x_greeting, vga_x_playing, vga_x_game_over;
+    wire [7:0] vga_y_greeting, vga_y_playing, vga_y_game_over;
+    wire [2:0] vga_color_greeting, vga_color_playing, vga_color_game_over;
+
+    // 状态转移逻辑
+    always @ (posedge clock) begin
+        if (!resetn)
+            game_state <= GREETING;  // 复位到初始状态
+        else if (enable)
+            game_state <= next_game_state;  // 若使能则转移到下一个状态
+    end
+
+    // 下一个状态逻辑
     always @ (*) begin
         case (game_state)
             GREETING: begin
                 if (f_greeting)
-                    next_game_state = PLAYING;  // Move to PLAYING when GREETING_FINISHED is high
+                    next_game_state = PLAYING;  // 当GREETING完成时转移到PLAYING
                 else
-                    next_game_state = GREETING; // Stay in GREETING if not finished
+                    next_game_state = GREETING; // 否则保持在GREETING
             end
             PLAYING: begin
                 if (f_playing)
-                    next_game_state = GAME_OVER;  // Move to GAME_OVER when PLAYING_FINISHED is high
+                    next_game_state = GAME_OVER;  // 当PLAYING完成时转移到GAME_OVER
                 else
-                    next_game_state = PLAYING;   // Stay in PLAYING if not finished
+                    next_game_state = PLAYING;   // 否则保持在PLAYING
             end
             GAME_OVER: begin
                 if (f_game_over)
-                    next_game_state = GREETING;  // Loop back to GREETING when GAME_OVER_FINISHED is high
+                    next_game_state = GREETING;  // 当GAME_OVER完成时循环回GREETING
                 else
-                    next_game_state = GAME_OVER; // Stay in GAME_OVER if not finished
+                    next_game_state = GAME_OVER; // 否则保持在GAME_OVER
             end
-            default: next_game_state = GREETING; // Default state is GREETING
+            default: next_game_state = GREETING; // 默认状态为GREETING
         endcase
     end
 
-    // Output logic
+    // 输出逻辑
     always @ (*) begin
         e_greeting = (game_state == GREETING);
         e_playing = (game_state == PLAYING);
         e_game_over = (game_state == GAME_OVER);
         case (game_state)
             GREETING: begin
+                data = dt_greeting;
+                addr = ad_greeting;
+                wren = wr_greeting;
+                VGA_X = vga_x_greeting;
+                VGA_Y = vga_y_greeting;
+                VGA_COLOR = vga_color_greeting;
+            end
+            PLAYING: begin
+                data = dt_playing;
+                addr = ad_playing;
+                wren = wr_playing;
+                VGA_X = vga_x_playing;
+                VGA_Y = vga_y_playing;
+                VGA_COLOR = vga_color_playing;
+            end
+            GAME_OVER: begin
+                data = dt_game_over;
+                addr = ad_game_over;
+                wren = wr_game_over;
+                VGA_X = vga_x_game_over;
+                VGA_Y = vga_y_game_over;
+                VGA_COLOR = vga_color_game_over;
+            end
+            default: begin
                 data = 3'b000;
                 addr = 17'b0;
                 wren = 1'b0;
-            end
-            PLAYING: begin
-                data = 3'b001;
-                addr = 17'b1;
-                wren = 1'b1;
-            end
-            GAME_OVER: begin
-                data = 3'b010;
-                addr = 17'b10;
-                wren = 1'b0;
+                VGA_X = 9'b0;
+                VGA_Y = 8'b0;
+                VGA_COLOR = 3'b0;
             end
         endcase
     end
 
-    m_greeting m_greeting(clock, resetn, e_greeting, f_greeting, dt_greeting, ad_greeting, wr_greeting);
-    m_playing m_playing (clock, resetn, e_playing, f_playing, dt_playing, ad_playing, wr_playing);
-    m_game_over m_game_over(clock, resetn, e_game_over, f_game_over, dt_game_over, ad_game_over, wr_game_over);
+    // 子模块实例化并连接VGA信号
+    m_greeting m_greeting_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_greeting),
+        .finished(f_greeting),
+        .data(dt_greeting),
+        .addr(ad_greeting),
+        .wren(wr_greeting)
+    );
+
+    m_playing m_playing_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_playing),
+        .finished(f_playing),
+        .data(dt_playing),
+        .addr(ad_playing),
+        .wren(wr_playing),
+        .q(q),
+        .VGA_X(vga_x_playing),
+        .VGA_Y(vga_y_playing),
+        .VGA_COLOR(vga_color_playing)
+    );
+
+    m_game_over m_game_over_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_game_over),
+        .finished(f_game_over),
+        .data(dt_game_over),
+        .addr(ad_game_over),
+        .wren(wr_game_over)
+    );
 
 endmodule
 
 
-module m_playing(clock, resetn, enable, finished, data, addr, wren);
+module m_playing(
+    clock,
+    resetn,
+    enable,
+    finished,
+    data,
+    addr,
+    wren,
+    q,
+    VGA_X,      // 新增输出
+    VGA_Y,      // 新增输出
+    VGA_COLOR   // 新增输出
+);
 
-    // Basic inputs
+    // 基本输入
     input clock, resetn, enable;
-    // input wren; // Added wren input
 
-    // Finish signal
+    // 输出
     output reg finished;
+    output reg [2:0] data;
+    output reg [16:0] addr;
+    output reg wren;
+    input [2:0] q;
 
-    // State encoding
+    // 新增输出用于VGA
+    output reg [8:0] VGA_X;
+    output reg [7:0] VGA_Y;
+    output reg [2:0] VGA_COLOR;
+
+    // 状态编码
     parameter IDLE = 4'b0000, CLEAR_SCREEN = 4'b0001, UPDATE_POSITION = 4'b0010, EAT_FOOD = 4'b0011;
     parameter UPDATE_GHOST_DIRECTIONS = 4'b0100, UPDATE_GHOST_POSITIONS = 4'b0101, FILL_SCREEN = 4'b0110;
     parameter RENDER_BLOCKS = 4'b0111, RENDER_PLAYER = 4'b1000, RENDER_FOOD = 4'b1001, RENDER_GHOSTS = 4'b1010;
     parameter GHOST_COLLISION = 4'b1011, UPDATE_VGA = 4'b1100, GAME_OVER = 4'b1101;
 
-    // State register
+    // 状态寄存器
     reg [3:0] game_state;
     reg [3:0] next_game_state;
 
-    // Enable signals
+    // 使能信号
     reg e_clear_screen, e_update_position, e_eat_food, e_update_ghost_directions, e_update_ghost_positions;
     reg e_fill_screen, e_render_blocks, e_render_player, e_render_food, e_render_ghosts, e_ghost_collision, e_update_vga;
 
-    // Finish signals
+    // 完成信号
     wire f_clear_screen, f_update_position, f_eat_food, f_update_ghost_directions, f_update_ghost_positions;
     wire f_fill_screen, f_render_blocks, f_render_player, f_render_food, f_render_ghosts, f_ghost_collision, f_update_vga;
 
-    // Data control (always write, never read)
-    output reg [2:0] data;
-    output reg [16:0] addr;
-    output reg wren;
-
+    // 来自子模块的数据控制线
     wire [2:0] dt_clear_screen, dt_update_position, dt_eat_food, dt_update_ghost_directions, dt_update_ghost_positions;
     wire [2:0] dt_fill_screen, dt_render_blocks, dt_render_player, dt_render_food, dt_render_ghosts, dt_ghost_collision, dt_update_vga;
     wire [16:0] ad_clear_screen, ad_update_position, ad_eat_food, ad_update_ghost_directions, ad_update_ghost_positions;
@@ -125,100 +216,108 @@ module m_playing(clock, resetn, enable, finished, data, addr, wren);
     wire wr_clear_screen, wr_update_position, wr_eat_food, wr_update_ghost_directions, wr_update_ghost_positions;
     wire wr_fill_screen, wr_render_blocks, wr_render_player, wr_render_food, wr_render_ghosts, wr_ghost_collision, wr_update_vga;
 
-    // State transition logic
+    // 来自子模块的VGA控制线
+    wire [8:0] vga_x_clear_screen, vga_x_update_position, vga_x_eat_food, vga_x_update_ghost_directions, vga_x_update_ghost_positions;
+    wire [8:0] vga_x_fill_screen, vga_x_render_blocks, vga_x_render_player, vga_x_render_food, vga_x_render_ghosts, vga_x_ghost_collision, vga_x_update_vga;
+    wire [7:0] vga_y_clear_screen, vga_y_update_position, vga_y_eat_food, vga_y_update_ghost_directions, vga_y_update_ghost_positions;
+    wire [7:0] vga_y_fill_screen, vga_y_render_blocks, vga_y_render_player, vga_y_render_food, vga_y_render_ghosts, vga_y_ghost_collision, vga_y_update_vga;
+    wire [2:0] vga_color_clear_screen, vga_color_update_position, vga_color_eat_food, vga_color_update_ghost_directions, vga_color_update_ghost_positions;
+    wire [2:0] vga_color_fill_screen, vga_color_render_blocks, vga_color_render_player, vga_color_render_food, vga_color_render_ghosts, vga_color_ghost_collision, vga_color_update_vga;
+
+    // 状态转移逻辑
     always @ (posedge clock) begin
         if (!resetn)
-            game_state <= IDLE;  // Reset to initial state
+            game_state <= IDLE;  // 复位到初始状态
         else if (enable)
-            game_state <= next_game_state;  // Move to the next state if enabled
+            game_state <= next_game_state;  // 若使能则转移到下一个状态
     end
 
-    // Next state logic
+    // 下一个状态逻辑
     always @ (*) begin
         case (game_state)
             IDLE: begin
-                next_game_state = CLEAR_SCREEN; // Move to CLEAR_SCREEN immediately
+                next_game_state = CLEAR_SCREEN; // 立即转移到CLEAR_SCREEN
             end
             CLEAR_SCREEN: begin
                 if (f_clear_screen)
-                    next_game_state = UPDATE_POSITION;  // Move to UPDATE_POSITION when CLEAR_SCREEN is finished
+                    next_game_state = UPDATE_POSITION;  // 当CLEAR_SCREEN完成时转移到UPDATE_POSITION
                 else
-                    next_game_state = CLEAR_SCREEN; // Stay in CLEAR_SCREEN if not finished
+                    next_game_state = CLEAR_SCREEN; // 否则保持在CLEAR_SCREEN
             end
             UPDATE_POSITION: begin
                 if (f_update_position)
-                    next_game_state = EAT_FOOD;  // Move to EAT_FOOD when UPDATE_POSITION is finished
+                    next_game_state = EAT_FOOD;  // 当UPDATE_POSITION完成时转移到EAT_FOOD
                 else
-                    next_game_state = UPDATE_POSITION; // Stay in UPDATE_POSITION if not finished
+                    next_game_state = UPDATE_POSITION; // 否则保持在UPDATE_POSITION
             end
             EAT_FOOD: begin
                 if (f_eat_food)
-                    next_game_state = UPDATE_GHOST_DIRECTIONS;  // Move to UPDATE_GHOST_DIRECTIONS when EAT_FOOD is finished
+                    next_game_state = UPDATE_GHOST_DIRECTIONS;  // 当EAT_FOOD完成时转移到UPDATE_GHOST_DIRECTIONS
                 else
-                    next_game_state = EAT_FOOD; // Stay in EAT_FOOD if not finished
+                    next_game_state = EAT_FOOD; // 否则保持在EAT_FOOD
             end
             UPDATE_GHOST_DIRECTIONS: begin
                 if (f_update_ghost_directions)
-                    next_game_state = UPDATE_GHOST_POSITIONS;  // Move to UPDATE_GHOST_POSITIONS when UPDATE_GHOST_DIRECTIONS is finished
+                    next_game_state = UPDATE_GHOST_POSITIONS;  // 当UPDATE_GHOST_DIRECTIONS完成时转移到UPDATE_GHOST_POSITIONS
                 else
-                    next_game_state = UPDATE_GHOST_DIRECTIONS; // Stay in UPDATE_GHOST_DIRECTIONS if not finished
+                    next_game_state = UPDATE_GHOST_DIRECTIONS; // 否则保持在UPDATE_GHOST_DIRECTIONS
             end
             UPDATE_GHOST_POSITIONS: begin
                 if (f_update_ghost_positions)
-                    next_game_state = FILL_SCREEN;  // Move to FILL_SCREEN when UPDATE_GHOST_POSITIONS is finished
+                    next_game_state = FILL_SCREEN;  // 当UPDATE_GHOST_POSITIONS完成时转移到FILL_SCREEN
                 else
-                    next_game_state = UPDATE_GHOST_POSITIONS; // Stay in UPDATE_GHOST_POSITIONS if not finished
+                    next_game_state = UPDATE_GHOST_POSITIONS; // 否则保持在UPDATE_GHOST_POSITIONS
             end
             FILL_SCREEN: begin
                 if (f_fill_screen)
-                    next_game_state = RENDER_BLOCKS;  // Move to RENDER_BLOCKS when FILL_SCREEN is finished
+                    next_game_state = RENDER_BLOCKS;  // 当FILL_SCREEN完成时转移到RENDER_BLOCKS
                 else
-                    next_game_state = FILL_SCREEN; // Stay in FILL_SCREEN if not finished
+                    next_game_state = FILL_SCREEN; // 否则保持在FILL_SCREEN
             end
             RENDER_BLOCKS: begin
                 if (f_render_blocks)
-                    next_game_state = RENDER_PLAYER;  // Move to RENDER_PLAYER when RENDER_BLOCKS is finished
+                    next_game_state = RENDER_PLAYER;  // 当RENDER_BLOCKS完成时转移到RENDER_PLAYER
                 else
-                    next_game_state = RENDER_BLOCKS; // Stay in RENDER_BLOCKS if not finished
+                    next_game_state = RENDER_BLOCKS; // 否则保持在RENDER_BLOCKS
             end
             RENDER_PLAYER: begin
                 if (f_render_player)
-                    next_game_state = RENDER_FOOD;  // Move to RENDER_FOOD when RENDER_PLAYER is finished
+                    next_game_state = RENDER_FOOD;  // 当RENDER_PLAYER完成时转移到RENDER_FOOD
                 else
-                    next_game_state = RENDER_PLAYER; // Stay in RENDER_PLAYER if not finished
+                    next_game_state = RENDER_PLAYER; // 否则保持在RENDER_PLAYER
             end
             RENDER_FOOD: begin
                 if (f_render_food)
-                    next_game_state = RENDER_GHOSTS;  // Move to RENDER_GHOSTS when RENDER_FOOD is finished
+                    next_game_state = RENDER_GHOSTS;  // 当RENDER_FOOD完成时转移到RENDER_GHOSTS
                 else
-                    next_game_state = RENDER_FOOD; // Stay in RENDER_FOOD if not finished
+                    next_game_state = RENDER_FOOD; // 否则保持在RENDER_FOOD
             end
             RENDER_GHOSTS: begin
                 if (f_render_ghosts)
-                    next_game_state = GHOST_COLLISION;  // Move to GHOST_COLLISION when RENDER_GHOSTS is finished
+                    next_game_state = GHOST_COLLISION;  // 当RENDER_GHOSTS完成时转移到GHOST_COLLISION
                 else
-                    next_game_state = RENDER_GHOSTS; // Stay in RENDER_GHOSTS if not finished
+                    next_game_state = RENDER_GHOSTS; // 否则保持在RENDER_GHOSTS
             end
             GHOST_COLLISION: begin
                 if (f_ghost_collision)
-                    next_game_state = UPDATE_VGA;  // Move to UPDATE_VGA when GHOST_COLLISION is finished
+                    next_game_state = UPDATE_VGA;  // 当GHOST_COLLISION完成时转移到UPDATE_VGA
                 else
-                    next_game_state = GHOST_COLLISION; // Stay in GHOST_COLLISION if not finished
+                    next_game_state = GHOST_COLLISION; // 否则保持在GHOST_COLLISION
             end
             UPDATE_VGA: begin
                 if (f_update_vga)
-                    next_game_state = GAME_OVER;  // Move to GAME_OVER when UPDATE_VGA is finished
+                    next_game_state = GAME_OVER;  // 当UPDATE_VGA完成时转移到GAME_OVER
                 else
-                    next_game_state = UPDATE_VGA; // Stay in UPDATE_VGA if not finished
+                    next_game_state = UPDATE_VGA; // 否则保持在UPDATE_VGA
             end
             GAME_OVER: begin
-                next_game_state = IDLE; // Move back to IDLE immediately
+                next_game_state = IDLE; // 立即转移回IDLE
             end
-            default: next_game_state = CLEAR_SCREEN; // Default state is CLEAR_SCREEN
+            default: next_game_state = CLEAR_SCREEN; // 默认状态为CLEAR_SCREEN
         endcase
     end
 
-    // Enable logic and finish logic
+    // 输出逻辑
     always @ (*) begin
         e_clear_screen = (game_state == CLEAR_SCREEN);
         e_update_position = (game_state == UPDATE_POSITION);
@@ -232,575 +331,239 @@ module m_playing(clock, resetn, enable, finished, data, addr, wren);
         e_render_ghosts = (game_state == RENDER_GHOSTS);
         e_ghost_collision = (game_state == GHOST_COLLISION);
         e_update_vga = (game_state == UPDATE_VGA);
-        finished = (game_state == GAME_OVER);  // Set finished flag when in GAME_OVER state
+        finished = (game_state == GAME_OVER);  // 当处于GAME_OVER状态时设置完成标志
 
         case (game_state)
             CLEAR_SCREEN: begin
                 data = dt_clear_screen;
                 addr = ad_clear_screen;
                 wren = wr_clear_screen;
+                VGA_X = vga_x_clear_screen;
+                VGA_Y = vga_y_clear_screen;
+                VGA_COLOR = vga_color_clear_screen;
             end
             UPDATE_POSITION: begin
                 data = dt_update_position;
                 addr = ad_update_position;
                 wren = wr_update_position;
+                VGA_X = vga_x_update_position;
+                VGA_Y = vga_y_update_position;
+                VGA_COLOR = vga_color_update_position;
             end
             EAT_FOOD: begin
                 data = dt_eat_food;
                 addr = ad_eat_food;
                 wren = wr_eat_food;
+                VGA_X = vga_x_eat_food;
+                VGA_Y = vga_y_eat_food;
+                VGA_COLOR = vga_color_eat_food;
             end
             UPDATE_GHOST_DIRECTIONS: begin
                 data = dt_update_ghost_directions;
                 addr = ad_update_ghost_directions;
                 wren = wr_update_ghost_directions;
+                VGA_X = vga_x_update_ghost_directions;
+                VGA_Y = vga_y_update_ghost_directions;
+                VGA_COLOR = vga_color_update_ghost_directions;
             end
             UPDATE_GHOST_POSITIONS: begin
                 data = dt_update_ghost_positions;
                 addr = ad_update_ghost_positions;
                 wren = wr_update_ghost_positions;
+                VGA_X = vga_x_update_ghost_positions;
+                VGA_Y = vga_y_update_ghost_positions;
+                VGA_COLOR = vga_color_update_ghost_positions;
             end
             FILL_SCREEN: begin
                 data = dt_fill_screen;
                 addr = ad_fill_screen;
                 wren = wr_fill_screen;
+                VGA_X = vga_x_fill_screen;
+                VGA_Y = vga_y_fill_screen;
+                VGA_COLOR = vga_color_fill_screen;
             end
             RENDER_BLOCKS: begin
                 data = dt_render_blocks;
                 addr = ad_render_blocks;
                 wren = wr_render_blocks;
+                VGA_X = vga_x_render_blocks;
+                VGA_Y = vga_y_render_blocks;
+                VGA_COLOR = vga_color_render_blocks;
             end
             RENDER_PLAYER: begin
                 data = dt_render_player;
                 addr = ad_render_player;
                 wren = wr_render_player;
+                VGA_X = vga_x_render_player;
+                VGA_Y = vga_y_render_player;
+                VGA_COLOR = vga_color_render_player;
             end
             RENDER_FOOD: begin
                 data = dt_render_food;
                 addr = ad_render_food;
                 wren = wr_render_food;
+                VGA_X = vga_x_render_food;
+                VGA_Y = vga_y_render_food;
+                VGA_COLOR = vga_color_render_food;
             end
             RENDER_GHOSTS: begin
                 data = dt_render_ghosts;
                 addr = ad_render_ghosts;
                 wren = wr_render_ghosts;
+                VGA_X = vga_x_render_ghosts;
+                VGA_Y = vga_y_render_ghosts;
+                VGA_COLOR = vga_color_render_ghosts;
             end
             GHOST_COLLISION: begin
                 data = dt_ghost_collision;
                 addr = ad_ghost_collision;
                 wren = wr_ghost_collision;
+                VGA_X = vga_x_ghost_collision;
+                VGA_Y = vga_y_ghost_collision;
+                VGA_COLOR = vga_color_ghost_collision;
             end
             UPDATE_VGA: begin
                 data = dt_update_vga;
                 addr = ad_update_vga;
                 wren = wr_update_vga;
+                VGA_X = vga_x_update_vga;
+                VGA_Y = vga_y_update_vga;
+                VGA_COLOR = vga_color_update_vga;
+            end
+            default: begin
+                data = 3'b000;
+                addr = 17'b0;
+                wren = 1'b0;
+                VGA_X = 9'b0;
+                VGA_Y = 8'b0;
+                VGA_COLOR = 3'b0;
             end
         endcase
     end
 
-    // Module instantiation with wren parameter
-    m_clear_screen              m_clear_screen              (clock, resetn, e_clear_screen, wr_clear_screen, f_clear_screen, dt_clear_screen, ad_clear_screen);
-    m_update_position           m_update_position           (clock, resetn, e_update_position, wr_update_position, f_update_position, dt_update_position, ad_update_position);
-    m_eat_food                  m_eat_food                  (clock, resetn, e_eat_food, wr_eat_food, f_eat_food, dt_eat_food, ad_eat_food);
-    m_update_ghost_directions   m_update_ghost_directions   (clock, resetn, e_update_ghost_directions, wr_update_ghost_directions, f_update_ghost_directions, dt_update_ghost_directions, ad_update_ghost_directions);
-    m_update_ghost_positions    m_update_ghost_positions    (clock, resetn, e_update_ghost_positions, wr_update_ghost_positions, f_update_ghost_positions, dt_update_ghost_positions, ad_update_ghost_positions);
-    m_fill_screen               m_fill_screen               (clock, resetn, e_fill_screen, wr_fill_screen, f_fill_screen, dt_fill_screen, ad_fill_screen);
-    m_render_blocks             m_render_blocks             (clock, resetn, e_render_blocks, wr_render_blocks, f_render_blocks, dt_render_blocks, ad_render_blocks);
-    m_render_player             m_render_player             (clock, resetn, e_render_player, wr_render_player, f_render_player, dt_render_player, ad_render_player);
-    m_render_food               m_render_food               (clock, resetn, e_render_food, wr_render_food, f_render_food, dt_render_food, ad_render_food);
-    m_render_ghosts             m_render_ghosts             (clock, resetn, e_render_ghosts, wr_render_ghosts, f_render_ghosts, dt_render_ghosts, ad_render_ghosts);
-    m_ghost_collision           m_ghost_collision           (clock, resetn, e_ghost_collision, wr_ghost_collision, f_ghost_collision, dt_ghost_collision, ad_ghost_collision);
-    m_update_vga                m_update_vga                (clock, resetn, e_update_vga, wr_update_vga, f_update_vga, dt_update_vga, ad_update_vga);
-
-endmodule
-
-
-module m_greeting(clock, resetn, enable, finished, data, addr, wren);
-
-    // basic inputs
-    input clock, resetn, enable;
-    // finish signal
-    output reg finished;
-    // data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-    output reg wren;
-
-    always @ (posedge clock) begin
-        if (!resetn)
-            finished <= 0;  // Reset to initial state
-        else if (enable)
-            finished <= 1;  // Finish immediately when enabled, for testing
-        else if (finished)
-            finished <= 0;  // Reset to initial state when finished
-    end
-
-endmodule
-
-
-module m_game_over(clock, resetn, enable, finished, data, addr, wren);
-
-    // basic inputs
-    input clock, resetn, enable;
-    // finish signal
-    output reg finished;
-    // data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-    output reg wren;
-
-    always @ (posedge clock) begin
-        if (!resetn)
-            finished <= 0;  // Reset to initial state
-        else if (enable)
-            finished <= 0;  // Never finish, for testing
-        else if (finished)
-            finished <= 0;  // Reset to initial state when finished
-    end
-
-endmodule
-
-// This file contains the modules for the game logic and rendering of the game.
-
-module m_clear_screen(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-    
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b001; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_update_position(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b010; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b011; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b100; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b101; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b110; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b111; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_render_player(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b001; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_render_food(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b010; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b011; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b100; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_update_vga(clock, resetn, enable, wren, finished, data, addr);
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [2:0] data;
-    output reg [16:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 1; // Enable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b101; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
+    // 子模块实例化并连接VGA信号
+    m_clear_screen m_clear_screen_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_clear_screen),
+        .wren(wr_clear_screen),
+        .finished(f_clear_screen),
+        .data(dt_clear_screen),
+        .addr(ad_clear_screen)
+    );
+
+    m_update_position m_update_position_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_update_position),
+        .wren(wr_update_position),
+        .finished(f_update_position),
+        .data(dt_update_position),
+        .addr(ad_update_position)
+    );
+
+    m_eat_food m_eat_food_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_eat_food),
+        .wren(wr_eat_food),
+        .finished(f_eat_food),
+        .data(dt_eat_food),
+        .addr(ad_eat_food)
+    );
+
+    m_update_ghost_directions m_update_ghost_directions_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_update_ghost_directions),
+        .wren(wr_update_ghost_directions),
+        .finished(f_update_ghost_directions),
+        .data(dt_update_ghost_directions),
+        .addr(ad_update_ghost_directions)
+    );
+
+    m_update_ghost_positions m_update_ghost_positions_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_update_ghost_positions),
+        .wren(wr_update_ghost_positions),
+        .finished(f_update_ghost_positions),
+        .data(dt_update_ghost_positions),
+        .addr(ad_update_ghost_positions)
+    );
+
+    m_fill_screen m_fill_screen_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_fill_screen),
+        .wren(wr_fill_screen),
+        .finished(f_fill_screen),
+        .data(dt_fill_screen),
+        .addr(ad_fill_screen)
+    );
+
+    m_render_blocks m_render_blocks_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_render_blocks),
+        .wren(wr_render_blocks),
+        .finished(f_render_blocks),
+        .data(dt_render_blocks),
+        .addr(ad_render_blocks)
+    );
+
+    m_render_player m_render_player_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_render_player),
+        .wren(wr_render_player),
+        .finished(f_render_player),
+        .data(dt_render_player),
+        .addr(ad_render_player)
+    );
+
+    m_render_food m_render_food_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_render_food),
+        .wren(wr_render_food),
+        .finished(f_render_food),
+        .data(dt_render_food),
+        .addr(ad_render_food)
+    );
+
+    m_render_ghosts m_render_ghosts_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_render_ghosts),
+        .wren(wr_render_ghosts),
+        .finished(f_render_ghosts),
+        .data(dt_render_ghosts),
+        .addr(ad_render_ghosts)
+    );
+
+    m_ghost_collision m_ghost_collision_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_ghost_collision),
+        .wren(wr_ghost_collision),
+        .finished(f_ghost_collision),
+        .data(dt_ghost_collision),
+        .addr(ad_ghost_collision)
+    );
+
+    m_update_vga m_update_vga_inst(
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_update_vga),
+        .wren(wr_update_vga),
+        .finished(f_update_vga),
+        .data(dt_update_vga),
+        .addr(ad_update_vga),
+        .q(q),
+        .VGA_X(vga_x_update_vga),      // 新增输出
+        .VGA_Y(vga_y_update_vga),      // 新增输出
+        .VGA_COLOR(vga_color_update_vga) // 新增输出
+    );
 
 endmodule

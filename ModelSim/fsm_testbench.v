@@ -9,6 +9,13 @@ module fsm_testbench ();
     reg enable;
     reg key3;
     wire f_greeting, f_playing, f_game_over;
+    wire [2:0] data;
+    wire [16:0] addr;
+    wire wren;
+    wire [2:0] q;
+    wire [8:0] VGA_X;
+    wire [7:0] VGA_Y;
+    wire [2:0] VGA_COLOR;
 
     // Clock generation
     initial begin
@@ -23,7 +30,14 @@ module fsm_testbench ();
         .clock(clock),
         .resetn(resetn),
         .enable(enable),
-        .key3(key3)
+        .key3(key3),
+        .data(data),
+        .addr(addr),
+        .wren(wren),
+        .q(q),
+        .VGA_X(VGA_X),
+        .VGA_Y(VGA_Y),
+        .VGA_COLOR(VGA_COLOR)
     );
 
     // Test stimulus
