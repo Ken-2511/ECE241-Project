@@ -97,21 +97,21 @@ module game_coord_2_canvas_coord (game_x, game_y, canvas_x, canvas_y);
 
     input [5:0] game_x;
     input [4:0] game_y;
-    output [8:0] canvas_x;
-    output [7:0] canvas_y;
+    output [7:0] canvas_x;
+    output [6:0] canvas_y;
 
-    assign canvas_x = game_x * 8;
-    assign canvas_y = game_y * 8;
+    assign canvas_x = game_x * 5;
+    assign canvas_y = game_y * 5;
 
 endmodule
 
 
 module canvas_coord_2_mem_addr (canvas_x, canvas_y, mem_addr);
 
-    input [8:0] canvas_x;
-    input [7:0] canvas_y;
-    output [16:0] mem_addr;
+    input [7:0] canvas_x;
+    input [6:0] canvas_y;
+    output [14:0] mem_addr;
 
-    assign mem_addr = canvas_x * 320 + canvas_y;
+    assign mem_addr = canvas_y * 160 + canvas_x;
 
 endmodule

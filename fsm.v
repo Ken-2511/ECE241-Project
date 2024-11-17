@@ -1,19 +1,19 @@
 module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, VGA_COLOR, last_key_received);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
 
     // Outputs for RAM control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
     output reg wren;
     input [cbit:0] q;
 
     // Additional outputs for VGA
-    output reg [8:0] VGA_X;
-    output reg [7:0] VGA_Y;
+    output reg [7:0] VGA_X;
+    output reg [6:0] VGA_Y;
     output reg [cbit:0] VGA_COLOR;
 
     // State encoding
@@ -30,12 +30,12 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
 
     // Data control lines from submodules
     wire [cbit:0] dt_greeting, dt_playing, dt_game_over;
-    wire [16:0] ad_greeting, ad_playing, ad_game_over;
+    wire [14:0] ad_greeting, ad_playing, ad_game_over;
     wire wr_greeting, wr_playing, wr_game_over;
 
     // VGA control lines from submodules
-    wire [8:0] vga_x_greeting, vga_x_playing, vga_x_game_over;
-    wire [7:0] vga_y_greeting, vga_y_playing, vga_y_game_over;
+    wire [7:0] vga_x_greeting, vga_x_playing, vga_x_game_over;
+    wire [6:0] vga_y_greeting, vga_y_playing, vga_y_game_over;
     wire [cbit:0] vga_color_greeting, vga_color_playing, vga_color_game_over;
 
     // PS2 controller input
@@ -105,12 +105,12 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
                 VGA_COLOR = vga_color_game_over;
             end
             default: begin
-                data = 12'b000;
+                data = 24'b000;
                 addr = 17'b0;
                 wren = 1'b0;
-                VGA_X = 9'b0;
-                VGA_Y = 8'b0;
-                VGA_COLOR = 12'b0; // cbit is related to the parameter
+                VGA_X = 8'b0;
+                VGA_Y = 7'b0;
+                VGA_COLOR = 24'b0; // cbit is related to the parameter
             end
         endcase
     end
@@ -169,7 +169,7 @@ module m_playing(
     last_key_received
 );
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -177,13 +177,13 @@ module m_playing(
     // Outputs
     output reg finished;
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
     output reg wren;
     input [cbit:0] q;
 
     // Additional outputs for VGA
-    output reg [8:0] VGA_X;
-    output reg [7:0] VGA_Y;
+    output reg [7:0] VGA_X;
+    output reg [6:0] VGA_Y;
     output reg [cbit:0] VGA_COLOR;
 
     // State encoding
@@ -207,16 +207,16 @@ module m_playing(
     // Data control lines from submodules
     wire [cbit:0] dt_clear_screen, dt_update_position, dt_eat_food, dt_update_ghost_directions, dt_update_ghost_positions;
     wire [cbit:0] dt_fill_screen, dt_render_blocks, dt_render_player, dt_render_food, dt_render_ghosts, dt_ghost_collision, dt_update_vga;
-    wire [16:0] ad_clear_screen, ad_update_position, ad_eat_food, ad_update_ghost_directions, ad_update_ghost_positions;
-    wire [16:0] ad_fill_screen, ad_render_blocks, ad_render_player, ad_render_food, ad_render_ghosts, ad_ghost_collision, ad_update_vga;
+    wire [14:0] ad_clear_screen, ad_update_position, ad_eat_food, ad_update_ghost_directions, ad_update_ghost_positions;
+    wire [14:0] ad_fill_screen, ad_render_blocks, ad_render_player, ad_render_food, ad_render_ghosts, ad_ghost_collision, ad_update_vga;
     wire wr_clear_screen, wr_update_position, wr_eat_food, wr_update_ghost_directions, wr_update_ghost_positions;
     wire wr_fill_screen, wr_render_blocks, wr_render_player, wr_render_food, wr_render_ghosts, wr_ghost_collision, wr_update_vga;
 
     // VGA control lines from submodules
-    wire [8:0] vga_x_clear_screen, vga_x_update_position, vga_x_eat_food, vga_x_update_ghost_directions, vga_x_update_ghost_positions;
-    wire [8:0] vga_x_fill_screen, vga_x_render_blocks, vga_x_render_player, vga_x_render_food, vga_x_render_ghosts, vga_x_ghost_collision, vga_x_update_vga;
-    wire [7:0] vga_y_clear_screen, vga_y_update_position, vga_y_eat_food, vga_y_update_ghost_directions, vga_y_update_ghost_positions;
-    wire [7:0] vga_y_fill_screen, vga_y_render_blocks, vga_y_render_player, vga_y_render_food, vga_y_render_ghosts, vga_y_ghost_collision, vga_y_update_vga;
+    wire [7:0] vga_x_clear_screen, vga_x_update_position, vga_x_eat_food, vga_x_update_ghost_directions, vga_x_update_ghost_positions;
+    wire [7:0] vga_x_fill_screen, vga_x_render_blocks, vga_x_render_player, vga_x_render_food, vga_x_render_ghosts, vga_x_ghost_collision, vga_x_update_vga;
+    wire [6:0] vga_y_clear_screen, vga_y_update_position, vga_y_eat_food, vga_y_update_ghost_directions, vga_y_update_ghost_positions;
+    wire [6:0] vga_y_fill_screen, vga_y_render_blocks, vga_y_render_player, vga_y_render_food, vga_y_render_ghosts, vga_y_ghost_collision, vga_y_update_vga;
     wire [cbit:0] vga_color_clear_screen, vga_color_update_position, vga_color_eat_food, vga_color_update_ghost_directions, vga_color_update_ghost_positions;
     wire [cbit:0] vga_color_fill_screen, vga_color_render_blocks, vga_color_render_player, vga_color_render_food, vga_color_render_ghosts, vga_color_ghost_collision, vga_color_update_vga;
 
@@ -431,10 +431,10 @@ module m_playing(
             end
             default: begin
                 data = 3'b000;
-                addr = 17'b0;
+                addr = 15'b0;
                 wren = 1'b0;
-                VGA_X = 9'b0;
-                VGA_Y = 8'b0;
+                VGA_X = 8'b0;
+                VGA_Y = 7'b0;
                 VGA_COLOR = 3'b0;
             end
         endcase
@@ -529,6 +529,7 @@ module m_playing(
         .direct(2'b0)
     );
 
+// module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR);
     m_render_food m_render_food_inst(
         .clock(clock),
         .resetn(resetn),
@@ -536,7 +537,10 @@ module m_playing(
         .wren(wr_render_food),
         .finished(f_render_food),
         .data(dt_render_food),
-        .addr(ad_render_food)
+        .addr(ad_render_food),
+        .VGA_X(vga_x_render_food),
+        .VGA_Y(vga_y_render_food),
+        .VGA_COLOR(vga_color_render_food)
     );
     // module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost_x, ghost_y, direct);
     // // Ghost position and direction

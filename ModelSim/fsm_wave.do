@@ -64,17 +64,35 @@ add wave -noupdate -label f_update_vga -radix binary /fsm_testbench/UUT/m_playin
 # add wave -noupdate -label finished_game_over -radix binary /fsm_testbench/UUT/m_game_over_inst/finished
 
 # Render Food Module Signals
-#add wave -noupdate -divider finished -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/finished
-#add wave -noupdate -label 
+# add wave -noupdate -divider finished -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/finished
+# add wave -noupdate -label
 
-# VGA Signals
+# VGA and Canvas Signals
 add wave -noupdate -divider VGA_and_canvas
 add wave -noupdate -label data -radix octal /fsm_testbench/UUT/data
 add wave -noupdate -label addr -radix hexadecimal /fsm_testbench/UUT/addr
+add wave -noupdate -label q -radix octal /fsm_testbench/UUT/q
 add wave -noupdate -label wren -radix binary /fsm_testbench/UUT/wren
 add wave -noupdate -label VGA_X -radix unsigned /fsm_testbench/UUT/VGA_X
 add wave -noupdate -label VGA_Y -radix unsigned /fsm_testbench/UUT/VGA_Y
 add wave -noupdate -label VGA_COLOR -radix octal /fsm_testbench/UUT/VGA_COLOR
+
+# canvas signals
+add wave -noupdate -divider canvas
+add wave -noupdate -label data -radix octal /fsm_testbench/canvas_inst/data
+add wave -noupdate -label address -radix hexadecimal /fsm_testbench/canvas_inst/address
+add wave -noupdate -label q -radix octal /fsm_testbench/canvas_inst/q
+add wave -noupdate -label wren -radix binary /fsm_testbench/canvas_inst/wren
+
+# food signals
+# add wave -noupdate -divider Food
+# add wave -noupdate -label address -radix unsigned /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/U2/address
+# add wave -noupdate -label data -radix octal /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/U2/data
+# add wave -noupdate -label wren -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/U2/wren
+# add wave -noupdate -label q -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/U2/q
+# add wave -noupdate -label game_x -radix unsigned /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/game_x
+# add wave -noupdate -label game_y -radix unsigned /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/game_y
+# add wave -noupdate -label finished -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/finished
 
 # update_vga_signals
 add wave -noupdate -divider update_vga_signals

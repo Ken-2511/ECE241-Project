@@ -1,6 +1,6 @@
 module m_greeting(clock, resetn, enable, finished, data, addr, wren);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -8,7 +8,7 @@ module m_greeting(clock, resetn, enable, finished, data, addr, wren);
     output reg finished;
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
     output reg wren;
 
     always @ (posedge clock) begin
@@ -25,7 +25,7 @@ endmodule
 
 module m_game_over(clock, resetn, enable, finished, data, addr, wren);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -33,7 +33,7 @@ module m_game_over(clock, resetn, enable, finished, data, addr, wren);
     output reg finished;
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
     output reg wren;
 
     always @ (posedge clock) begin
@@ -51,7 +51,7 @@ endmodule
 
 module m_clear_screen(clock, resetn, enable, wren, finished, data, addr, last_key_received);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -64,7 +64,7 @@ module m_clear_screen(clock, resetn, enable, wren, finished, data, addr, last_ke
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     // Last key received
     input [7:0] last_key_received;
@@ -73,7 +73,7 @@ module m_clear_screen(clock, resetn, enable, wren, finished, data, addr, last_ke
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
             data <= 3'b000;
-            addr <= 17'b0;
+            addr <= 15'b0;
             wren <= 0; // Disable write
         end
         else if (enable) begin
@@ -94,7 +94,7 @@ endmodule
 
 module m_update_position(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -107,13 +107,13 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr);
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
             data <= 3'b000;
-            addr <= 17'b0;
+            addr <= 15'b0;
             wren <= 0; // Disable write
         end
         else if (enable) begin
@@ -133,7 +133,7 @@ endmodule
 
 module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -146,13 +146,13 @@ module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
             data <= 3'b000;
-            addr <= 17'b0;
+            addr <= 15'b0;
             wren <= 0; // Disable write
         end
         else if (enable) begin
@@ -172,7 +172,7 @@ endmodule
 
 module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -185,13 +185,13 @@ module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, ad
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
             data <= 3'b000;
-            addr <= 17'b0;
+            addr <= 15'b0;
             wren <= 0; // Disable write
         end
         else if (enable) begin
@@ -211,7 +211,7 @@ endmodule
 
 module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -224,13 +224,13 @@ module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, add
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
             data <= 3'b000;
-            addr <= 17'b0;
+            addr <= 15'b0;
             wren <= 0; // Disable write
         end
         else if (enable) begin
@@ -250,7 +250,7 @@ endmodule
 
 module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -263,7 +263,7 @@ module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     always @ (posedge clock) begin
         if (!resetn) begin
@@ -289,7 +289,7 @@ endmodule
 
 module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -302,13 +302,13 @@ module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
             data <= 3'b000;
-            addr <= 17'b0;
+            addr <= 15'b0;
             wren <= 0; // Disable write
         end
         else if (enable) begin
@@ -328,7 +328,7 @@ endmodule
 
 module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, game_x, game_y, direct);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -341,26 +341,28 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     // VGA outputs
-    output reg [8:0] VGA_X;
-    output reg [7:0] VGA_Y;
+    output reg [7:0] VGA_X;
+    output reg [6:0] VGA_Y;
     output reg [cbit:0] VGA_COLOR;
 
     // Player position and direction
     input [5:0] game_x;
     input [4:0] game_y;
     input [1:0] direct;
-    wire [8:0] canvas_x;
-    wire [7:0] canvas_y;
+    wire [7:0] canvas_x;
+    wire [6:0] canvas_y;
     reg [2:0] dx, dy;
     wire [cbit:0] color;
+    wire [4:0] temp_player_addr;
+    assign temp_player_addr = dy * 5 + dx;
 
     game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
 
     player U2 (
-        .address({dy * 8 + dx}),
+        .address(temp_player_addr),
         .clock(clock),
         .q(color)
     );
@@ -368,8 +370,8 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
-            data <= 12'b000;
-            addr <= 17'b0;
+            data <= 24'b000;
+            addr <= 15'b0;
             wren <= 0; // Disable write
             dx <= 0;
             dy <= 0;
@@ -378,18 +380,14 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
             wren <= 1; // Enable write
             data <= color;
             if (dx == 0 && dy == 0) begin
-                addr <= canvas_y * 320 + canvas_x;
+                addr <= canvas_y * 160 + canvas_x;
                 dx <= dx + 1;
             end
-            else if (dx < 7) begin
-                VGA_X <= canvas_x + dx;
-                VGA_Y <= canvas_y + dy;
+            else if (dx < 4) begin
                 dx <= dx + 1;
                 addr <= addr + 1;
             end
-            else if (dy < 7) begin
-                VGA_X <= canvas_x + dx;
-                VGA_Y <= canvas_y + dy;
+            else if (dy < 4) begin
                 dy <= dy + 1;
                 dx <= 0;
                 addr <= addr + 1;
@@ -412,7 +410,7 @@ endmodule
 
 module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -425,34 +423,40 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     // VGA outputs
-    output reg [8:0] VGA_X;
-    output reg [7:0] VGA_Y;
+    output reg [7:0] VGA_X;  // @ chatgpt: change from 8 to 7
+    output reg [6:0] VGA_Y;
     output reg [cbit:0] VGA_COLOR;
 
     // Food position
     reg [5:0] game_x;
     reg [4:0] game_y;
-    wire [8:0] canvas_x;
-    wire [7:0] canvas_y;
-    wire [cbit:0] color; assign color = 12'b111101110111;
+    wire [7:0] canvas_x;
+    wire [6:0] canvas_y;
+    wire [cbit:0] color;
     wire food_exists;
+    wire [8:0] temp_food_addr;
+    assign temp_food_addr = game_y * 29 + game_x;
+
+    assign color = 24'hffffff;
 
     game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
 
     food U2 (
-        .address({game_y * 29 + game_x}),
+        .address(temp_food_addr),
         .clock(clock),
-        .q(food_exists)
+        .q(food_exists),
+        .wren(1'b0),
+        .data(1'b0)
     );
 
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
+            data <= 23'b000;
+            addr <= 15'b0;
             wren <= 0; // Disable write
             game_x <= 0;
             game_y <= 0;
@@ -462,16 +466,16 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
             if (food_exists) begin
                 wren <= 1; // Enable write
                 data <= color;
-                addr <= canvas_y * 320 + canvas_x;
+                addr <= canvas_y * 160 + canvas_x;
             end
             else begin
                 wren <= 0; // Disable write
             end
             // Increment food position
-            if (game_x < 29) begin
+            if (game_x < 28) begin
                 game_x <= game_x + 1;
             end
-            else if (game_y < 13) begin
+            else if (game_y < 12) begin
                 game_x <= 0;
                 game_y <= game_y + 1;
             end
@@ -490,7 +494,7 @@ endmodule
 
 module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost_x, ghost_y, direct, last_key_received);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
     parameter num_ghosts = 4;
 
     // Basic inputs
@@ -504,11 +508,11 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X,
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     // VGA outputs
-    output reg [8:0] VGA_X;
-    output reg [7:0] VGA_Y;
+    output reg [7:0] VGA_X;
+    output reg [6:0] VGA_Y;
     output reg [cbit:0] VGA_COLOR;
 
     // Ghost position and direction
@@ -527,8 +531,8 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     // // Intermediate variables
     reg [2:0] dx, dy; // Offset within the ghost's sprite
     reg [1:0] ghost_index; // Track which ghost we are rendering
-    wire [8:0] canvas_x;
-    wire [7:0] canvas_y;
+    wire [7:0] canvas_x;
+    wire [6:0] canvas_y;
     wire [cbit:0] color;
 
     // // Convert game coordinates to canvas coordinates
@@ -550,8 +554,8 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X,
         if (!resetn) begin
             // Reset state
             finished <= 0;
-            data <= 12'b000;
-            addr <= 17'b0;
+            data <= 24'b000;
+            addr <= 15'b0;
             wren <= 0;
             VGA_X <= 0;
             VGA_Y <= 0;
@@ -606,7 +610,7 @@ endmodule
 
 module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -619,13 +623,13 @@ module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr);
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
 
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
             data <= 3'b000;
-            addr <= 17'b0;
+            addr <= 15'b0;
             wren <= 0; // Disable write
         end
         else if (enable) begin
@@ -657,7 +661,7 @@ module m_update_vga(
     VGA_COLOR   // Additional output
 );
 
-    parameter cbit = 11;
+    parameter cbit = 23;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -666,18 +670,18 @@ module m_update_vga(
     output reg wren;
     output reg finished;
     output reg [cbit:0] data;
-    output reg [16:0] addr;
+    output reg [14:0] addr;
     // Input
     input [cbit:0] q;
 
     // Additional outputs for VGA
-    output reg [8:0] VGA_X;
-    output reg [7:0] VGA_Y;
+    output reg [7:0] VGA_X;
+    output reg [6:0] VGA_Y;
     output reg [cbit:0] VGA_COLOR;
 
     // Internal counters
-    reg [8:0] x_counter;
-    reg [7:0] y_counter;
+    reg [7:0] x_counter;
+    reg [6:0] y_counter;
 
     // Assume RAM data output is connected to the data line (read when wren=0)
     // If there is a dedicated RAM data output signal, adjust accordingly
@@ -695,13 +699,13 @@ module m_update_vga(
         end else if (enable) begin
             if (!finished) begin
                 wren <= 0; // Read mode, do not write to RAM
-                if (x_counter < 320) begin
+                if (x_counter < 160) begin
                     VGA_X <= x_counter;
                     VGA_Y <= y_counter;
-                    addr <= y_counter * 320 + x_counter; // Assume screen resolution is 320x240
+                    addr <= y_counter * 160 + x_counter; // Assume screen resolution is 320x240
                     VGA_COLOR <= q; // Color data read from RAM
                     x_counter <= x_counter + 1;
-                end else if (y_counter < 240) begin
+                end else if (y_counter < 120) begin
                     x_counter <= 0;
                     y_counter <= y_counter + 1;
                 end else begin

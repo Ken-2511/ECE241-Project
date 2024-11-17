@@ -23,9 +23,8 @@ if {[file exists ../food.mif]} {
 vlib work;
 
 # compile the Verilog source code in the parent folder
-vlog ../milestone2.v
 vlog ../vga_adapter/*.v
-vlog ../utils.v
+# vlog ..PS2_Controller/*.v
 vlog *.v
 vlog ../*.v
 # start the Simulator, including some libraries that may be needed
@@ -33,4 +32,4 @@ vsim work.fsm_testbench -Lf 220model -Lf altera_mf_ver -Lf verilog
 # show waveforms specified in wave.do
 do fsm_wave.do
 # advance the simulation the desired amount of time
-run 1600000 ns
+run 12000 ns

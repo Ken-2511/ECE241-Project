@@ -11,7 +11,7 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 				PS2_CLK, PS2_DAT,
 				HEX4, HEX5, LEDR, VGA_X_D, VGA_Y_D, VGA_COLOR, plot);
 	
-    parameter cbit = 11;
+    parameter cbit = 23;
 
 	input CLOCK_50;
 	input [7:0] SW;
@@ -30,21 +30,21 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 	output [6:0] HEX4;
 	output [6:0] HEX5;
 	output [9:0] LEDR;
-	output wire [8:0] VGA_X_D; // delayed signal
-	output wire [7:0] VGA_Y_D;
-	wire [8:0] VGA_X;
-	wire [7:0] VGA_Y;
+	output wire [7:0] VGA_X_D; // delayed signal
+	output wire [6:0] VGA_Y_D;
+	wire [7:0] VGA_X;
+	wire [6:0] VGA_Y;
 	output wire [cbit:0] VGA_COLOR;
 	output plot;
 
 	// for data memory
 	wire [cbit:0] data;
-	wire [16:0] addr;
+	wire [14:0] addr;
 	wire wren;
 	wire [cbit:0] q;
 
-	wire [8:0] X;           // starting x location of object
-	wire [7:0] Y;           // starting y location of object
+	wire [7:0] X;           // starting x location of object
+	wire [6:0] Y;           // starting y location of object
 
 	// For PS2 controller
 	wire [7:0] ps2_key_data;
@@ -134,9 +134,9 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 			.VGA_BLANK_N(VGA_BLANK_N),
 			.VGA_SYNC_N(VGA_SYNC_N),
 			.VGA_CLK(VGA_CLK));
-		defparam VGA.RESOLUTION = "320x240";
+		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
-		defparam VGA.BITS_PER_COLOUR_CHANNEL = 4;
+		defparam VGA.BITS_PER_COLOUR_CHANNEL = 8;
 		defparam VGA.BACKGROUND_IMAGE = "canvas.mif";
 
 endmodule
@@ -147,15 +147,15 @@ module draw_big_maze(clock, resetn, vga_x, vga_y, color, enable);
 
 	input clock, resetn, enable;
 	output [7:0] color;
-	output reg [8:0] vga_x;
-	output reg [7:0] vga_y;
+	output reg [7:0] vga_x;
+	output reg [6:0] vga_y;
 
 	reg [4:0] maze_x;
 	reg [3:0] maze_y;
 	wire [0:0] maze_color;
 	reg [3:0] dx, dy;
 
-	parameter n = 8;
+	parameter n = 4; // size of the block
 
 	always @ (posedge clock) begin
 		if (!resetn) begin
