@@ -136,7 +136,7 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 			.VGA_CLK(VGA_CLK));
 		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
-		defparam VGA.BITS_PER_COLOUR_CHANNEL = 8;
+		defparam VGA.BITS_PER_COLOUR_CHANNEL = 4;
 		defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
 endmodule

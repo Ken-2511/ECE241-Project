@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Mon Nov 18 06:51:26 2024
+Analysis & Synthesis Status : Successful - Mon Nov 18 07:26:21 2024
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : milestone2
 Top-level Entity Name : milestone2
@@ -7,7 +7,7 @@ Logic utilization (in ALMs) : N/A
 Total registers : 395
 Total pins : 124
 Total virtual pins : 0
-Total block memory bits : 691,961
+Total block memory bits : 461,477
 Total DSP Blocks : 1
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

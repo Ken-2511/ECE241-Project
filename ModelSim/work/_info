@@ -71,7 +71,7 @@ Z15 !s90 -reportprogress|300|../blocks.v|../canvas.v|../fsm.v|../legacy_code.v|.
 !i113 1
 R10
 vblocks
-Z16 !s110 1731930818
+Z16 !s110 1731932731
 !i10b 1
 !s100 EDm0f9?R^P2U^3=e_cMg;0
 I9=BHh]2kz1LO9bR^@;BJB1
@@ -85,7 +85,7 @@ R6
 r1
 !s85 0
 31
-Z18 !s108 1731930818.000000
+Z18 !s108 1731932731.000000
 Z19 !s107 ../utils.v|../top.v|../ps2.v|../player.v|../modules.v|../milestone2.v|../legacy_code.v|../ghost1.v|../fsm.v|../food.v|../canvas.v|../blocks.v|
 Z20 !s90 -reportprogress|300|../blocks.v|../canvas.v|../food.v|../fsm.v|../ghost1.v|../legacy_code.v|../milestone2.v|../modules.v|../player.v|../ps2.v|../top.v|../utils.v|
 !i113 1
@@ -111,7 +111,7 @@ R20
 !i113 1
 R10
 vcanvas_coord_2_mem_addr
-R16
+!s110 1731932732
 !i10b 1
 !s100 ?OI>C1B0>U5S0LVzaob8i3
 IZ]WkhmEBjO9==6cf9>fAL2
@@ -273,11 +273,11 @@ R10
 vfsm_testbench
 R16
 !i10b 1
-!s100 C<>G?DAL9I0?]h?<X>Wf>1
-INIi8[I<?K446Y6JWgZ^;l1
+!s100 Sb75^VC=;9=i?Do[jYJ::2
+Iai2cf^UVocFWRDHZIn;Il3
 R2
 R11
-w1731884492
+w1731931051
 8fsm_testbench.v
 Ffsm_testbench.v
 L0 3
@@ -814,11 +814,11 @@ R10
 vplayer
 R16
 !i10b 1
-!s100 C0`iKS[ODPkR_4jU=m5?>0
-ILe`G4Dz`WMdBTk_hhSnKm0
+!s100 F@dYUNF[A@eO9Xi`l=88^0
+IeY]M>0mj9ce4k]ohCcN092
 R2
 R11
-w1731930671
+w1731932725
 8../player.v
 F../player.v
 R17
