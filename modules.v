@@ -379,8 +379,10 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     output reg finished;
 
     // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
+    output [cbit:0] data; // the later data
+    reg [cbit:0] _data; // the earlier data
+    output [14:0] addr; // the later address
+    reg [14:0] _addr; // the earlier address
 
     // VGA outputs
     output reg [7:0] VGA_X;
@@ -406,35 +408,56 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
         .q(color)
     );
 
+    // delay_one_cycle U3 (
+    //     .clock(clock),
+    //     .resetn(resetn),
+    //     .signal_in(_data),
+    //     .signal_out(data)
+    // );
+    // defparam U3.n_cycles = 1;
+    // defparam U3.n = cbit + 1;
+    assign data = _data;
+
+    // delay_one_cycle U4 (
+    //     .clock(clock),
+    //     .resetn(resetn),
+    //     .signal_in(_addr),
+    //     .signal_out(addr)
+    // );
+    // defparam U3.n_cycles = 3;
+    // defparam U3.n = 15;
+    assign addr = _addr;
+
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
-            data <= 12'h000;
-            addr <= 15'b0;
+            _data <= 12'h000;
+            _addr <= 15'b0;
             wren <= 0; // Disable write
             dx <= 3'b000;
             dy <= 3'b000;
         end
         else if (enable) begin
             wren <= 1; // Enable write
-            data <= color;
+            _data <= color;
             if (dx == 0 && dy == 0) begin
-                addr <= canvas_y * 160 + canvas_x;
+                _addr <= (game_y + canvas_y) * 160 + canvas_x + game_x;
                 dx <= dx + 1;
             end
             else if (dx < 4) begin
                 dx <= dx + 1;
-                addr <= addr + 1;
+                _addr <= _addr + 1;
             end
             else if (dy < 4) begin
                 dy <= dy + 1;
                 dx <= 0;
-                addr <= (canvas_y + dy + 1) * 160 + canvas_x;
+                // _addr <= (canvas_y + dy + 1) * 160 + canvas_x;
+                _addr <= (game_y + canvas_y + dy + 1) * 160 + canvas_x + game_x;
             end
             else begin
                 finished <= 1;  // Finish immediately when enabled, for testing
                 wren <= 0;
-                addr <= 0;
+                _addr <= 0;
                 dx <= 0;
                 dy <= 0;
             end

@@ -64,10 +64,10 @@ add wave -noupdate -label f_update_vga -radix binary /fsm_testbench/UUT/m_playin
 # add wave -noupdate -label finished_game_over -radix binary /fsm_testbench/UUT/m_game_over_inst/finished
 
 # Render Food Module Signals
-# add wave -noupdate -divider m_render_food
-# add wave -noupdate -label finished -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/finished
-# add wave -noupdate -label temp_food_addr -radix hexadecimal /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/temp_food_addr
-# add wave -noupdate -label food_exists -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/food_exists
+add wave -noupdate -divider m_render_food
+add wave -noupdate -label finished -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/finished
+add wave -noupdate -label temp_food_addr -radix hexadecimal /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/temp_food_addr
+add wave -noupdate -label food_exists -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/food_exists
 
 # VGA and Canvas Signals
 add wave -noupdate -divider VGA_and_canvas

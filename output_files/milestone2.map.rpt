@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Mon Nov 18 08:40:17 2024
+Mon Nov 18 11:59:17 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -29,7 +29,7 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  21. Source assignments for fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated
  22. Source assignments for fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated
  23. Source assignments for canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated
- 24. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated
+ 24. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated
  25. Parameter Settings for User Entity Instance: Top-level Entity: |milestone2
  26. Parameter Settings for User Entity Instance: PS2_Controller:PS2
  27. Parameter Settings for User Entity Instance: PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out
@@ -97,7 +97,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 18 08:40:17 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 18 11:59:17 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; milestone2                                     ;
@@ -222,9 +222,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
-;     Processors 9-16        ;   0.0%      ;
+;     Processors 7-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -265,8 +263,7 @@ https://fpgasoftware.intel.com/eula.
 ; db/decode_7la.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/decode_7la.tdf                          ;         ;
 ; db/decode_01a.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/decode_01a.tdf                          ;         ;
 ; db/mux_3hb.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/mux_3hb.tdf                             ;         ;
-; db/altsyncram_m9m1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_m9m1.tdf                     ;         ;
-; black.mif                                  ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/black.mif                                  ;         ;
+; db/altsyncram_ldm1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_ldm1.tdf                     ;         ;
 ; altpll.tdf                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf                                         ;         ;
 ; stratix_pll.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_pll.inc                                    ;         ;
 ; stratixii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratixii_pll.inc                                  ;         ;
@@ -283,8 +280,8 @@ https://fpgasoftware.intel.com/eula.
 ; Estimate of Logic utilization (ALMs needed) ; 364            ;
 ;                                             ;                ;
 ; Combinational ALUT usage for logic          ; 597            ;
-;     -- 7 input functions                    ; 2              ;
-;     -- 6 input functions                    ; 118            ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 120            ;
 ;     -- 5 input functions                    ; 60             ;
 ;     -- 4 input functions                    ; 70             ;
 ;     -- <=3 input functions                  ; 347            ;
@@ -302,7 +299,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 474            ;
-; Total fan-out                               ; 5580           ;
+; Total fan-out                               ; 5579           ;
 ; Average fan-out                             ; 4.13           ;
 +---------------------------------------------+----------------+
 
@@ -350,9 +347,9 @@ https://fpgasoftware.intel.com/eula.
 ;    |hex7seg:H3|                                                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|hex7seg:H3                                                                                                                                               ; hex7seg                   ; work         ;
 ;    |vga_adapter:VGA|                                                ; 74 (2)              ; 30 (0)                    ; 230400            ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA                                                                                                                                          ; vga_adapter               ; work         ;
 ;       |altsyncram:VideoMemory|                                      ; 6 (0)               ; 4 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory                                                                                                                   ; altsyncram                ; work         ;
-;          |altsyncram_m9m1:auto_generated|                           ; 6 (0)               ; 4 (4)                     ; 230400            ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated                                                                                    ; altsyncram_m9m1           ; work         ;
-;             |decode_01a:rden_decode_b|                              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated|decode_01a:rden_decode_b                                                           ; decode_01a                ; work         ;
-;             |decode_7la:decode2|                                    ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated|decode_7la:decode2                                                                 ; decode_7la                ; work         ;
+;          |altsyncram_ldm1:auto_generated|                           ; 6 (0)               ; 4 (4)                     ; 230400            ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated                                                                                    ; altsyncram_ldm1           ; work         ;
+;             |decode_01a:rden_decode_b|                              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|decode_01a:rden_decode_b                                                           ; decode_01a                ; work         ;
+;             |decode_7la:decode2|                                    ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|decode_7la:decode2                                                                 ; decode_7la                ; work         ;
 ;       |vga_address_translator:user_input_translator|                ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|vga_address_translator:user_input_translator                                                                                             ; vga_address_translator    ; work         ;
 ;       |vga_controller:controller|                                   ; 56 (46)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|vga_controller:controller                                                                                                                ; vga_controller            ; work         ;
 ;          |vga_address_translator:controller_translator|             ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator                                                                   ; vga_address_translator    ; work         ;
@@ -371,7 +368,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|ALTSYNCRAM                                                                        ; AUTO ; Single Port      ; 19200        ; 12           ; --           ; --           ; 230400 ; ../canvas.mif ;
 ; fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated|ALTSYNCRAM       ; AUTO ; Single Port      ; 377          ; 1            ; --           ; --           ; 377    ; food.mif      ;
 ; fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM              ; 25           ; 12           ; --           ; --           ; 300    ; player.mif    ;
-; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated|ALTSYNCRAM                                                                                    ; AUTO ; Simple Dual Port ; 19200        ; 12           ; 19200        ; 12           ; 230400 ; black.mif     ;
+; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|ALTSYNCRAM                                                                                    ; AUTO ; Simple Dual Port ; 19200        ; 12           ; 19200        ; 12           ; 230400 ; canvas.mif    ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+---------------+
 
 
@@ -596,7 +593,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
 ; Total registers                              ; 418   ;
-; Number of registers using Synchronous Clear  ; 364   ;
+; Number of registers using Synchronous Clear  ; 365   ;
 ; Number of registers using Synchronous Load   ; 3     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -616,7 +613,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_positions:m_update_ghost_positions_inst|addr[13]  ;
 ; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_fill_screen:m_fill_screen_inst|addr[6]                         ;
 ; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst|addr[7]                     ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|data[3]                     ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|_data[3]                    ;
 ; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst|addr[6]                 ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[3]                                       ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |milestone2|vga_adapter:VGA|vga_controller:controller|yCounter[6]                                                       ;
@@ -632,15 +629,15 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[3]                                     ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[3]                                          ;
 ; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[11]                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|dy[1]                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|dy[0]                       ;
 ; 5:1                ; 15 bits   ; 45 LEs        ; 0 LEs                ; 45 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|VGA_X[7]                          ;
 ; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|_game_x[3]                      ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|addr[14]                    ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|addr[0]                     ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|addr[11]                    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|_addr[14]                   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|_addr[1]                    ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|_addr[11]                   ;
 ; 7:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|VGA_COLOR[4]                      ;
 ; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|game_state                                                       ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated|mux_3hb:mux3|result_node[9]           ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_3hb:mux3|result_node[9]           ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|game_state                                                                                ;
 ; 13:1               ; 15 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|Selector33                                                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------+
@@ -674,7 +671,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 
 
 +----------------------------------------------------------------------------------------------+
-; Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated ;
+; Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated ;
 +---------------------------------+--------------------+------+--------------------------------+
 ; Assignment                      ; Value              ; From ; To                             ;
 +---------------------------------+--------------------+------+--------------------------------+
@@ -1124,14 +1121,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +--------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: vga_adapter:VGA ;
-+-------------------------+-----------+------------------------+
-; Parameter Name          ; Value     ; Type                   ;
-+-------------------------+-----------+------------------------+
-; BITS_PER_COLOUR_CHANNEL ; 4         ; Signed Integer         ;
-; MONOCHROME              ; FALSE     ; String                 ;
-; RESOLUTION              ; 160x120   ; String                 ;
-; BACKGROUND_IMAGE        ; black.mif ; String                 ;
-+-------------------------+-----------+------------------------+
++-------------------------+------------+-----------------------+
+; Parameter Name          ; Value      ; Type                  ;
++-------------------------+------------+-----------------------+
+; BITS_PER_COLOUR_CHANNEL ; 4          ; Signed Integer        ;
+; MONOCHROME              ; FALSE      ; String                ;
+; RESOLUTION              ; 160x120    ; String                ;
+; BACKGROUND_IMAGE        ; canvas.mif ; String                ;
++-------------------------+------------+-----------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1188,7 +1185,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                 ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                 ;
-; INIT_FILE                          ; black.mif            ; Untyped                 ;
+; INIT_FILE                          ; canvas.mif           ; Untyped                 ;
 ; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                 ;
 ; MAXIMUM_DEPTH                      ; 0                    ; Untyped                 ;
 ; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                 ;
@@ -1201,7 +1198,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                 ;
 ; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                 ;
 ; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                 ;
-; CBXI_PARAMETER                     ; altsyncram_m9m1      ; Untyped                 ;
+; CBXI_PARAMETER                     ; altsyncram_ldm1      ; Untyped                 ;
 +------------------------------------+----------------------+-------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -1733,9 +1730,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 418                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 29                          ;
+;     ENA               ; 28                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     ENA SCLR          ; 274                         ;
+;     ENA SCLR          ; 275                         ;
 ;     SCLR              ; 67                          ;
 ;     SCLR SLD          ; 3                           ;
 ;     plain             ; 25                          ;
@@ -1745,16 +1742,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         1 data inputs ; 210                         ;
 ;         2 data inputs ; 8                           ;
 ;         3 data inputs ; 1                           ;
-;     extend            ; 2                           ;
-;         7 data inputs ; 2                           ;
-;     normal            ; 340                         ;
+;     normal            ; 342                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 5                           ;
 ;         2 data inputs ; 38                          ;
 ;         3 data inputs ; 47                          ;
 ;         4 data inputs ; 70                          ;
 ;         5 data inputs ; 60                          ;
-;         6 data inputs ; 118                         ;
+;         6 data inputs ; 120                         ;
 ;     shared            ; 40                          ;
 ;         0 data inputs ; 4                           ;
 ;         1 data inputs ; 6                           ;
@@ -1785,7 +1780,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Nov 18 08:40:11 2024
+    Info: Processing started: Mon Nov 18 11:59:10 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -1800,10 +1795,10 @@ Info (12021): Found 14 design units, including 14 entities, in source file modul
     Info (12023): Found entity 8: m_fill_screen File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 251
     Info (12023): Found entity 9: m_render_blocks File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 329
     Info (12023): Found entity 10: m_render_player File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 368
-    Info (12023): Found entity 11: m_render_food File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 450
-    Info (12023): Found entity 12: m_render_ghosts File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 566
-    Info (12023): Found entity 13: m_ghost_collision File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 682
-    Info (12023): Found entity 14: m_update_vga File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 721
+    Info (12023): Found entity 11: m_render_food File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 473
+    Info (12023): Found entity 12: m_render_ghosts File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 589
+    Info (12023): Found entity 13: m_ghost_collision File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 705
+    Info (12023): Found entity 14: m_update_vga File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 744
 Info (12021): Found 0 design units, including 0 entities, in source file legacy_code.v
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/ps2_controller.v
     Info (12023): Found entity 1: PS2_Controller File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/PS2_Controller.v Line: 9
@@ -1951,20 +1946,20 @@ Warning (10230): Verilog HDL assignment warning at modules.v(279): truncated val
 Info (12128): Elaborating entity "m_render_blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 513
 Warning (10230): Verilog HDL assignment warning at modules.v(357): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 357
 Info (12128): Elaborating entity "m_render_player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 530
-Warning (10230): Verilog HDL assignment warning at modules.v(399): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 399
-Warning (10230): Verilog HDL assignment warning at modules.v(422): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 422
-Warning (10230): Verilog HDL assignment warning at modules.v(423): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 423
-Warning (10230): Verilog HDL assignment warning at modules.v(426): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 426
-Warning (10230): Verilog HDL assignment warning at modules.v(427): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 427
-Warning (10230): Verilog HDL assignment warning at modules.v(430): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 430
-Warning (10230): Verilog HDL assignment warning at modules.v(432): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 432
-Warning (10034): Output port "VGA_X" at modules.v(386) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 386
-Warning (10034): Output port "VGA_Y" at modules.v(387) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 387
-Warning (10034): Output port "VGA_COLOR" at modules.v(388) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 388
-Info (12128): Elaborating entity "game_coord_2_canvas_coord" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|game_coord_2_canvas_coord:U1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 401
+Warning (10230): Verilog HDL assignment warning at modules.v(401): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 401
+Warning (10230): Verilog HDL assignment warning at modules.v(444): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 444
+Warning (10230): Verilog HDL assignment warning at modules.v(445): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 445
+Warning (10230): Verilog HDL assignment warning at modules.v(448): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 448
+Warning (10230): Verilog HDL assignment warning at modules.v(449): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 449
+Warning (10230): Verilog HDL assignment warning at modules.v(452): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 452
+Warning (10230): Verilog HDL assignment warning at modules.v(455): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 455
+Warning (10034): Output port "VGA_X" at modules.v(388) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 388
+Warning (10034): Output port "VGA_Y" at modules.v(389) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 389
+Warning (10034): Output port "VGA_COLOR" at modules.v(390) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 390
+Info (12128): Elaborating entity "game_coord_2_canvas_coord" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|game_coord_2_canvas_coord:U1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 403
 Warning (10230): Verilog HDL assignment warning at utils.v(103): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 103
 Warning (10230): Verilog HDL assignment warning at utils.v(104): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 104
-Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 407
+Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 409
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 82
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 82
 Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 82
@@ -1986,16 +1981,16 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_45g1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_45g1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_45g1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "m_render_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 544
-Warning (10230): Verilog HDL assignment warning at modules.v(483): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 483
-Warning (10230): Verilog HDL assignment warning at modules.v(529): truncated value with size 23 to match size of target (12) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 529
-Warning (10230): Verilog HDL assignment warning at modules.v(540): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 540
-Warning (10230): Verilog HDL assignment warning at modules.v(547): truncated value with size 32 to match size of target (6) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 547
-Warning (10230): Verilog HDL assignment warning at modules.v(551): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 551
-Warning (10034): Output port "VGA_X" at modules.v(469) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 469
-Warning (10034): Output port "VGA_Y" at modules.v(470) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 470
-Warning (10034): Output port "VGA_COLOR" at modules.v(471) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 471
-Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 514
-Info (12128): Elaborating entity "food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 524
+Warning (10230): Verilog HDL assignment warning at modules.v(506): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 506
+Warning (10230): Verilog HDL assignment warning at modules.v(552): truncated value with size 23 to match size of target (12) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 552
+Warning (10230): Verilog HDL assignment warning at modules.v(563): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 563
+Warning (10230): Verilog HDL assignment warning at modules.v(570): truncated value with size 32 to match size of target (6) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 570
+Warning (10230): Verilog HDL assignment warning at modules.v(574): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 574
+Warning (10034): Output port "VGA_X" at modules.v(492) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 492
+Warning (10034): Output port "VGA_Y" at modules.v(493) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 493
+Warning (10034): Output port "VGA_COLOR" at modules.v(494) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 494
+Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 537
+Info (12128): Elaborating entity "food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 547
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 86
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 86
 Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 86
@@ -2018,16 +2013,16 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_r6o1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_r6o1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_r6o1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "m_render_ghosts" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 566
-Warning (10036): Verilog HDL or VHDL warning at modules.v(603): object "dx" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 603
-Warning (10036): Verilog HDL or VHDL warning at modules.v(603): object "dy" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 603
-Warning (10036): Verilog HDL or VHDL warning at modules.v(604): object "ghost_index" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 604
+Warning (10036): Verilog HDL or VHDL warning at modules.v(626): object "dx" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 626
+Warning (10036): Verilog HDL or VHDL warning at modules.v(626): object "dy" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 626
+Warning (10036): Verilog HDL or VHDL warning at modules.v(627): object "ghost_index" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 627
 Info (12128): Elaborating entity "m_ghost_collision" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 577
-Warning (10230): Verilog HDL assignment warning at modules.v(710): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 710
+Warning (10230): Verilog HDL assignment warning at modules.v(733): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 733
 Info (12128): Elaborating entity "m_update_vga" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 591
-Warning (10230): Verilog HDL assignment warning at modules.v(776): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 776
-Warning (10230): Verilog HDL assignment warning at modules.v(778): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 778
-Warning (10230): Verilog HDL assignment warning at modules.v(781): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 781
-Warning (10034): Output port "data" at modules.v(743) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 743
+Warning (10230): Verilog HDL assignment warning at modules.v(799): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 799
+Warning (10230): Verilog HDL assignment warning at modules.v(801): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 801
+Warning (10230): Verilog HDL assignment warning at modules.v(804): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 804
+Warning (10034): Output port "data" at modules.v(766) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 766
 Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:U3|m_game_over:m_game_over_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 152
 Warning (10034): Output port "data" at modules.v(35) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 35
 Warning (10034): Output port "addr" at modules.v(36) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 36
@@ -2084,10 +2079,10 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
     Info (12134): Parameter "power_up_uninitialized" = "FALSE"
-    Info (12134): Parameter "init_file" = "black.mif"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_m9m1.tdf
-    Info (12023): Found entity 1: altsyncram_m9m1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_m9m1.tdf Line: 34
-Info (12128): Elaborating entity "altsyncram_m9m1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12134): Parameter "init_file" = "canvas.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ldm1.tdf
+    Info (12023): Found entity 1: altsyncram_ldm1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_ldm1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_ldm1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v Line: 201
 Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_pll.v Line: 53
 Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_pll.v Line: 53
@@ -2175,10 +2170,10 @@ Info (21057): Implemented 898 device resources after synthesis - the final resou
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 165 warnings
-    Info: Peak virtual memory: 4986 megabytes
-    Info: Processing ended: Mon Nov 18 08:40:17 2024
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:13
+    Info: Peak virtual memory: 4957 megabytes
+    Info: Processing ended: Mon Nov 18 11:59:17 2024
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:16
 
 
 +------------------------------------------+
