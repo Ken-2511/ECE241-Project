@@ -38,6 +38,20 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
     wire [6:0] vga_y_greeting, vga_y_playing, vga_y_game_over;
     wire [cbit:0] vga_color_greeting, vga_color_playing, vga_color_game_over;
 
+    //Player
+    wire [4:0] player_x; //may need to put the x and y back if error 
+    wire [3:0] player_y;
+    wire [3:0] w; //internal carry to deal with the movement FSM
+    wire [2:0] direction;
+    parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
+
+    get_direction find_direction(last_key_received, hs_enable, w);
+    movement_FSM track_movement(CLOCK_50, KEY[0], hs_enable, w, direction);
+	
+	//Ghosts
+	
+	ghost1 ghost1(address, CLOCK_50, q1);
+
     // PS2 controller input
     input [7:0] last_key_received;
 
@@ -459,7 +473,10 @@ module m_playing(
         .wren(wr_update_position),
         .finished(f_update_position),
         .data(dt_update_position),
-        .addr(ad_update_position)
+        .addr(ad_update_position),
+        .direction(direction),
+        .player_x(player_x),
+        .player_y(player_y)
     );
 
     m_eat_food m_eat_food_inst(
@@ -526,6 +543,8 @@ module m_playing(
         .VGA_COLOR(vga_color_render_player),
         .game_x(6'b000001),
         .game_y(5'b00001),
+        .game_x(player_x),
+        .game_y(player_y),
         .direct(2'b0)
     );
 

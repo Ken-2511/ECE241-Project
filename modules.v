@@ -92,7 +92,7 @@ module m_clear_screen(clock, resetn, enable, wren, finished, data, addr, last_ke
 endmodule
 
 
-module m_update_position(clock, resetn, enable, wren, finished, data, addr);
+module m_update_position(clock, resetn, enable, wren, finished, data, addr, direction, player_x, player_y);
 
     parameter cbit = 11;
 
@@ -109,14 +109,28 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr);
     output reg [cbit:0] data;
     output reg [14:0] addr;
 
+    // Player
+    input [1:0] direction;
+    output [4:0] player_x;
+    output [3:0] player_y;
+
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
-            data <= 3'b000;
+            data <= 3'b0;
             addr <= 15'b0;
-            wren <= 0; // Disable write
+            wren <= 1'b0; // Disable write
+            player_x <= 5'b0;
+            player_y <= 4'b0;
         end
         else if (enable) begin
+            case(direction)
+                up: begin player_x <= player_x; player_y <= player_y - 1; end
+                left: begin player_x <= player_x - 1; player_y <= player_y; end
+                down: begin player_x <= player_x; player_y <= player_y + 1; end
+                right: begin player_x <= player_x + 1; player_y <= player_y; end
+                default: begin player_x <= player_x; player_y <= player_y; end
+            endcase
             wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b010; // Example data value

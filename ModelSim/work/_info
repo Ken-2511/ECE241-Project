@@ -71,7 +71,7 @@ Z15 !s90 -reportprogress|300|../blocks.v|../canvas.v|../fsm.v|../legacy_code.v|.
 !i113 1
 R10
 vblocks
-Z16 !s110 1731949128
+Z16 !s110 1731971147
 !i10b 1
 !s100 EDm0f9?R^P2U^3=e_cMg;0
 I9=BHh]2kz1LO9bR^@;BJB1
@@ -85,7 +85,7 @@ R6
 r1
 !s85 0
 31
-Z18 !s108 1731949128.000000
+Z18 !s108 1731971146.000000
 Z19 !s107 ../utils.v|../top.v|../ps2.v|../player.v|../modules.v|../milestone2.v|../legacy_code.v|../ghost1.v|../fsm.v|../food.v|../canvas.v|../blocks.v|
 Z20 !s90 -reportprogress|300|../blocks.v|../canvas.v|../food.v|../fsm.v|../ghost1.v|../legacy_code.v|../milestone2.v|../modules.v|../player.v|../ps2.v|../top.v|../utils.v|
 !i113 1
@@ -271,7 +271,7 @@ R20
 !i113 1
 R10
 vfsm_testbench
-R16
+Z34 !s110 1731971146
 !i10b 1
 !s100 Sb75^VC=;9=i?Do[jYJ::2
 Iai2cf^UVocFWRDHZIn;Il3
@@ -286,8 +286,8 @@ r1
 !s85 0
 31
 R18
-Z34 !s107 testbench.v|player_testbench.v|fsm_testbench.v|
-Z35 !s90 -reportprogress|300|fsm_testbench.v|player_testbench.v|testbench.v|
+Z35 !s107 testbench.v|player_testbench.v|fsm_testbench.v|
+Z36 !s90 -reportprogress|300|fsm_testbench.v|player_testbench.v|testbench.v|
 !i113 1
 R10
 vgame_coord_2_canvas_coord
@@ -331,13 +331,13 @@ R15
 !i113 1
 R10
 vget_direction
-Z36 !s110 1731534903
+Z37 !s110 1731534903
 !i10b 1
 !s100 dmFb?1m`KzGLehk_ci<mD2
 I3>B1>3JjUH_PMWXA8;GBZ1
 R2
 R3
-Z37 w1731370956
+Z38 w1731370956
 R27
 R28
 L0 61
@@ -345,9 +345,9 @@ R6
 r1
 !s85 0
 31
-Z38 !s108 1731534903.000000
-Z39 !s107 ../utils.v|../top.v|../ps2.v|../milestone2.v|../fsm.v|../blocks.v|
-Z40 !s90 -reportprogress|300|../blocks.v|../fsm.v|../milestone2.v|../ps2.v|../top.v|../utils.v|
+Z39 !s108 1731534903.000000
+Z40 !s107 ../utils.v|../top.v|../ps2.v|../milestone2.v|../fsm.v|../blocks.v|
+Z41 !s90 -reportprogress|300|../blocks.v|../fsm.v|../milestone2.v|../ps2.v|../top.v|../utils.v|
 !i113 1
 R10
 vghost1
@@ -371,13 +371,13 @@ R20
 !i113 1
 R10
 vhalf_sec_counter
-R36
+R37
 !i10b 1
 !s100 :?3EVT4QfMoF9JN5oE`cN3
 Ie7jW8glWFG67?`ez7CzoZ3
 R2
 R3
-R37
+R38
 R27
 R28
 L0 187
@@ -385,9 +385,9 @@ R6
 r1
 !s85 0
 31
-R38
 R39
 R40
+R41
 !i113 1
 R10
 vhex7seg
@@ -400,7 +400,7 @@ R11
 R21
 R22
 R23
-Z41 L0 26
+Z42 L0 26
 R6
 r1
 !s85 0
@@ -417,9 +417,9 @@ R16
 I?n9K<jTY5@6_gJ8US^OKm1
 R2
 R11
-Z42 w1731949124
-Z43 8../modules.v
-Z44 F../modules.v
+Z43 w1731949124
+Z44 8../modules.v
+Z45 F../modules.v
 L0 52
 R6
 r1
@@ -437,9 +437,9 @@ R16
 IjSXJ3=@<G=hE`Y2;bzTlk2
 R2
 R11
-R42
 R43
 R44
+R45
 L0 134
 R6
 r1
@@ -457,9 +457,9 @@ R16
 I9XZI6f65dlzIlVD]m:Lcc2
 R2
 R11
-R42
 R43
 R44
+R45
 L0 251
 R6
 r1
@@ -477,10 +477,10 @@ R16
 I4_FeR`bi:Ua8MR6acFzn[3
 R2
 R11
-R42
 R43
 R44
-R41
+R45
+R42
 R6
 r1
 !s85 0
@@ -497,9 +497,9 @@ R16
 IP=ogL^_aPckjdM_C9OB1M1
 R2
 R11
-R42
 R43
 R44
+R45
 L0 705
 R6
 r1
@@ -517,9 +517,9 @@ R16
 IH;_O0z>jUCc?dWN>CH`og1
 R2
 R11
-R42
 R43
 R44
+R45
 L0 1
 R6
 r1
@@ -557,9 +557,9 @@ R16
 I>SzC^7DA85fQRO1=UGiMC2
 R2
 R11
-R42
 R43
 R44
+R45
 L0 329
 R6
 r1
@@ -577,9 +577,9 @@ R16
 IzWno^bKkC?648glodg>Ek1
 R2
 R11
-R42
 R43
 R44
+R45
 L0 473
 R6
 r1
@@ -597,9 +597,9 @@ R16
 ILPd^8DRRL^RIlHFC5z_;[2
 R2
 R11
-R42
 R43
 R44
+R45
 L0 589
 R6
 r1
@@ -617,9 +617,9 @@ R16
 IknF]m@FG`fV0Xb]=43TfL0
 R2
 R11
-R42
 R43
 R44
+R45
 L0 368
 R6
 r1
@@ -637,9 +637,9 @@ R16
 I3`FdZ?:hFQUOz6;a=`i]S3
 R2
 R11
-R42
 R43
 R44
+R45
 L0 173
 R6
 r1
@@ -657,9 +657,9 @@ R16
 I;nhiOa=bG4z?^bW5DIXSP2
 R2
 R11
-R42
 R43
 R44
+R45
 L0 212
 R6
 r1
@@ -677,9 +677,9 @@ R16
 IXQg0Y?JTVQCA=n7abfLP92
 R2
 R11
-R42
 R43
 R44
+R45
 L0 95
 R6
 r1
@@ -697,9 +697,9 @@ R16
 IZo;c@k>dQdfSH`NN<oaI:3
 R2
 R11
-R42
 R43
 R44
+R45
 L0 744
 R6
 r1
@@ -771,13 +771,13 @@ R30
 !i113 1
 R10
 vmovement_FSM
-R36
+R37
 !i10b 1
 !s100 9XnCdP2fBk3z[8lHloLQ[1
 Izh5`>7CkYlGWSgcm8IhQM3
 R2
 R3
-R37
+R38
 R27
 R28
 L0 84
@@ -785,9 +785,9 @@ R6
 r1
 !s85 0
 31
-R38
 R39
 R40
+R41
 !i113 1
 R10
 nmovement_@f@s@m
@@ -832,13 +832,13 @@ R20
 !i113 1
 R10
 vplayer_movement
-R36
+R37
 !i10b 1
 !s100 ECnzO^Alo3iPV^k@ELEC<3
 I8`?02<XPd=foTZX3B[5S41
 R2
 R3
-R37
+R38
 R27
 R28
 L0 154
@@ -846,13 +846,13 @@ R6
 r1
 !s85 0
 31
-R38
 R39
 R40
+R41
 !i113 1
 R10
 vplayer_testbench
-R16
+R34
 !i10b 1
 !s100 OXb1>YTROQEZf@SbQe]gN2
 IncU7jUNRf:P:maI^61Z=i3
@@ -867,18 +867,18 @@ r1
 !s85 0
 31
 R18
-R34
 R35
+R36
 !i113 1
 R10
 vps2
-R36
+R37
 !i10b 1
 !s100 XA>i[P:E4om<7JehRFYm90
 IA6>X@2G1?7:4a;S:ZS7P`2
 R2
 R3
-R37
+R38
 R27
 R28
 L0 1
@@ -886,9 +886,9 @@ R6
 r1
 !s85 0
 31
-R38
 R39
 R40
+R41
 !i113 1
 R10
 vPS2_Controller
@@ -933,7 +933,7 @@ R20
 !i113 1
 R10
 vtestbench
-R16
+R34
 !i10b 1
 !s100 J2NFMIA4B8lNOj]C@2SUV2
 IkZf_41BmAg@U^2HOc>g[k0
@@ -948,8 +948,8 @@ r1
 !s85 0
 31
 R18
-R34
 R35
+R36
 !i113 1
 R10
 vtop
@@ -973,7 +973,7 @@ R20
 !i113 1
 R10
 vvga_adapter
-R16
+R34
 !i10b 1
 !s100 7KR=8CAUOI3dU[Wldj_DZ2
 I:g9eeSE^;=g6mOEhT^R@d1
@@ -988,18 +988,18 @@ r1
 !s85 0
 31
 R18
-Z45 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
-Z46 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
+Z46 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
+Z47 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
 !i113 1
 R10
 vvga_address_translator
-R16
+R34
 !i10b 1
 !s100 C0DfW0_9[5co`@boeR]Pi1
 I?Q@JOgk]Bc9AlPBHeDF221
 R2
 R11
-Z47 w1729787522
+Z48 w1729787522
 8../vga_adapter/vga_address_translator.v
 F../vga_adapter/vga_address_translator.v
 L0 4
@@ -1008,12 +1008,12 @@ r1
 !s85 0
 31
 R18
-R45
 R46
+R47
 !i113 1
 R10
 vvga_controller
-R16
+R34
 !i10b 1
 !s100 ejdRBhaHBe8PnOV9UFIVf2
 IgjX;<0RkHEiUm^BREgP>Y2
@@ -1028,8 +1028,8 @@ r1
 !s85 0
 31
 R18
-R45
 R46
+R47
 !i113 1
 R10
 vvga_demo
@@ -1053,13 +1053,13 @@ r1
 !i113 1
 R10
 vvga_pll
-R16
+R34
 !i10b 1
 !s100 4XSTjD`VEiamX^n1@5J`b3
 IiS55lg7TQ1f5@h1imQboh3
 R2
 R11
-R47
+R48
 8../vga_adapter/vga_pll.v
 F../vga_adapter/vga_pll.v
 L0 36
@@ -1068,7 +1068,7 @@ r1
 !s85 0
 31
 R18
-R45
 R46
+R47
 !i113 1
 R10
