@@ -96,6 +96,7 @@ add wave -noupdate -label temp_player_addr -radix hexadecimal /fsm_testbench/UUT
 add wave -noupdate -label addr -radix hexadecimal /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/addr
 add wave -noupdate -label wren -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/wren
 add wave -noupdate -label data -radix octal /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/data
+add wave -noupdate -label color -radix octal /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/color
 
 # food signals
 # add wave -noupdate -divider Food

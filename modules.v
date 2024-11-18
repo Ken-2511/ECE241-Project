@@ -427,9 +427,9 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
                 addr <= addr + 1;
             end
             else if (dy < 4) begin
-                dy = dy + 1;
-                dx = 0;
-                addr = (canvas_y + dy) * 160 + canvas_x;
+                dy <= dy + 1;
+                dx <= 0;
+                addr <= (canvas_y + dy + 1) * 160 + canvas_x;
             end
             else begin
                 finished <= 1;  // Finish immediately when enabled, for testing
