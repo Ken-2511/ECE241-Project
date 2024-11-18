@@ -64,8 +64,10 @@ add wave -noupdate -label f_update_vga -radix binary /fsm_testbench/UUT/m_playin
 # add wave -noupdate -label finished_game_over -radix binary /fsm_testbench/UUT/m_game_over_inst/finished
 
 # Render Food Module Signals
-# add wave -noupdate -divider finished -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/finished
-# add wave -noupdate -label
+# add wave -noupdate -divider m_render_food
+# add wave -noupdate -label finished -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/finished
+# add wave -noupdate -label temp_food_addr -radix hexadecimal /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/temp_food_addr
+# add wave -noupdate -label food_exists -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_food_inst/food_exists
 
 # VGA and Canvas Signals
 add wave -noupdate -divider VGA_and_canvas
@@ -83,6 +85,17 @@ add wave -noupdate -label data -radix octal /fsm_testbench/canvas_inst/data
 add wave -noupdate -label address -radix hexadecimal /fsm_testbench/canvas_inst/address
 add wave -noupdate -label q -radix octal /fsm_testbench/canvas_inst/q
 add wave -noupdate -label wren -radix binary /fsm_testbench/canvas_inst/wren
+
+# Player render signals
+add wave -noupdate -divider player
+add wave -noupdate -label canvas_x -radix unsigned /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/canvas_x
+add wave -noupdate -label canvas_y -radix unsigned /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/canvas_y
+add wave -noupdate -label dx -radix signed /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/dx
+add wave -noupdate -label dy -radix signed /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/dy
+add wave -noupdate -label temp_player_addr -radix hexadecimal /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/temp_player_addr
+add wave -noupdate -label addr -radix hexadecimal /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/addr
+add wave -noupdate -label wren -radix binary /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/wren
+add wave -noupdate -label data -radix octal /fsm_testbench/UUT/m_playing_inst/m_render_player_inst/data
 
 # food signals
 # add wave -noupdate -divider Food

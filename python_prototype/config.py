@@ -7,7 +7,7 @@ __all__ = ['BLOCK_SIZE', 'SCREEN_SIZE', 'FPS', 'BLOCK_ARRAY', 'SCREEN', 'CLOCK',
 # 屏幕设置
 BLOCK_SIZE = 20
 SCREEN_SIZE = (29*BLOCK_SIZE, 13*BLOCK_SIZE)
-FPS = 4  # 控制帧率
+FPS = 2  # 控制帧率
 
 BLOCK_ARRAY = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],

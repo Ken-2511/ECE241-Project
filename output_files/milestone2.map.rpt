@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Mon Nov 18 07:26:21 2024
+Mon Nov 18 08:14:00 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -46,33 +46,31 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  38. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst
  39. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component
  40. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst
- 41. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U2
- 42. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U3
- 43. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4
- 44. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component
- 45. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst
- 46. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst
- 47. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst
- 48. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_game_over:m_game_over_inst
- 49. Parameter Settings for User Entity Instance: canvas:canvas_inst|altsyncram:altsyncram_component
- 50. Parameter Settings for User Entity Instance: delay_one_cycle:U4
- 51. Parameter Settings for User Entity Instance: delay_one_cycle:U5
- 52. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 53. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 54. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 55. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 56. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 57. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 58. altsyncram Parameter Settings by Entity Instance
- 59. altpll Parameter Settings by Entity Instance
- 60. Port Connectivity Checks: "fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst"
- 61. Port Connectivity Checks: "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5"
- 62. Port Connectivity Checks: "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst"
- 63. Port Connectivity Checks: "PS2_Controller:PS2"
- 64. Post-Synthesis Netlist Statistics for Top Partition
- 65. Elapsed Time Per Partition
- 66. Analysis & Synthesis Messages
- 67. Analysis & Synthesis Suppressed Messages
+ 41. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4
+ 42. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component
+ 43. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst
+ 44. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst
+ 45. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst
+ 46. Parameter Settings for User Entity Instance: fsm_game_state:U3|m_game_over:m_game_over_inst
+ 47. Parameter Settings for User Entity Instance: canvas:canvas_inst|altsyncram:altsyncram_component
+ 48. Parameter Settings for User Entity Instance: delay_one_cycle:U4
+ 49. Parameter Settings for User Entity Instance: delay_one_cycle:U5
+ 50. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 51. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 52. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 53. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 54. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 55. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 56. altsyncram Parameter Settings by Entity Instance
+ 57. altpll Parameter Settings by Entity Instance
+ 58. Port Connectivity Checks: "fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst"
+ 59. Port Connectivity Checks: "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5"
+ 60. Port Connectivity Checks: "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst"
+ 61. Port Connectivity Checks: "PS2_Controller:PS2"
+ 62. Post-Synthesis Netlist Statistics for Top Partition
+ 63. Elapsed Time Per Partition
+ 64. Analysis & Synthesis Messages
+ 65. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -99,13 +97,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 18 07:26:21 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 18 08:14:00 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; milestone2                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 395                                            ;
+; Total registers                 ; 418                                            ;
 ; Total pins                      ; 124                                            ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 461,477                                        ;
@@ -279,16 +277,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 339            ;
+; Estimate of Logic utilization (ALMs needed) ; 364            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 571            ;
+; Combinational ALUT usage for logic          ; 597            ;
 ;     -- 7 input functions                    ; 2              ;
-;     -- 6 input functions                    ; 96             ;
-;     -- 5 input functions                    ; 63             ;
-;     -- 4 input functions                    ; 74             ;
-;     -- <=3 input functions                  ; 336            ;
+;     -- 6 input functions                    ; 118            ;
+;     -- 5 input functions                    ; 60             ;
+;     -- 4 input functions                    ; 70             ;
+;     -- <=3 input functions                  ; 347            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 395            ;
+; Dedicated logic registers                   ; 418            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 124            ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -300,9 +298,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 451            ;
-; Total fan-out                               ; 5366           ;
-; Average fan-out                             ; 4.12           ;
+; Maximum fan-out                             ; 474            ;
+; Total fan-out                               ; 5580           ;
+; Average fan-out                             ; 4.13           ;
 +---------------------------------------------+----------------+
 
 
@@ -311,7 +309,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                                          ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                  ; Entity Name               ; Library Name ;
 +---------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |milestone2                                                         ; 571 (9)             ; 395 (0)                   ; 461477            ; 1          ; 124  ; 0            ; |milestone2                                                                                                                                                          ; milestone2                ; work         ;
+; |milestone2                                                         ; 597 (9)             ; 418 (0)                   ; 461477            ; 1          ; 124  ; 0            ; |milestone2                                                                                                                                                          ; milestone2                ; work         ;
 ;    |PS2_Controller:PS2|                                             ; 106 (6)             ; 90 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |milestone2|PS2_Controller:PS2                                                                                                                                       ; PS2_Controller            ; work         ;
 ;       |Altera_UP_PS2_Command_Out:PS2_Command_Out|                   ; 86 (86)             ; 60 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out                                                                                             ; Altera_UP_PS2_Command_Out ; work         ;
 ;       |Altera_UP_PS2_Data_In:PS2_Data_In|                           ; 14 (14)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In                                                                                                     ; Altera_UP_PS2_Data_In     ; work         ;
@@ -322,20 +320,22 @@ https://fpgasoftware.intel.com/eula.
 ;             |decode_7la:decode3|                                    ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|decode_7la:decode3                                                     ; decode_7la                ; work         ;
 ;    |delay_one_cycle:U4|                                             ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|delay_one_cycle:U4                                                                                                                                       ; delay_one_cycle           ; work         ;
 ;    |delay_one_cycle:U5|                                             ; 0 (0)               ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|delay_one_cycle:U5                                                                                                                                       ; delay_one_cycle           ; work         ;
-;    |fsm_game_state:U3|                                              ; 361 (61)            ; 243 (2)                   ; 677               ; 1          ; 0    ; 0            ; |milestone2|fsm_game_state:U3                                                                                                                                        ; fsm_game_state            ; work         ;
+;    |fsm_game_state:U3|                                              ; 388 (61)            ; 266 (2)                   ; 677               ; 1          ; 0    ; 0            ; |milestone2|fsm_game_state:U3                                                                                                                                        ; fsm_game_state            ; work         ;
 ;       |m_greeting:m_greeting_inst|                                  ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_greeting:m_greeting_inst                                                                                                             ; m_greeting                ; work         ;
-;       |m_playing:m_playing_inst|                                    ; 300 (63)            ; 240 (14)                  ; 677               ; 1          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst                                                                                                               ; m_playing                 ; work         ;
+;       |m_playing:m_playing_inst|                                    ; 327 (69)            ; 263 (14)                  ; 677               ; 1          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst                                                                                                               ; m_playing                 ; work         ;
 ;          |m_clear_screen:m_clear_screen_inst|                       ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_clear_screen:m_clear_screen_inst                                                                            ; m_clear_screen            ; work         ;
 ;          |m_eat_food:m_eat_food_inst|                               ; 17 (17)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_eat_food:m_eat_food_inst                                                                                    ; m_eat_food                ; work         ;
 ;          |m_fill_screen:m_fill_screen_inst|                         ; 17 (17)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_fill_screen:m_fill_screen_inst                                                                              ; m_fill_screen             ; work         ;
 ;          |m_ghost_collision:m_ghost_collision_inst|                 ; 17 (17)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst                                                                      ; m_ghost_collision         ; work         ;
 ;          |m_render_blocks:m_render_blocks_inst|                     ; 17 (17)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst                                                                          ; m_render_blocks           ; work         ;
-;          |m_render_food:m_render_food_inst|                         ; 25 (25)             ; 12 (12)                   ; 377               ; 1          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst                                                                              ; m_render_food             ; work         ;
+;          |m_render_food:m_render_food_inst|                         ; 45 (36)             ; 35 (27)                   ; 377               ; 1          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst                                                                              ; m_render_food             ; work         ;
+;             |delay_one_cycle:U4|                                    ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4                                                           ; delay_one_cycle           ; work         ;
 ;             |food:U5|                                               ; 0 (0)               ; 0 (0)                     ; 377               ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5                                                                      ; food                      ; work         ;
 ;                |altsyncram:altsyncram_component|                    ; 0 (0)               ; 0 (0)                     ; 377               ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component                                      ; altsyncram                ; work         ;
 ;                   |altsyncram_r6o1:auto_generated|                  ; 0 (0)               ; 0 (0)                     ; 377               ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated       ; altsyncram_r6o1           ; work         ;
+;             |game_coord_2_canvas_coord:U1|                          ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|game_coord_2_canvas_coord:U1                                                 ; game_coord_2_canvas_coord ; work         ;
 ;          |m_render_ghosts:m_render_ghosts_inst|                     ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst                                                                          ; m_render_ghosts           ; work         ;
-;          |m_render_player:m_render_player_inst|                     ; 46 (46)             ; 35 (35)                   ; 300               ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst                                                                          ; m_render_player           ; work         ;
+;          |m_render_player:m_render_player_inst|                     ; 47 (47)             ; 35 (35)                   ; 300               ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst                                                                          ; m_render_player           ; work         ;
 ;             |player:U2|                                             ; 0 (0)               ; 0 (0)                     ; 300               ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2                                                                ; player                    ; work         ;
 ;                |altsyncram:altsyncram_component|                    ; 0 (0)               ; 0 (0)                     ; 300               ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component                                ; altsyncram                ; work         ;
 ;                   |altsyncram_45g1:auto_generated|                  ; 0 (0)               ; 0 (0)                     ; 300               ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated ; altsyncram_45g1           ; work         ;
@@ -345,13 +345,13 @@ https://fpgasoftware.intel.com/eula.
 ;          |m_update_vga:m_update_vga_inst|                           ; 47 (47)             ; 58 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst                                                                                ; m_update_vga              ; work         ;
 ;    |hex7seg:H2|                                                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|hex7seg:H2                                                                                                                                               ; hex7seg                   ; work         ;
 ;    |hex7seg:H3|                                                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|hex7seg:H3                                                                                                                                               ; hex7seg                   ; work         ;
-;    |vga_adapter:VGA|                                                ; 75 (2)              ; 30 (0)                    ; 230400            ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA                                                                                                                                          ; vga_adapter               ; work         ;
+;    |vga_adapter:VGA|                                                ; 74 (2)              ; 30 (0)                    ; 230400            ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA                                                                                                                                          ; vga_adapter               ; work         ;
 ;       |altsyncram:VideoMemory|                                      ; 6 (0)               ; 4 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory                                                                                                                   ; altsyncram                ; work         ;
 ;          |altsyncram_m9m1:auto_generated|                           ; 6 (0)               ; 4 (4)                     ; 230400            ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated                                                                                    ; altsyncram_m9m1           ; work         ;
 ;             |decode_01a:rden_decode_b|                              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated|decode_01a:rden_decode_b                                                           ; decode_01a                ; work         ;
 ;             |decode_7la:decode2|                                    ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated|decode_7la:decode2                                                                 ; decode_7la                ; work         ;
 ;       |vga_address_translator:user_input_translator|                ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|vga_address_translator:user_input_translator                                                                                             ; vga_address_translator    ; work         ;
-;       |vga_controller:controller|                                   ; 57 (47)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|vga_controller:controller                                                                                                                ; vga_controller            ; work         ;
+;       |vga_controller:controller|                                   ; 56 (46)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|vga_controller:controller                                                                                                                ; vga_controller            ; work         ;
 ;          |vga_address_translator:controller_translator|             ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator                                                                   ; vga_address_translator    ; work         ;
 ;       |vga_pll:mypll|                                               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|vga_pll:mypll                                                                                                                            ; vga_pll                   ; work         ;
 ;          |altpll:altpll_component|                                  ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |milestone2|vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component                                                                                                    ; altpll                    ; work         ;
@@ -504,7 +504,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst|VGA_X[0..7]                       ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst|addr[0..14]                       ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst|data[0..11]                       ; Stuck at GND due to stuck port data_in                                                                                  ;
-; fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U2|signal_out[0..14]  ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; fsm_game_state:U3|m_playing:m_playing_inst|m_clear_screen:m_clear_screen_inst|addr[0..14]                         ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; fsm_game_state:U3|m_playing:m_playing_inst|m_clear_screen:m_clear_screen_inst|data[0..11]                         ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; PS2_Controller:PS2|idle_counter[0..7]                                                                             ; Lost fanout                                                                                                             ;
@@ -553,33 +552,39 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; fsm_game_state:U3|game_state.GAME_OVER                                                                            ; Lost fanout                                                                                                             ;
 ; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT                                                      ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_4_END_DELAYED                                                      ; Stuck at GND due to stuck port data_in                                                                                  ;
-; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_was_sent                                     ; Lost fanout                                                                                                             ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|error_communication_timed_out                        ; Lost fanout                                                                                                             ;
+; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_was_sent                                     ; Lost fanout                                                                                                             ;
 ; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER                                                     ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA                     ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_0_IDLE                   ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT       ; Lost fanout                                                                                                             ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR     ; Lost fanout                                                                                                             ;
+; fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|dx[3]                             ; Stuck at GND due to stuck port data_in                                                                                  ;
+; fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|dy[3]                             ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|_game_x[5]                            ; Stuck at GND due to stuck port data_in                                                                                  ;
 ; fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|_game_y[4]                            ; Stuck at GND due to stuck port data_in                                                                                  ;
-; Total Number of Removed Registers = 234                                                                           ;                                                                                                                         ;
+; fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4|shift_reg[0][4]    ; Stuck at GND due to stuck port data_in                                                                                  ;
+; fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4|signal_out[4]      ; Stuck at GND due to stuck port data_in                                                                                  ;
+; Total Number of Removed Registers = 223                                                                           ;                                                                                                                         ;
 +-------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                              ;
-+--------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------+
-; Register name                                                ; Reason for Removal        ; Registers Removed due to This Register                                                                        ;
-+--------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------+
-; PS2_Controller:PS2|idle_counter[3]                           ; Lost Fanouts              ; PS2_Controller:PS2|idle_counter[4], PS2_Controller:PS2|idle_counter[5],                                       ;
-;                                                              ;                           ; PS2_Controller:PS2|idle_counter[6], PS2_Controller:PS2|idle_counter[7]                                        ;
-; PS2_Controller:PS2|s_ps2_transceiver~2                       ; Lost Fanouts              ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_was_sent,                                ;
-;                                                              ;                           ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|error_communication_timed_out,                   ;
-;                                                              ;                           ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT,  ;
-;                                                              ;                           ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR ;
-; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT ; Stuck at GND              ; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER,                                                ;
-;                                                              ; due to stuck port data_in ; PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA                 ;
-+--------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                          ;
++----------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------+
+; Register name                                                                          ; Reason for Removal        ; Registers Removed due to This Register                                                                          ;
++----------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------+
+; PS2_Controller:PS2|idle_counter[3]                                                     ; Lost Fanouts              ; PS2_Controller:PS2|idle_counter[4], PS2_Controller:PS2|idle_counter[5],                                         ;
+;                                                                                        ;                           ; PS2_Controller:PS2|idle_counter[6], PS2_Controller:PS2|idle_counter[7]                                          ;
+; PS2_Controller:PS2|s_ps2_transceiver~2                                                 ; Lost Fanouts              ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|error_communication_timed_out,                     ;
+;                                                                                        ;                           ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_was_sent,                                  ;
+;                                                                                        ;                           ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT,    ;
+;                                                                                        ;                           ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR   ;
+; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT                           ; Stuck at GND              ; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER,                                                  ;
+;                                                                                        ; due to stuck port data_in ; PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA                   ;
+; fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|_game_y[4] ; Stuck at GND              ; fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4|shift_reg[0][4], ;
+;                                                                                        ; due to stuck port data_in ; fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4|signal_out[4]    ;
++----------------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -587,12 +592,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 395   ;
-; Number of registers using Synchronous Clear  ; 341   ;
+; Total registers                              ; 418   ;
+; Number of registers using Synchronous Clear  ; 364   ;
 ; Number of registers using Synchronous Load   ; 3     ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 300   ;
+; Number of registers using Clock Enable       ; 313   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -602,38 +607,39 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_position:m_update_position_inst|addr[4]                 ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_eat_food:m_eat_food_inst|addr[9]                               ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_directions:m_update_ghost_directions_inst|addr[9] ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_positions:m_update_ghost_positions_inst|addr[0]   ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_fill_screen:m_fill_screen_inst|addr[8]                         ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst|addr[8]                     ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|data[0]                     ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst|addr[11]                ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[4]                                       ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |milestone2|vga_adapter:VGA|vga_controller:controller|yCounter[7]                                                       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[3]                                      ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|dy[0]                       ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|_game_y[0]                      ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_position:m_update_position_inst|addr[5]                 ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_eat_food:m_eat_food_inst|addr[10]                              ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_directions:m_update_ghost_directions_inst|addr[8] ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_positions:m_update_ghost_positions_inst|addr[13]  ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_fill_screen:m_fill_screen_inst|addr[6]                         ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst|addr[7]                     ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|data[3]                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst|addr[6]                 ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[3]                                       ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |milestone2|vga_adapter:VGA|vga_controller:controller|yCounter[6]                                                       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[2]                                      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|_game_y[2]                      ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|_addr[3]                        ;
 ; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|addr[11]                          ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|y_counter[2]                      ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|x_counter[2]                      ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|dx[2]                       ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[11]                   ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[11]                            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[0]                                     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|y_counter[1]                      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|x_counter[3]                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|dx[1]                       ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[4]                    ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[1]                             ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[3]                                     ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[3]                                          ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[4]                            ;
-; 5:1                ; 15 bits   ; 45 LEs        ; 0 LEs                ; 45 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|VGA_X[0]                          ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |milestone2|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[11]                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|dy[1]                       ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 0 LEs                ; 45 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|VGA_X[7]                          ;
 ; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|_game_x[3]                      ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|addr[14]                    ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|addr[5]                     ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|addr[9]                     ;
-; 7:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|VGA_COLOR[11]                     ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|addr[14]                    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|addr[0]                     ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|addr[11]                    ;
+; 7:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|VGA_COLOR[4]                      ;
 ; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|game_state                                                       ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated|mux_3hb:mux3|result_node[5]           ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_m9m1:auto_generated|mux_3hb:mux3|result_node[9]           ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|game_state                                                                                ;
-; 13:1               ; 15 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|Selector24                                                       ;
+; 13:1               ; 15 bits   ; 120 LEs       ; 120 LEs              ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|Selector33                                                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -914,28 +920,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-------------------------------------------------------------------------------------------------+
 ; cbit           ; 11    ; Signed Integer                                                                                  ;
 +----------------+-------+-------------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U2 ;
-+----------------+-------+--------------------------------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                                               ;
-+----------------+-------+--------------------------------------------------------------------------------------------------------------------+
-; n              ; 15    ; Signed Integer                                                                                                     ;
-; n_cycles       ; 0     ; Signed Integer                                                                                                     ;
-+----------------+-------+--------------------------------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U3 ;
-+----------------+-------+--------------------------------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                                               ;
-+----------------+-------+--------------------------------------------------------------------------------------------------------------------+
-; n              ; 6     ; Signed Integer                                                                                                     ;
-; n_cycles       ; 0     ; Signed Integer                                                                                                     ;
-+----------------+-------+--------------------------------------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1744,42 +1728,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 395                         ;
+; arriav_ff             ; 418                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 32                          ;
+;     ENA               ; 29                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     ENA SCLR          ; 258                         ;
-;     SCLR              ; 60                          ;
+;     ENA SCLR          ; 274                         ;
+;     SCLR              ; 67                          ;
 ;     SCLR SLD          ; 3                           ;
-;     plain             ; 22                          ;
+;     plain             ; 25                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 575                         ;
+; arriav_lcell_comb     ; 601                         ;
 ;     arith             ; 219                         ;
 ;         1 data inputs ; 210                         ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 2                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 1                           ;
 ;     extend            ; 2                           ;
 ;         7 data inputs ; 2                           ;
-;     normal            ; 324                         ;
+;     normal            ; 340                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 35                          ;
-;         3 data inputs ; 49                          ;
-;         4 data inputs ; 74                          ;
-;         5 data inputs ; 63                          ;
-;         6 data inputs ; 96                          ;
-;     shared            ; 30                          ;
-;         0 data inputs ; 3                           ;
+;         2 data inputs ; 38                          ;
+;         3 data inputs ; 47                          ;
+;         4 data inputs ; 70                          ;
+;         5 data inputs ; 60                          ;
+;         6 data inputs ; 118                         ;
+;     shared            ; 40                          ;
+;         0 data inputs ; 4                           ;
 ;         1 data inputs ; 6                           ;
-;         2 data inputs ; 18                          ;
-;         3 data inputs ; 3                           ;
+;         2 data inputs ; 22                          ;
+;         3 data inputs ; 8                           ;
 ; arriav_mac            ; 1                           ;
 ; boundary_port         ; 124                         ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 85                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.40                        ;
-; Average LUT depth     ; 1.82                        ;
+; Average LUT depth     ; 1.84                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1798,7 +1782,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Nov 18 07:26:14 2024
+    Info: Processing started: Mon Nov 18 08:13:54 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -1811,12 +1795,12 @@ Info (12021): Found 14 design units, including 14 entities, in source file modul
     Info (12023): Found entity 6: m_update_ghost_directions File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 173
     Info (12023): Found entity 7: m_update_ghost_positions File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 212
     Info (12023): Found entity 8: m_fill_screen File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 251
-    Info (12023): Found entity 9: m_render_blocks File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 290
-    Info (12023): Found entity 10: m_render_player File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 329
-    Info (12023): Found entity 11: m_render_food File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 411
-    Info (12023): Found entity 12: m_render_ghosts File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 523
-    Info (12023): Found entity 13: m_ghost_collision File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 639
-    Info (12023): Found entity 14: m_update_vga File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 678
+    Info (12023): Found entity 9: m_render_blocks File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 329
+    Info (12023): Found entity 10: m_render_player File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 368
+    Info (12023): Found entity 11: m_render_food File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 450
+    Info (12023): Found entity 12: m_render_ghosts File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 566
+    Info (12023): Found entity 13: m_ghost_collision File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 682
+    Info (12023): Found entity 14: m_update_vga File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 721
 Info (12021): Found 0 design units, including 0 entities, in source file legacy_code.v
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/ps2_controller.v
     Info (12023): Found entity 1: PS2_Controller File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/PS2_Controller.v Line: 9
@@ -1962,22 +1946,22 @@ Info (12128): Elaborating entity "m_fill_screen" for hierarchy "fsm_game_state:U
 Warning (10230): Verilog HDL assignment warning at modules.v(272): truncated value with size 17 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 272
 Warning (10230): Verilog HDL assignment warning at modules.v(279): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 279
 Info (12128): Elaborating entity "m_render_blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 513
-Warning (10230): Verilog HDL assignment warning at modules.v(318): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 318
+Warning (10230): Verilog HDL assignment warning at modules.v(357): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 357
 Info (12128): Elaborating entity "m_render_player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 530
-Warning (10230): Verilog HDL assignment warning at modules.v(360): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 360
-Warning (10230): Verilog HDL assignment warning at modules.v(383): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 383
-Warning (10230): Verilog HDL assignment warning at modules.v(384): truncated value with size 32 to match size of target (3) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 384
-Warning (10230): Verilog HDL assignment warning at modules.v(387): truncated value with size 32 to match size of target (3) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 387
-Warning (10230): Verilog HDL assignment warning at modules.v(388): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 388
-Warning (10230): Verilog HDL assignment warning at modules.v(391): truncated value with size 32 to match size of target (3) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 391
-Warning (10230): Verilog HDL assignment warning at modules.v(393): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 393
-Warning (10034): Output port "VGA_X" at modules.v(347) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 347
-Warning (10034): Output port "VGA_Y" at modules.v(348) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 348
-Warning (10034): Output port "VGA_COLOR" at modules.v(349) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 349
-Info (12128): Elaborating entity "game_coord_2_canvas_coord" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|game_coord_2_canvas_coord:U1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 362
+Warning (10230): Verilog HDL assignment warning at modules.v(399): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 399
+Warning (10230): Verilog HDL assignment warning at modules.v(422): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 422
+Warning (10230): Verilog HDL assignment warning at modules.v(423): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 423
+Warning (10230): Verilog HDL assignment warning at modules.v(426): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 426
+Warning (10230): Verilog HDL assignment warning at modules.v(427): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 427
+Warning (10230): Verilog HDL assignment warning at modules.v(430): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 430
+Warning (10230): Verilog HDL assignment warning at modules.v(432): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 432
+Warning (10034): Output port "VGA_X" at modules.v(386) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 386
+Warning (10034): Output port "VGA_Y" at modules.v(387) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 387
+Warning (10034): Output port "VGA_COLOR" at modules.v(388) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 388
+Info (12128): Elaborating entity "game_coord_2_canvas_coord" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|game_coord_2_canvas_coord:U1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 401
 Warning (10230): Verilog HDL assignment warning at utils.v(103): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 103
 Warning (10230): Verilog HDL assignment warning at utils.v(104): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 104
-Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 368
+Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 407
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 82
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 82
 Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 82
@@ -1999,20 +1983,16 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_45g1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_45g1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_45g1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "m_render_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 544
-Warning (10230): Verilog HDL assignment warning at modules.v(444): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 444
-Warning (10230): Verilog HDL assignment warning at modules.v(486): truncated value with size 23 to match size of target (12) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 486
-Warning (10230): Verilog HDL assignment warning at modules.v(497): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 497
-Warning (10230): Verilog HDL assignment warning at modules.v(504): truncated value with size 32 to match size of target (6) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 504
-Warning (10230): Verilog HDL assignment warning at modules.v(508): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 508
-Warning (10034): Output port "VGA_X" at modules.v(430) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 430
-Warning (10034): Output port "VGA_Y" at modules.v(431) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 431
-Warning (10034): Output port "VGA_COLOR" at modules.v(432) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 432
-Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U2" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 455
-Warning (10030): Net "shift_reg[-1]" at utils.v(72) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 72
-Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U3" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 463
-Warning (10030): Net "shift_reg[-1]" at utils.v(72) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 72
-Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 471
-Info (12128): Elaborating entity "food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 481
+Warning (10230): Verilog HDL assignment warning at modules.v(483): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 483
+Warning (10230): Verilog HDL assignment warning at modules.v(529): truncated value with size 23 to match size of target (12) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 529
+Warning (10230): Verilog HDL assignment warning at modules.v(540): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 540
+Warning (10230): Verilog HDL assignment warning at modules.v(547): truncated value with size 32 to match size of target (6) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 547
+Warning (10230): Verilog HDL assignment warning at modules.v(551): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 551
+Warning (10034): Output port "VGA_X" at modules.v(469) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 469
+Warning (10034): Output port "VGA_Y" at modules.v(470) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 470
+Warning (10034): Output port "VGA_COLOR" at modules.v(471) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 471
+Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|delay_one_cycle:U4" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 514
+Info (12128): Elaborating entity "food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 524
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 86
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 86
 Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 86
@@ -2035,16 +2015,16 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_r6o1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_r6o1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_r6o1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:U5|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "m_render_ghosts" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 566
-Warning (10036): Verilog HDL or VHDL warning at modules.v(560): object "dx" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 560
-Warning (10036): Verilog HDL or VHDL warning at modules.v(560): object "dy" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 560
-Warning (10036): Verilog HDL or VHDL warning at modules.v(561): object "ghost_index" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 561
+Warning (10036): Verilog HDL or VHDL warning at modules.v(603): object "dx" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 603
+Warning (10036): Verilog HDL or VHDL warning at modules.v(603): object "dy" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 603
+Warning (10036): Verilog HDL or VHDL warning at modules.v(604): object "ghost_index" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 604
 Info (12128): Elaborating entity "m_ghost_collision" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 577
-Warning (10230): Verilog HDL assignment warning at modules.v(667): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 667
+Warning (10230): Verilog HDL assignment warning at modules.v(710): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 710
 Info (12128): Elaborating entity "m_update_vga" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 591
-Warning (10230): Verilog HDL assignment warning at modules.v(733): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 733
-Warning (10230): Verilog HDL assignment warning at modules.v(735): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 735
-Warning (10230): Verilog HDL assignment warning at modules.v(738): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 738
-Warning (10034): Output port "data" at modules.v(700) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 700
+Warning (10230): Verilog HDL assignment warning at modules.v(776): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 776
+Warning (10230): Verilog HDL assignment warning at modules.v(778): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 778
+Warning (10230): Verilog HDL assignment warning at modules.v(781): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 781
+Warning (10034): Output port "data" at modules.v(743) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 743
 Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:U3|m_game_over:m_game_over_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 152
 Warning (10034): Output port "data" at modules.v(35) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 35
 Warning (10034): Output port "addr" at modules.v(36) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 36
@@ -2183,19 +2163,19 @@ Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 17
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 18
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 18
-Info (21057): Implemented 864 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 898 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
     Info (21059): Implemented 109 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 653 logic cells
+    Info (21061): Implemented 687 logic cells
     Info (21064): Implemented 85 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 167 warnings
-    Info: Peak virtual memory: 4949 megabytes
-    Info: Processing ended: Mon Nov 18 07:26:21 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:14
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 165 warnings
+    Info: Peak virtual memory: 4937 megabytes
+    Info: Processing ended: Mon Nov 18 08:14:00 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:13
 
 
 +------------------------------------------+

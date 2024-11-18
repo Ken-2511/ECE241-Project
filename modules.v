@@ -287,6 +287,45 @@ module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
 endmodule
 
 
+// module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
+
+//     parameter cbit = 11;
+
+//     // Basic inputs
+//     input clock, resetn, enable;
+
+//     // Output write enable signal
+//     output reg wren; // wren signal for controlling writes
+
+//     // Finish signal
+//     output reg finished;
+
+//     // Data and address control
+//     output reg [cbit:0] data;
+//     output reg [14:0] addr;
+
+//     always @ (posedge clock) begin
+//         if (!resetn) begin
+//             finished <= 0;  // Reset to initial state
+//             data <= 3'b000;
+//             addr <= 15'b0;
+//             wren <= 0; // Disable write
+//         end
+//         else if (enable) begin
+//             wren <= 0; // Disable write
+//             finished <= 1;  // Finish immediately when enabled, for testing
+//             data <= 3'b111; // Example data value
+//             addr <= addr + 1; // Increment address
+//         end
+//         else if (finished) begin
+//             wren <= 0; // Disable write when finished
+//             finished <= 0;  // Reset to initial state
+//         end
+//     end
+
+// endmodule
+
+
 module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
 
     parameter cbit = 11;
@@ -354,7 +393,7 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     input [1:0] direct;
     wire [7:0] canvas_x;
     wire [6:0] canvas_y;
-    reg [2:0] dx, dy;
+    reg [3:0] dx, dy;
     wire [cbit:0] color;
     wire [4:0] temp_player_addr;
     assign temp_player_addr = dy * 5 + dx;
@@ -373,8 +412,8 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
             data <= 12'h000;
             addr <= 15'b0;
             wren <= 0; // Disable write
-            dx <= 0;
-            dy <= 0;
+            dx <= 3'b000;
+            dy <= 3'b000;
         end
         else if (enable) begin
             wren <= 1; // Enable write
@@ -388,9 +427,9 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
                 addr <= addr + 1;
             end
             else if (dy < 4) begin
-                dy <= dy + 1;
-                dx <= 0;
-                addr <= (canvas_y + dy) * 160 + canvas_x;
+                dy = dy + 1;
+                dx = 0;
+                addr = (canvas_y + dy) * 160 + canvas_x;
             end
             else begin
                 finished <= 1;  // Finish immediately when enabled, for testing
@@ -447,22 +486,26 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
 
     game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
 
-    delay_one_cycle U2 (
-        .clock(clock),
-        .resetn(resetn),
-        .signal_in(_addr),
-        .signal_out(addr)
-    );
-    defparam U2.n_cycles = 0;
-    defparam U2.n = 15;
-    delay_one_cycle U3 (
-        .clock(clock),
-        .resetn(resetn),
-        .signal_in(_game_x),
-        .signal_out(game_x)
-    );
-    defparam U3.n_cycles = 0;
-    defparam U3.n = 6;
+    // delay_one_cycle U2 (
+    //     .clock(clock),
+    //     .resetn(resetn),
+    //     .signal_in(_addr),
+    //     .signal_out(addr)
+    // );
+    // defparam U2.n_cycles = 0;
+    // defparam U2.n = 15;
+    assign addr = _addr;
+
+    // delay_one_cycle U3 (
+    //     .clock(clock),
+    //     .resetn(resetn),
+    //     .signal_in(_game_x),
+    //     .signal_out(game_x)
+    // );
+    // defparam U3.n_cycles = 0;
+    // defparam U3.n = 6;
+    assign game_x = _game_x;
+
     delay_one_cycle U4 (
         .clock(clock),
         .resetn(resetn),

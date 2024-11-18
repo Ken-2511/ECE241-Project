@@ -71,7 +71,7 @@ Z15 !s90 -reportprogress|300|../blocks.v|../canvas.v|../fsm.v|../legacy_code.v|.
 !i113 1
 R10
 vblocks
-Z16 !s110 1731932731
+Z16 !s110 1731935593
 !i10b 1
 !s100 EDm0f9?R^P2U^3=e_cMg;0
 I9=BHh]2kz1LO9bR^@;BJB1
@@ -85,7 +85,7 @@ R6
 r1
 !s85 0
 31
-Z18 !s108 1731932731.000000
+Z18 !s108 1731935593.000000
 Z19 !s107 ../utils.v|../top.v|../ps2.v|../player.v|../modules.v|../milestone2.v|../legacy_code.v|../ghost1.v|../fsm.v|../food.v|../canvas.v|../blocks.v|
 Z20 !s90 -reportprogress|300|../blocks.v|../canvas.v|../food.v|../fsm.v|../ghost1.v|../legacy_code.v|../milestone2.v|../modules.v|../player.v|../ps2.v|../top.v|../utils.v|
 !i113 1
@@ -111,7 +111,7 @@ R20
 !i113 1
 R10
 vcanvas_coord_2_mem_addr
-!s110 1731932732
+R16
 !i10b 1
 !s100 ?OI>C1B0>U5S0LVzaob8i3
 IZ]WkhmEBjO9==6cf9>fAL2
@@ -177,7 +177,7 @@ R16
 I2>Rnh[IXZDY>eV8EOFiJM2
 R2
 R11
-Z24 w1731930294
+Z24 w1731932763
 Z25 8../milestone2.v
 Z26 F../milestone2.v
 L0 145
@@ -417,7 +417,7 @@ R16
 I?n9K<jTY5@6_gJ8US^OKm1
 R2
 R11
-Z42 w1731930376
+Z42 w1731935591
 Z43 8../modules.v
 Z44 F../modules.v
 L0 52
@@ -493,14 +493,14 @@ R10
 vm_ghost_collision
 R16
 !i10b 1
-!s100 eVf:OJ^eVKKdzOYK;f00e1
-IKAD2;Xi^ZohdnYP@eD;0g0
+!s100 =YnbC[3>l8kfd@_cRAP<A3
+IZz8z>CNZfdZdAfUdoibgB0
 R2
 R11
 R42
 R43
 R44
-L0 639
+L0 682
 R6
 r1
 !s85 0
@@ -553,14 +553,14 @@ R10
 vm_render_blocks
 R16
 !i10b 1
-!s100 D><WEQ_zaW6Ni;I2UQm_F2
-ITG;W=2>T3leZNJ7QioTi33
+!s100 :<=M]hdZz0`BFWCHPnfhV1
+I>SzC^7DA85fQRO1=UGiMC2
 R2
 R11
 R42
 R43
 R44
-L0 290
+L0 329
 R6
 r1
 !s85 0
@@ -573,14 +573,14 @@ R10
 vm_render_food
 R16
 !i10b 1
-!s100 n[5gK<1b5P;Z5b?PdIUFi0
-IEJKnZOO9Mi8:2S=AFlR8^3
+!s100 RS1OC]6=>T[7HPFz2?[Ka0
+IgLK@m:eKCYUbeOP`bo@jW3
 R2
 R11
 R42
 R43
 R44
-L0 411
+L0 450
 R6
 r1
 !s85 0
@@ -593,14 +593,14 @@ R10
 vm_render_ghosts
 R16
 !i10b 1
-!s100 ^^bcKVAN:fk8<R5QH:_cY0
-I`0fzN0Ih^8e<kYUhdnB<R3
+!s100 K=9>Z@:<zeTA?:=KJQmSY0
+I2J^i[`Q8U5AigG>eh2:AW1
 R2
 R11
 R42
 R43
 R44
-L0 523
+L0 566
 R6
 r1
 !s85 0
@@ -613,14 +613,14 @@ R10
 vm_render_player
 R16
 !i10b 1
-!s100 NTkd>Kk74UONFG]UR:VN<1
-Il6_n;J`GPm=bWnROIGBd@1
+!s100 i3i`b1A<ZY[jF7a7F5`Ef3
+IR=a0F[VaSRTciRD>32ch=2
 R2
 R11
 R42
 R43
 R44
-L0 329
+L0 368
 R6
 r1
 !s85 0
@@ -693,14 +693,14 @@ R10
 vm_update_vga
 R16
 !i10b 1
-!s100 [IK0FNDR0QF[QYAUoW?I42
-IkU2J>Dkn]4Jz`78jzbXPT1
+!s100 <dOZU_6P3`PP3M6cA>GMd3
+IU?7NA5FIMhLQdK8AEYajo2
 R2
 R11
 R42
 R43
 R44
-L0 678
+L0 721
 R6
 r1
 !s85 0
@@ -733,8 +733,8 @@ R10
 vmilestone2
 R16
 !i10b 1
-!s100 oUDi^R;N:iN[_XL9QP2ff1
-IWG>gg5nGd1R7aUdfI[?dl0
+!s100 ge]W66:CN60G0_ZY1ZDle2
+I`>1CRgg5[G`OX8Me3ahCH2
 R2
 R11
 R24

@@ -1,1 +1,2 @@
+Warning (10268): Verilog HDL information at modules.v(409): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 409
 Warning (10268): Verilog HDL information at milestone2.v(69): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 69

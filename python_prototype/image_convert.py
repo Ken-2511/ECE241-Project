@@ -79,7 +79,7 @@ if __name__ == '__main__':
     pad = True            # Enable padding or disable for stretching
 
     # Convert and process the image
-    converted_image = convert_picture("test_picture.png", bits_per_color_channel=bits_per_channel,
+    converted_image = convert_picture("test_picture.jpg", bits_per_color_channel=bits_per_channel,
                                       target_width=target_width, target_height=target_height, pad=pad)
 
     # Generate memory file
