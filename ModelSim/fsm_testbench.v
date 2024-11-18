@@ -9,13 +9,13 @@ module fsm_testbench ();
     reg enable;
     reg key3;
     wire f_greeting, f_playing, f_game_over;
-    wire [23:0] data;
+    wire [11:0] data;
     wire [14:0] addr;
     wire wren;
-    wire [23:0] q;
+    wire [11:0] q;
     wire [7:0] VGA_X;
     wire [6:0] VGA_Y;
-    wire [23:0] VGA_COLOR;
+    wire [11:0] VGA_COLOR;
     reg [7:0] last_key_received;
 
     // Clock generation

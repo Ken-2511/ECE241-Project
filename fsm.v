@@ -1,6 +1,6 @@
 module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, VGA_COLOR, last_key_received);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -105,12 +105,12 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
                 VGA_COLOR = vga_color_game_over;
             end
             default: begin
-                data = 24'b000;
+                data = 12'h000;
                 addr = 17'b0;
                 wren = 1'b0;
                 VGA_X = 8'b0;
                 VGA_Y = 7'b0;
-                VGA_COLOR = 24'b0; // cbit is related to the parameter
+                VGA_COLOR = 12'h000; // cbit is related to the parameter
             end
         endcase
     end
@@ -169,7 +169,7 @@ module m_playing(
     last_key_received
 );
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -524,8 +524,8 @@ module m_playing(
         .VGA_X(vga_x_render_player),
         .VGA_Y(vga_y_render_player),
         .VGA_COLOR(vga_color_render_player),
-        .game_x(6'b0),
-        .game_y(5'b0),
+        .game_x(6'b000001),
+        .game_y(5'b00001),
         .direct(2'b0)
     );
 

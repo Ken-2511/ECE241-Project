@@ -71,7 +71,7 @@ Z15 !s90 -reportprogress|300|../blocks.v|../canvas.v|../fsm.v|../legacy_code.v|.
 !i113 1
 R10
 vblocks
-Z16 !s110 1731884680
+Z16 !s110 1731930818
 !i10b 1
 !s100 EDm0f9?R^P2U^3=e_cMg;0
 I9=BHh]2kz1LO9bR^@;BJB1
@@ -85,19 +85,19 @@ R6
 r1
 !s85 0
 31
-Z18 !s108 1731884680.000000
-Z19 !s107 ../utils.v|../top.v|../ps2.v|../player.v|../modules.v|../milestone2.v|../legacy_code.v|../fsm.v|../food.v|../canvas.v|../blocks.v|
-Z20 !s90 -reportprogress|300|../blocks.v|../canvas.v|../food.v|../fsm.v|../legacy_code.v|../milestone2.v|../modules.v|../player.v|../ps2.v|../top.v|../utils.v|
+Z18 !s108 1731930818.000000
+Z19 !s107 ../utils.v|../top.v|../ps2.v|../player.v|../modules.v|../milestone2.v|../legacy_code.v|../ghost1.v|../fsm.v|../food.v|../canvas.v|../blocks.v|
+Z20 !s90 -reportprogress|300|../blocks.v|../canvas.v|../food.v|../fsm.v|../ghost1.v|../legacy_code.v|../milestone2.v|../modules.v|../player.v|../ps2.v|../top.v|../utils.v|
 !i113 1
 R10
 vcanvas
 R16
 !i10b 1
-!s100 j:5IM8IJR>Q<ATPA:HPln2
-I8nd9026?d>QW`A[@1gTz[1
+!s100 4_EMdSV0b[LdDGjG71`ML2
+IkINPcD8gLCE``Xj0;>6zD3
 R2
 R11
-w1731884253
+w1731930473
 8../canvas.v
 F../canvas.v
 R17
@@ -177,7 +177,7 @@ R16
 I2>Rnh[IXZDY>eV8EOFiJM2
 R2
 R11
-Z24 w1731884531
+Z24 w1731930294
 Z25 8../milestone2.v
 Z26 F../milestone2.v
 L0 145
@@ -253,11 +253,11 @@ R10
 vfsm_game_state
 R16
 !i10b 1
-!s100 58R0d=NQLk4GQT^S]a]0F2
-IQ0]XRKdX<j31GIY[Q0]0_0
+!s100 1zYkiL@34HaVYmAPGaF2f1
+I2Uc3`;[SBM[eF:5kEEdEn0
 R2
 R11
-Z33 w1731882209
+Z33 w1731930398
 R12
 R13
 L0 1
@@ -350,6 +350,26 @@ Z39 !s107 ../utils.v|../top.v|../ps2.v|../milestone2.v|../fsm.v|../blocks.v|
 Z40 !s90 -reportprogress|300|../blocks.v|../fsm.v|../milestone2.v|../ps2.v|../top.v|../utils.v|
 !i113 1
 R10
+vghost1
+R16
+!i10b 1
+!s100 Gf3HBK]@2bM83[fGXdCP@1
+IGo>P2lLY:>CSD0>d9kTSz2
+R2
+R11
+w1731885828
+8../ghost1.v
+F../ghost1.v
+R17
+R6
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 1
+R10
 vhalf_sec_counter
 R36
 !i10b 1
@@ -393,11 +413,11 @@ R10
 vm_clear_screen
 R16
 !i10b 1
-!s100 2jI<P[Mn0cK2O=Vbf2AW43
-I7`>8ULJ_UZ0?2M2]OP^A<0
+!s100 cQeM11_0W9a_BTQ3AJ]VZ2
+I?n9K<jTY5@6_gJ8US^OKm1
 R2
 R11
-Z42 w1731884669
+Z42 w1731930376
 Z43 8../modules.v
 Z44 F../modules.v
 L0 52
@@ -413,8 +433,8 @@ R10
 vm_eat_food
 R16
 !i10b 1
-!s100 3nj@]CDJ_:[_gbJia<`F42
-IK`Yi>2fU7ZiTCo0gkn<9I3
+!s100 B8]X4J;=[>g0GiCkbM5J>0
+IjSXJ3=@<G=hE`Y2;bzTlk2
 R2
 R11
 R42
@@ -433,8 +453,8 @@ R10
 vm_fill_screen
 R16
 !i10b 1
-!s100 ?B;R<07=^gUB`U:e@e9Pg3
-IN?o?NBfHko58Wf=m<DVVb0
+!s100 dB0HO8Q>0SdQG]4h>JVCE0
+I9XZI6f65dlzIlVD]m:Lcc2
 R2
 R11
 R42
@@ -453,8 +473,8 @@ R10
 vm_game_over
 R16
 !i10b 1
-!s100 I4L[cnM_[QTeF@D5QCL@h1
-I?QmEHjUnG>MiSRBgbz`5Q3
+!s100 BRm[d3mib4?2FbWEan2S32
+I4_FeR`bi:Ua8MR6acFzn[3
 R2
 R11
 R42
@@ -473,14 +493,14 @@ R10
 vm_ghost_collision
 R16
 !i10b 1
-!s100 bSk=_8clZ<KX<m<;j_Ei_2
-ILmMT2JX^R^THcCCm_NG2O0
+!s100 eVf:OJ^eVKKdzOYK;f00e1
+IKAD2;Xi^ZohdnYP@eD;0g0
 R2
 R11
 R42
 R43
 R44
-L0 611
+L0 639
 R6
 r1
 !s85 0
@@ -493,8 +513,8 @@ R10
 vm_greeting
 R16
 !i10b 1
-!s100 G0gG8Y`<Hz=f7O4Qnh>4=3
-IoCSP2db?U`a[kf3^?Ui033
+!s100 hJ2BCzR[]T`=0h^9k4VQ[1
+IH;_O0z>jUCc?dWN>CH`og1
 R2
 R11
 R42
@@ -513,8 +533,8 @@ R10
 vm_playing
 R16
 !i10b 1
-!s100 NGG`LidY0<KPC2g5H4oF31
-I2O_;S44`Pc0PKT>A0`jLE2
+!s100 ;3RYOVJ:0@^ePGB?b9jn^0
+I7IQJhk273G7WmPFQL@A0U2
 R2
 R11
 R33
@@ -533,8 +553,8 @@ R10
 vm_render_blocks
 R16
 !i10b 1
-!s100 2iFj<;YWZb9O0^;C=I85]3
-I[]N:1J7[A7[3H;O><6eMF3
+!s100 D><WEQ_zaW6Ni;I2UQm_F2
+ITG;W=2>T3leZNJ7QioTi33
 R2
 R11
 R42
@@ -553,8 +573,8 @@ R10
 vm_render_food
 R16
 !i10b 1
-!s100 ;o_1Ho2ehhhNG6^Ke:zn]2
-IcXEWk0CF_VkjT3VebIE<N3
+!s100 n[5gK<1b5P;Z5b?PdIUFi0
+IEJKnZOO9Mi8:2S=AFlR8^3
 R2
 R11
 R42
@@ -573,14 +593,14 @@ R10
 vm_render_ghosts
 R16
 !i10b 1
-!s100 V1YMP2@0AQ5ezWhZ<n@ZE0
-ITNE[[MN1_NgAPg;b`=AH92
+!s100 ^^bcKVAN:fk8<R5QH:_cY0
+I`0fzN0Ih^8e<kYUhdnB<R3
 R2
 R11
 R42
 R43
 R44
-L0 495
+L0 523
 R6
 r1
 !s85 0
@@ -593,8 +613,8 @@ R10
 vm_render_player
 R16
 !i10b 1
-!s100 Q3Mn`;XN7U?2nYC[6`hH72
-IiA:GkH8fdKmZzVH_7f9:j2
+!s100 NTkd>Kk74UONFG]UR:VN<1
+Il6_n;J`GPm=bWnROIGBd@1
 R2
 R11
 R42
@@ -613,8 +633,8 @@ R10
 vm_update_ghost_directions
 R16
 !i10b 1
-!s100 LH`GoMl46NMG25cg2dm^R0
-IY[V8IYoVDbk0VnPn=Y@8_2
+!s100 ?>Hfm2N>LzH4CoXMDhbVe3
+I3`FdZ?:hFQUOz6;a=`i]S3
 R2
 R11
 R42
@@ -633,8 +653,8 @@ R10
 vm_update_ghost_positions
 R16
 !i10b 1
-!s100 5f9Wo;1e58;U=kcaG?:PD2
-I5Dz9>2>@NnL_:jeRV;MEj0
+!s100 1=i:Q[:bf9C`;eoWjnboS2
+I;nhiOa=bG4z?^bW5DIXSP2
 R2
 R11
 R42
@@ -653,8 +673,8 @@ R10
 vm_update_position
 R16
 !i10b 1
-!s100 z_Q1@8OED_Kl@1i@XZoVL1
-IHbniiB4ILkX@nJ;mKnW?O2
+!s100 b1k9IMng_?Dm[9]HNmk9z1
+IXQg0Y?JTVQCA=n7abfLP92
 R2
 R11
 R42
@@ -673,14 +693,14 @@ R10
 vm_update_vga
 R16
 !i10b 1
-!s100 7QnOCd2Lf;7`ZbTj=BW6d1
-I@VP76OVVnhU^_a:[SjSkg0
+!s100 [IK0FNDR0QF[QYAUoW?I42
+IkU2J>Dkn]4Jz`78jzbXPT1
 R2
 R11
 R42
 R43
 R44
-L0 650
+L0 678
 R6
 r1
 !s85 0
@@ -713,8 +733,8 @@ R10
 vmilestone2
 R16
 !i10b 1
-!s100 mZOYTa20k`4TLbhGhbbdc1
-Il5QShmB[OD1n>9[g@0XTl2
+!s100 oUDi^R;N:iN[_XL9QP2ff1
+IWG>gg5nGd1R7aUdfI[?dl0
 R2
 R11
 R24
@@ -794,11 +814,11 @@ R10
 vplayer
 R16
 !i10b 1
-!s100 XbI<cc<F4i5IlBYglXR=c2
-ITC:A_@WZ41YRjTg?0R1Q^3
+!s100 C0`iKS[ODPkR_4jU=m5?>0
+ILe`G4Dz`WMdBTk_hhSnKm0
 R2
 R11
-w1731884284
+w1731930671
 8../player.v
 F../player.v
 R17

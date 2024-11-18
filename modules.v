@@ -1,6 +1,6 @@
 module m_greeting(clock, resetn, enable, finished, data, addr, wren);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -25,7 +25,7 @@ endmodule
 
 module m_game_over(clock, resetn, enable, finished, data, addr, wren);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -51,7 +51,7 @@ endmodule
 
 module m_clear_screen(clock, resetn, enable, wren, finished, data, addr, last_key_received);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -94,7 +94,7 @@ endmodule
 
 module m_update_position(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -133,7 +133,7 @@ endmodule
 
 module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -172,7 +172,7 @@ endmodule
 
 module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -211,7 +211,7 @@ endmodule
 
 module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -250,7 +250,7 @@ endmodule
 
 module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -289,7 +289,7 @@ endmodule
 
 module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -328,7 +328,7 @@ endmodule
 
 module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, game_x, game_y, direct);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -370,7 +370,7 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     always @ (posedge clock) begin
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
-            data <= 24'b000;
+            data <= 12'h000;
             addr <= 15'b0;
             wren <= 0; // Disable write
             dx <= 0;
@@ -390,7 +390,7 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
             else if (dy < 4) begin
                 dy <= dy + 1;
                 dx <= 0;
-                addr <= addr + 1;
+                addr <= (canvas_y + dy) * 160 + canvas_x;
             end
             else begin
                 finished <= 1;  // Finish immediately when enabled, for testing
@@ -410,7 +410,7 @@ endmodule
 
 module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -423,7 +423,8 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
 
     // Data and address control
     output reg [cbit:0] data;
-    output reg [14:0] addr;
+    output wire [14:0] addr;
+    reg [14:0] _addr; // the earlier address
 
     // VGA outputs
     output reg [7:0] VGA_X;  // @ chatgpt: change from 8 to 7
@@ -431,20 +432,47 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
     output reg [cbit:0] VGA_COLOR;
 
     // Food position
-    reg [5:0] game_x;
-    reg [4:0] game_y;
+    wire [5:0] game_x;
+    wire [4:0] game_y;
     wire [7:0] canvas_x;
     wire [6:0] canvas_y;
     wire [cbit:0] color;
     wire food_exists;
     wire [8:0] temp_food_addr;
-    assign temp_food_addr = game_y * 29 + game_x;
+    reg [5:0] _game_x; // the earlier game_x
+    reg [4:0] _game_y;
+    assign temp_food_addr = _game_y * 29 + _game_x;
 
-    assign color = 24'hffffff;
+    assign color = 12'hfff;
 
     game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
 
-    food U2 (
+    delay_one_cycle U2 (
+        .clock(clock),
+        .resetn(resetn),
+        .signal_in(_addr),
+        .signal_out(addr)
+    );
+    defparam U2.n_cycles = 0;
+    defparam U2.n = 15;
+    delay_one_cycle U3 (
+        .clock(clock),
+        .resetn(resetn),
+        .signal_in(_game_x),
+        .signal_out(game_x)
+    );
+    defparam U3.n_cycles = 0;
+    defparam U3.n = 6;
+    delay_one_cycle U4 (
+        .clock(clock),
+        .resetn(resetn),
+        .signal_in(_game_y),
+        .signal_out(game_y)
+    );
+    defparam U4.n_cycles = 1;
+    defparam U4.n = 5;
+
+    food U5 (
         .address(temp_food_addr),
         .clock(clock),
         .q(food_exists),
@@ -456,28 +484,28 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
         if (!resetn) begin
             finished <= 0;  // Reset to initial state
             data <= 23'b000;
-            addr <= 15'b0;
+            _addr <= 15'b0;
             wren <= 0; // Disable write
-            game_x <= 0;
-            game_y <= 0;
+            _game_x <= 0;
+            _game_y <= 0;
         end
         else if (enable) begin
             // Check if food exists
             if (food_exists) begin
                 wren <= 1; // Enable write
                 data <= color;
-                addr <= canvas_y * 160 + canvas_x;
+                _addr <= canvas_y * 160 + canvas_x;
             end
             else begin
                 wren <= 0; // Disable write
             end
             // Increment food position
-            if (game_x < 28) begin
-                game_x <= game_x + 1;
+            if (_game_x < 28) begin
+                _game_x <= _game_x + 1;
             end
-            else if (game_y < 12) begin
-                game_x <= 0;
-                game_y <= game_y + 1;
+            else if (_game_y < 12) begin
+                _game_x <= 0;
+                _game_y <= _game_y + 1;
             end
             else begin
                 finished <= 1;
@@ -494,7 +522,7 @@ endmodule
 
 module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost_x, ghost_y, direct, last_key_received);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
     parameter num_ghosts = 4;
 
     // Basic inputs
@@ -554,7 +582,7 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X,
         if (!resetn) begin
             // Reset state
             finished <= 0;
-            data <= 24'b000;
+            data <= 12'h000;
             addr <= 15'b0;
             wren <= 0;
             VGA_X <= 0;
@@ -610,7 +638,7 @@ endmodule
 
 module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr);
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
@@ -661,7 +689,7 @@ module m_update_vga(
     VGA_COLOR   // Additional output
 );
 
-    parameter cbit = 23;
+    parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;

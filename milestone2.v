@@ -11,7 +11,7 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 				PS2_CLK, PS2_DAT,
 				HEX4, HEX5, LEDR, VGA_X_D, VGA_Y_D, VGA_COLOR, plot);
 	
-    parameter cbit = 23;
+    parameter cbit = 11;
 
 	input CLOCK_50;
 	input [7:0] SW;
@@ -85,7 +85,7 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 	fsm_game_state U3 (
 		.clock(CLOCK_50),
 		.resetn(KEY[0]),
-		.enable(KEY[3]),
+		.enable(~KEY[3]),
 		.data(data),
 		.addr(addr),
 		.wren(wren),
@@ -112,10 +112,10 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
     );
 
 	delay_one_cycle U4 (CLOCK_50, KEY[0], VGA_X, VGA_X_D);
-	defparam U4.n = 9;
+	defparam U4.n = 8;
 	defparam U4.n_cycles = 1;
 	delay_one_cycle U5 (CLOCK_50, KEY[0], VGA_Y, VGA_Y_D);
-	defparam U5.n = 8;
+	defparam U5.n = 7;
 	defparam U5.n_cycles = 1;
 
     // connect to VGA controller
@@ -137,7 +137,7 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 		defparam VGA.RESOLUTION = "160x120";
 		defparam VGA.MONOCHROME = "FALSE";
 		defparam VGA.BITS_PER_COLOUR_CHANNEL = 8;
-		defparam VGA.BACKGROUND_IMAGE = "canvas.mif";
+		defparam VGA.BACKGROUND_IMAGE = "black.mif";
 
 endmodule
 
