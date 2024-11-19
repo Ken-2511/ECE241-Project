@@ -177,9 +177,9 @@ module m_playing(
     addr,
     wren,
     q,
-    VGA_X,      // Additional output
-    VGA_Y,      // Additional output
-    VGA_COLOR,   // Additional output
+    VGA_X,
+    VGA_Y,
+    VGA_COLOR,
     last_key_received
 );
 
@@ -236,6 +236,19 @@ module m_playing(
 
     // PS2 controller input
     input [7:0] last_key_received;
+
+    // The blocks onchip memory
+    wire [8:0] blk_addr;
+    wire blk_data;
+    wire blk_wren;
+    wire blk_q;
+    blocks BLOCKS (
+        .address(blk_addr),
+        .clock(clock),
+        .data(blk_data),
+        .wren(blk_wren),
+        .q(blk_q)
+    );
 
     // State transition logic
     always @ (posedge clock) begin
@@ -526,7 +539,10 @@ module m_playing(
         .wren(wr_render_blocks),
         .finished(f_render_blocks),
         .data(dt_render_blocks),
-        .addr(ad_render_blocks)
+        .addr(ad_render_blocks),
+        .blk_addr(blk_addr),
+        .blk_q(blk_q),
+        .blk_wren(blk_wren)
     );
 
     // m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, game_x, game_y, direct);

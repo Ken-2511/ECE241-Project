@@ -142,66 +142,66 @@ module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 endmodule
 
 
-module draw_big_maze(clock, resetn, vga_x, vga_y, color, enable);
-	// draw a maze with blocks of 8x8 pixels
+// module draw_big_maze(clock, resetn, vga_x, vga_y, color, enable);
+// 	// draw a maze with blocks of 8x8 pixels
 
-	input clock, resetn, enable;
-	output [7:0] color;
-	output reg [7:0] vga_x;
-	output reg [6:0] vga_y;
+// 	input clock, resetn, enable;
+// 	output [7:0] color;
+// 	output reg [7:0] vga_x;
+// 	output reg [6:0] vga_y;
 
-	reg [4:0] maze_x;
-	reg [3:0] maze_y;
-	wire [0:0] maze_color;
-	reg [3:0] dx, dy;
+// 	reg [4:0] maze_x;
+// 	reg [3:0] maze_y;
+// 	wire [0:0] maze_color;
+// 	reg [3:0] dx, dy;
 
-	parameter n = 4; // size of the block
+// 	parameter n = 4; // size of the block
 
-	always @ (posedge clock) begin
-		if (!resetn) begin
-			dx <= 0;
-			dy <= 0;
-            maze_x <= 0;
-            maze_y <= 0;
-			vga_x <= 0;
-			vga_y <= 0;
-		end
-		else if (enable) begin
-			// update the position
-			if (dx == n - 1) begin
-				dx <= 0;
-				if (dy == n - 1) begin
-					dy <= 0;
-                    if (maze_x == 29 - 1) begin
-                        maze_x <= 0;
-                        if (maze_y == 13 - 1) begin
-                            maze_y <= 0;
-                        end
-                        else
-                            maze_y <= maze_y + 1;
-                    end
-                    else
-                        maze_x <= maze_x + 1;
-				end
-				else
-					dy <= dy + 1;
-			end
-			else
-				dx <= dx + 1;
-			// update the VGA position
-			vga_x <= maze_x * n + dx;
-			vga_y <= maze_y * n + dy;
-		end
-	end
+// 	always @ (posedge clock) begin
+// 		if (!resetn) begin
+// 			dx <= 0;
+// 			dy <= 0;
+//             maze_x <= 0;
+//             maze_y <= 0;
+// 			vga_x <= 0;
+// 			vga_y <= 0;
+// 		end
+// 		else if (enable) begin
+// 			// update the position
+// 			if (dx == n - 1) begin
+// 				dx <= 0;
+// 				if (dy == n - 1) begin
+// 					dy <= 0;
+//                     if (maze_x == 29 - 1) begin
+//                         maze_x <= 0;
+//                         if (maze_y == 13 - 1) begin
+//                             maze_y <= 0;
+//                         end
+//                         else
+//                             maze_y <= maze_y + 1;
+//                     end
+//                     else
+//                         maze_x <= maze_x + 1;
+// 				end
+// 				else
+// 					dy <= dy + 1;
+// 			end
+// 			else
+// 				dx <= dx + 1;
+// 			// update the VGA position
+// 			vga_x <= maze_x * n + dx;
+// 			vga_y <= maze_y * n + dy;
+// 		end
+// 	end
 
-	assign color = maze_color == 1'b1 ? 8'hff : 8'h00;
+// 	assign color = maze_color == 1'b1 ? 8'hff : 8'h00;
 
-    blocks U1 (
-	.address({maze_y * 29 + maze_x}),
-	.clock(clock),
-	.data(8'h00),
-	.wren(1'b0),
-	.q(maze_color)
-    );
+//     blocks U1 (
+// 	.address({maze_y * 29 + maze_x}),
+// 	.clock(clock),
+// 	.data(8'h00),
+// 	.wren(1'b0),
+// 	.q(maze_color)
+//     );
 
-endmodule
+// endmodule

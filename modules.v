@@ -302,46 +302,7 @@ module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
 endmodule
 
 
-// module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
-
-//     parameter cbit = 11;
-
-//     // Basic inputs
-//     input clock, resetn, enable;
-
-//     // Output write enable signal
-//     output reg wren; // wren signal for controlling writes
-
-//     // Finish signal
-//     output reg finished;
-
-//     // Data and address control
-//     output reg [cbit:0] data;
-//     output reg [14:0] addr;
-
-//     always @ (posedge clock) begin
-//         if (!resetn) begin
-//             finished <= 0;  // Reset to initial state
-//             data <= 3'b000;
-//             addr <= 15'b0;
-//             wren <= 0; // Disable write
-//         end
-//         else if (enable) begin
-//             wren <= 0; // Disable write
-//             finished <= 1;  // Finish immediately when enabled, for testing
-//             data <= 3'b111; // Example data value
-//             addr <= addr + 1; // Increment address
-//         end
-//         else if (finished) begin
-//             wren <= 0; // Disable write when finished
-//             finished <= 0;  // Reset to initial state
-//         end
-//     end
-
-// endmodule
-
-
-module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
+module m_render_blocks(clock, resetn, enable, wren, finished, data, addr, blk_addr, blk_q, blk_wren);
 
     parameter cbit = 11;
 
@@ -349,31 +310,71 @@ module m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
     input clock, resetn, enable;
 
     // Output write enable signal
-    output reg wren; // wren signal for controlling writes
+    output wren;
+    assign wren = 0; // Disable write (we are always reading)
 
     // Finish signal
     output reg finished;
 
-    // Data and address control
+    // Canvas signal
     output reg [cbit:0] data;
     output reg [14:0] addr;
 
+    // Block memory inputs
+    output [8:0] blk_addr;
+    output blk_wren;
+    input blk_q;
+    assign blk_wren = 1'b0; // Disable write (we are always reading)
+
+    // Coordinates
+    reg [4:0] maze_x;
+    reg [3:0] maze_y;
+    reg hold_initial;
+    reg [2:0] dx, dy;
+
+    assign blk_addr = {maze_y * 29 + maze_x};
+
     always @ (posedge clock) begin
         if (!resetn) begin
-            finished <= 0;  // Reset to initial state
+            finished <= 0;
             data <= 3'b000;
             addr <= 15'b0;
-            wren <= 0; // Disable write
+            maze_x <= 3'b0;
+            maze_y <= 3'b0;
+            dx <= 3'b0;
+            dy <= 3'b0;
+            hold_initial <= 1;
         end
         else if (enable) begin
-            wren <= 0; // Disable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b111; // Example data value
-            addr <= addr + 1; // Increment address
-        end
+			// update the position
+			if (dx == 3'o4) begin
+				dx <= 0;
+				if (dy == 3'o4) begin
+					dy <= 0;
+                    if (maze_x == 29 - 1) begin
+                        maze_x <= 0;
+                        if (maze_y == 13 - 1) begin
+                            maze_y <= 0;
+                            finished <= 1;
+                        end
+                        else
+                            maze_y <= maze_y + 1;
+                    end
+                    else
+                        maze_x <= maze_x + 1;
+				end
+				else
+					dy <= dy + 1;
+			end
+			else begin
+				dx <= dx + 1;
+            end
+            // update the data and address
+            data <= blk_q == 1'b1 ? 12'hff : 12'h00;
+            addr <= (maze_y * 29 + maze_x) * 160 + dy * 160 + dx;
+		end
         else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
+            finished <= 0;
         end
     end
 

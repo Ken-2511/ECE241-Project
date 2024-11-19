@@ -13,6 +13,9 @@ module blocks_testbench ();
     wire finished;
     wire [11:0] data;
     wire [14:0] addr;
+    wire [8:0] blk_addr;
+    wire blk_q;
+    wire blk_wren;
 
     // Clock generation
     initial begin
@@ -23,7 +26,7 @@ module blocks_testbench ();
     end
 
     // Module under test
-    // m_render_blocks(clock, resetn, enable, wren, finished, data, addr);
+    // module m_render_blocks(clock, resetn, enable, wren, finished, data, addr, blk_addr, blk_q, blk_wren);
     m_render_blocks UUT (
         .clock(clock),
         .resetn(resetn),
@@ -31,7 +34,19 @@ module blocks_testbench ();
         .wren(wren),
         .finished(finished),
         .data(data),
-        .addr(addr)
+        .addr(addr),
+        .blk_addr(blk_addr),
+        .blk_q(blk_q),
+        .blk_wren(blk_wren)
+    );
+
+    // Instantiate the blocks module
+    blocks BLOCKS (
+        .address(blk_addr),
+        .clock(clock),
+        .data(blk_data),
+        .wren(blk_wren),
+        .q(blk_q)
     );
 
     // Test stimulus
