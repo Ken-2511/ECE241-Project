@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Mon Nov 18 23:24:14 2024
+Mon Nov 18 23:33:13 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -107,7 +107,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 18 23:24:14 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 18 23:33:13 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; milestone2                                     ;
@@ -233,7 +233,8 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
-;     Processors 7-16        ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processors 8-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -2065,7 +2066,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Nov 18 23:24:07 2024
+    Info: Processing started: Mon Nov 18 23:33:06 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file player_movement.v
@@ -2116,7 +2117,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file milesto
     Info (12023): Found entity 1: milestone2 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 8
 Info (12021): Found 2 design units, including 2 entities, in source file fsm.v
     Info (12023): Found entity 1: fsm_game_state File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 1
-    Info (12023): Found entity 2: m_playing File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 174
+    Info (12023): Found entity 2: m_playing File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 171
 Info (12021): Found 1 design units, including 1 entities, in source file blocks.v
     Info (12023): Found entity 1: blocks File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file canvas.v
@@ -2127,12 +2128,13 @@ Info (12021): Found 1 design units, including 1 entities, in source file food.v
     Info (12023): Found entity 1: food File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file ghost1.v
     Info (12023): Found entity 1: ghost1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.v Line: 40
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(56): created implicit net for "address" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 56
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(56): created implicit net for "CLOCK_50" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 56
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(56): created implicit net for "q1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 56
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(493): created implicit net for "direction" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 493
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(494): created implicit net for "player_x" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 494
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(495): created implicit net for "player_y" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 495
+Info (12021): Found 1 design units, including 1 entities, in source file ghost2.v
+    Info (12023): Found entity 1: ghost2 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost2.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(53): created implicit net for "address" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 53
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(53): created implicit net for "q1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 53
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(490): created implicit net for "direction" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 490
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(491): created implicit net for "player_x" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 491
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(492): created implicit net for "player_y" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 492
 Info (12127): Elaborating entity "milestone2" for the top level hierarchy
 Warning (10235): Verilog HDL Always Construct warning at milestone2.v(70): variable "KEY" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 70
 Warning (10235): Verilog HDL Always Construct warning at milestone2.v(72): variable "ps2_key_pressed" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
@@ -2162,16 +2164,16 @@ Warning (10858): Verilog HDL warning at fsm.v(38): object vga_y_greeting used bu
 Warning (10858): Verilog HDL warning at fsm.v(38): object vga_y_game_over used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 38
 Warning (10858): Verilog HDL warning at fsm.v(39): object vga_color_greeting used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 39
 Warning (10858): Verilog HDL warning at fsm.v(39): object vga_color_game_over used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 39
-Warning (10230): Verilog HDL assignment warning at fsm.v(126): truncated value with size 17 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 126
+Warning (10230): Verilog HDL assignment warning at fsm.v(123): truncated value with size 17 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 123
 Warning (10030): Net "vga_x_greeting" at fsm.v(37) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 37
 Warning (10030): Net "vga_x_game_over" at fsm.v(37) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 37
 Warning (10030): Net "vga_y_greeting" at fsm.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 38
 Warning (10030): Net "vga_y_game_over" at fsm.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 38
 Warning (10030): Net "vga_color_greeting" at fsm.v(39) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 39
 Warning (10030): Net "vga_color_game_over" at fsm.v(39) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 39
-Info (12128): Elaborating entity "get_direction" for hierarchy "fsm_game_state:U3|get_direction:find_direction" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 51
-Info (12128): Elaborating entity "movement_FSM" for hierarchy "fsm_game_state:U3|movement_FSM:track_movement" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 52
-Info (12128): Elaborating entity "ghost1" for hierarchy "fsm_game_state:U3|ghost1:ghost1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 56
+Info (12128): Elaborating entity "get_direction" for hierarchy "fsm_game_state:U3|get_direction:find_direction" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 48
+Info (12128): Elaborating entity "movement_FSM" for hierarchy "fsm_game_state:U3|movement_FSM:track_movement" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 49
+Info (12128): Elaborating entity "ghost1" for hierarchy "fsm_game_state:U3|ghost1:ghost1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 53
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.v Line: 82
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.v Line: 82
 Info (12133): Instantiated megafunction "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.v Line: 82
@@ -2192,61 +2194,62 @@ Info (12133): Instantiated megafunction "fsm_game_state:U3|ghost1:ghost1|altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_o4g1.tdf
     Info (12023): Found entity 1: altsyncram_o4g1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_o4g1" for hierarchy "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "m_greeting" for hierarchy "fsm_game_state:U3|m_greeting:m_greeting_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 144
+Warning (113018): Width of data items in "ghost1.mif" is greater than the memory width. Truncating data items to fit in memory. File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.mif Line: 6
+Info (12128): Elaborating entity "m_greeting" for hierarchy "fsm_game_state:U3|m_greeting:m_greeting_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 141
 Warning (10034): Output port "data" at modules.v(10) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 10
 Warning (10034): Output port "addr" at modules.v(11) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 11
 Warning (10034): Output port "wren" at modules.v(12) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 12
-Info (12128): Elaborating entity "m_playing" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 159
-Warning (10858): Verilog HDL warning at fsm.v(233): object vga_x_clear_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10858): Verilog HDL warning at fsm.v(233): object vga_x_update_position used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10858): Verilog HDL warning at fsm.v(233): object vga_x_eat_food used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10858): Verilog HDL warning at fsm.v(233): object vga_x_update_ghost_directions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10858): Verilog HDL warning at fsm.v(233): object vga_x_update_ghost_positions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10858): Verilog HDL warning at fsm.v(234): object vga_x_fill_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10858): Verilog HDL warning at fsm.v(234): object vga_x_render_blocks used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10858): Verilog HDL warning at fsm.v(234): object vga_x_ghost_collision used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10858): Verilog HDL warning at fsm.v(235): object vga_y_clear_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10858): Verilog HDL warning at fsm.v(235): object vga_y_update_position used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10858): Verilog HDL warning at fsm.v(235): object vga_y_eat_food used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10858): Verilog HDL warning at fsm.v(235): object vga_y_update_ghost_directions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10858): Verilog HDL warning at fsm.v(235): object vga_y_update_ghost_positions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10858): Verilog HDL warning at fsm.v(236): object vga_y_fill_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 236
-Warning (10858): Verilog HDL warning at fsm.v(236): object vga_y_render_blocks used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 236
-Warning (10858): Verilog HDL warning at fsm.v(236): object vga_y_ghost_collision used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 236
-Warning (10858): Verilog HDL warning at fsm.v(237): object vga_color_clear_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10858): Verilog HDL warning at fsm.v(237): object vga_color_update_position used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10858): Verilog HDL warning at fsm.v(237): object vga_color_eat_food used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10858): Verilog HDL warning at fsm.v(237): object vga_color_update_ghost_directions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10858): Verilog HDL warning at fsm.v(237): object vga_color_update_ghost_positions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10858): Verilog HDL warning at fsm.v(238): object vga_color_fill_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 238
-Warning (10858): Verilog HDL warning at fsm.v(238): object vga_color_render_blocks used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 238
-Warning (10858): Verilog HDL warning at fsm.v(238): object vga_color_ghost_collision used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 238
-Info (10264): Verilog HDL Case Statement information at fsm.v(365): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 365
-Warning (10030): Net "vga_x_clear_screen" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10030): Net "vga_x_update_position" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10030): Net "vga_x_eat_food" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10030): Net "vga_x_update_ghost_directions" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10030): Net "vga_x_update_ghost_positions" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10030): Net "vga_x_fill_screen" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10030): Net "vga_x_render_blocks" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10030): Net "vga_x_ghost_collision" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10030): Net "vga_y_clear_screen" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10030): Net "vga_y_update_position" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10030): Net "vga_y_eat_food" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10030): Net "vga_y_update_ghost_directions" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10030): Net "vga_y_update_ghost_positions" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10030): Net "vga_y_fill_screen" at fsm.v(236) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 236
-Warning (10030): Net "vga_y_render_blocks" at fsm.v(236) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 236
-Warning (10030): Net "vga_y_ghost_collision" at fsm.v(236) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 236
-Warning (10030): Net "vga_color_clear_screen" at fsm.v(237) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10030): Net "vga_color_update_position" at fsm.v(237) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10030): Net "vga_color_eat_food" at fsm.v(237) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10030): Net "vga_color_update_ghost_directions" at fsm.v(237) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10030): Net "vga_color_update_ghost_positions" at fsm.v(237) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 237
-Warning (10030): Net "vga_color_fill_screen" at fsm.v(238) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 238
-Warning (10030): Net "vga_color_render_blocks" at fsm.v(238) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 238
-Warning (10030): Net "vga_color_ghost_collision" at fsm.v(238) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 238
-Info (12128): Elaborating entity "blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 254
+Info (12128): Elaborating entity "m_playing" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 156
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_clear_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_update_position used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_eat_food used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_update_ghost_directions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_update_ghost_positions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(231): object vga_x_fill_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
+Warning (10858): Verilog HDL warning at fsm.v(231): object vga_x_render_blocks used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
+Warning (10858): Verilog HDL warning at fsm.v(231): object vga_x_ghost_collision used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_clear_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_update_position used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_eat_food used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_update_ghost_directions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_update_ghost_positions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(233): object vga_y_fill_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
+Warning (10858): Verilog HDL warning at fsm.v(233): object vga_y_render_blocks used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
+Warning (10858): Verilog HDL warning at fsm.v(233): object vga_y_ghost_collision used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_clear_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_update_position used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_eat_food used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_update_ghost_directions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_update_ghost_positions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(235): object vga_color_fill_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
+Warning (10858): Verilog HDL warning at fsm.v(235): object vga_color_render_blocks used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
+Warning (10858): Verilog HDL warning at fsm.v(235): object vga_color_ghost_collision used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
+Info (10264): Verilog HDL Case Statement information at fsm.v(362): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 362
+Warning (10030): Net "vga_x_clear_screen" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10030): Net "vga_x_update_position" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10030): Net "vga_x_eat_food" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10030): Net "vga_x_update_ghost_directions" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10030): Net "vga_x_update_ghost_positions" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
+Warning (10030): Net "vga_x_fill_screen" at fsm.v(231) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
+Warning (10030): Net "vga_x_render_blocks" at fsm.v(231) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
+Warning (10030): Net "vga_x_ghost_collision" at fsm.v(231) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
+Warning (10030): Net "vga_y_clear_screen" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10030): Net "vga_y_update_position" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10030): Net "vga_y_eat_food" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10030): Net "vga_y_update_ghost_directions" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10030): Net "vga_y_update_ghost_positions" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
+Warning (10030): Net "vga_y_fill_screen" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
+Warning (10030): Net "vga_y_render_blocks" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
+Warning (10030): Net "vga_y_ghost_collision" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
+Warning (10030): Net "vga_color_clear_screen" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10030): Net "vga_color_update_position" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10030): Net "vga_color_eat_food" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10030): Net "vga_color_update_ghost_directions" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10030): Net "vga_color_update_ghost_positions" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
+Warning (10030): Net "vga_color_fill_screen" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
+Warning (10030): Net "vga_color_render_blocks" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
+Warning (10030): Net "vga_color_ghost_collision" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
+Info (12128): Elaborating entity "blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 251
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.v Line: 86
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.v Line: 86
 Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.v Line: 86
@@ -2268,23 +2271,23 @@ Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_i
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8do1.tdf
     Info (12023): Found entity 1: altsyncram_8do1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_8do1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_8do1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "m_clear_screen" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_clear_screen:m_clear_screen_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 483
-Info (12128): Elaborating entity "m_update_position" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_position:m_update_position_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 496
+Info (12128): Elaborating entity "m_clear_screen" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_clear_screen:m_clear_screen_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 480
+Info (12128): Elaborating entity "m_update_position" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_position:m_update_position_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 493
 Warning (10230): Verilog HDL assignment warning at modules.v(129): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 129
 Warning (10230): Verilog HDL assignment warning at modules.v(130): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 130
 Warning (10230): Verilog HDL assignment warning at modules.v(131): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 131
 Warning (10199): Verilog HDL Case Statement warning at modules.v(132): case item expression never matches the case expression File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 132
 Warning (10230): Verilog HDL assignment warning at modules.v(138): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 138
-Info (12128): Elaborating entity "m_eat_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_eat_food:m_eat_food_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 506
+Info (12128): Elaborating entity "m_eat_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_eat_food:m_eat_food_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 503
 Warning (10230): Verilog HDL assignment warning at modules.v(177): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 177
-Info (12128): Elaborating entity "m_update_ghost_directions" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_directions:m_update_ghost_directions_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 516
+Info (12128): Elaborating entity "m_update_ghost_directions" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_directions:m_update_ghost_directions_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 513
 Warning (10230): Verilog HDL assignment warning at modules.v(216): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 216
-Info (12128): Elaborating entity "m_update_ghost_positions" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_positions:m_update_ghost_positions_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 526
+Info (12128): Elaborating entity "m_update_ghost_positions" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_positions:m_update_ghost_positions_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 523
 Warning (10230): Verilog HDL assignment warning at modules.v(255): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 255
-Info (12128): Elaborating entity "m_fill_screen" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_fill_screen:m_fill_screen_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 536
+Info (12128): Elaborating entity "m_fill_screen" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_fill_screen:m_fill_screen_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 533
 Warning (10230): Verilog HDL assignment warning at modules.v(287): truncated value with size 17 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 287
 Warning (10230): Verilog HDL assignment warning at modules.v(294): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 294
-Info (12128): Elaborating entity "m_render_blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 549
+Info (12128): Elaborating entity "m_render_blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 546
 Warning (10036): Verilog HDL or VHDL warning at modules.v(332): object "hold_initial" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 332
 Warning (10230): Verilog HDL assignment warning at modules.v(335): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 335
 Warning (10230): Verilog HDL assignment warning at modules.v(361): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 361
@@ -2292,7 +2295,7 @@ Warning (10230): Verilog HDL assignment warning at modules.v(364): truncated val
 Warning (10230): Verilog HDL assignment warning at modules.v(367): truncated value with size 32 to match size of target (3) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 367
 Warning (10230): Verilog HDL assignment warning at modules.v(370): truncated value with size 32 to match size of target (3) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 370
 Warning (10230): Verilog HDL assignment warning at modules.v(374): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 374
-Info (12128): Elaborating entity "m_render_player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 566
+Info (12128): Elaborating entity "m_render_player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 563
 Warning (10230): Verilog HDL assignment warning at modules.v(426): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 426
 Warning (10230): Verilog HDL assignment warning at modules.v(450): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 450
 Warning (10230): Verilog HDL assignment warning at modules.v(453): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 453
@@ -2324,7 +2327,7 @@ Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_i
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_45g1.tdf
     Info (12023): Found entity 1: altsyncram_45g1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_45g1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_45g1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "m_render_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 580
+Info (12128): Elaborating entity "m_render_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 577
 Warning (10230): Verilog HDL assignment warning at modules.v(506): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 506
 Warning (10230): Verilog HDL assignment warning at modules.v(526): truncated value with size 23 to match size of target (12) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 526
 Warning (10230): Verilog HDL assignment warning at modules.v(545): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 545
@@ -2355,18 +2358,18 @@ Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_i
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r6o1.tdf
     Info (12023): Found entity 1: altsyncram_r6o1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_r6o1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_r6o1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "m_render_ghosts" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 602
+Info (12128): Elaborating entity "m_render_ghosts" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 599
 Warning (10036): Verilog HDL or VHDL warning at modules.v(608): object "dx" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 608
 Warning (10036): Verilog HDL or VHDL warning at modules.v(608): object "dy" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 608
 Warning (10036): Verilog HDL or VHDL warning at modules.v(609): object "ghost_index" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 609
-Info (12128): Elaborating entity "m_ghost_collision" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 613
+Info (12128): Elaborating entity "m_ghost_collision" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 610
 Warning (10230): Verilog HDL assignment warning at modules.v(715): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 715
-Info (12128): Elaborating entity "m_update_vga" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 627
+Info (12128): Elaborating entity "m_update_vga" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 624
 Warning (10230): Verilog HDL assignment warning at modules.v(781): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 781
 Warning (10230): Verilog HDL assignment warning at modules.v(783): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 783
 Warning (10230): Verilog HDL assignment warning at modules.v(786): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 786
 Warning (10034): Output port "data" at modules.v(748) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 748
-Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:U3|m_game_over:m_game_over_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 169
+Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:U3|m_game_over:m_game_over_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 166
 Warning (10034): Output port "data" at modules.v(35) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 35
 Warning (10034): Output port "addr" at modules.v(36) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 36
 Warning (10034): Output port "wren" at modules.v(37) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 37
@@ -2446,7 +2449,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v Line: 216
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "fsm_game_state:U3|hs_enable" is missing source, defaulting to GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 49
+    Warning (12110): Net "fsm_game_state:U3|hs_enable" is missing source, defaulting to GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 46
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
         Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[0]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 35
@@ -2529,7 +2532,7 @@ Info (21057): Implemented 935 device resources after synthesis - the final resou
     Info (21062): Implemented 2 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 192 warnings
     Info: Peak virtual memory: 4949 megabytes
-    Info: Processing ended: Mon Nov 18 23:24:14 2024
+    Info: Processing ended: Mon Nov 18 23:33:13 2024
     Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:15
 
