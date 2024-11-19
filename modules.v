@@ -423,34 +423,10 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
         .q(color)
     );
 
-    // delay_one_cycle U_temp (
-    //     .clock(clock),
-    //     .resetn(resetn),
-    //     .signal_in(dy * 5 + dx),
-    //     .signal_out(temp_player_addr)
-    // );
-    // defparam U_temp.n_cycles = 1;
-    // defparam U_temp.n = 5;
     assign temp_player_addr = dy * 5 + dx;
 
-    // delay_one_cycle U3 (
-    //     .clock(clock),
-    //     .resetn(resetn),
-    //     .signal_in(_data),
-    //     .signal_out(data)
-    // );
-    // defparam U3.n_cycles = 1;
-    // defparam U3.n = cbit + 1;
     assign data = _data;
 
-    // delay_one_cycle U4 (
-    //     .clock(clock),
-    //     .resetn(resetn),
-    //     .signal_in(_addr),
-    //     .signal_out(addr)
-    // );
-    // defparam U4.n_cycles = 1;
-    // defparam U4.n = 15;
     assign addr = _addr;
 
     reg hold_initial; // for keeping dx and dy at initial state

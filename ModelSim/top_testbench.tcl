@@ -2,21 +2,10 @@
 quit -sim
 
 # if simulating with a MIF file, copy it to the working folder. Assumes image.colour.mif
-if {[file exists ../black.mif]} {
-	file delete black.mif
-	file copy ../black.mif .
-}
-if {[file exists ../canvas.mif]} {
-	file delete canvas.mif
-	file copy ../canvas.mif .
-}
-if {[file exists ../player.mif]} {
-	file delete player.mif
-	file copy ../player.mif .
-}
-if {[file exists ../food.mif]} {
-	file delete food.mif
-	file copy ../food.mif .
+foreach file [glob -nocomplain ../*.mif] {
+    set filename [file tail $file]
+    file delete -force $filename
+    file copy $file .
 }
 
 # create the default "work" library

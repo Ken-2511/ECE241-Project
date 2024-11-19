@@ -2,7 +2,7 @@
     "files.exclude": {
         "**/*.qpf": true,
         "**/*.qdf": true,
-        "**/*.qsf": true,
+        "**/*.qsf": false,
         "**/*.mti": true,
         "**/*.mpf": true,
         "**/*.qws": true,

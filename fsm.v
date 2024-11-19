@@ -43,14 +43,14 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
     wire [3:0] player_y;
     wire [3:0] w; //internal carry to deal with the movement FSM
     wire [2:0] direction;
+    wire hs_enable;
     parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
-
     get_direction find_direction(last_key_received, hs_enable, w);
     movement_FSM track_movement(clock, resetn, hs_enable, w, direction);
 	
 	//Ghosts
 	
-	ghost1 ghost1(address, CLOCK_50, q1);
+	ghost1 ghost1(address, clock, q1);
 
     // PS2 controller input
     input [7:0] last_key_received;
