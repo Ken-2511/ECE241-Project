@@ -1,3 +1,5 @@
+# filename: fsm_wave.do
+
 onerror {resume}
 quietly WaveActivateNextPane {} 0
 

@@ -95,6 +95,7 @@ endmodule
 module m_update_position(clock, resetn, enable, wren, finished, data, addr, direction, player_x, player_y);
 
     parameter cbit = 11;
+    parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100; //STILL NEED TO DO COLLISIONS
 
     // Basic inputs
     input clock, resetn, enable;
@@ -111,8 +112,8 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
 
     // Player
     input [1:0] direction;
-    output [4:0] player_x;
-    output [3:0] player_y;
+    output reg [4:0] player_x;
+    output reg [3:0] player_y;
 
     always @ (posedge clock) begin
         if (!resetn) begin
@@ -412,7 +413,6 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     reg [3:0] dx, dy;
     wire [cbit:0] color;
     wire [4:0] temp_player_addr;
-    assign temp_player_addr = dy * 5 + dx;
 
     game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
 
@@ -421,6 +421,16 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
         .clock(clock),
         .q(color)
     );
+
+    // delay_one_cycle U_temp (
+    //     .clock(clock),
+    //     .resetn(resetn),
+    //     .signal_in(dy * 5 + dx),
+    //     .signal_out(temp_player_addr)
+    // );
+    // defparam U_temp.n_cycles = 1;
+    // defparam U_temp.n = 5;
+    assign temp_player_addr = dy * 5 + dx;
 
     // delay_one_cycle U3 (
     //     .clock(clock),
@@ -438,46 +448,46 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     //     .signal_in(_addr),
     //     .signal_out(addr)
     // );
-    // defparam U3.n_cycles = 3;
-    // defparam U3.n = 15;
+    // defparam U4.n_cycles = 1;
+    // defparam U4.n = 15;
     assign addr = _addr;
 
+    reg hold_initial; // for keeping dx and dy at initial state
     always @ (posedge clock) begin
         if (!resetn) begin
-            finished <= 0;  // Reset to initial state
+            finished <= 0;
             _data <= 12'h000;
             _addr <= 15'b0;
-            wren <= 0; // Disable write
-            dx <= 3'b000;
-            dy <= 3'b000;
+            wren <= 0;
+            dx <= 3'b0;
+            dy <= 3'b0;
+            hold_initial <= 1;
         end
         else if (enable) begin
-            wren <= 1; // Enable write
-            _data <= color;
-            if (dx == 0 && dy == 0) begin
-                _addr <= (game_y + canvas_y) * 160 + canvas_x + game_x;
-                dx <= dx + 1;
+            if (hold_initial) begin
+                hold_initial <= 0;
+                dx <= 3'b0;
+                dy <= 3'b0;
             end
             else if (dx < 4) begin
                 dx <= dx + 1;
-                _addr <= _addr + 1;
             end
             else if (dy < 4) begin
                 dy <= dy + 1;
                 dx <= 0;
-                // _addr <= (canvas_y + dy + 1) * 160 + canvas_x;
-                _addr <= (game_y + canvas_y + dy + 1) * 160 + canvas_x + game_x;
             end
             else begin
-                finished <= 1;  // Finish immediately when enabled, for testing
+                finished <= 1;
                 wren <= 0;
-                _addr <= 0;
-                dx <= 0;
-                dy <= 0;
             end
+            wren <= 1;
+            _data <= color;
+            _addr <= (game_y + canvas_y + dy) * 160 + game_x + canvas_x + dx;
         end
         else if (finished) begin
-            finished <= 0;  // Reset to initial state
+            finished <= 0;
+            hold_initial <= 1;
+            // wren <= 0;
         end
     end
 
@@ -499,60 +509,32 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
 
     // Data and address control
     output reg [cbit:0] data;
-    output wire [14:0] addr;
-    reg [14:0] _addr; // the earlier address
+    output reg [14:0] addr;
+    // reg [14:0] _addr; // the earlier address
 
     // VGA outputs
-    output reg [7:0] VGA_X;  // @ chatgpt: change from 8 to 7
+    output reg [7:0] VGA_X;
     output reg [6:0] VGA_Y;
     output reg [cbit:0] VGA_COLOR;
 
     // Food position
-    wire [5:0] game_x;
-    wire [4:0] game_y;
+    reg hold_initial;
+    reg [5:0] game_x;
+    reg [4:0] game_y;
     wire [7:0] canvas_x;
     wire [6:0] canvas_y;
     wire [cbit:0] color;
     wire food_exists;
     wire [8:0] temp_food_addr;
-    reg [5:0] _game_x; // the earlier game_x
-    reg [4:0] _game_y;
-    assign temp_food_addr = _game_y * 29 + _game_x;
+    assign temp_food_addr = game_y * 29 + game_x;
 
     assign color = 12'hfff;
 
     game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
 
-    // delay_one_cycle U2 (
-    //     .clock(clock),
-    //     .resetn(resetn),
-    //     .signal_in(_addr),
-    //     .signal_out(addr)
-    // );
-    // defparam U2.n_cycles = 0;
-    // defparam U2.n = 15;
-    assign addr = _addr;
+    // assign addr = _addr;
 
-    // delay_one_cycle U3 (
-    //     .clock(clock),
-    //     .resetn(resetn),
-    //     .signal_in(_game_x),
-    //     .signal_out(game_x)
-    // );
-    // defparam U3.n_cycles = 0;
-    // defparam U3.n = 6;
-    assign game_x = _game_x;
-
-    delay_one_cycle U4 (
-        .clock(clock),
-        .resetn(resetn),
-        .signal_in(_game_y),
-        .signal_out(game_y)
-    );
-    defparam U4.n_cycles = 1;
-    defparam U4.n = 5;
-
-    food U5 (
+    food FOOD (
         .address(temp_food_addr),
         .clock(clock),
         .q(food_exists),
@@ -560,40 +542,49 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
         .data(1'b0)
     );
 
+    // For controlling the data and address
     always @ (posedge clock) begin
         if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 23'b000;
-            _addr <= 15'b0;
-            wren <= 0; // Disable write
-            _game_x <= 0;
-            _game_y <= 0;
+            finished <= 0;
+            data <= 23'b0;
+            addr <= 15'b0;
+            wren <= 0;
+            game_x <= 0;
+            game_y <= 0;
+            hold_initial <= 1;
+        end
+        else if (finished) begin
+            wren <= 0;
         end
         else if (enable) begin
             // Check if food exists
             if (food_exists) begin
-                wren <= 1; // Enable write
-                data <= color;
-                _addr <= canvas_y * 160 + canvas_x;
+                wren <= 1;
             end
             else begin
-                wren <= 0; // Disable write
+                wren <= 0;
             end
-            // Increment food position
-            if (_game_x < 28) begin
-                _game_x <= _game_x + 1;
+            data <= color;
+            addr <= (canvas_y + 2) * 160 + canvas_x + 2; // +2 is for centering the food
+            // Meanwhile, update the food position
+            if (hold_initial) begin
+                hold_initial <= 0;
+                game_x <= 0;
+                game_y <= 0;
             end
-            else if (_game_y < 12) begin
-                _game_x <= 0;
-                _game_y <= _game_y + 1;
+            else if (game_x < 28) begin
+                game_x <= game_x + 1;
+            end
+            else if (game_y < 12) begin
+                game_x <= 0;
+                game_y <= game_y + 1;
             end
             else begin
                 finished <= 1;
             end
         end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
+        else begin
+            wren <= 0;
         end
     end
 

@@ -20,8 +20,8 @@ module get_direction(key, enable, w);
 endmodule
 
 // Handles states of moving
-module movement_FSM(clock, Resetn, enable, w, z); // Add wall collision later
-    input clock, Resetn, enable;
+module movement_FSM(clock, resetn, enable, w, z); // Add wall collision later
+    input clock, resetn, enable;
     input [2:0] w;
     output reg [3:0] z;
 
@@ -29,7 +29,7 @@ module movement_FSM(clock, Resetn, enable, w, z); // Add wall collision later
     parameter still = 3'b000, up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
 
     // State selection
-    always @(enable or Resetn or w or state) begin
+    always @(enable or resetn or w or state) begin
         case (state)
             still:
                 if (w == 3'b001) next_state <= up;
@@ -63,7 +63,7 @@ module movement_FSM(clock, Resetn, enable, w, z); // Add wall collision later
 
     // Move to next state
     always @(posedge clock) begin
-        if (!Resetn)
+        if (!resetn)
             state <= still;
         else
             state <= next_state;

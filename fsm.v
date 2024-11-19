@@ -46,7 +46,7 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
     parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
 
     get_direction find_direction(last_key_received, hs_enable, w);
-    movement_FSM track_movement(CLOCK_50, KEY[0], hs_enable, w, direction);
+    movement_FSM track_movement(clock, resetn, hs_enable, w, direction);
 	
 	//Ghosts
 	
@@ -541,8 +541,6 @@ module m_playing(
         .VGA_X(vga_x_render_player),
         .VGA_Y(vga_y_render_player),
         .VGA_COLOR(vga_color_render_player),
-        .game_x(6'b000001),
-        .game_y(5'b00001),
         .game_x(player_x),
         .game_y(player_y),
         .direct(2'b0)
