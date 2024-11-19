@@ -24,14 +24,12 @@ add wave -noupdate -label VGA_COLOR -radix hexadecimal /player_testbench/VGA_COL
 
 # Player render signals
 add wave -noupdate -divider player
-add wave -noupdate -label addr -radix decimal /player_testbench/UUT/U2/address
+add wave -noupdate -label addr -radix unsigned /player_testbench/UUT/U2/address
 add wave -noupdate -label q -radix hexadecimal /player_testbench/UUT/U2/q
 
-TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {10000 ps} 0}
-quietly wave cursor active 1
-configure wave -namecolwidth 80
-configure wave -valuecolwidth 40
+# Configure the wave window layout
+configure wave -namecolwidth 100
+configure wave -valuecolwidth 50
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
 configure wave -snapdistance 10
@@ -43,5 +41,7 @@ configure wave -gridperiod 1
 configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
+
+# Update the wave window
 update
-WaveRestoreZoom {0 ps} {300 ns}
+WaveRestoreZoom {0 ps} {500 ns}

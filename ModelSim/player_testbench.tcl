@@ -1,3 +1,5 @@
+# filename: player_testbench.tcl
+
 # stop any simulation that is currently running
 quit -sim
 
