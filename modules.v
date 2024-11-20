@@ -169,6 +169,8 @@ endmodule
 
 module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
 
+    // TODO: Implement this module
+
     parameter cbit = 11;
 
     // Basic inputs
@@ -321,7 +323,7 @@ module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, add
 endmodule
 
 
-module m_fill_screen(clock, resetn, enable, wren, finished, data, addr);
+module m_fill_screen(clock, resetn, enable, wren, finished, data, addr); // leave it blank
 
     parameter cbit = 11;
 
@@ -361,6 +363,8 @@ endmodule
 
 
 module m_render_blocks(clock, resetn, enable, wren, finished, data, addr, blk_addr, blk_q, blk_wren);
+
+    // TODO: Implement this module
 
     parameter cbit = 11;
 
@@ -628,6 +632,8 @@ endmodule
 
 module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y, direct, last_key_received);
 
+    // TODO: Implement this module
+
     parameter cbit = 11;
     parameter num_ghosts = 4;
 
@@ -743,6 +749,8 @@ endmodule
 
 
 module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr, player_x, player_y, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y, collided);
+
+    // TODO: it might contain some bugs
 
     parameter cbit = 11;
 

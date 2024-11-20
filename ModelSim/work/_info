@@ -71,23 +71,23 @@ Z15 !s90 -reportprogress|300|../blocks.v|../canvas.v|../fsm.v|../legacy_code.v|.
 !i113 1
 R10
 vblocks
-Z16 !s110 1731990611
+Z16 !s110 1732139550
 !i10b 1
 !s100 EDm0f9?R^P2U^3=e_cMg;0
 I9=BHh]2kz1LO9bR^@;BJB1
 R2
-R11
-w1731984669
+Z17 dC:/Users/IWMAI/Desktop/ECE241-Project/ModelSim
+Z18 w1732133656
 8../blocks.v
 F../blocks.v
-Z17 L0 40
+Z19 L0 40
 R6
 r1
 !s85 0
 31
-Z18 !s108 1731990611.000000
-Z19 !s107 ../utils.v|../top.v|../ps2.v|../player_movement.v|../player.v|../modules.v|../milestone2.v|../legacy_code.v|../ghost2.v|../ghost1.v|../fsm.v|../food.v|../canvas.v|../blocks.v|
-Z20 !s90 -reportprogress|300|../blocks.v|../canvas.v|../food.v|../fsm.v|../ghost1.v|../ghost2.v|../legacy_code.v|../milestone2.v|../modules.v|../player.v|../player_movement.v|../ps2.v|../top.v|../utils.v|
+Z20 !s108 1732139550.000000
+Z21 !s107 ../utils.v|../top.v|../ps2.v|../playing_fsm.v|../player_movement.v|../player.v|../modules.v|../milestone2.v|../greeting_screen.v|../ghosts_movement.v|../ghost3.v|../ghost2.v|../ghost1.v|../fsm.v|../food.v|../canvas.v|../blocks.v|
+Z22 !s90 -reportprogress|300|../blocks.v|../canvas.v|../food.v|../fsm.v|../ghost1.v|../ghost2.v|../ghost3.v|../ghosts_movement.v|../greeting_screen.v|../milestone2.v|../modules.v|../player.v|../player_movement.v|../playing_fsm.v|../ps2.v|../top.v|../utils.v|
 !i113 1
 R10
 vblocks_testbench
@@ -96,8 +96,8 @@ R16
 !s100 hhBn^]RJ:bR1Fa6DCO>oS3
 IF<11ZiWLR^bE^^Wn>J_jn1
 R2
-R11
-w1731988842
+R17
+R18
 8blocks_testbench.v
 Fblocks_testbench.v
 L0 5
@@ -105,9 +105,9 @@ R6
 r1
 !s85 0
 31
-R18
-Z21 !s107 top_testbench.v|player_testbench.v|fsm_testbench.v|food_testbench.v|blocks_testbench.v|
-Z22 !s90 -reportprogress|300|blocks_testbench.v|food_testbench.v|fsm_testbench.v|player_testbench.v|top_testbench.v|
+R20
+Z23 !s107 top_testbench.v|player_testbench.v|fsm_testbench.v|food_testbench.v|blocks_testbench.v|
+Z24 !s90 -reportprogress|300|blocks_testbench.v|food_testbench.v|fsm_testbench.v|player_testbench.v|top_testbench.v|
 !i113 1
 R10
 vcanvas
@@ -116,18 +116,18 @@ R16
 !s100 4_EMdSV0b[LdDGjG71`ML2
 IkINPcD8gLCE``Xj0;>6zD3
 R2
-R11
-w1731930473
+R17
+R18
 8../canvas.v
 F../canvas.v
-R17
+R19
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vcanvas_coord_2_mem_addr
@@ -136,18 +136,18 @@ R16
 !s100 ?OI>C1B0>U5S0LVzaob8i3
 IZ]WkhmEBjO9==6cf9>fAL2
 R2
-R11
-Z23 w1731879471
-Z24 8../utils.v
-Z25 F../utils.v
+R17
+Z25 w1732138149
+Z26 8../utils.v
+Z27 F../utils.v
 L0 109
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vcount
@@ -156,18 +156,18 @@ R16
 !s100 C;?RL:Sk5Qh[Z_d7Z=zMm1
 I:IXN?R709OdU<P8UL[YV90
 R2
-R11
-R23
-R24
+R17
 R25
+R26
+R27
 L0 14
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vdelay_one_cycle
@@ -176,18 +176,18 @@ R16
 !s100 aEZ]Y=cHi2:GjV`BlFmeC3
 I[H<Uk6kW;d6jK3zZGbP:81
 R2
-R11
-R23
-R24
+R17
 R25
+R26
+R27
 L0 64
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vdraw_big_maze
@@ -198,8 +198,8 @@ I2>Rnh[IXZDY>eV8EOFiJM2
 R2
 R11
 w1731941903
-Z26 8../milestone2.v
-Z27 F../milestone2.v
+Z28 8../milestone2.v
+Z29 F../milestone2.v
 L0 145
 R6
 r1
@@ -218,16 +218,16 @@ IV>NI^3kL6z2M9_lWH:ag23
 R2
 R11
 w1731776371
-Z28 8../ps2.v
-Z29 F../ps2.v
+Z30 8../ps2.v
+Z31 F../ps2.v
 L0 115
 R6
 r1
 !s85 0
 31
 !s108 1731802462.000000
-Z30 !s107 ../utils.v|../top.v|../ps2.v|../modules.v|../milestone2.v|../legacy_code.v|../fsm.v|../canvas.v|../blocks.v|
-Z31 !s90 -reportprogress|300|../blocks.v|../canvas.v|../fsm.v|../legacy_code.v|../milestone2.v|../modules.v|../ps2.v|../top.v|../utils.v|
+Z32 !s107 ../utils.v|../top.v|../ps2.v|../modules.v|../milestone2.v|../legacy_code.v|../fsm.v|../canvas.v|../blocks.v|
+Z33 !s90 -reportprogress|300|../blocks.v|../canvas.v|../fsm.v|../legacy_code.v|../milestone2.v|../modules.v|../ps2.v|../top.v|../utils.v|
 !i113 1
 R10
 vdraw_maze
@@ -238,8 +238,8 @@ IQdVM]O^V2[@7NlgIC@A;Q0
 R2
 dF:/milestone1/ModelSim
 w1731328876
-Z32 8../milestone1.v
-Z33 F../milestone1.v
+Z34 8../milestone1.v
+Z35 F../milestone1.v
 L0 183
 R6
 r1
@@ -256,18 +256,18 @@ R16
 !s100 ZFnkEjQdJUY5]h0zzZcU41
 Inc<BzYT0WFjWoH9g_D>8J3
 R2
-R11
-w1731822417
+R17
+R18
 8../food.v
 F../food.v
-R17
+R19
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vfood_testbench
@@ -276,8 +276,8 @@ R16
 !s100 aJk^_NU3]>iAAhnFeC_f^2
 IWJ9Q1<eeejTYjiGLQzhYc0
 R2
-R11
-w1731980674
+R17
+R18
 8food_testbench.v
 Ffood_testbench.v
 L0 5
@@ -285,19 +285,19 @@ R6
 r1
 !s85 0
 31
-R18
-R21
-R22
+R20
+R23
+R24
 !i113 1
 R10
 vfsm_game_state
-R16
+Z36 !s110 1731990611
 !i10b 1
 !s100 P]_[Bm_I8A:QZoPi[2o4>3
 IJ4nR@eBAY`Zo7IM@E4?B72
 R2
 R11
-Z34 w1731990309
+w1731990309
 R12
 R13
 L0 1
@@ -305,9 +305,9 @@ R6
 r1
 !s85 0
 31
-R18
-R19
-R20
+Z37 !s108 1731990611.000000
+Z38 !s107 ../utils.v|../top.v|../ps2.v|../player_movement.v|../player.v|../modules.v|../milestone2.v|../legacy_code.v|../ghost2.v|../ghost1.v|../fsm.v|../food.v|../canvas.v|../blocks.v|
+Z39 !s90 -reportprogress|300|../blocks.v|../canvas.v|../food.v|../fsm.v|../ghost1.v|../ghost2.v|../legacy_code.v|../milestone2.v|../modules.v|../player.v|../player_movement.v|../ps2.v|../top.v|../utils.v|
 !i113 1
 R10
 vfsm_testbench
@@ -316,8 +316,8 @@ R16
 !s100 Sb75^VC=;9=i?Do[jYJ::2
 Iai2cf^UVocFWRDHZIn;Il3
 R2
-R11
-w1731931051
+R17
+R18
 8fsm_testbench.v
 Ffsm_testbench.v
 L0 3
@@ -325,9 +325,9 @@ R6
 r1
 !s85 0
 31
-R18
-R21
-R22
+R20
+R23
+R24
 !i113 1
 R10
 vgame_coord_2_canvas_coord
@@ -336,18 +336,18 @@ R16
 !s100 A7hRI0Qk2=a3fJa:XVaaD3
 I1J1]YoHZo02z^dg@F9Mk_3
 R2
-R11
-R23
-R24
+R17
 R25
+R26
+R27
 L0 96
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vgame_state_control
@@ -376,18 +376,18 @@ R16
 !s100 nKO[EVTM@YF<6lQiNZ?]b3
 IO<:HFA;UXR8fFTFUDnKIB0
 R2
-R11
-Z35 w1731974310
-Z36 8../player_movement.v
-Z37 F../player_movement.v
+R17
+R18
+Z40 8../player_movement.v
+Z41 F../player_movement.v
 L0 2
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vghost1
@@ -396,18 +396,38 @@ R16
 !s100 Gf3HBK]@2bM83[fGXdCP@1
 IGo>P2lLY:>CSD0>d9kTSz2
 R2
-R11
-w1731885828
+R17
+R18
 8../ghost1.v
 F../ghost1.v
-R17
+R19
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
+!i113 1
+R10
+vghost1_path
+R16
+!i10b 1
+!s100 @K]oKn[Z^fBHLbz170XV:3
+I6hAMGK]AY2NKVWVo@:jPf3
+R2
+R17
+Z42 w1732138886
+Z43 8../ghosts_movement.v
+Z44 F../ghosts_movement.v
+L0 65
+R6
+r1
+!s85 0
+31
+R20
+R21
+R22
 !i113 1
 R10
 vghost2
@@ -416,38 +436,98 @@ R16
 !s100 _kP=f4NPY:>07;3HF9J3U1
 I=Qg`EA9[e_51AO@WdiHjQ3
 R2
-R11
-w1731990447
+R17
+R18
 8../ghost2.v
 F../ghost2.v
-R17
+R19
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
+!i113 1
+R10
+vghost2_path
+R16
+!i10b 1
+!s100 YI=k<jU;NU^4a>EBS?lRW1
+I5F>HZfjkY<V;4mQniJdDS3
+R2
+R17
+R42
+R43
+R44
+L0 34
+R6
+r1
+!s85 0
+31
+R20
+R21
+R22
+!i113 1
+R10
+vghost3
+R16
+!i10b 1
+!s100 ROjb7?z:dQfDPj4C]9mng3
+Iogg?ooAC`k^<fDP>TcQIQ1
+R2
+R17
+R25
+8../ghost3.v
+F../ghost3.v
+R19
+R6
+r1
+!s85 0
+31
+R20
+R21
+R22
+!i113 1
+R10
+vgreeting_screen
+R16
+!i10b 1
+!s100 PFQWe7AmT`kQU8X>OkN2Z3
+I7GzM4X>oBdji7oK3Lb>3Z3
+R2
+R17
+w1732136559
+8../greeting_screen.v
+F../greeting_screen.v
+L0 39
+R6
+r1
+!s85 0
+31
+R20
+R21
+R22
 !i113 1
 R10
 vhalf_sec_counter
-Z38 !s110 1731534903
+R16
 !i10b 1
-!s100 :?3EVT4QfMoF9JN5oE`cN3
-Ie7jW8glWFG67?`ez7CzoZ3
+!s100 aM9b2]SjM1<be66;ekUh80
+IX254CH:1APXmIj9gGdAm40
 R2
-R3
-Z39 w1731370956
-R28
-R29
-L0 187
+R17
+R25
+R26
+R27
+L0 120
 R6
 r1
 !s85 0
 31
-Z40 !s108 1731534903.000000
-Z41 !s107 ../utils.v|../top.v|../ps2.v|../milestone2.v|../fsm.v|../blocks.v|
-Z42 !s90 -reportprogress|300|../blocks.v|../fsm.v|../milestone2.v|../ps2.v|../top.v|../utils.v|
+R20
+R21
+R22
 !i113 1
 R10
 vhex7seg
@@ -456,128 +536,128 @@ R16
 !s100 9GZOZAIRMiXg<cL<fm3;=3
 I;A[Do4mDiC8C>LIMR>30o1
 R2
-R11
-R23
-R24
+R17
 R25
-Z43 L0 26
+R26
+R27
+L0 26
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_clear_screen
 R16
 !i10b 1
-!s100 cQeM11_0W9a_BTQ3AJ]VZ2
-I?n9K<jTY5@6_gJ8US^OKm1
+!s100 4Bi5>b1N88Fb5RZneFOh43
+Iom:3OfBM900<zRF9<]fca3
 R2
-R11
-Z44 w1731989183
+R17
+R42
 Z45 8../modules.v
 Z46 F../modules.v
-L0 52
+L0 73
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_eat_food
 R16
 !i10b 1
-!s100 9FZjF]B^IFQm80neKhBk_3
-IZmjIEa0Sz@FgFz5@>lSf[0
+!s100 a@XDSM^V0Ga:gz6gCo1UK0
+Ig5@`0PE^GGm?76nl5E<ZC2
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-L0 149
+L0 170
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_fill_screen
 R16
 !i10b 1
-!s100 o[L?eYQ4oGf>o48<;aZN43
-I4R9ZogJP08D1io1C6<]K40
+!s100 Ild1hhImUQSEIA18f=cL70
+Iz]@haaSJe<XbCLO;<T7Jm3
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-L0 266
+L0 324
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_game_over
 R16
 !i10b 1
-!s100 BRm[d3mib4?2FbWEan2S32
-I4_FeR`bi:Ua8MR6acFzn[3
+!s100 ?>17kYNKlT_5^=?5A3^Si1
+ImPK5Z::WJ5Bae>LbEoBDE0
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-R43
+L0 47
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_ghost_collision
 R16
 !i10b 1
-!s100 49R77k@[XTOjkMFkWiLa32
-I7f8CWBgC2676gMnfb4Wjb3
+!s100 EP1g:CQI<[]c2oWZI:8nH0
+IB`65g<1j]N`Q8i7SNQUiQ3
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-L0 687
+L0 745
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_greeting
 R16
 !i10b 1
-!s100 hJ2BCzR[]T`=0h^9k4VQ[1
-IH;_O0z>jUCc?dWN>CH`og1
+!s100 Om<;[ZQ4ZAcA2m]o38cd;3
+IJfF8N^=c2k@VzjcbD_bNH1
 R2
-R11
-R44
+R17
+R42
 R45
 R46
 L0 1
@@ -585,79 +665,79 @@ R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_playing
 R16
 !i10b 1
-!s100 15M6X8SN3ULcGXFM<M^521
-I>dX>H`MaFY^GGEMGgNHRT3
+!s100 :oePRAJ@@6DBaIni2n2Q@2
+IJXkXPSoCG57@91EYVhEGG0
 R2
-R11
-R34
-R12
-R13
-L0 171
+R17
+R42
+8../playing_fsm.v
+F../playing_fsm.v
+L0 1
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_render_blocks
 R16
 !i10b 1
-!s100 7geg7bQ;Lbg`OPaRGj25g0
-I[C;No@FSP?GoEK6_ecT1?1
+!s100 FgYd8l0LfcblCXBYLz>I20
+InfadL@FViL50]<eA<i3SG3
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-L0 305
+L0 363
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_render_food
 R16
 !i10b 1
-!s100 _69Bc05LPln^CK1?QMF6]0
-I<@8ncP[i4E^0kl=@5loVP1
+!s100 FC;cL^NC?<]9PlKze_FW72
+IzG@VT4^gfdHUUMkel9?m<0
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-L0 474
+L0 532
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_render_ghosts
-R16
+R36
 !i10b 1
 !s100 DGc^ic:]>bXhAID^[GE6^2
 I;1XL9jCYRoNX8MOg1<gV:3
 R2
 R11
-R44
+Z47 w1731989183
 R45
 R46
 L0 571
@@ -665,79 +745,79 @@ R6
 r1
 !s85 0
 31
-R18
-R19
-R20
+R37
+R38
+R39
 !i113 1
 R10
 vm_render_player
 R16
 !i10b 1
-!s100 g]_Db_gULT86N]f:QVBYb3
-IT`Gd38L6YYidD90XhoQ[;1
+!s100 ^f3E:Nb9MLiKZdz<>O>RO0
+Id7Yh<6WAE`=>KHXXlUFJO2
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-L0 384
+L0 442
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_update_ghost_directions
 R16
 !i10b 1
-!s100 ZfHGW]DNNAGViF8ziD]LK1
-I;P?jGKBG:^PRJDVfdXJNQ3
+!s100 DJ8Qi<aFDR2;o73F>m64_3
+IN@<Sc>0Nc_>cR9JAYHUlX0
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-L0 188
+L0 209
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_update_ghost_positions
 R16
 !i10b 1
-!s100 8C2ic8jb4`do0lGg;9kTP3
-ISP_O4;QP88CLfMJk>nklQ1
+!s100 7`JnN4TnLjU8X[RIQ?zZX2
+I;=GGA;`klYS6e>MRCWlzO1
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-L0 227
+L0 248
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vm_update_position
-R16
+R36
 !i10b 1
 !s100 _?A=j0LE@cnm=Imj]AbUP2
 I2ZHdcE4FOeEGWZeDo64nK3
 R2
 R11
-R44
+R47
 R45
 R46
 L0 95
@@ -745,29 +825,29 @@ R6
 r1
 !s85 0
 31
-R18
-R19
-R20
+R37
+R38
+R39
 !i113 1
 R10
 vm_update_vga
 R16
 !i10b 1
-!s100 m:zH6QdE^XANAGUEJZz^^1
-Ie09jPFXCI>L=CmLG<3F1a2
+!s100 ^elk@VP`4E]cZKYF1h8IA1
+IoHoDOcNY^DoZl29G0PdUV1
 R2
-R11
-R44
+R17
+R42
 R45
 R46
-L0 726
+L0 798
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vmilestone1
@@ -778,8 +858,8 @@ InniTh7f>BF;b_lK>IGOk[2
 R2
 R3
 w1731533588
-R32
-R33
+R34
+R35
 L0 8
 R6
 r1
@@ -796,18 +876,18 @@ R16
 !s100 ?:M]UbGY>IVedMK80=:RN2
 Ideif3XQX[^QiLfm2B_XJ72
 R2
-R11
-w1731984477
-R26
-R27
+R17
+R18
+R28
+R29
 L0 8
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vmilestone2_desim
@@ -818,16 +898,16 @@ Ij[D8SOC7Ra:fPSLak_lk<0
 R2
 R11
 w1731808427
-R26
-R27
+R28
+R29
 L0 110
 R6
 r1
 !s85 0
 31
 !s108 1731808487.000000
-R30
-R31
+R32
+R33
 !i113 1
 R10
 vmovement_FSM
@@ -836,18 +916,18 @@ R16
 !s100 2CZ<^TX@X45z_Z68Q::gP2
 I9n]Lkdddk1GodkQ<a[bjW2
 R2
-R11
-R35
-R36
-R37
+R17
+R18
+R40
+R41
 L0 23
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 nmovement_@f@s@m
@@ -857,18 +937,18 @@ R16
 !s100 MCYS`NHmV[GaYkLKeZbWH1
 Ia7KA6RcHYJ=jz50Ucz5f:3
 R2
-R11
-R23
-R24
+R17
 R25
+R26
+R27
 L0 53
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vplayer
@@ -877,38 +957,38 @@ R16
 !s100 F@dYUNF[A@eO9Xi`l=88^0
 IeY]M>0mj9ce4k]ohCcN092
 R2
-R11
-w1731932725
+R17
+R18
 8../player.v
 F../player.v
-R17
+R19
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vplayer_movement
-R38
+Z48 !s110 1731534903
 !i10b 1
 !s100 ECnzO^Alo3iPV^k@ELEC<3
 I8`?02<XPd=foTZX3B[5S41
 R2
 R3
-R39
-R28
-R29
+Z49 w1731370956
+R30
+R31
 L0 154
 R6
 r1
 !s85 0
 31
-R40
-R41
-R42
+Z50 !s108 1731534903.000000
+Z51 !s107 ../utils.v|../top.v|../ps2.v|../milestone2.v|../fsm.v|../blocks.v|
+Z52 !s90 -reportprogress|300|../blocks.v|../fsm.v|../milestone2.v|../ps2.v|../top.v|../utils.v|
 !i113 1
 R10
 vplayer_testbench
@@ -917,8 +997,8 @@ R16
 !s100 ac?<[_`Sj953C2?m[@4]N2
 IbgZe@;TZ[kh]>jek87ck03
 R2
-R11
-w1731980417
+R17
+R18
 8player_testbench.v
 Fplayer_testbench.v
 L0 4
@@ -926,29 +1006,29 @@ R6
 r1
 !s85 0
 31
-R18
-R21
-R22
+R20
+R23
+R24
 !i113 1
 R10
 vps2
-R38
+R48
 !i10b 1
 !s100 XA>i[P:E4om<7JehRFYm90
 IA6>X@2G1?7:4a;S:ZS7P`2
 R2
 R3
-R39
-R28
-R29
+R49
+R30
+R31
 L0 1
 R6
 r1
 !s85 0
 31
-R40
-R41
-R42
+R50
+R51
+R52
 !i113 1
 R10
 vPS2_Controller
@@ -978,18 +1058,18 @@ R16
 !s100 iV=8QY<I=hT92;7m>>ba[2
 IZG>hFTkE>bkE]hMk`YFJ?3
 R2
-R11
-R23
-R24
+R17
 R25
+R26
+R27
 L0 1
 R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vtestbench
@@ -998,8 +1078,8 @@ R16
 !s100 J2NFMIA4B8lNOj]C@2SUV2
 IN4PfhVJI@aW>Imm[L66i71
 R2
-R11
-w1731869880
+R17
+R18
 8top_testbench.v
 Ftop_testbench.v
 L0 3
@@ -1007,9 +1087,9 @@ R6
 r1
 !s85 0
 31
-R18
-R21
-R22
+R20
+R23
+R24
 !i113 1
 R10
 vtop
@@ -1018,8 +1098,8 @@ R16
 !s100 ^4jZU=C7aABcCO:N^J9`N3
 I@MDH@cHZDaM]CNF5H`L8:2
 R2
-R11
-w1731810377
+R17
+R18
 8../top.v
 F../top.v
 L0 5
@@ -1027,9 +1107,9 @@ R6
 r1
 !s85 0
 31
-R18
-R19
 R20
+R21
+R22
 !i113 1
 R10
 vvga_adapter
@@ -1038,8 +1118,8 @@ R16
 !s100 7KR=8CAUOI3dU[Wldj_DZ2
 I:g9eeSE^;=g6mOEhT^R@d1
 R2
-R11
-w1730181910
+R17
+R18
 8../vga_adapter/vga_adapter.v
 F../vga_adapter/vga_adapter.v
 L0 51
@@ -1047,9 +1127,9 @@ R6
 r1
 !s85 0
 31
-R18
-Z47 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
-Z48 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
+R20
+Z53 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
+Z54 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
 !i113 1
 R10
 vvga_address_translator
@@ -1058,8 +1138,8 @@ R16
 !s100 C0DfW0_9[5co`@boeR]Pi1
 I?Q@JOgk]Bc9AlPBHeDF221
 R2
-R11
-Z49 w1729787522
+R17
+R18
 8../vga_adapter/vga_address_translator.v
 F../vga_adapter/vga_address_translator.v
 L0 4
@@ -1067,9 +1147,9 @@ R6
 r1
 !s85 0
 31
-R18
-R47
-R48
+R20
+R53
+R54
 !i113 1
 R10
 vvga_controller
@@ -1078,8 +1158,8 @@ R16
 !s100 ejdRBhaHBe8PnOV9UFIVf2
 IgjX;<0RkHEiUm^BREgP>Y2
 R2
-R11
-w1730183234
+R17
+R18
 8../vga_adapter/vga_controller.v
 F../vga_adapter/vga_controller.v
 L0 8
@@ -1087,9 +1167,9 @@ R6
 r1
 !s85 0
 31
-R18
-R47
-R48
+R20
+R53
+R54
 !i113 1
 R10
 vvga_demo
@@ -1118,8 +1198,8 @@ R16
 !s100 4XSTjD`VEiamX^n1@5J`b3
 IiS55lg7TQ1f5@h1imQboh3
 R2
-R11
-R49
+R17
+R18
 8../vga_adapter/vga_pll.v
 F../vga_adapter/vga_pll.v
 L0 36
@@ -1127,8 +1207,8 @@ R6
 r1
 !s85 0
 31
-R18
-R47
-R48
+R20
+R53
+R54
 !i113 1
 R10
