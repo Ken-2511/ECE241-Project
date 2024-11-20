@@ -10,12 +10,33 @@ module m_greeting(clock, resetn, enable, finished, data, addr, wren);
     output reg [cbit:0] data;
     output reg [14:0] addr;
     output reg wren;
+    reg late_addr;
+
+    // instantiate the greeting module
+    wire q;
+    greeting_screen U1 (
+        .address(addr),
+        .clock(clock),
+        .q(q)
+    );
 
     always @ (posedge clock) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;  // Reset to initial state
-        else if (enable)
-            finished <= 1;  // Finish immediately when enabled, for testing
+            addr <= 15'b0;
+        end
+        else if (enable) begin
+            // counting the address from 0 to 19200
+            if (addr < 19200) begin
+                addr <= addr + 1;
+                late_addr <= addr;
+                data <= q == 1'b1 ? 12'hfa8 : 12'h611;
+            end
+            else begin
+                finished <= 1;
+                addr <= 15'b0;
+            end
+        end
         else if (finished)
             finished <= 0;  // Reset to initial state when finished
     end

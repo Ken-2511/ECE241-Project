@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Wed Nov 20 15:15:10 2024
+Analysis & Synthesis Status : Successful - Wed Nov 20 16:26:40 2024
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : milestone2
 Top-level Entity Name : milestone2
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 422
+Total registers : 441
 Total pins : 124
 Total virtual pins : 0
-Total block memory bits : 461,989
+Total block memory bits : 481,189
 Total DSP Blocks : 2
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
