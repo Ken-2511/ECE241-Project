@@ -1,6 +1,6 @@
 Analysis & Synthesis report for milestone2
-Mon Nov 18 23:33:13 2024
-Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Wed Nov 20 15:15:10 2024
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -87,9 +87,9 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2024  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -99,32 +99,31 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
-+---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 18 23:33:13 2024          ;
-; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
-; Revision Name                   ; milestone2                                     ;
-; Top-level Entity Name           ; milestone2                                     ;
-; Family                          ; Cyclone V                                      ;
-; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 422                                            ;
-; Total pins                      ; 124                                            ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 461,989                                        ;
-; Total DSP Blocks                ; 2                                              ;
-; Total HSSI RX PCSs              ; 0                                              ;
-; Total HSSI PMA RX Deserializers ; 0                                              ;
-; Total HSSI TX PCSs              ; 0                                              ;
-; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 1                                              ;
-; Total DLLs                      ; 0                                              ;
-+---------------------------------+------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Nov 20 15:15:10 2024       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; milestone2                                  ;
+; Top-level Entity Name           ; milestone2                                  ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 422                                         ;
+; Total pins                      ; 124                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 461,989                                     ;
+; Total DSP Blocks                ; 2                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -220,7 +219,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 32          ;
+; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -234,61 +233,62 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
 ;     Processor 7            ;   0.0%      ;
-;     Processors 8-16        ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                         ;
-+--------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path           ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                                 ; Library ;
-+--------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
-; player_movement.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player_movement.v                          ;         ;
-; modules.v                                  ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v                                  ;         ;
-; PS2_Controller/PS2_Controller.v            ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/PS2_Controller.v            ;         ;
-; PS2_Controller/Altera_UP_PS2_Data_In.v     ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/Altera_UP_PS2_Data_In.v     ;         ;
-; PS2_Controller/Altera_UP_PS2_Command_Out.v ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/Altera_UP_PS2_Command_Out.v ;         ;
-; vga_adapter/vga_pll.v                      ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_pll.v                      ;         ;
-; vga_adapter/vga_controller.v               ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_controller.v               ;         ;
-; vga_adapter/vga_address_translator.v       ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_address_translator.v       ;         ;
-; vga_adapter/vga_adapter.v                  ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v                  ;         ;
-; utils.v                                    ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v                                    ;         ;
-; milestone2.v                               ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v                               ;         ;
-; fsm.v                                      ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v                                      ;         ;
-; blocks.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.v                                   ;         ;
-; canvas.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/canvas.v                                   ;         ;
-; player.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v                                   ;         ;
-; food.v                                     ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v                                     ;         ;
-; ghost1.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.v                                   ;         ;
-; altsyncram.tdf                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf                                     ;         ;
-; stratix_ram_block.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc                              ;         ;
-; lpm_mux.inc                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc                                        ;         ;
-; lpm_decode.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc                                     ;         ;
-; aglobal231.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc                                     ;         ;
-; a_rdenreg.inc                              ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc                                      ;         ;
-; altrom.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc                                         ;         ;
-; altram.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc                                         ;         ;
-; altdpram.inc                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc                                       ;         ;
-; db/altsyncram_o4g1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf                     ;         ;
-; ghost1.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.mif                                 ;         ;
-; db/altsyncram_8do1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_8do1.tdf                     ;         ;
-; blocks.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.mif                                 ;         ;
-; db/altsyncram_45g1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_45g1.tdf                     ;         ;
-; player.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.mif                                 ;         ;
-; db/altsyncram_r6o1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_r6o1.tdf                     ;         ;
-; food.mif                                   ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.mif                                   ;         ;
-; db/altsyncram_kno1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_kno1.tdf                     ;         ;
-; canvas.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/canvas.mif                                 ;         ;
-; db/decode_7la.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/decode_7la.tdf                          ;         ;
-; db/decode_01a.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/decode_01a.tdf                          ;         ;
-; db/mux_3hb.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/mux_3hb.tdf                             ;         ;
-; db/altsyncram_ldm1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_ldm1.tdf                     ;         ;
-; altpll.tdf                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf                                         ;         ;
-; stratix_pll.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_pll.inc                                    ;         ;
-; stratixii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratixii_pll.inc                                  ;         ;
-; cycloneii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/cycloneii_pll.inc                                  ;         ;
-; db/altpll_80u.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altpll_80u.tdf                          ;         ;
-+--------------------------------------------+-----------------+----------------------------------------+--------------------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
++--------------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path           ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                     ; Library ;
++--------------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+---------+
+; player_movement.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v                          ;         ;
+; modules.v                                  ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/modules.v                                  ;         ;
+; PS2_Controller/PS2_Controller.v            ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/PS2_Controller.v            ;         ;
+; PS2_Controller/Altera_UP_PS2_Data_In.v     ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/Altera_UP_PS2_Data_In.v     ;         ;
+; PS2_Controller/Altera_UP_PS2_Command_Out.v ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/Altera_UP_PS2_Command_Out.v ;         ;
+; vga_adapter/vga_pll.v                      ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_pll.v                      ;         ;
+; vga_adapter/vga_controller.v               ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_controller.v               ;         ;
+; vga_adapter/vga_address_translator.v       ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_address_translator.v       ;         ;
+; vga_adapter/vga_adapter.v                  ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v                  ;         ;
+; utils.v                                    ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/utils.v                                    ;         ;
+; milestone2.v                               ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v                               ;         ;
+; fsm.v                                      ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v                                      ;         ;
+; blocks.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v                                   ;         ;
+; canvas.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/canvas.v                                   ;         ;
+; player.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/player.v                                   ;         ;
+; food.v                                     ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/food.v                                     ;         ;
+; ghost1.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.v                                   ;         ;
+; altsyncram.tdf                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf            ;         ;
+; stratix_ram_block.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc     ;         ;
+; lpm_mux.inc                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc               ;         ;
+; lpm_decode.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc            ;         ;
+; aglobal181.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc            ;         ;
+; a_rdenreg.inc                              ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc             ;         ;
+; altrom.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                ;         ;
+; altram.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                ;         ;
+; altdpram.inc                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc              ;         ;
+; db/altsyncram_o4g1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf                     ;         ;
+; ghost1.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.mif                                 ;         ;
+; db/altsyncram_8do1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_8do1.tdf                     ;         ;
+; blocks.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/Desktop/ECE241-Project/blocks.mif                                 ;         ;
+; db/altsyncram_45g1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_45g1.tdf                     ;         ;
+; player.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/Desktop/ECE241-Project/player.mif                                 ;         ;
+; db/altsyncram_r6o1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r6o1.tdf                     ;         ;
+; food.mif                                   ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/Desktop/ECE241-Project/food.mif                                   ;         ;
+; db/altsyncram_kno1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_kno1.tdf                     ;         ;
+; ../canvas.mif                              ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/Desktop/ECE241-Project/canvas.mif                                 ;         ;
+; db/decode_7la.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_7la.tdf                          ;         ;
+; db/decode_01a.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_01a.tdf                          ;         ;
+; db/mux_2hb.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_2hb.tdf                             ;         ;
+; db/altsyncram_ldm1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf                     ;         ;
+; altpll.tdf                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf                ;         ;
+; stratix_pll.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_pll.inc           ;         ;
+; stratixii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratixii_pll.inc         ;         ;
+; cycloneii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cycloneii_pll.inc         ;         ;
+; db/altpll_80u.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf                          ;         ;
++--------------------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -691,7 +691,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|dx[1]                       ;
 ; 7:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst|VGA_COLOR[11]                     ;
 ; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|game_state                                                       ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_3hb:mux3|result_node[6]           ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |milestone2|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[6]           ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|game_state                                                                                ;
 ; 13:1               ; 5 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|Selector18                                                       ;
 ; 13:1               ; 3 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |milestone2|fsm_game_state:U3|m_playing:m_playing_inst|Selector26                                                       ;
@@ -2056,7 +2056,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -2065,118 +2065,118 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Nov 18 23:33:06 2024
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Wed Nov 20 15:14:56 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
-Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file player_movement.v
-    Info (12023): Found entity 1: get_direction File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player_movement.v Line: 2
-    Info (12023): Found entity 2: movement_FSM File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player_movement.v Line: 23
+    Info (12023): Found entity 1: get_direction File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 2
+    Info (12023): Found entity 2: movement_FSM File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 23
 Info (12021): Found 14 design units, including 14 entities, in source file modules.v
-    Info (12023): Found entity 1: m_greeting File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 1
-    Info (12023): Found entity 2: m_game_over File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 26
-    Info (12023): Found entity 3: m_clear_screen File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 52
-    Info (12023): Found entity 4: m_update_position File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 95
-    Info (12023): Found entity 5: m_eat_food File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 149
-    Info (12023): Found entity 6: m_update_ghost_directions File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 188
-    Info (12023): Found entity 7: m_update_ghost_positions File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 227
-    Info (12023): Found entity 8: m_fill_screen File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 266
-    Info (12023): Found entity 9: m_render_blocks File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 305
-    Info (12023): Found entity 10: m_render_player File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 384
-    Info (12023): Found entity 11: m_render_food File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 474
-    Info (12023): Found entity 12: m_render_ghosts File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 571
-    Info (12023): Found entity 13: m_ghost_collision File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 687
-    Info (12023): Found entity 14: m_update_vga File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 726
-Info (12021): Found 0 design units, including 0 entities, in source file legacy_code.v
+    Info (12023): Found entity 1: m_greeting File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 1
+    Info (12023): Found entity 2: m_game_over File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 26
+    Info (12023): Found entity 3: m_clear_screen File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 52
+    Info (12023): Found entity 4: m_update_position File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 95
+    Info (12023): Found entity 5: m_eat_food File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 149
+    Info (12023): Found entity 6: m_update_ghost_directions File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 188
+    Info (12023): Found entity 7: m_update_ghost_positions File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 227
+    Info (12023): Found entity 8: m_fill_screen File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 266
+    Info (12023): Found entity 9: m_render_blocks File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 305
+    Info (12023): Found entity 10: m_render_player File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 384
+    Info (12023): Found entity 11: m_render_food File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 474
+    Info (12023): Found entity 12: m_render_ghosts File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 571
+    Info (12023): Found entity 13: m_ghost_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 687
+    Info (12023): Found entity 14: m_update_vga File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 726
+Warning (12019): Can't analyze file -- file legacy_code.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/ps2_controller.v
-    Info (12023): Found entity 1: PS2_Controller File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/PS2_Controller.v Line: 9
+    Info (12023): Found entity 1: PS2_Controller File: C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/PS2_Controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/altera_up_ps2_data_in.v
-    Info (12023): Found entity 1: Altera_UP_PS2_Data_In File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/Altera_UP_PS2_Data_In.v Line: 10
+    Info (12023): Found entity 1: Altera_UP_PS2_Data_In File: C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/Altera_UP_PS2_Data_In.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/altera_up_ps2_command_out.v
-    Info (12023): Found entity 1: Altera_UP_PS2_Command_Out File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/Altera_UP_PS2_Command_Out.v Line: 10
+    Info (12023): Found entity 1: Altera_UP_PS2_Command_Out File: C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/Altera_UP_PS2_Command_Out.v Line: 10
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_pll.v
-    Info (12023): Found entity 1: vga_pll File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_pll.v Line: 36
+    Info (12023): Found entity 1: vga_pll File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_controller.v
-    Info (12023): Found entity 1: vga_controller File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_controller.v Line: 8
+    Info (12023): Found entity 1: vga_controller File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_controller.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_address_translator.v
-    Info (12023): Found entity 1: vga_address_translator File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_address_translator.v Line: 4
+    Info (12023): Found entity 1: vga_address_translator File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
-    Info (12023): Found entity 1: vga_adapter File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v Line: 51
+    Info (12023): Found entity 1: vga_adapter File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 51
 Info (12021): Found 7 design units, including 7 entities, in source file utils.v
-    Info (12023): Found entity 1: regn File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 1
-    Info (12023): Found entity 2: count File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 14
-    Info (12023): Found entity 3: hex7seg File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 26
-    Info (12023): Found entity 4: object_mem File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 53
-    Info (12023): Found entity 5: delay_one_cycle File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 64
-    Info (12023): Found entity 6: game_coord_2_canvas_coord File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 96
-    Info (12023): Found entity 7: canvas_coord_2_mem_addr File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 109
+    Info (12023): Found entity 1: regn File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 1
+    Info (12023): Found entity 2: count File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 14
+    Info (12023): Found entity 3: hex7seg File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 26
+    Info (12023): Found entity 4: object_mem File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 53
+    Info (12023): Found entity 5: delay_one_cycle File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 64
+    Info (12023): Found entity 6: game_coord_2_canvas_coord File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 96
+    Info (12023): Found entity 7: canvas_coord_2_mem_addr File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 109
 Info (12021): Found 1 design units, including 1 entities, in source file top.v
-    Info (12023): Found entity 1: top File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/top.v Line: 5
+    Info (12023): Found entity 1: top File: C:/Users/IWMAI/Desktop/ECE241-Project/top.v Line: 5
 Info (12021): Found 0 design units, including 0 entities, in source file ps2.v
 Info (12021): Found 1 design units, including 1 entities, in source file milestone2.v
-    Info (12023): Found entity 1: milestone2 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 8
+    Info (12023): Found entity 1: milestone2 File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 8
 Info (12021): Found 2 design units, including 2 entities, in source file fsm.v
-    Info (12023): Found entity 1: fsm_game_state File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 1
-    Info (12023): Found entity 2: m_playing File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 171
+    Info (12023): Found entity 1: fsm_game_state File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 1
+    Info (12023): Found entity 2: m_playing File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 171
 Info (12021): Found 1 design units, including 1 entities, in source file blocks.v
-    Info (12023): Found entity 1: blocks File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.v Line: 40
+    Info (12023): Found entity 1: blocks File: C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file canvas.v
-    Info (12023): Found entity 1: canvas File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/canvas.v Line: 40
+    Info (12023): Found entity 1: canvas File: C:/Users/IWMAI/Desktop/ECE241-Project/canvas.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file player.v
-    Info (12023): Found entity 1: player File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 40
+    Info (12023): Found entity 1: player File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file food.v
-    Info (12023): Found entity 1: food File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 40
+    Info (12023): Found entity 1: food File: C:/Users/IWMAI/Desktop/ECE241-Project/food.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file ghost1.v
-    Info (12023): Found entity 1: ghost1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.v Line: 40
+    Info (12023): Found entity 1: ghost1 File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file ghost2.v
-    Info (12023): Found entity 1: ghost2 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost2.v Line: 40
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(53): created implicit net for "address" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 53
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(53): created implicit net for "q1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 53
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(490): created implicit net for "direction" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 490
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(491): created implicit net for "player_x" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 491
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(492): created implicit net for "player_y" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 492
+    Info (12023): Found entity 1: ghost2 File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost2.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(53): created implicit net for "address" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 53
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(53): created implicit net for "q1" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 53
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(490): created implicit net for "direction" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 490
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(491): created implicit net for "player_x" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 491
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(492): created implicit net for "player_y" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 492
 Info (12127): Elaborating entity "milestone2" for the top level hierarchy
-Warning (10235): Verilog HDL Always Construct warning at milestone2.v(70): variable "KEY" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 70
-Warning (10235): Verilog HDL Always Construct warning at milestone2.v(72): variable "ps2_key_pressed" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
-Warning (10235): Verilog HDL Always Construct warning at milestone2.v(73): variable "ps2_key_data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 73
-Warning (10240): Verilog HDL Always Construct warning at milestone2.v(69): inferring latch(es) for variable "last_key_received", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 69
-Warning (10034): Output port "HEX1" at milestone2.v(19) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-Warning (10034): Output port "HEX0" at milestone2.v(19) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-Warning (10034): Output port "HEX4" at milestone2.v(30) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 30
-Warning (10034): Output port "HEX5" at milestone2.v(31) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 31
-Warning (10034): Output port "LEDR" at milestone2.v(32) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-Info (10041): Inferred latch for "last_key_received[0]" at milestone2.v(72) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
-Info (10041): Inferred latch for "last_key_received[1]" at milestone2.v(72) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
-Info (10041): Inferred latch for "last_key_received[2]" at milestone2.v(72) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
-Info (10041): Inferred latch for "last_key_received[3]" at milestone2.v(72) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
-Info (10041): Inferred latch for "last_key_received[4]" at milestone2.v(72) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
-Info (10041): Inferred latch for "last_key_received[5]" at milestone2.v(72) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
-Info (10041): Inferred latch for "last_key_received[6]" at milestone2.v(72) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
-Info (10041): Inferred latch for "last_key_received[7]" at milestone2.v(72) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 72
-Info (12128): Elaborating entity "PS2_Controller" for hierarchy "PS2_Controller:PS2" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 67
-Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/PS2_Controller.v Line: 247
-Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/PS2_Controller/PS2_Controller.v Line: 267
-Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:H3" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 81
-Info (12128): Elaborating entity "fsm_game_state" for hierarchy "fsm_game_state:U3" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 97
-Warning (10858): Verilog HDL warning at fsm.v(37): object vga_x_greeting used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 37
-Warning (10858): Verilog HDL warning at fsm.v(37): object vga_x_game_over used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 37
-Warning (10858): Verilog HDL warning at fsm.v(38): object vga_y_greeting used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 38
-Warning (10858): Verilog HDL warning at fsm.v(38): object vga_y_game_over used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 38
-Warning (10858): Verilog HDL warning at fsm.v(39): object vga_color_greeting used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 39
-Warning (10858): Verilog HDL warning at fsm.v(39): object vga_color_game_over used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 39
-Warning (10230): Verilog HDL assignment warning at fsm.v(123): truncated value with size 17 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 123
-Warning (10030): Net "vga_x_greeting" at fsm.v(37) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 37
-Warning (10030): Net "vga_x_game_over" at fsm.v(37) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 37
-Warning (10030): Net "vga_y_greeting" at fsm.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 38
-Warning (10030): Net "vga_y_game_over" at fsm.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 38
-Warning (10030): Net "vga_color_greeting" at fsm.v(39) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 39
-Warning (10030): Net "vga_color_game_over" at fsm.v(39) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 39
-Info (12128): Elaborating entity "get_direction" for hierarchy "fsm_game_state:U3|get_direction:find_direction" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 48
-Info (12128): Elaborating entity "movement_FSM" for hierarchy "fsm_game_state:U3|movement_FSM:track_movement" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 49
-Info (12128): Elaborating entity "ghost1" for hierarchy "fsm_game_state:U3|ghost1:ghost1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 53
-Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.v Line: 82
-Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.v Line: 82
-Info (12133): Instantiated megafunction "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.v Line: 82
+Warning (10235): Verilog HDL Always Construct warning at milestone2.v(70): variable "KEY" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 70
+Warning (10235): Verilog HDL Always Construct warning at milestone2.v(72): variable "ps2_key_pressed" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 72
+Warning (10235): Verilog HDL Always Construct warning at milestone2.v(73): variable "ps2_key_data" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 73
+Warning (10240): Verilog HDL Always Construct warning at milestone2.v(69): inferring latch(es) for variable "last_key_received", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 69
+Warning (10034): Output port "HEX1" at milestone2.v(19) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+Warning (10034): Output port "HEX0" at milestone2.v(19) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+Warning (10034): Output port "HEX4" at milestone2.v(30) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 30
+Warning (10034): Output port "HEX5" at milestone2.v(31) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 31
+Warning (10034): Output port "LEDR" at milestone2.v(32) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+Info (10041): Inferred latch for "last_key_received[0]" at milestone2.v(72) File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 72
+Info (10041): Inferred latch for "last_key_received[1]" at milestone2.v(72) File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 72
+Info (10041): Inferred latch for "last_key_received[2]" at milestone2.v(72) File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 72
+Info (10041): Inferred latch for "last_key_received[3]" at milestone2.v(72) File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 72
+Info (10041): Inferred latch for "last_key_received[4]" at milestone2.v(72) File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 72
+Info (10041): Inferred latch for "last_key_received[5]" at milestone2.v(72) File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 72
+Info (10041): Inferred latch for "last_key_received[6]" at milestone2.v(72) File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 72
+Info (10041): Inferred latch for "last_key_received[7]" at milestone2.v(72) File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 72
+Info (12128): Elaborating entity "PS2_Controller" for hierarchy "PS2_Controller:PS2" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 67
+Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/PS2_Controller.v Line: 247
+Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/PS2_Controller.v Line: 267
+Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:H3" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 81
+Info (12128): Elaborating entity "fsm_game_state" for hierarchy "fsm_game_state:U3" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 97
+Warning (10858): Verilog HDL warning at fsm.v(37): object vga_x_greeting used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 37
+Warning (10858): Verilog HDL warning at fsm.v(37): object vga_x_game_over used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 37
+Warning (10858): Verilog HDL warning at fsm.v(38): object vga_y_greeting used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 38
+Warning (10858): Verilog HDL warning at fsm.v(38): object vga_y_game_over used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 38
+Warning (10858): Verilog HDL warning at fsm.v(39): object vga_color_greeting used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 39
+Warning (10858): Verilog HDL warning at fsm.v(39): object vga_color_game_over used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 39
+Warning (10230): Verilog HDL assignment warning at fsm.v(123): truncated value with size 17 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 123
+Warning (10030): Net "vga_x_greeting" at fsm.v(37) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 37
+Warning (10030): Net "vga_x_game_over" at fsm.v(37) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 37
+Warning (10030): Net "vga_y_greeting" at fsm.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 38
+Warning (10030): Net "vga_y_game_over" at fsm.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 38
+Warning (10030): Net "vga_color_greeting" at fsm.v(39) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 39
+Warning (10030): Net "vga_color_game_over" at fsm.v(39) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 39
+Info (12128): Elaborating entity "get_direction" for hierarchy "fsm_game_state:U3|get_direction:find_direction" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 48
+Info (12128): Elaborating entity "movement_FSM" for hierarchy "fsm_game_state:U3|movement_FSM:track_movement" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 49
+Info (12128): Elaborating entity "ghost1" for hierarchy "fsm_game_state:U3|ghost1:ghost1" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 53
+Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.v Line: 82
+Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.v Line: 82
+Info (12133): Instantiated megafunction "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.v Line: 82
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -2192,67 +2192,67 @@ Info (12133): Instantiated megafunction "fsm_game_state:U3|ghost1:ghost1|altsync
     Info (12134): Parameter "width_a" = "11"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_o4g1.tdf
-    Info (12023): Found entity 1: altsyncram_o4g1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_o4g1" for hierarchy "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Warning (113018): Width of data items in "ghost1.mif" is greater than the memory width. Truncating data items to fit in memory. File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/ghost1.mif Line: 6
-Info (12128): Elaborating entity "m_greeting" for hierarchy "fsm_game_state:U3|m_greeting:m_greeting_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 141
-Warning (10034): Output port "data" at modules.v(10) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 10
-Warning (10034): Output port "addr" at modules.v(11) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 11
-Warning (10034): Output port "wren" at modules.v(12) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 12
-Info (12128): Elaborating entity "m_playing" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 156
-Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_clear_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_update_position used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_eat_food used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_update_ghost_directions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_update_ghost_positions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10858): Verilog HDL warning at fsm.v(231): object vga_x_fill_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
-Warning (10858): Verilog HDL warning at fsm.v(231): object vga_x_render_blocks used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
-Warning (10858): Verilog HDL warning at fsm.v(231): object vga_x_ghost_collision used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
-Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_clear_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_update_position used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_eat_food used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_update_ghost_directions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_update_ghost_positions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10858): Verilog HDL warning at fsm.v(233): object vga_y_fill_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10858): Verilog HDL warning at fsm.v(233): object vga_y_render_blocks used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10858): Verilog HDL warning at fsm.v(233): object vga_y_ghost_collision used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_clear_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_update_position used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_eat_food used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_update_ghost_directions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_update_ghost_positions used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10858): Verilog HDL warning at fsm.v(235): object vga_color_fill_screen used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10858): Verilog HDL warning at fsm.v(235): object vga_color_render_blocks used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10858): Verilog HDL warning at fsm.v(235): object vga_color_ghost_collision used but never assigned File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Info (10264): Verilog HDL Case Statement information at fsm.v(362): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 362
-Warning (10030): Net "vga_x_clear_screen" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10030): Net "vga_x_update_position" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10030): Net "vga_x_eat_food" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10030): Net "vga_x_update_ghost_directions" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10030): Net "vga_x_update_ghost_positions" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 230
-Warning (10030): Net "vga_x_fill_screen" at fsm.v(231) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
-Warning (10030): Net "vga_x_render_blocks" at fsm.v(231) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
-Warning (10030): Net "vga_x_ghost_collision" at fsm.v(231) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 231
-Warning (10030): Net "vga_y_clear_screen" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10030): Net "vga_y_update_position" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10030): Net "vga_y_eat_food" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10030): Net "vga_y_update_ghost_directions" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10030): Net "vga_y_update_ghost_positions" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 232
-Warning (10030): Net "vga_y_fill_screen" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10030): Net "vga_y_render_blocks" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10030): Net "vga_y_ghost_collision" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 233
-Warning (10030): Net "vga_color_clear_screen" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10030): Net "vga_color_update_position" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10030): Net "vga_color_eat_food" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10030): Net "vga_color_update_ghost_directions" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10030): Net "vga_color_update_ghost_positions" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 234
-Warning (10030): Net "vga_color_fill_screen" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10030): Net "vga_color_render_blocks" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Warning (10030): Net "vga_color_ghost_collision" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 235
-Info (12128): Elaborating entity "blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 251
-Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.v Line: 86
-Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.v Line: 86
-Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/blocks.v Line: 86
+    Info (12023): Found entity 1: altsyncram_o4g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_o4g1" for hierarchy "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (113018): Width of data items in "ghost1.mif" is greater than the memory width. Truncating data items to fit in memory. File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.mif Line: 6
+Info (12128): Elaborating entity "m_greeting" for hierarchy "fsm_game_state:U3|m_greeting:m_greeting_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 141
+Warning (10034): Output port "data" at modules.v(10) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 10
+Warning (10034): Output port "addr" at modules.v(11) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 11
+Warning (10034): Output port "wren" at modules.v(12) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 12
+Info (12128): Elaborating entity "m_playing" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 156
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_clear_screen used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_update_position used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_eat_food used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_update_ghost_directions used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(230): object vga_x_update_ghost_positions used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10858): Verilog HDL warning at fsm.v(231): object vga_x_fill_screen used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 231
+Warning (10858): Verilog HDL warning at fsm.v(231): object vga_x_render_blocks used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 231
+Warning (10858): Verilog HDL warning at fsm.v(231): object vga_x_ghost_collision used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 231
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_clear_screen used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_update_position used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_eat_food used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_update_ghost_directions used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(232): object vga_y_update_ghost_positions used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10858): Verilog HDL warning at fsm.v(233): object vga_y_fill_screen used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 233
+Warning (10858): Verilog HDL warning at fsm.v(233): object vga_y_render_blocks used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 233
+Warning (10858): Verilog HDL warning at fsm.v(233): object vga_y_ghost_collision used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 233
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_clear_screen used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_update_position used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_eat_food used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_update_ghost_directions used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(234): object vga_color_update_ghost_positions used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10858): Verilog HDL warning at fsm.v(235): object vga_color_fill_screen used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 235
+Warning (10858): Verilog HDL warning at fsm.v(235): object vga_color_render_blocks used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 235
+Warning (10858): Verilog HDL warning at fsm.v(235): object vga_color_ghost_collision used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 235
+Info (10264): Verilog HDL Case Statement information at fsm.v(362): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 362
+Warning (10030): Net "vga_x_clear_screen" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10030): Net "vga_x_update_position" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10030): Net "vga_x_eat_food" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10030): Net "vga_x_update_ghost_directions" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10030): Net "vga_x_update_ghost_positions" at fsm.v(230) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 230
+Warning (10030): Net "vga_x_fill_screen" at fsm.v(231) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 231
+Warning (10030): Net "vga_x_render_blocks" at fsm.v(231) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 231
+Warning (10030): Net "vga_x_ghost_collision" at fsm.v(231) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 231
+Warning (10030): Net "vga_y_clear_screen" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10030): Net "vga_y_update_position" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10030): Net "vga_y_eat_food" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10030): Net "vga_y_update_ghost_directions" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10030): Net "vga_y_update_ghost_positions" at fsm.v(232) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 232
+Warning (10030): Net "vga_y_fill_screen" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 233
+Warning (10030): Net "vga_y_render_blocks" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 233
+Warning (10030): Net "vga_y_ghost_collision" at fsm.v(233) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 233
+Warning (10030): Net "vga_color_clear_screen" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10030): Net "vga_color_update_position" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10030): Net "vga_color_eat_food" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10030): Net "vga_color_update_ghost_directions" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10030): Net "vga_color_update_ghost_positions" at fsm.v(234) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 234
+Warning (10030): Net "vga_color_fill_screen" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 235
+Warning (10030): Net "vga_color_render_blocks" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 235
+Warning (10030): Net "vga_color_ghost_collision" at fsm.v(235) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 235
+Info (12128): Elaborating entity "blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 251
+Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v Line: 86
+Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v Line: 86
+Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "blocks.mif"
@@ -2269,47 +2269,48 @@ Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_i
     Info (12134): Parameter "width_a" = "1"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8do1.tdf
-    Info (12023): Found entity 1: altsyncram_8do1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_8do1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_8do1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "m_clear_screen" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_clear_screen:m_clear_screen_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 480
-Info (12128): Elaborating entity "m_update_position" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_position:m_update_position_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 493
-Warning (10230): Verilog HDL assignment warning at modules.v(129): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 129
-Warning (10230): Verilog HDL assignment warning at modules.v(130): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 130
-Warning (10230): Verilog HDL assignment warning at modules.v(131): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 131
-Warning (10199): Verilog HDL Case Statement warning at modules.v(132): case item expression never matches the case expression File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 132
-Warning (10230): Verilog HDL assignment warning at modules.v(138): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 138
-Info (12128): Elaborating entity "m_eat_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_eat_food:m_eat_food_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 503
-Warning (10230): Verilog HDL assignment warning at modules.v(177): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 177
-Info (12128): Elaborating entity "m_update_ghost_directions" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_directions:m_update_ghost_directions_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 513
-Warning (10230): Verilog HDL assignment warning at modules.v(216): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 216
-Info (12128): Elaborating entity "m_update_ghost_positions" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_positions:m_update_ghost_positions_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 523
-Warning (10230): Verilog HDL assignment warning at modules.v(255): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 255
-Info (12128): Elaborating entity "m_fill_screen" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_fill_screen:m_fill_screen_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 533
-Warning (10230): Verilog HDL assignment warning at modules.v(287): truncated value with size 17 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 287
-Warning (10230): Verilog HDL assignment warning at modules.v(294): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 294
-Info (12128): Elaborating entity "m_render_blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 546
-Warning (10036): Verilog HDL or VHDL warning at modules.v(332): object "hold_initial" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 332
-Warning (10230): Verilog HDL assignment warning at modules.v(335): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 335
-Warning (10230): Verilog HDL assignment warning at modules.v(361): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 361
-Warning (10230): Verilog HDL assignment warning at modules.v(364): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 364
-Warning (10230): Verilog HDL assignment warning at modules.v(367): truncated value with size 32 to match size of target (3) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 367
-Warning (10230): Verilog HDL assignment warning at modules.v(370): truncated value with size 32 to match size of target (3) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 370
-Warning (10230): Verilog HDL assignment warning at modules.v(374): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 374
-Info (12128): Elaborating entity "m_render_player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 563
-Warning (10230): Verilog HDL assignment warning at modules.v(426): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 426
-Warning (10230): Verilog HDL assignment warning at modules.v(450): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 450
-Warning (10230): Verilog HDL assignment warning at modules.v(453): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 453
-Warning (10230): Verilog HDL assignment warning at modules.v(462): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 462
-Warning (10034): Output port "VGA_X" at modules.v(404) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 404
-Warning (10034): Output port "VGA_Y" at modules.v(405) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 405
-Warning (10034): Output port "VGA_COLOR" at modules.v(406) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 406
-Info (12128): Elaborating entity "game_coord_2_canvas_coord" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|game_coord_2_canvas_coord:U1" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 418
-Warning (10230): Verilog HDL assignment warning at utils.v(103): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 103
-Warning (10230): Verilog HDL assignment warning at utils.v(104): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/utils.v Line: 104
-Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 424
-Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 82
-Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 82
-Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/player.v Line: 82
+    Info (12023): Found entity 1: altsyncram_8do1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_8do1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_8do1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|blocks:BLOCKS|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Critical Warning (127005): Memory depth (512) in the design file differs from memory depth (377) in the Memory Initialization File "C:/Users/IWMAI/Desktop/ECE241-Project/blocks.mif" -- setting initial value for remaining addresses to 0 File: C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v Line: 86
+Info (12128): Elaborating entity "m_clear_screen" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_clear_screen:m_clear_screen_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 480
+Info (12128): Elaborating entity "m_update_position" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_position:m_update_position_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 493
+Warning (10230): Verilog HDL assignment warning at modules.v(129): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 129
+Warning (10230): Verilog HDL assignment warning at modules.v(130): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 130
+Warning (10230): Verilog HDL assignment warning at modules.v(131): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 131
+Warning (10199): Verilog HDL Case Statement warning at modules.v(132): case item expression never matches the case expression File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 132
+Warning (10230): Verilog HDL assignment warning at modules.v(138): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 138
+Info (12128): Elaborating entity "m_eat_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_eat_food:m_eat_food_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 503
+Warning (10230): Verilog HDL assignment warning at modules.v(177): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 177
+Info (12128): Elaborating entity "m_update_ghost_directions" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_directions:m_update_ghost_directions_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 513
+Warning (10230): Verilog HDL assignment warning at modules.v(216): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 216
+Info (12128): Elaborating entity "m_update_ghost_positions" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_ghost_positions:m_update_ghost_positions_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 523
+Warning (10230): Verilog HDL assignment warning at modules.v(255): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 255
+Info (12128): Elaborating entity "m_fill_screen" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_fill_screen:m_fill_screen_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 533
+Warning (10230): Verilog HDL assignment warning at modules.v(287): truncated value with size 17 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 287
+Warning (10230): Verilog HDL assignment warning at modules.v(294): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 294
+Info (12128): Elaborating entity "m_render_blocks" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_blocks:m_render_blocks_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 546
+Warning (10036): Verilog HDL or VHDL warning at modules.v(332): object "hold_initial" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 332
+Warning (10230): Verilog HDL assignment warning at modules.v(335): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 335
+Warning (10230): Verilog HDL assignment warning at modules.v(361): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 361
+Warning (10230): Verilog HDL assignment warning at modules.v(364): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 364
+Warning (10230): Verilog HDL assignment warning at modules.v(367): truncated value with size 32 to match size of target (3) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 367
+Warning (10230): Verilog HDL assignment warning at modules.v(370): truncated value with size 32 to match size of target (3) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 370
+Warning (10230): Verilog HDL assignment warning at modules.v(374): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 374
+Info (12128): Elaborating entity "m_render_player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 563
+Warning (10230): Verilog HDL assignment warning at modules.v(426): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 426
+Warning (10230): Verilog HDL assignment warning at modules.v(450): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 450
+Warning (10230): Verilog HDL assignment warning at modules.v(453): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 453
+Warning (10230): Verilog HDL assignment warning at modules.v(462): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 462
+Warning (10034): Output port "VGA_X" at modules.v(404) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 404
+Warning (10034): Output port "VGA_Y" at modules.v(405) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 405
+Warning (10034): Output port "VGA_COLOR" at modules.v(406) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 406
+Info (12128): Elaborating entity "game_coord_2_canvas_coord" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|game_coord_2_canvas_coord:U1" File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 418
+Warning (10230): Verilog HDL assignment warning at utils.v(103): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 103
+Warning (10230): Verilog HDL assignment warning at utils.v(104): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 104
+Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2" File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 424
+Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 82
+Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 82
+Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 82
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -2325,21 +2326,21 @@ Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_i
     Info (12134): Parameter "width_a" = "12"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_45g1.tdf
-    Info (12023): Found entity 1: altsyncram_45g1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_45g1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_45g1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "m_render_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 577
-Warning (10230): Verilog HDL assignment warning at modules.v(506): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 506
-Warning (10230): Verilog HDL assignment warning at modules.v(526): truncated value with size 23 to match size of target (12) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 526
-Warning (10230): Verilog HDL assignment warning at modules.v(545): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 545
-Warning (10230): Verilog HDL assignment warning at modules.v(553): truncated value with size 32 to match size of target (6) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 553
-Warning (10230): Verilog HDL assignment warning at modules.v(557): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 557
-Warning (10034): Output port "VGA_X" at modules.v(493) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 493
-Warning (10034): Output port "VGA_Y" at modules.v(494) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 494
-Warning (10034): Output port "VGA_COLOR" at modules.v(495) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 495
-Info (12128): Elaborating entity "food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 520
-Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 86
-Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 86
-Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/food.v Line: 86
+    Info (12023): Found entity 1: altsyncram_45g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_45g1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_45g1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_player:m_render_player_inst|player:U2|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "m_render_food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 577
+Warning (10230): Verilog HDL assignment warning at modules.v(506): truncated value with size 32 to match size of target (9) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 506
+Warning (10230): Verilog HDL assignment warning at modules.v(526): truncated value with size 23 to match size of target (12) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 526
+Warning (10230): Verilog HDL assignment warning at modules.v(545): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 545
+Warning (10230): Verilog HDL assignment warning at modules.v(553): truncated value with size 32 to match size of target (6) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 553
+Warning (10230): Verilog HDL assignment warning at modules.v(557): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 557
+Warning (10034): Output port "VGA_X" at modules.v(493) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 493
+Warning (10034): Output port "VGA_Y" at modules.v(494) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 494
+Warning (10034): Output port "VGA_COLOR" at modules.v(495) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 495
+Info (12128): Elaborating entity "food" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD" File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 520
+Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/food.v Line: 86
+Info (12130): Elaborated megafunction instantiation "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/food.v Line: 86
+Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/food.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "food.mif"
@@ -2356,27 +2357,27 @@ Info (12133): Instantiated megafunction "fsm_game_state:U3|m_playing:m_playing_i
     Info (12134): Parameter "width_a" = "1"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r6o1.tdf
-    Info (12023): Found entity 1: altsyncram_r6o1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_r6o1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_r6o1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "m_render_ghosts" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 599
-Warning (10036): Verilog HDL or VHDL warning at modules.v(608): object "dx" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 608
-Warning (10036): Verilog HDL or VHDL warning at modules.v(608): object "dy" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 608
-Warning (10036): Verilog HDL or VHDL warning at modules.v(609): object "ghost_index" assigned a value but never read File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 609
-Info (12128): Elaborating entity "m_ghost_collision" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 610
-Warning (10230): Verilog HDL assignment warning at modules.v(715): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 715
-Info (12128): Elaborating entity "m_update_vga" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 624
-Warning (10230): Verilog HDL assignment warning at modules.v(781): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 781
-Warning (10230): Verilog HDL assignment warning at modules.v(783): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 783
-Warning (10230): Verilog HDL assignment warning at modules.v(786): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 786
-Warning (10034): Output port "data" at modules.v(748) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 748
-Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:U3|m_game_over:m_game_over_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 166
-Warning (10034): Output port "data" at modules.v(35) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 35
-Warning (10034): Output port "addr" at modules.v(36) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 36
-Warning (10034): Output port "wren" at modules.v(37) has no driver File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/modules.v Line: 37
-Info (12128): Elaborating entity "canvas" for hierarchy "canvas:canvas_inst" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 112
-Info (12128): Elaborating entity "altsyncram" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/canvas.v Line: 86
-Info (12130): Elaborated megafunction instantiation "canvas:canvas_inst|altsyncram:altsyncram_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/canvas.v Line: 86
-Info (12133): Instantiated megafunction "canvas:canvas_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/canvas.v Line: 86
+    Info (12023): Found entity 1: altsyncram_r6o1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r6o1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_r6o1" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_food:m_render_food_inst|food:FOOD|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "m_render_ghosts" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_render_ghosts:m_render_ghosts_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 599
+Warning (10036): Verilog HDL or VHDL warning at modules.v(608): object "dx" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 608
+Warning (10036): Verilog HDL or VHDL warning at modules.v(608): object "dy" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 608
+Warning (10036): Verilog HDL or VHDL warning at modules.v(609): object "ghost_index" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 609
+Info (12128): Elaborating entity "m_ghost_collision" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_ghost_collision:m_ghost_collision_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 610
+Warning (10230): Verilog HDL assignment warning at modules.v(715): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 715
+Info (12128): Elaborating entity "m_update_vga" for hierarchy "fsm_game_state:U3|m_playing:m_playing_inst|m_update_vga:m_update_vga_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 624
+Warning (10230): Verilog HDL assignment warning at modules.v(781): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 781
+Warning (10230): Verilog HDL assignment warning at modules.v(783): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 783
+Warning (10230): Verilog HDL assignment warning at modules.v(786): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 786
+Warning (10034): Output port "data" at modules.v(748) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 748
+Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:U3|m_game_over:m_game_over_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 166
+Warning (10034): Output port "data" at modules.v(35) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 35
+Warning (10034): Output port "addr" at modules.v(36) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 36
+Warning (10034): Output port "wren" at modules.v(37) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 37
+Info (12128): Elaborating entity "canvas" for hierarchy "canvas:canvas_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 112
+Info (12128): Elaborating entity "altsyncram" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/canvas.v Line: 86
+Info (12130): Elaborated megafunction instantiation "canvas:canvas_inst|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/canvas.v Line: 86
+Info (12133): Instantiated megafunction "canvas:canvas_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/canvas.v Line: 86
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
     Info (12134): Parameter "init_file" = "../canvas.mif"
@@ -2393,24 +2394,24 @@ Info (12133): Instantiated megafunction "canvas:canvas_inst|altsyncram:altsyncra
     Info (12134): Parameter "width_a" = "12"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_kno1.tdf
-    Info (12023): Found entity 1: altsyncram_kno1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_kno1.tdf Line: 34
-Info (12128): Elaborating entity "altsyncram_kno1" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12023): Found entity 1: altsyncram_kno1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_kno1.tdf Line: 33
+Info (12128): Elaborating entity "altsyncram_kno1" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7la.tdf
-    Info (12023): Found entity 1: decode_7la File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/decode_7la.tdf Line: 23
-Info (12128): Elaborating entity "decode_7la" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|decode_7la:decode3" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_kno1.tdf Line: 44
+    Info (12023): Found entity 1: decode_7la File: C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_7la.tdf Line: 22
+Info (12128): Elaborating entity "decode_7la" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|decode_7la:decode3" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_kno1.tdf Line: 43
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
-    Info (12023): Found entity 1: decode_01a File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/decode_01a.tdf Line: 23
-Info (12128): Elaborating entity "decode_01a" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|decode_01a:rden_decode" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_kno1.tdf Line: 45
-Info (12021): Found 1 design units, including 1 entities, in source file db/mux_3hb.tdf
-    Info (12023): Found entity 1: mux_3hb File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/mux_3hb.tdf Line: 23
-Info (12128): Elaborating entity "mux_3hb" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|mux_3hb:mux2" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_kno1.tdf Line: 46
-Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "delay_one_cycle:U4" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 114
-Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "delay_one_cycle:U5" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 117
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 136
-Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v Line: 157
-Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v Line: 178
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v Line: 178
-Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v Line: 178
+    Info (12023): Found entity 1: decode_01a File: C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_01a.tdf Line: 22
+Info (12128): Elaborating entity "decode_01a" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|decode_01a:rden_decode" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_kno1.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
+    Info (12023): Found entity 1: mux_2hb File: C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_2hb.tdf Line: 22
+Info (12128): Elaborating entity "mux_2hb" for hierarchy "canvas:canvas_inst|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|mux_2hb:mux2" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_kno1.tdf Line: 45
+Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "delay_one_cycle:U4" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 114
+Info (12128): Elaborating entity "delay_one_cycle" for hierarchy "delay_one_cycle:U5" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 117
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 136
+Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 157
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 178
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 178
+Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 178
     Info (12134): Parameter "width_a" = "12"
     Info (12134): Parameter "width_b" = "12"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
@@ -2427,12 +2428,12 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "power_up_uninitialized" = "FALSE"
     Info (12134): Parameter "init_file" = "canvas.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ldm1.tdf
-    Info (12023): Found entity 1: altsyncram_ldm1 File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_ldm1.tdf Line: 34
-Info (12128): Elaborating entity "altsyncram_ldm1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v Line: 201
-Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_pll.v Line: 53
-Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_pll.v Line: 53
-Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_pll.v Line: 53
+    Info (12023): Found entity 1: altsyncram_ldm1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 33
+Info (12128): Elaborating entity "altsyncram_ldm1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 201
+Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_pll.v Line: 53
+Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_pll.v Line: 53
+Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_pll.v Line: 53
     Info (12134): Parameter "operation_mode" = "NORMAL"
     Info (12134): Parameter "intended_device_family" = "Cyclone II"
     Info (12134): Parameter "lpm_type" = "altpll"
@@ -2445,83 +2446,83 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_80u.tdf
-    Info (12023): Found entity 1: altpll_80u File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altpll_80u.tdf Line: 26
-Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/vga_adapter/vga_adapter.v Line: 216
+    Info (12023): Found entity 1: altpll_80u File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf Line: 25
+Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 216
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "fsm_game_state:U3|hs_enable" is missing source, defaulting to GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/fsm.v Line: 46
+    Warning (12110): Net "fsm_game_state:U3|hs_enable" is missing source, defaulting to GND File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 46
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[0]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 35
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[1]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 56
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[2]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 77
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[3]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 98
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[4]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 119
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[5]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 140
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[6]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 161
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[7]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 182
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[8]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 203
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[9]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 224
-        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[10]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altsyncram_o4g1.tdf Line: 245
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 34
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 55
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 76
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[3]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 97
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[4]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 118
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[5]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 139
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[6]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 160
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[7]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 181
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[8]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 202
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[9]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 223
+        Warning (14320): Synthesized away node "fsm_game_state:U3|ghost1:ghost1|altsyncram:altsyncram_component|altsyncram_o4g1:auto_generated|q_a[10]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_o4g1.tdf Line: 244
 Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 19
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 26
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 30
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 30
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 30
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 30
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 30
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 30
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 30
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 31
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 31
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 31
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 31
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 31
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 31
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 31
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 32
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 19
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 26
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 30
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 30
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 30
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 30
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 30
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 30
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 30
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 31
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 31
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 31
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 31
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 31
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 31
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 31
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 32
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 38 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/output_files/milestone2.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/IWMAI/Desktop/ECE241-Project/output_files/milestone2.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/db/altpll_80u.tdf Line: 34
+Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf Line: 33
     Info: Must be connected
 Warning (21074): Design contains 10 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 17
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 17
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 17
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 17
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 17
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 17
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 17
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 17
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 18
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/milestone2.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 17
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 17
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 17
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 17
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 17
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 17
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 17
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 17
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 18
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 18
 Info (21057): Implemented 935 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
     Info (21059): Implemented 109 output pins
@@ -2530,16 +2531,16 @@ Info (21057): Implemented 935 device resources after synthesis - the final resou
     Info (21064): Implemented 86 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 2 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 192 warnings
-    Info: Peak virtual memory: 4949 megabytes
-    Info: Processing ended: Mon Nov 18 23:33:13 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:15
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 194 warnings
+    Info: Peak virtual memory: 4948 megabytes
+    Info: Processing ended: Wed Nov 20 15:15:10 2024
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:10
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/IWMAI/OneDrive - University of Toronto/ece241/milestone2/output_files/milestone2.map.smsg.
+The suppressed messages can be found in C:/Users/IWMAI/Desktop/ECE241-Project/output_files/milestone2.map.smsg.
 
 
