@@ -77,6 +77,10 @@ module m_playing(
     wire [4:0] ghost1_x, ghost2_x, ghost3_x;
     wire [3:0] ghost1_y, ghost2_y, ghost3_y;
 
+    // Game over and win flags
+    wire game_over, you_won; //score must be 188 to win
+    wire [8:0] score;
+
     // PS2 controller input
     input [7:0] last_key_received;
 
@@ -468,7 +472,7 @@ module m_playing(
         .ghost2_y(ghost2_y),
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
-        .collided(collided)
+        .collided(game_over)
     );
 
     m_update_vga m_update_vga_inst(

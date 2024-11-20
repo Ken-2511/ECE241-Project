@@ -95,7 +95,7 @@ endmodule
 module m_update_position(clock, resetn, enable, wren, finished, data, addr, direction, player_x, player_y);
 
     parameter cbit = 11;
-    parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100; //STILL NEED TO DO COLLISIONS
+    parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100; //TODO: STILL NEED TO DO COLLISIONS
 
     // Basic inputs
     input clock, resetn, enable, hs_enable;
@@ -121,8 +121,9 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
             data <= 3'b0;
             addr <= 15'b0;
             wren <= 1'b0; // Disable write
-            player_x <= 5'b0;
-            player_y <= 4'b0;
+
+            player_x <= 5'b00001;
+            player_y <= 4'b0001;
         end
         else if (he_enable) begin
             case(direction)
@@ -132,6 +133,7 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
                 right: begin player_x <= player_x + 1; player_y <= player_y; end
                 default: begin player_x <= player_x; player_y <= player_y; end
             endcase
+
             wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b010; // Example data value
