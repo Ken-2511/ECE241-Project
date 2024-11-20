@@ -1,4 +1,4 @@
-//may need to comment it out
+//MAY NEED TO GET RID OF THIS FILE
 
 module ghost1_path(clock, enable, resetn, new_x, new_y); 
     input clock, enable, resetn;
