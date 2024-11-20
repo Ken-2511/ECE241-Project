@@ -38,15 +38,9 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
     wire [6:0] vga_y_greeting, vga_y_playing, vga_y_game_over;
     wire [cbit:0] vga_color_greeting, vga_color_playing, vga_color_game_over;
 
-    //Player
-    wire [4:0] player_x; //may need to put the x and y back if error 
-    wire [3:0] player_y;
-    wire [3:0] w; //internal carry to deal with the movement FSM
-    wire [2:0] direction;
+    //half sec counter
     wire hs_enable;
-    parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
-    get_direction find_direction(last_key_received, hs_enable, w);
-    movement_FSM track_movement(clock, resetn, hs_enable, w, direction);
+    half_sec_counter(CLOCK_50, KEY[0], hs_enable); 
 	
 	//Ghosts
 	
@@ -233,6 +227,19 @@ module m_playing(
     wire [6:0] vga_y_fill_screen, vga_y_render_blocks, vga_y_render_player, vga_y_render_food, vga_y_render_ghosts, vga_y_ghost_collision, vga_y_update_vga;
     wire [cbit:0] vga_color_clear_screen, vga_color_update_position, vga_color_eat_food, vga_color_update_ghost_directions, vga_color_update_ghost_positions;
     wire [cbit:0] vga_color_fill_screen, vga_color_render_blocks, vga_color_render_player, vga_color_render_food, vga_color_render_ghosts, vga_color_ghost_collision, vga_color_update_vga;
+
+    //Player
+    wire [4:0] player_x; //may need to put the x and y back if error 
+    wire [3:0] player_y;
+    wire [3:0] w; //internal carry to deal with the movement FSM
+    wire [2:0] direction;
+    parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
+    get_direction find_direction(last_key_received, hs_enable, w);
+    movement_FSM track_movement(clock, resetn, hs_enable, w, direction);
+
+    // Ghost position
+    wire [4:0] ghost1_x, ghost2_x, ghost3_x;
+    wire [3:0] ghost1_y, ghost2_y, ghost3_y;
 
     // PS2 controller input
     input [7:0] last_key_received;
