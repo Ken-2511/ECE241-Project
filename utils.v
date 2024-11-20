@@ -115,3 +115,31 @@ module canvas_coord_2_mem_addr (canvas_x, canvas_y, mem_addr);
     assign mem_addr = canvas_y * 160 + canvas_x;
 
 endmodule
+
+//half second counter
+module half_sec_counter(clock, resetn, enable);
+	input clock, resetn;
+	output reg enable;
+	reg [24:0] count;
+	
+	initial begin 
+		count <= 25'b0;
+		enable <= 1'b0;
+	end 
+	
+	always @(posedge clock) begin
+		if(!resetn) begin
+			count <= 25'b0;
+			enable <= 1'b0;
+		end
+		else if(count == 25000000) begin
+			enable <= 1'b1;
+			count <= 25'b0;
+		end
+		else begin
+			enable <= 1'b0;
+			count <= count + 1;
+		end
+	end
+	
+ endmodule 

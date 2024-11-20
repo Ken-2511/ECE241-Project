@@ -271,32 +271,7 @@
 // endmodule 
 
 // //for half-second enable - we might have to change it to quarter second
-// module half_sec_counter(clock, resetn, enable);
-// 	input clock, resetn;
-// 	output reg enable;
-// 	reg [24:0] count;
-	
-// 	initial begin 
-// 		count <= 25'b0;
-// 		enable <= 1'b0;
-// 	end 
-	
-// 	always @(posedge clock) begin
-// 		if(!resetn) begin
-// 			count <= 25'b0;
-// 			enable <= 1'b0;
-// 		end
-// 		else if(count == 25000000) begin
-// 			enable <= 1'b1;
-// 			count <= 25'b0;
-// 		end
-// 		else begin
-// 			enable <= 1'b0;
-// 			count <= count + 1;
-// 		end
-// 	end
-	
-// endmodule 
+//been moved
 
 // module draw_block(clock, resetn, vga_x, vga_y, color, enable, bias_x, bias_y, colour_to_draw);
 // 	// draw a maze with blocks of 8x8 pixels

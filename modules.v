@@ -119,7 +119,7 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
     parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100; //STILL NEED TO DO COLLISIONS
 
     // Basic inputs
-    input clock, resetn, enable;
+    input clock, resetn, enable, hs_enable;
 
     // Output write enable signal
     output reg wren; // wren signal for controlling writes
@@ -145,7 +145,7 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
             player_x <= 5'b0;
             player_y <= 4'b0;
         end
-        else if (enable) begin
+        else if (he_enable) begin
             case(direction)
                 up: begin player_x <= player_x; player_y <= player_y - 1; end
                 left: begin player_x <= player_x - 1; player_y <= player_y; end
@@ -206,7 +206,7 @@ module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
 endmodule
 
 
-module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, addr);
+module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, addr); //leave it blank
 
     parameter cbit = 11;
 
@@ -245,7 +245,7 @@ module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, ad
 endmodule
 
 
-module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, addr);
+module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, addr, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y); 
 
     parameter cbit = 11;
 
@@ -262,14 +262,40 @@ module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, add
     output reg [cbit:0] data;
     output reg [14:0] addr;
 
+    // Ghost coordinates
+    reg [6:0] address1, address2, address3;
+    wire [10:0] q1, q2, q3;
+    output [4:0] ghost1_x, ghost2_x, ghost3_x;
+    output [3:0] ghost1_y, ghost2_y, ghost3_y;
+
     always @ (posedge clock) begin
+        //going through the fsm
         if (!resetn) begin
+            address1 <= 7'b0;
+            address2 <= 7'b0;
+            address3 <= 7'b0;
+
             finished <= 0;  // Reset to initial state
             data <= 3'b000;
             addr <= 15'b0;
             wren <= 0; // Disable write
         end
         else if (enable) begin
+            //set addresses back to 0 to restart the paths
+            if(address1 == 63)
+               address1 <= 7'b0;
+        
+            if(address2 == 78)
+                address2 <= 7'b0;
+        
+            if(address3 == 50)
+                address3 <= 7'b0;
+
+            //update positions
+            address1 <= address1 + 1;
+            address2 <= address2 + 1;
+            address3 <= address3 + 1;
+
             wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b101; // Example data value
@@ -280,6 +306,17 @@ module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, add
             finished <= 0;  // Reset to initial state
         end
     end
+
+    ghost1 G1(address1, clock, q1);
+    ghost2 G2(address2, clock, q2);
+    ghost3 G3(address3, clock, q3);
+
+    assign ghost1_x = q1[10:6];
+    assign ghost1_y = q1[5:2];
+    assign ghost2_x = q2[10:6];
+    assign ghost2_y = q2[5:2];
+    assign ghost3_x = q3[10:6];
+    assign ghost3_y = q3[5:2];
 
 endmodule
 
@@ -822,3 +859,4 @@ module m_update_vga(
     end
 
 endmodule
+
