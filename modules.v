@@ -605,7 +605,7 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
 endmodule
 
 
-module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost_x, ghost_y, direct, last_key_received);
+module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y, direct, last_key_received);
 
     parameter cbit = 11;
     parameter num_ghosts = 4;
@@ -629,8 +629,8 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     output reg [cbit:0] VGA_COLOR;
 
     // Ghost position and direction
-    input [5:0] ghost_x;
-    input [4:0] ghost_y;
+    input [4:0] ghost1_x. ghost2_x, ghost3_x;
+    input [3:0] ghost1_y, ghost2_y, ghost3_y;
     input [1:0] direct;
 
     // PS2 inputs
@@ -721,18 +721,23 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X,
 endmodule
 
 
-module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr);
+module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr, player_x, player_y, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y, collided);
 
     parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
 
+    // Entity coordinates
+    input [4:0] player_x, ghost1_x, ghost2_x, ghost3_x;
+    input [3:0] player_y, ghost1_y, ghost2_y, ghost3_y; 
+
     // Output write enable signal
     output reg wren; // wren signal for controlling writes
 
     // Finish signal
     output reg finished;
+    output reg collided;
 
     // Data and address control
     output reg [cbit:0] data;
@@ -746,6 +751,15 @@ module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr);
             wren <= 0; // Disable write
         end
         else if (enable) begin
+            //check collisions
+            if( (player_x == ghost1_x && player_y == ghost1_y) || (player_x == ghost2_x && player_y == ghost2_y) || (player_x == ghost3_x && player_y == ghost3_y) ) begin
+                collided <= 1'b1;
+            end
+            else begin
+                collided <= 1'b0;
+            end 
+
+            //move through fsm
             wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b100; // Example data value
