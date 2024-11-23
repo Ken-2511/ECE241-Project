@@ -136,9 +136,8 @@ module m_renderer (
                     // Erase the current object's previous position
                     bg_x <= curr_x * 5 + dx;
                     bg_y <= curr_y * 5 + dy;
-                    _temp_x <= bg_x;
+                    VGA_X <= bg_x;
                     _temp_y <= bg_y;
-                    VGA_X <= _temp_x;
                     VGA_Y <= _temp_y;
                     VGA_COLOR <= bg_color;
 
