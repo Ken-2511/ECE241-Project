@@ -16,6 +16,7 @@ vlib work;
 # compile the Verilog source code in the parent folder
 vlog ../renderer.v
 vlog ./_renderer.v
+vlog ../player.v
 
 # start the Simulator, including some libraries that may be needed
 vsim work.renderer_tb -Lf 220model -Lf altera_mf_ver -Lf verilog

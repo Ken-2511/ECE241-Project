@@ -32,7 +32,8 @@ module m_renderer (
     // Rendering variables
     reg [4:0] curr_x, curr_y;       // Current rendering logical coordinates
     reg [3:0] dx, dy;               // Offsets within the block
-    wire [11:0] pl_color;           // Player color (12-bit: R,G,B each 4-bit)
+    reg [11:0] curr_color;          // Current rendering color (12-bit: R,G,B each 4-bit)
+    wire [11:0] pl_color;           // Player color
 
     // Rendering target index
     reg [1:0] render_index;         // 0: Player, 1: Ghost 1, 2: Ghost 2, 3: Ghost 3
@@ -71,68 +72,91 @@ module m_renderer (
             dx <= 0;
             dy <= 0;
             render_index <= 0;
+            curr_x <= 0;
+            curr_y <= 0;
+            curr_color <= bg_color;
             finished <= 0;
         end else if (enable) begin
             case (state)
-                ERASE: begin
-                    // Determine current object's coordinates based on render_index
-                    {curr_x, curr_y} <= (render_index == 0) ? {pl_game_x, pl_game_y} :
-                                        (render_index == 1) ? {g1_game_x, g1_game_y} :
-                                        (render_index == 2) ? {g2_game_x, g2_game_y} : {g3_game_x, g3_game_y};
+                IDLE: begin
+                    // Prepare for rendering
+                    render_index <= 0;
+                    dx <= 0;
+                    dy <= 0;
+                    curr_x <= pl_game_x;
+                    curr_y <= pl_game_y;
+                    curr_color <= bg_color;
+                    finished <= 0;
+                end
 
-                    // Output background color
+                ERASE: begin
+                    // Erase the current object's previous position
                     VGA_X <= curr_x * 5 + dx;
                     VGA_Y <= curr_y * 5 + dy;
                     VGA_COLOR <= bg_color;
 
                     if (dx < 4)
-                        dx <= dx + 1'b1;
+                        dx <= dx + 1;
                     else if (dy < 4) begin
                         dx <= 0;
-                        dy <= dy + 1'b1;
+                        dy <= dy + 1;
                     end else begin
                         dx <= 0;
                         dy <= 0;
-                        if (render_index < 3)
+                        if (render_index < 3) begin
                             render_index <= render_index + 1;
-                        else
+                            case (render_index + 1)
+                                1: {curr_x, curr_y} <= {g1_game_x, g1_game_y};
+                                2: {curr_x, curr_y} <= {g2_game_x, g2_game_y};
+                                3: {curr_x, curr_y} <= {g3_game_x, g3_game_y};
+                            endcase
+                        end else begin
                             render_index <= 0;
+                            curr_x <= pl_game_x;
+                            curr_y <= pl_game_y;
+                        end
                     end
                 end
 
                 DRAW: begin
-                    // Draw player or ghost
+                    // Draw the current object's current position
                     VGA_X <= curr_x * 5 + dx;
                     VGA_Y <= curr_y * 5 + dy;
-                    VGA_COLOR <= (render_index == 0) ? pl_color : 12'hFFF; // Assume ghosts are white (12-bit color)
+                    VGA_COLOR <= (render_index == 0) ? pl_color : 12'hFFF; // Assume ghosts are white
 
                     if (dx < 4)
-                        dx <= dx + 1'b1;
+                        dx <= dx + 1;
                     else if (dy < 4) begin
                         dx <= 0;
-                        dy <= dy + 1'b1;
+                        dy <= dy + 1;
                     end else begin
                         dx <= 0;
                         dy <= 0;
-                        if (render_index < 3)
-                            render_index <= render_index + 1'b1;
-                        else
+                        if (render_index < 3) begin
+                            render_index <= render_index + 1;
+                            case (render_index)
+                                1: {curr_x, curr_y, curr_color} <= {g1_game_x, g1_game_y, 12'hFFF}; // Ghost 1
+                                2: {curr_x, curr_y, curr_color} <= {g2_game_x, g2_game_y, 12'hFFF}; // Ghost 2
+                                3: {curr_x, curr_y, curr_color} <= {g3_game_x, g3_game_y, 12'hFFF}; // Ghost 3
+                            endcase
+                        end else begin
                             render_index <= 0;
+                        end
                     end
                 end
 
                 DONE: begin
-                    finished <= 1'b1;
+                    finished <= 1;
                 end
             endcase
         end else begin
-            finished <= 1'b0;
+            finished <= 0;
         end
     end
 
-    // Player module instantiation
+    // Player
     player u_player (
-        .address(dy * 5 + dx),
+        .address(dy * 5'd5 + dx),
         .clock(clock),
         .q(pl_color)
     );

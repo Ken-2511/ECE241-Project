@@ -33,7 +33,7 @@ module m_collision (
         if (!resetn)
             collision_detected <= 0;
         else if (enable)
-            collision_detected <= 1; // Simulate collision detected
+            collision_detected <= 0;
     end
 endmodule
 
