@@ -14,7 +14,8 @@ module main (
     // PS2 Inputs
     wire [7:0] ps2_key_data;
     wire ps2_key_pressed;
-    reg [7:0] last_key_received;
+    reg [7:0] _last_key_received;
+    wire [7:0] last_key_received;
 
     // VGA Positioning
     wire [7:0] VGA_X;
@@ -33,14 +34,14 @@ module main (
     // Latch the last key received
     always @(posedge CLOCK_50) begin
         if (!KEY[0])
-            last_key_received <= 8'b0;
+            _last_key_received <= 8'b0;
         else if (ps2_key_pressed)
-            last_key_received <= ps2_key_data;
+            _last_key_received <= ps2_key_data;
     end
 
     // Display the key data on HEX displays
-    hex7seg H3 (last_key_received[7:4], HEX3);
-    hex7seg H2 (last_key_received[3:0], HEX2);
+    hex7seg H3 (_last_key_received[7:4], HEX3);
+    hex7seg H2 (_last_key_received[3:0], HEX2);
 
     // Instantiate the game FSM
     fsm_game_state game_fsm (
@@ -74,5 +75,14 @@ module main (
     defparam VGA.MONOCHROME = "FALSE";
     defparam VGA.BITS_PER_COLOUR_CHANNEL = 4;
     defparam VGA.BACKGROUND_IMAGE = "canvas.mif";
+
+    // debounce the key
+    debounce_filter debounce (
+        .clock(CLOCK_50),
+        .resetn(KEY[0]),
+        .A(_last_key_received),
+        .B(last_key_received)
+    );
+    defparam debounce.n = 8;
 
 endmodule
