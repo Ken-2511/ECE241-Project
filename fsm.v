@@ -40,7 +40,20 @@ module fsm_game_state (
     wire [7:0] vga_x_greeting, vga_x_render, vga_x_game_over;
     wire [6:0] vga_y_greeting, vga_y_render, vga_y_game_over;
     wire [11:0] vga_color_greeting, vga_color_render, vga_color_game_over;
+
+    // Background signals
+    wire [4:0] bg_x;
+    wire [3:0] bg_y;
+    reg bg_wren;
+    reg [11:0] bg_write_data;
     wire [11:0] bg_color;
+    wire [14:0] bg_address;
+
+    // Calculate background memory address
+    assign bg_address = bg_y * 5'd20 + bg_x; // Adjust for your background width
+
+    // signals for eating food
+    wire food_eaten;
 
     // Half second enable signal to slow down the FPS
     parameter HS_COUNT = 25000000; // 50MHz / 2 = 25MHz
@@ -101,6 +114,8 @@ module fsm_game_state (
         e_render = 0;
         e_game_over = 0;
         e_greeting = 0;
+        bg_wren = 0;
+        bg_write_data = 12'h000;
 
         case (state)
             GREETING: begin
@@ -109,6 +124,11 @@ module fsm_game_state (
 
             PLAYING_LOGIC: begin
                 e_logic = 1; // Enable game logic
+                // Example: Update background when food is eaten
+                if (food_eaten) begin
+                    bg_wren = 1; // Enable writing to background
+                    bg_write_data = 12'hF00; // Example: Change color to red
+                end
             end
 
             PLAYING_RENDER: begin
@@ -116,7 +136,7 @@ module fsm_game_state (
             end
 
             WAITING: begin
-                // 在等待状态中，不需要任何操作
+                // Do nothing
             end
 
             GAME_OVER: begin
@@ -178,7 +198,11 @@ module fsm_game_state (
         .ghost2_y(ghost2_y),
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
-        .last_key_received(last_key_received)
+        .last_key_received(last_key_received),
+        .bg_x(bg_x),
+        .bg_y(bg_y),
+        .bg_color(bg_color),
+        .food_eaten(food_eaten)
     );
 
     // Rendering module
@@ -190,7 +214,6 @@ module fsm_game_state (
         .VGA_X(vga_x_render),
         .VGA_Y(vga_y_render),
         .VGA_COLOR(vga_color_render),
-        .bg_color(bg_color),
         .pl_game_x(player_x),
         .pl_game_y(player_y),
         .g1_game_x(ghost1_x),
@@ -198,7 +221,10 @@ module fsm_game_state (
         .g2_game_x(ghost2_x),
         .g2_game_y(ghost2_y),
         .g3_game_x(ghost3_x),
-        .g3_game_y(ghost3_y)
+        .g3_game_y(ghost3_y),
+        .bg_x(bg_x),
+        .bg_y(bg_y),
+        .bg_color(bg_color)
     );
 
     // Game over module
@@ -212,30 +238,13 @@ module fsm_game_state (
         .VGA_COLOR(vga_color_game_over)
     );
 
-    // Collision detection module
-    // m_collision collision_inst (
-    //     .clock(clock),
-    //     .resetn(resetn),
-    //     .enable(e_logic), // Check for collision during logic update
-    //     .player_x(player_x),
-    //     .player_y(player_y),
-    //     .ghost1_x(ghost1_x),
-    //     .ghost1_y(ghost1_y),
-    //     .ghost2_x(ghost2_x),
-    //     .ghost2_y(ghost2_y),
-    //     .ghost3_x(ghost3_x),
-    //     .ghost3_y(ghost3_y),
-    //     .collision_detected(collision_detected)
-    // );
-
-    // the instance for the background color
-    // canvas u_canvas (
-    //     .address(VGA_Y * 160 + VGA_X),
-    //     .clock(clock),
-    //     .data(12'h000),
-    //     .wren(1'b0),
-    //     .q(bg_color)
-    // );
-    assign bg_color = 12'hf00; // Red background
+    // Background module
+    background u_background (
+        .address(bg_address),
+        .clock(clock),
+        .data(bg_write_data),
+        .wren(bg_wren),
+        .q(bg_color)
+    );
 
 endmodule

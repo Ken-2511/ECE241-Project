@@ -9,9 +9,6 @@ module m_renderer (
     output reg [6:0] VGA_Y,         // VGA y-coordinate
     output reg [11:0] VGA_COLOR,    // VGA color output (12-bit: R,G,B each 4-bit)
 
-    // Background
-    input wire [11:0] bg_color,     // 12-bit background color
-
     // Player
     input wire [4:0] pl_game_x,
     input wire [3:0] pl_game_y,
@@ -22,7 +19,12 @@ module m_renderer (
     input wire [4:0] g2_game_x,
     input wire [3:0] g2_game_y,
     input wire [4:0] g3_game_x,
-    input wire [3:0] g3_game_y
+    input wire [3:0] g3_game_y,
+
+    // Background
+    input wire [4:0] bg_x,
+    input wire [3:0] bg_y,
+    input wire [11:0] bg_color
 );
 
     // State encoding

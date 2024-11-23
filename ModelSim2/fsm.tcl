@@ -18,6 +18,7 @@ vlog ../fsm.v
 vlog ./_fsm.v
 vlog ../renderer.v
 vlog ../_modules.v
+vlog ../background.v
 
 # start the Simulator, including some libraries that may be needed
 vsim work.fsm_tb -Lf 220model -Lf altera_mf_ver -Lf verilog

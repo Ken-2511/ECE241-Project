@@ -8,7 +8,11 @@ module m_game_logic (
     output reg [3:0] player_y,
     output reg [4:0] ghost1_x, ghost2_x, ghost3_x,
     output reg [3:0] ghost1_y, ghost2_y, ghost3_y,
-    input [7:0] last_key_received
+    input [7:0] last_key_received,
+    output reg [4:0] bg_x,
+    output reg [3:0] bg_y,
+    output reg [11:0] bg_color,
+    output reg food_eaten
 );
     always @(posedge clock or negedge resetn) begin
         if (!resetn) begin
@@ -22,8 +26,10 @@ module m_game_logic (
             ghost3_x <= 5'b01000;
             ghost3_y <= 4'b1000;
         end
-        else if (enable)
+        else if (enable) begin
+            player_x <= player_x + 1;
             finished <= 1;
+        end
         else
             finished <= 0;
     end

@@ -13,9 +13,6 @@ module renderer_tb;
     wire [6:0] VGA_Y;
     wire [11:0] VGA_COLOR;
 
-    // Background
-    reg [11:0] bg_color;
-
     // Player
     reg [4:0] pl_game_x;
     reg [3:0] pl_game_y;
@@ -32,6 +29,11 @@ module renderer_tb;
     reg [3:0] g3_game_y;
     reg [11:0] g3_color;
 
+    // Background
+    reg [11:0] bg_color;
+    reg [4:0] bg_x;
+    reg [3:0] bg_y;
+
     // Instantiate the renderer module
     m_renderer uut (
         .clock(clock),
@@ -41,7 +43,6 @@ module renderer_tb;
         .VGA_X(VGA_X),
         .VGA_Y(VGA_Y),
         .VGA_COLOR(VGA_COLOR),
-        .bg_color(bg_color),
         .pl_game_x(pl_game_x),
         .pl_game_y(pl_game_y),
         .g1_game_x(g1_game_x),
@@ -49,7 +50,10 @@ module renderer_tb;
         .g2_game_x(g2_game_x),
         .g2_game_y(g2_game_y),
         .g3_game_x(g3_game_x),
-        .g3_game_y(g3_game_y)
+        .g3_game_y(g3_game_y),
+        .bg_x(bg_x),
+        .bg_y(bg_y),
+        .bg_color(bg_color)
     );
 
     // Clock generation

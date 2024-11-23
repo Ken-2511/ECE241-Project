@@ -29,6 +29,7 @@ module fsm_tb;
         .start_key(start_key),
         .collided(collided) // Mock collision detection signal
     );
+    defparam uut.HS_COUNT = 2; // Set half-second counter to 2 for faster simulation
 
     // Clock generation
     initial begin
