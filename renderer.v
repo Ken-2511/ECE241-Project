@@ -136,7 +136,7 @@ module m_renderer (
                         dy <= 0;
                         if (render_index < 3) begin
                             render_index <= render_index + 1;
-                            case (render_index)
+                            case (render_index + 1)
                                 1: {curr_x, curr_y, curr_color} <= {g1_game_x, g1_game_y, 12'hFFF}; // Ghost 1
                                 2: {curr_x, curr_y, curr_color} <= {g2_game_x, g2_game_y, 12'hFFF}; // Ghost 2
                                 3: {curr_x, curr_y, curr_color} <= {g3_game_x, g3_game_y, 12'hFFF}; // Ghost 3

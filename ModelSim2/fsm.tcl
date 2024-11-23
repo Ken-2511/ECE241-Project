@@ -24,4 +24,4 @@ vsim work.fsm_tb -Lf 220model -Lf altera_mf_ver -Lf verilog
 # show waveforms specified in wave.do
 do _fsm.do
 # advance the simulation the desired amount of time
-run 15000 ns
+run 5000 ns
