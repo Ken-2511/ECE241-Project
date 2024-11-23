@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Sat Nov 23 05:32:06 2024
+Sat Nov 23 05:53:59 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +-----------------------------+------------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Sat Nov 23 05:32:06 2024              ;
+; Analysis & Synthesis Status ; Failed - Sat Nov 23 05:53:59 2024              ;
 ; Quartus Prime Version       ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name               ; milestone2                                     ;
 ; Top-level Entity Name       ; main                                           ;
@@ -163,7 +163,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Nov 23 05:32:01 2024
+    Info: Processing started: Sat Nov 23 05:53:54 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (12021): Found 14 design units, including 14 entities, in source file _modules.v
@@ -236,27 +236,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file greetin
     Info (12023): Found entity 1: greeting_screen File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_screen.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file ghost3.v
     Info (12023): Found entity 1: ghost3 File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost3.v Line: 40
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(135): created implicit net for "ghost1_x" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 135
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(136): created implicit net for "ghost1_y" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 136
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(137): created implicit net for "ghost2_x" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 137
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(138): created implicit net for "ghost2_y" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 138
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(139): created implicit net for "ghost3_x" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 139
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(140): created implicit net for "ghost3_y" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 140
 Error (10231): Verilog HDL error at _modules.v(592): value cannot be assigned to input "f_data" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 592
 Info (12127): Elaborating entity "main" for the top level hierarchy
-Warning (10034): Output port "HEX1" at main.v(5) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 5
-Warning (10034): Output port "HEX0" at main.v(5) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 5
-Warning (10034): Output port "HEX4" at main.v(9) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 9
-Warning (10034): Output port "HEX5" at main.v(9) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 9
-Warning (10034): Output port "LEDR[9..1]" at main.v(10) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 10
-Warning (10034): Output port "plot" at main.v(15) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 15
+Warning (10034): Output port "VGA_X_D" at main.v(9) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 9
+Warning (10034): Output port "VGA_Y_D" at main.v(10) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 10
 Error (12153): Can't elaborate top-level user hierarchy
 Info (144001): Generated suppressed messages file C:/Users/IWMAI/Desktop/ECE241-Project/output_files/milestone2.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 12 warnings
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 2 warnings
     Error: Peak virtual memory: 4781 megabytes
-    Error: Processing ended: Sat Nov 23 05:32:06 2024
+    Error: Processing ended: Sat Nov 23 05:53:59 2024
     Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:12
+    Error: Total CPU time (on all processors): 00:00:13
 
 
 +------------------------------------------+

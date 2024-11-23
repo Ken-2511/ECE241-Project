@@ -1,5 +1,5 @@
 Flow report for milestone2
-Sat Nov 23 05:32:06 2024
+Sat Nov 23 05:53:59 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +-----------------------------+------------------------------------------------+
-; Flow Status                 ; Flow Failed - Sat Nov 23 05:32:06 2024         ;
+; Flow Status                 ; Flow Failed - Sat Nov 23 05:53:59 2024         ;
 ; Quartus Prime Version       ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name               ; milestone2                                     ;
 ; Top-level Entity Name       ; main                                           ;
@@ -63,7 +63,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/23/2024 05:32:01 ;
+; Start date & time ; 11/23/2024 05:53:55 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; milestone2          ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 255638748126082.173235792126920        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 255638748126082.173235923527344        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; NUM_PARALLEL_PROCESSORS             ; All                                    ; --            ; --          ; --         ;
@@ -93,8 +93,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 4781 MB             ; 00:00:12                           ;
-; Total                ; 00:00:05     ; --                      ; --                  ; 00:00:12                           ;
+; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 4781 MB             ; 00:00:13                           ;
+; Total                ; 00:00:05     ; --                      ; --                  ; 00:00:13                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

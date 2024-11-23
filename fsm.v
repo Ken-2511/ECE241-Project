@@ -17,10 +17,10 @@ module fsm_game_state (
     reg [2:0] state, next_state;
 
     // Signals for logic and rendering
-    reg e_logic, e_render, e_game_over;
+    reg e_logic, e_render, e_game_over, e_greeting;
 
     // Completion signals
-    wire logic_done, render_done, game_over_done;
+    wire greeting_done, logic_done, render_done, game_over_done;
 
     // Collision detection signal
     wire collision_detected;
@@ -31,6 +31,11 @@ module fsm_game_state (
     // Player and ghosts data
     wire [4:0] player_x, ghost1_x, ghost2_x, ghost3_x;
     wire [3:0] player_y, ghost1_y, ghost2_y, ghost3_y;
+
+    // VGA signals from submodules
+    wire [7:0] vga_x_greeting, vga_x_render, vga_x_game_over;
+    wire [6:0] vga_y_greeting, vga_y_render, vga_y_game_over;
+    wire [11:0] vga_color_greeting, vga_color_render, vga_color_game_over;
 
     // State transition
     always @(posedge clock or negedge resetn) begin
@@ -66,12 +71,12 @@ module fsm_game_state (
         e_logic = 0;
         e_render = 0;
         e_game_over = 0;
+        e_greeting = 0;
 
         case (state)
             GREETING: begin
-                VGA_X = 0;
-                VGA_Y = 0;
-                VGA_COLOR = 12'h000; // Background color
+                e_greeting = 1; // Enable greeting screen
+                e_render = 1; // Enable rendering for GREETING screen
             end
 
             PLAYING_LOGIC: begin
@@ -79,23 +84,53 @@ module fsm_game_state (
             end
 
             PLAYING_RENDER: begin
-                e_render = 1; // Enable rendering
+                e_render = 1; // Enable rendering for PLAYING screen
             end
 
             GAME_OVER: begin
                 e_game_over = 1; // Trigger game over behavior
             end
+        endcase
+    end
 
+    // Arbitration logic for VGA signals
+    always @(*) begin
+        case (state)
+            GREETING: begin
+                VGA_X = vga_x_greeting;
+                VGA_Y = vga_y_greeting;
+                VGA_COLOR = vga_color_greeting;
+            end
+            PLAYING_RENDER: begin
+                VGA_X = vga_x_render;
+                VGA_Y = vga_y_render;
+                VGA_COLOR = vga_color_render;
+            end
+            GAME_OVER: begin
+                VGA_X = vga_x_game_over;
+                VGA_Y = vga_y_game_over;
+                VGA_COLOR = vga_color_game_over;
+            end
             default: begin
-                // Defaults
-                VGA_X = 0;
-                VGA_Y = 0;
-                VGA_COLOR = 12'h000;
+                VGA_X = 8'd0;
+                VGA_Y = 7'd0;
+                VGA_COLOR = 12'h000; // Default background color
             end
         endcase
     end
 
     // Instantiate submodules
+
+    // Greeting rendering module
+    m_greeting greeting_inst (
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_greeting),
+        .finished(greeting_done), // Greeting done signal
+        .VGA_X(vga_x_greeting),
+        .VGA_Y(vga_y_greeting),
+        .VGA_COLOR(vga_color_greeting)
+    );
 
     // Game logic module
     m_game_logic game_logic_inst (
@@ -119,10 +154,10 @@ module fsm_game_state (
         .clock(clock),
         .resetn(resetn),
         .enable(e_render),
-        .finished(render_done) // Render done signal
-        .VGA_X(VGA_X),
-        .VGA_Y(VGA_Y),
-        .VGA_COLOR(VGA_COLOR),
+        .finished(render_done), // Render done signal
+        .VGA_X(vga_x_render),
+        .VGA_Y(vga_y_render),
+        .VGA_COLOR(vga_color_render),
         .player_x(player_x),
         .player_y(player_y),
         .ghost1_x(ghost1_x),
@@ -133,8 +168,19 @@ module fsm_game_state (
         .ghost3_y(ghost3_y)
     );
 
+    // Game over module
+    m_game_over game_over_inst (
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_game_over),
+        .finished(game_over_done), // Game over done signal
+        .VGA_X(vga_x_game_over),
+        .VGA_Y(vga_y_game_over),
+        .VGA_COLOR(vga_color_game_over)
+    );
+
     // Collision detection module
-    m_ghost_collision collision_inst (
+    m_collision collision_inst (
         .clock(clock),
         .resetn(resetn),
         .enable(e_logic), // Check for collision during logic update
@@ -146,18 +192,7 @@ module fsm_game_state (
         .ghost2_y(ghost2_y),
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
-        .collided(collision_detected) // High when collision detected
-    );
-
-    // Game over module
-    m_game_over game_over_inst (
-        .clock(clock),
-        .resetn(resetn),
-        .enable(e_game_over),
-        .finished(game_over_done), // Game over done signal
-        .VGA_X(VGA_X),
-        .VGA_Y(VGA_Y),
-        .VGA_COLOR(VGA_COLOR)
+        .collision_detected(collision_detected)
     );
 
 endmodule
