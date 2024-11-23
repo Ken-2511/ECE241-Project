@@ -62,7 +62,7 @@ module ghost2_path(clock, enable, resetn, new_x, new_y);
 
 endmodule 
 
-module ghost1_path(clock, enable, resetn, new_x, new_y); 
+module ghost3_path(clock, enable, resetn, new_x, new_y); 
     input clock, enable, resetn;
     output [4:0] new_x;
     output [3:0] new_y;

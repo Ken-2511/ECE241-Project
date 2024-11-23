@@ -1,159 +1,183 @@
-module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, VGA_COLOR, last_key_received);
+module fsm_game_state (
+    input clock,
+    input resetn,
+    input enable,
+    output reg [cbit:0] data,
+    output reg [14:0] addr,
+    output reg wren,
+    input [cbit:0] q,
+    output reg [7:0] VGA_X,
+    output reg [6:0] VGA_Y,
+    output reg [cbit:0] VGA_COLOR,
+    input [7:0] last_key_received,
+    output reg finished
+);
 
     parameter cbit = 11;
 
-    // Basic inputs
-    input clock, resetn, enable;
+    // Higher-Level Game States
+    parameter GREETING = 3'b000, 
+              PLAYING = 3'b001, 
+              GAME_OVER = 3'b010;
 
-    // Outputs for RAM control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-    output reg wren;
-    input [cbit:0] q;
+    // Playing Sub-States
+    parameter GAME_LOGIC = 3'b011,
+              RENDER = 3'b100;
 
-    // Additional outputs for VGA
-    output reg [7:0] VGA_X;
-    output reg [6:0] VGA_Y;
-    output reg [cbit:0] VGA_COLOR;
+    // State Register
+    reg [2:0] state, next_state;
 
-    // State encoding
-    parameter GREETING = 2'b00, PLAYING = 2'b01, GAME_OVER = 2'b10;
+    // Render Counter
+    reg [2:0] render_counter;
 
-    // State registers
-    reg [1:0] next_game_state, game_state;
+    // Game Logic Outputs
+    wire [4:0] player_x, ghost1_x, ghost2_x, ghost3_x;
+    wire [3:0] player_y, ghost1_y, ghost2_y, ghost3_y;
+    wire [8:0] food_address;
+    wire food_exists;
 
-    // Enable signals
-    reg e_greeting, e_playing, e_game_over;
+    // Collision Detection
+    wire collision_detected;
 
-    // Finished signals
-    wire f_greeting, f_playing, f_game_over;
+    // Submodule Enables
+    reg e_game_logic, e_render, e_collision;
 
-    // Data control lines from submodules
-    wire [cbit:0] dt_greeting, dt_playing, dt_game_over;
-    wire [14:0] ad_greeting, ad_playing, ad_game_over;
-    wire wr_greeting, wr_playing, wr_game_over;
-
-    // VGA control lines from submodules
-    wire [7:0] vga_x_greeting, vga_x_playing, vga_x_game_over;
-    wire [6:0] vga_y_greeting, vga_y_playing, vga_y_game_over;
-    wire [cbit:0] vga_color_greeting, vga_color_playing, vga_color_game_over;
-
-    //half sec counter
-    wire hs_enable;
-    half_sec_counter hs_counter (CLOCK_50, enable, hs_enable); 
-
-    // PS2 controller input
-    input [7:0] last_key_received;
-
-    // State transition logic
-    always @ (posedge clock) begin
+    // State Transition Logic
+    always @(posedge clock or negedge resetn) begin
         if (!resetn)
-            game_state <= GREETING;  // Reset to initial state
+            state <= GREETING;
         else if (enable)
-            game_state <= next_game_state;  // If enabled, transition to the next state
+            state <= next_state;
     end
 
-    // Next state logic
-    always @ (*) begin
-        case (game_state)
-            GREETING: begin
-                if (f_greeting)
-                    next_game_state = PLAYING;  // When GREETING is finished, transition to PLAYING
-                else
-                    next_game_state = GREETING; // Otherwise, stay in GREETING
-            end
+    // Next State Logic
+    always @(*) begin
+        case (state)
+            GREETING:
+                next_state = enable ? PLAYING : GREETING;
+
             PLAYING: begin
-                if (f_playing)
-                    next_game_state = GAME_OVER;  // When PLAYING is finished, transition to GAME_OVER
+                if (e_game_logic && collision_detected)
+                    next_state = GAME_OVER;
+                else if (e_render && render_counter == 3'b100)
+                    next_state = GAME_LOGIC; // Complete rendering, return to logic
                 else
-                    next_game_state = PLAYING;   // Otherwise, stay in PLAYING
+                    next_state = PLAYING; // Stay in PLAYING while rendering or logic is ongoing
             end
-            GAME_OVER: begin
-                if (f_game_over)
-                    next_game_state = GREETING;  // When GAME_OVER is finished, loop back to GREETING
-                else
-                    next_game_state = GAME_OVER; // Otherwise, stay in GAME_OVER
-            end
-            default: next_game_state = GREETING; // Default state is GREETING
+
+            GAME_OVER:
+                next_state = GREETING;
+
+            default:
+                next_state = GREETING;
         endcase
     end
 
-    // Output logic
-    always @ (*) begin
-        e_greeting = (game_state == GREETING);
-        e_playing = (game_state == PLAYING);
-        e_game_over = (game_state == GAME_OVER);
-        case (game_state)
+    // Output Logic
+    always @(*) begin
+        // Default values
+        e_game_logic = 0;
+        e_render = 0;
+        e_collision = 0;
+        wren = 0;
+        finished = 0;
+
+        case (state)
             GREETING: begin
-                data = dt_greeting;
-                addr = ad_greeting;
-                wren = wr_greeting;
-                VGA_X = vga_x_greeting;
-                VGA_Y = vga_y_greeting;
-                VGA_COLOR = vga_color_greeting;
+                data = 0;
+                addr = 0;
+                VGA_X = 0;
+                VGA_Y = 0;
+                VGA_COLOR = 0;
             end
+
             PLAYING: begin
-                data = dt_playing;
-                addr = ad_playing;
-                wren = wr_playing;
-                VGA_X = vga_x_playing;
-                VGA_Y = vga_y_playing;
-                VGA_COLOR = vga_color_playing;
+                if (e_game_logic) begin
+                    e_collision = 1;
+                    wren = 1; // Enable memory writes for logic updates
+                end else if (e_render) begin
+                    e_render = 1;
+                    wren = 0; // Render is read-only
+                end
             end
+
             GAME_OVER: begin
-                data = dt_game_over;
-                addr = ad_game_over;
-                wren = wr_game_over;
-                VGA_X = vga_x_game_over;
-                VGA_Y = vga_y_game_over;
-                VGA_COLOR = vga_color_game_over;
-            end
-            default: begin
-                data = 12'h000;
-                addr = 17'b0;
-                wren = 1'b0;
-                VGA_X = 8'b0;
-                VGA_Y = 7'b0;
-                VGA_COLOR = 12'h000; // cbit is related to the parameter
+                finished = 1;
+                data = 0;
+                addr = 0;
+                wren = 0;
+                VGA_X = 0;
+                VGA_Y = 0;
+                VGA_COLOR = 0;
             end
         endcase
     end
 
-    // Instantiate submodules and connect VGA signals
-    m_greeting m_greeting_inst(
-        .clock(clock),
-        .resetn(resetn),
-        .enable(e_greeting),
-        .finished(f_greeting),
-        .data(dt_greeting),
-        .addr(ad_greeting),
-        .wren(wr_greeting)
-    );
+    // Render Counter
+    always @(posedge clock or negedge resetn) begin
+        if (!resetn)
+            render_counter <= 3'b000;
+        else if (state == RENDER)
+            render_counter <= render_counter + 1;
+        else
+            render_counter <= 3'b000;
+    end
 
-    m_playing m_playing_inst(
+    // Submodules
+
+    // Game Logic
+    m_game_logic game_logic_inst (
         .clock(clock),
         .resetn(resetn),
-        .enable(e_playing),
-        .finished(f_playing),
-        .data(dt_playing),
-        .addr(ad_playing),
-        .wren(wr_playing),
-        .q(q),
-        .VGA_X(vga_x_playing),
-        .VGA_Y(vga_y_playing),
-        .VGA_COLOR(vga_color_playing),
+        .enable(e_game_logic),
+        .player_x(player_x),
+        .player_y(player_y),
+        .ghost1_x(ghost1_x),
+        .ghost1_y(ghost1_y),
+        .ghost2_x(ghost2_x),
+        .ghost2_y(ghost2_y),
+        .ghost3_x(ghost3_x),
+        .ghost3_y(ghost3_y),
+        .food_address(food_address),
+        .food_exists(food_exists),
         .last_key_received(last_key_received)
     );
 
-    m_game_over m_game_over_inst(
+    // Collision Detection
+    m_ghost_collision ghost_collision_inst (
         .clock(clock),
         .resetn(resetn),
-        .enable(e_game_over),
-        .finished(f_game_over),
-        .data(dt_game_over),
-        .addr(ad_game_over),
-        .wren(wr_game_over)
+        .enable(e_collision),
+        .player_x(player_x),
+        .player_y(player_y),
+        .ghost1_x(ghost1_x),
+        .ghost1_y(ghost1_y),
+        .ghost2_x(ghost2_x),
+        .ghost2_y(ghost2_y),
+        .ghost3_x(ghost3_x),
+        .ghost3_y(ghost3_y),
+        .collided(collision_detected)
+    );
+
+    // Renderer
+    m_renderer renderer_inst (
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_render),
+        .component(render_counter), // Which component to render
+        .player_x(player_x),
+        .player_y(player_y),
+        .ghost1_x(ghost1_x),
+        .ghost1_y(ghost1_y),
+        .ghost2_x(ghost2_x),
+        .ghost2_y(ghost2_y),
+        .ghost3_x(ghost3_x),
+        .ghost3_y(ghost3_y),
+        .food_address(food_address),
+        .food_exists(food_exists),
+        .VGA_X(VGA_X),
+        .VGA_Y(VGA_Y),
+        .VGA_COLOR(VGA_COLOR)
     );
 
 endmodule
-
