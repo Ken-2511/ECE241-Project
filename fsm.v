@@ -6,14 +6,16 @@ module fsm_game_state (
     output reg [7:0] VGA_X,
     output reg [6:0] VGA_Y,
     output reg [11:0] VGA_COLOR,
-    input start_key
+    input start_key,
+    input collided // for testing
 );
 
     // State encoding
     parameter GREETING = 3'b000, 
               PLAYING_LOGIC = 3'b001, 
               PLAYING_RENDER = 3'b010, 
-              GAME_OVER = 3'b011;
+              WAITING = 3'b011,
+              GAME_OVER = 3'b100;
 
     reg [2:0] state, next_state;
 
@@ -24,10 +26,9 @@ module fsm_game_state (
     wire greeting_done, logic_done, render_done, game_over_done;
 
     // Collision detection signal
-    wire collision_detected;
+    wire collision_detected = collided;
 
     // Trigger for starting the game
-    // wire start_game = (last_key_received == 8'h29); // SPACE key to start
     wire start_game;
     assign start_game = ~start_key;
 
@@ -40,6 +41,27 @@ module fsm_game_state (
     wire [6:0] vga_y_greeting, vga_y_render, vga_y_game_over;
     wire [11:0] vga_color_greeting, vga_color_render, vga_color_game_over;
     wire [11:0] bg_color;
+
+    // Half second enable signal to slow down the FPS
+    parameter HS_COUNT = 25000000; // 50MHz / 2 = 25MHz
+    reg [25:0] hs_counter = 0;
+    reg hs_enable = 0;
+    always @(posedge clock or negedge resetn) begin
+        if (!resetn)
+            hs_counter <= 0;
+        else if (hs_counter == HS_COUNT)
+            hs_counter <= 0;
+        else
+            hs_counter <= hs_counter + 1;
+    end
+    always @(posedge clock or negedge resetn) begin
+        if (!resetn)
+            hs_enable <= 0;
+        else if (hs_counter == HS_COUNT)
+            hs_enable <= 1;
+        else
+            hs_enable <= 0;
+    end
 
     // State transition
     always @(posedge clock or negedge resetn) begin
@@ -59,10 +81,13 @@ module fsm_game_state (
                 next_state = collision_detected ? GAME_OVER : PLAYING_RENDER;
 
             PLAYING_RENDER:
-                next_state = render_done ? PLAYING_LOGIC : PLAYING_RENDER;
+                next_state = render_done ? WAITING : PLAYING_RENDER;
+
+            WAITING: 
+                next_state = (hs_enable == 1) ? PLAYING_LOGIC : WAITING;
 
             GAME_OVER: 
-                next_state = game_over_done ? GREETING : GAME_OVER;
+                next_state = GAME_OVER;
 
             default: 
                 next_state = GREETING;
@@ -88,6 +113,10 @@ module fsm_game_state (
 
             PLAYING_RENDER: begin
                 e_render = 1; // Enable rendering for PLAYING screen
+            end
+
+            WAITING: begin
+                // 在等待状态中，不需要任何操作
             end
 
             GAME_OVER: begin
@@ -184,20 +213,20 @@ module fsm_game_state (
     );
 
     // Collision detection module
-    m_collision collision_inst (
-        .clock(clock),
-        .resetn(resetn),
-        .enable(e_logic), // Check for collision during logic update
-        .player_x(player_x),
-        .player_y(player_y),
-        .ghost1_x(ghost1_x),
-        .ghost1_y(ghost1_y),
-        .ghost2_x(ghost2_x),
-        .ghost2_y(ghost2_y),
-        .ghost3_x(ghost3_x),
-        .ghost3_y(ghost3_y),
-        .collision_detected(collision_detected)
-    );
+    // m_collision collision_inst (
+    //     .clock(clock),
+    //     .resetn(resetn),
+    //     .enable(e_logic), // Check for collision during logic update
+    //     .player_x(player_x),
+    //     .player_y(player_y),
+    //     .ghost1_x(ghost1_x),
+    //     .ghost1_y(ghost1_y),
+    //     .ghost2_x(ghost2_x),
+    //     .ghost2_y(ghost2_y),
+    //     .ghost3_x(ghost3_x),
+    //     .ghost3_y(ghost3_y),
+    //     .collision_detected(collision_detected)
+    // );
 
     // the instance for the background color
     // canvas u_canvas (

@@ -52,7 +52,8 @@ module main (
         .VGA_X(VGA_X),
         .VGA_Y(VGA_Y),
         .VGA_COLOR(VGA_COLOR),
-        .start_key(KEY[2])
+        .start_key(KEY[2]),
+        .collided(~KEY[3])
     );
 
     // VGA Adapter

@@ -54,6 +54,17 @@ add wave -noupdate -label ghost3_y -radix unsigned /fsm_tb/uut/ghost3_y
 add wave -noupdate -divider ps2_signals
 add wave -noupdate -label last_key_received -radix hexadecimal /fsm_tb/uut/last_key_received
 
+# Renderer
+add wave -noupdate -divider renderer_signals
+add wave -noupdate -label render_index -radix unsigned /fsm_tb/uut/renderer_inst/render_index
+add wave -noupdate -label finished -radix binary /fsm_tb/uut/renderer_inst/finished
+add wave -noupdate -label state -radix unsigned /fsm_tb/uut/renderer_inst/state
+add wave -noupdate -label pl_color -radix hexadecimal /fsm_tb/uut/renderer_inst/pl_color
+add wave -noupdate -label curr_x -radix unsigned /fsm_tb/uut/renderer_inst/curr_x
+add wave -noupdate -label curr_y -radix unsigned /fsm_tb/uut/renderer_inst/curr_y
+add wave -noupdate -label dx -radix unsigned /fsm_tb/uut/renderer_inst/dx
+add wave -noupdate -label dy -radix unsigned /fsm_tb/uut/renderer_inst/dy
+
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {10000 ps} 0}
 quietly wave cursor active 1

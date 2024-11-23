@@ -24,6 +24,8 @@ module m_game_logic (
         end
         else if (enable)
             finished <= 1;
+        else
+            finished <= 0;
     end
 endmodule
 

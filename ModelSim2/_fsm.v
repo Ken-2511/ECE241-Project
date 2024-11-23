@@ -9,11 +9,13 @@ module fsm_tb;
     reg resetn;
     reg enable;
     reg [7:0] last_key_received;
+    reg start_key;  // 添加 start_key 作为一个输入信号
 
     // Testbench outputs
     wire [7:0] VGA_X;
     wire [6:0] VGA_Y;
     wire [11:0] VGA_COLOR;
+    reg collided;
 
     // Instantiate the FSM
     fsm_game_state uut (
@@ -23,7 +25,9 @@ module fsm_tb;
         .last_key_received(last_key_received),
         .VGA_X(VGA_X),
         .VGA_Y(VGA_Y),
-        .VGA_COLOR(VGA_COLOR)
+        .VGA_COLOR(VGA_COLOR),
+        .start_key(start_key),
+        .collided(collided) // Mock collision detection signal
     );
 
     // Clock generation
@@ -38,17 +42,21 @@ module fsm_tb;
         resetn = 0;
         enable = 0;
         last_key_received = 8'h00;
+        start_key = 0; // 初始化 start_key 为 0
+        collided = 0;
 
         // Apply reset
         #20 resetn = 1;
         #20 enable = 1;
 
         // Test GREETING state
-        #20 last_key_received = 8'h00; // No key pressed
-        #20 last_key_received = 8'h29; // SPACE key to start game
+        #20 start_key = 0; // No key pressed
+        #20 start_key = 1; // 触发开始游戏
 
         // Test PLAYING states
-        #40 last_key_received = 8'h00; // No additional input
+        #40 start_key = 0; // Reset start_key after game starts
+        last_key_received = 8'h00; // No additional input
+        // collided = 1'b1; // Simulate collision during PLAYING_LOGIC
 
         // Simulate collision during PLAYING_LOGIC
         #40 last_key_received = 8'h00;
@@ -65,85 +73,6 @@ endmodule
 
 // Mock greeting module
 module m_greeting (
-    input clock,
-    input resetn,
-    input enable,
-    output reg finished,
-    output reg [7:0] VGA_X,
-    output reg [6:0] VGA_Y,
-    output reg [11:0] VGA_COLOR
-);
-    always @(posedge clock or negedge resetn) begin
-        if (!resetn)
-            finished <= 0;
-        else if (enable)
-            finished <= 1;
-    end
-endmodule
-
-// Mock game logic module
-module m_game_logic (
-    input clock,
-    input resetn,
-    input enable,
-    output reg finished,
-    output reg [4:0] player_x,
-    output reg [3:0] player_y,
-    output reg [4:0] ghost1_x, ghost2_x, ghost3_x,
-    output reg [3:0] ghost1_y, ghost2_y, ghost3_y,
-    input [7:0] last_key_received
-);
-    always @(posedge clock or negedge resetn) begin
-        if (!resetn)
-            finished <= 0;
-        else if (enable)
-            finished <= 1;
-    end
-endmodule
-
-// Mock renderer module
-module m_renderer (
-    input clock,
-    input resetn,
-    input enable,
-    output reg finished,
-    output reg [7:0] VGA_X,
-    output reg [6:0] VGA_Y,
-    output reg [11:0] VGA_COLOR,
-    input [4:0] pl_game_x,
-    input [3:0] pl_game_y,
-    input [4:0] g1_game_x, g2_game_x, g3_game_x,
-    input [3:0] g1_game_y, g2_game_y, g3_game_y
-);
-    always @(posedge clock or negedge resetn) begin
-        if (!resetn)
-            finished <= 0;
-        else if (enable)
-            finished <= 1;
-    end
-endmodule
-
-// Mock collision detection module
-module m_collision (
-    input clock,
-    input resetn,
-    input enable,
-    input [4:0] player_x,
-    input [3:0] player_y,
-    input [4:0] ghost1_x, ghost2_x, ghost3_x,
-    input [3:0] ghost1_y, ghost2_y, ghost3_y,
-    output reg collision_detected
-);
-    always @(posedge clock or negedge resetn) begin
-        if (!resetn)
-            collision_detected <= 0;
-        else if (enable)
-            collision_detected <= 1; // Simulate collision detected
-    end
-endmodule
-
-// Mock game over module
-module m_game_over (
     input clock,
     input resetn,
     input enable,

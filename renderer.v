@@ -30,7 +30,8 @@ module m_renderer (
     reg [2:0] state, next_state;
 
     // Rendering variables
-    reg [4:0] curr_x, curr_y;       // Current rendering logical coordinates
+    reg [4:0] curr_x;       // Current rendering logical coordinates
+    reg [3:0] curr_y;
     reg [3:0] dx, dy;               // Offsets within the block
     reg [11:0] curr_color;          // Current rendering color (12-bit: R,G,B each 4-bit)
     wire [11:0] pl_color;           // Player color
@@ -129,7 +130,8 @@ module m_renderer (
                     else if (dy < 4) begin
                         dx <= 0;
                         dy <= dy + 1;
-                    end else begin
+                    end
+                    else begin
                         dx <= 0;
                         dy <= 0;
                         if (render_index < 3) begin
