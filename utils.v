@@ -145,16 +145,16 @@ module half_sec_counter(clock, resetn, enable);
 endmodule
 
 
-module debounce_filter (
+module debounce_filter #(
+    parameter n = 8,                 // 输入信号的位宽
+    parameter THRESHOLD = 10,        // 连续稳定所需的周期数
+    parameter COUNTER_WIDTH = $clog2(THRESHOLD) // 计数器的位宽
+) (
     input wire clock,                // 时钟信号
     input wire resetn,               // 低电平复位
     input wire [n-1:0] A,            // 输入信号（需要去抖）
     output reg [n-1:0] B             // 输出信号（已稳定）
 );
-
-    parameter n = 8;                 // 输入信号的位宽
-    parameter THRESHOLD = 10;        // 连续稳定所需的周期数
-    parameter COUNTER_WIDTH = $clog2(THRESHOLD); // 计数器的位宽
 
     reg [COUNTER_WIDTH-1:0] counter; // 计数器
     reg [n-1:0] prev_A;              // 记录前一个周期的 A 值

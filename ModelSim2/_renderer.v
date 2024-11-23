@@ -33,7 +33,7 @@ module renderer_tb;
     reg [2:0] g3_color;
 
     // Instantiate the renderer module
-    renderer uut (
+    m_renderer uut (
         .clock(clock),
         .resetn(resetn),
         .enable(enable),
@@ -44,16 +44,12 @@ module renderer_tb;
         .bg_color(bg_color),
         .pl_game_x(pl_game_x),
         .pl_game_y(pl_game_y),
-        .pl_color(pl_color),
         .g1_game_x(g1_game_x),
         .g1_game_y(g1_game_y),
-        .g1_color(g1_color),
         .g2_game_x(g2_game_x),
         .g2_game_y(g2_game_y),
-        .g2_color(g2_color),
         .g3_game_x(g3_game_x),
-        .g3_game_y(g3_game_y),
-        .g3_color(g3_color)
+        .g3_game_y(g3_game_y)
     );
 
     // Clock generation

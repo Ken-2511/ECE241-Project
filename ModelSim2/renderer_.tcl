@@ -14,10 +14,9 @@ foreach file [glob -nocomplain ../*.mif] {
 vlib work;
 
 # compile the Verilog source code in the parent folder
-vlog ../vga_adapter/*.v
-# vlog ..PS2_Controller/*.v
-vlog *.v
-vlog ../*.v
+vlog ../renderer.v
+vlog ./renderer_testbench.v
+
 # start the Simulator, including some libraries that may be needed
 vsim work.renderer_tb -Lf 220model -Lf altera_mf_ver -Lf verilog
 # show waveforms specified in wave.do

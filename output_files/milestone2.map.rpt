@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Sat Nov 23 08:01:35 2024
+Sat Nov 23 08:05:46 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -78,13 +78,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 23 08:01:35 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 23 08:05:46 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; main                                           ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 218                                            ;
+; Total registers                 ; 220                                            ;
 ; Total pins                      ; 70                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 249,600                                        ;
@@ -199,8 +199,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-16        ;   0.0%      ;
+;     Processors 2-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -260,16 +259,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 330            ;
+; Estimate of Logic utilization (ALMs needed) ; 333            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 609            ;
+; Combinational ALUT usage for logic          ; 612            ;
 ;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 44             ;
-;     -- 5 input functions                    ; 36             ;
-;     -- 4 input functions                    ; 99             ;
-;     -- <=3 input functions                  ; 430            ;
+;     -- 6 input functions                    ; 47             ;
+;     -- 5 input functions                    ; 34             ;
+;     -- 4 input functions                    ; 98             ;
+;     -- <=3 input functions                  ; 433            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 218            ;
+; Dedicated logic registers                   ; 220            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 70             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -281,8 +280,8 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 228            ;
-; Total fan-out                               ; 3982           ;
+; Maximum fan-out                             ; 230            ;
+; Total fan-out                               ; 4002           ;
 ; Average fan-out                             ; 3.95           ;
 +---------------------------------------------+----------------+
 
@@ -292,11 +291,11 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                             ; Entity Name               ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |main                                                   ; 609 (2)             ; 218 (8)                   ; 249600            ; 0          ; 70   ; 0            ; |main                                                                                                                                                           ; main                      ; work         ;
-;    |PS2_Controller:PS2|                                 ; 108 (6)             ; 90 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2                                                                                                                                        ; PS2_Controller            ; work         ;
+; |main                                                   ; 612 (2)             ; 220 (8)                   ; 249600            ; 0          ; 70   ; 0            ; |main                                                                                                                                                           ; main                      ; work         ;
+;    |PS2_Controller:PS2|                                 ; 108 (7)             ; 90 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2                                                                                                                                        ; PS2_Controller            ; work         ;
 ;       |Altera_UP_PS2_Command_Out:PS2_Command_Out|       ; 86 (86)             ; 60 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out                                                                                              ; Altera_UP_PS2_Command_Out ; work         ;
-;       |Altera_UP_PS2_Data_In:PS2_Data_In|               ; 16 (16)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In                                                                                                      ; Altera_UP_PS2_Data_In     ; work         ;
-;    |debounce_filter:debounce|                           ; 23 (23)             ; 29 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |main|debounce_filter:debounce                                                                                                                                  ; debounce_filter           ; work         ;
+;       |Altera_UP_PS2_Data_In:PS2_Data_In|               ; 15 (15)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In                                                                                                      ; Altera_UP_PS2_Data_In     ; work         ;
+;    |debounce_filter:debounce|                           ; 26 (26)             ; 31 (31)                   ; 0                 ; 0          ; 0    ; 0            ; |main|debounce_filter:debounce                                                                                                                                  ; debounce_filter           ; work         ;
 ;    |fsm_game_state:game_fsm|                            ; 388 (22)            ; 61 (4)                    ; 19200             ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm                                                                                                                                   ; fsm_game_state            ; work         ;
 ;       |m_collision:collision_inst|                      ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_collision:collision_inst                                                                                                        ; m_collision               ; work         ;
 ;       |m_game_over:game_over_inst|                      ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_over:game_over_inst                                                                                                        ; m_game_over               ; work         ;
@@ -496,12 +495,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 218   ;
-; Number of registers using Synchronous Clear  ; 132   ;
+; Total registers                              ; 220   ;
+; Number of registers using Synchronous Clear  ; 134   ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 108   ;
+; Number of registers using Asynchronous Clear ; 110   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 162   ;
+; Number of registers using Clock Enable       ; 164   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -511,19 +510,19 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[7]                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[7]                                                                             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[5]                            ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|debounce_filter:debounce|counter[3]                                                               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[0]                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[6]                                                                             ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[1]                                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[3]                            ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |main|debounce_filter:debounce|counter[6]                                                               ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[3]                                            ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[8]          ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[12]                  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[0]                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[3]                                ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[13]                 ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[2]          ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[14]                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[3]                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[1]                                ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[15]                 ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[0]                                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[6] ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[0] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
 
 
@@ -1172,8 +1171,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name ; Value ; Type                                         ;
 +----------------+-------+----------------------------------------------+
 ; n              ; 8     ; Signed Integer                               ;
-; THRESHOLD      ; 5000  ; Signed Integer                               ;
-; COUNTER_WIDTH  ; 13    ; Signed Integer                               ;
+; THRESHOLD      ; 25000 ; Signed Integer                               ;
+; COUNTER_WIDTH  ; 15    ; Signed Integer                               ;
 +----------------+-------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -1327,31 +1326,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 218                         ;
+; arriav_ff             ; 220                         ;
 ;     CLR               ; 18                          ;
 ;     CLR SCLR          ; 10                          ;
 ;     ENA               ; 8                           ;
 ;     ENA CLR           ; 42                          ;
-;     ENA CLR SCLR      ; 38                          ;
+;     ENA CLR SCLR      ; 40                          ;
 ;     ENA SCLR          ; 74                          ;
 ;     SCLR              ; 10                          ;
 ;     plain             ; 18                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 612                         ;
-;     arith             ; 252                         ;
+; arriav_lcell_comb     ; 615                         ;
+;     arith             ; 254                         ;
 ;         0 data inputs ; 28                          ;
-;         1 data inputs ; 112                         ;
+;         1 data inputs ; 114                         ;
 ;         2 data inputs ; 8                           ;
 ;         3 data inputs ; 68                          ;
 ;         4 data inputs ; 36                          ;
-;     normal            ; 322                         ;
+;     normal            ; 323                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 12                          ;
-;         2 data inputs ; 119                         ;
+;         2 data inputs ; 120                         ;
 ;         3 data inputs ; 49                          ;
-;         4 data inputs ; 60                          ;
-;         5 data inputs ; 36                          ;
-;         6 data inputs ; 44                          ;
+;         4 data inputs ; 59                          ;
+;         5 data inputs ; 34                          ;
+;         6 data inputs ; 47                          ;
 ;     shared            ; 38                          ;
 ;         0 data inputs ; 4                           ;
 ;         1 data inputs ; 18                          ;
@@ -1363,7 +1362,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 39                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.30                       ;
-; Average LUT depth     ; 7.33                        ;
+; Average LUT depth     ; 7.30                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1382,7 +1381,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Nov 23 08:01:29 2024
+    Info: Processing started: Sat Nov 23 08:05:40 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file greeting_win_over.v
@@ -1555,7 +1554,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 216
 Info (12128): Elaborating entity "debounce_filter" for hierarchy "debounce_filter:debounce" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 85
-Warning (10230): Verilog HDL assignment warning at utils.v(171): truncated value with size 32 to match size of target (13) File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 171
+Warning (10230): Verilog HDL assignment warning at utils.v(171): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 171
 Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fsm_game_state:game_fsm|m_greeting:greeting_inst|Div0" File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 28
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fsm_game_state:game_fsm|m_greeting:greeting_inst|Mod0" File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 27
@@ -1602,16 +1601,16 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
-Info (21057): Implemented 777 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 780 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
     Info (21059): Implemented 55 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 667 logic cells
+    Info (21061): Implemented 670 logic cells
     Info (21064): Implemented 39 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
-    Info: Peak virtual memory: 4897 megabytes
-    Info: Processing ended: Sat Nov 23 08:01:35 2024
+    Info: Peak virtual memory: 4889 megabytes
+    Info: Processing ended: Sat Nov 23 08:05:46 2024
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:14
 
