@@ -1,3 +1,2 @@
 Info (10281): Verilog HDL Declaration information at player_movement.v(5): object "w" differs only in case from object "W" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 5
 Warning (10268): Verilog HDL information at player_movement.v(32): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 32
-Warning (10268): Verilog HDL information at milestone2.v(69): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 69

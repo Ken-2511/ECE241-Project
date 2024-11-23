@@ -67,14 +67,6 @@ module main (
         .last_key_received(last_key_received)
     );
 
-    canvas canvas_inst (
-        .address(addr),
-        .clock(CLOCK_50),
-        .data(data),
-        .wren(wren),
-        .q(q)
-    );
-
     delay_one_cycle delay_x (
         .clock(CLOCK_50),
         .resetn(KEY[0]),

@@ -1,6 +1,6 @@
 Analysis & Synthesis report for milestone2
-Wed Nov 20 16:30:12 2024
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Sat Nov 23 05:32:06 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
 ---------------------
@@ -18,9 +18,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2024  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -30,26 +30,27 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Wed Nov 20 16:30:12 2024           ;
-; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name               ; milestone2                                  ;
-; Top-level Entity Name       ; milestone2                                  ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++-----------------------------+------------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Sat Nov 23 05:32:06 2024              ;
+; Quartus Prime Version       ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name               ; milestone2                                     ;
+; Top-level Entity Name       ; main                                           ;
+; Family                      ; Cyclone V                                      ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                      ;
+; Total registers             ; N/A until Partition Merge                      ;
+; Total pins                  ; N/A until Partition Merge                      ;
+; Total virtual pins          ; N/A until Partition Merge                      ;
+; Total block memory bits     ; N/A until Partition Merge                      ;
+; Total PLLs                  ; N/A until Partition Merge                      ;
+; Total DLLs                  ; N/A until Partition Merge                      ;
++-----------------------------+------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -58,7 +59,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
-; Top-level entity name                                                           ; milestone2         ; milestone2         ;
+; Top-level entity name                                                           ; main               ; milestone2         ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Maximum processors allowed for parallel compilation                             ; All                ;                    ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
@@ -145,7 +146,7 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
+; Number detected on machine ; 32          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -161,28 +162,36 @@ refer to the applicable agreement for further details.
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Nov 20 16:30:04 2024
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Sat Nov 23 05:32:01 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
-Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
+Info (12021): Found 14 design units, including 14 entities, in source file _modules.v
+    Info (12023): Found entity 1: m_greeting File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 1
+    Info (12023): Found entity 2: m_game_over File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 47
+    Info (12023): Found entity 3: m_clear_screen File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 73
+    Info (12023): Found entity 4: m_update_position File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 116
+    Info (12023): Found entity 5: m_eat_food File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 173
+    Info (12023): Found entity 6: m_update_ghost_directions File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 214
+    Info (12023): Found entity 7: m_update_ghost_positions File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 253
+    Info (12023): Found entity 8: m_fill_screen File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 329
+    Info (12023): Found entity 9: m_render_blocks File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 368
+    Info (12023): Found entity 10: m_render_player File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 449
+    Info (12023): Found entity 11: m_render_food File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 539
+    Info (12023): Found entity 12: m_render_ghosts File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 643
+    Info (12023): Found entity 13: m_ghost_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 761
+    Info (12023): Found entity 14: m_update_vga File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 816
+Info (12021): Found 1 design units, including 1 entities, in source file renderer.v
+    Info (12023): Found entity 1: renderer File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file main.v
+    Info (12023): Found entity 1: main File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 1
+Info (12021): Found 3 design units, including 3 entities, in source file ghosts_movement.v
+    Info (12023): Found entity 1: ghost1_path File: C:/Users/IWMAI/Desktop/ECE241-Project/ghosts_movement.v Line: 3
+    Info (12023): Found entity 2: ghost2_path File: C:/Users/IWMAI/Desktop/ECE241-Project/ghosts_movement.v Line: 34
+    Info (12023): Found entity 3: ghost3_path File: C:/Users/IWMAI/Desktop/ECE241-Project/ghosts_movement.v Line: 65
 Info (12021): Found 2 design units, including 2 entities, in source file player_movement.v
     Info (12023): Found entity 1: get_direction File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 2
     Info (12023): Found entity 2: movement_FSM File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 23
-Info (12021): Found 14 design units, including 14 entities, in source file modules.v
-    Info (12023): Found entity 1: m_greeting File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 1
-    Info (12023): Found entity 2: m_game_over File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 47
-    Info (12023): Found entity 3: m_clear_screen File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 73
-    Info (12023): Found entity 4: m_update_position File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 116
-    Info (12023): Found entity 5: m_eat_food File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 170
-    Info (12023): Found entity 6: m_update_ghost_directions File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 209
-    Info (12023): Found entity 7: m_update_ghost_positions File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 248
-    Info (12023): Found entity 8: m_fill_screen File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 324
-    Info (12023): Found entity 9: m_render_blocks File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 363
-    Info (12023): Found entity 10: m_render_player File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 442
-    Info (12023): Found entity 11: m_render_food File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 532
-    Info (12023): Found entity 12: m_render_ghosts File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 629
-    Info (12023): Found entity 13: m_ghost_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 745
-    Info (12023): Found entity 14: m_update_vga File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 784
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/ps2_controller.v
     Info (12023): Found entity 1: PS2_Controller File: C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/PS2_Controller.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file ps2_controller/altera_up_ps2_data_in.v
@@ -209,11 +218,8 @@ Info (12021): Found 8 design units, including 8 entities, in source file utils.v
 Info (12021): Found 1 design units, including 1 entities, in source file top.v
     Info (12023): Found entity 1: top File: C:/Users/IWMAI/Desktop/ECE241-Project/top.v Line: 5
 Info (12021): Found 0 design units, including 0 entities, in source file ps2.v
-Info (12021): Found 1 design units, including 1 entities, in source file milestone2.v
-    Info (12023): Found entity 1: milestone2 File: C:/Users/IWMAI/Desktop/ECE241-Project/milestone2.v Line: 8
-Info (12021): Found 2 design units, including 2 entities, in source file fsm.v
+Info (12021): Found 1 design units, including 1 entities, in source file fsm.v
     Info (12023): Found entity 1: fsm_game_state File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 1
-    Info (12023): Found entity 2: m_playing File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 165
 Info (12021): Found 1 design units, including 1 entities, in source file blocks.v
     Info (12023): Found entity 1: blocks File: C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file canvas.v
@@ -230,18 +236,27 @@ Info (12021): Found 1 design units, including 1 entities, in source file greetin
     Info (12023): Found entity 1: greeting_screen File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_screen.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file ghost3.v
     Info (12023): Found entity 1: ghost3 File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost3.v Line: 40
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(43): created implicit net for "CLOCK_50" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 43
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(47): created implicit net for "address" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 47
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(47): created implicit net for "q1" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 47
-Warning (10236): Verilog HDL Implicit Net warning at fsm.v(237): created implicit net for "hs_enable" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 237
-Error (10206): Verilog HDL Module Declaration error at modules.v(122): top module port "hs_enable" is not found in the port list File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 122
-Error (10161): Verilog HDL error at modules.v(148): object "he_enable" is not declared. Verify the object name is correct. If the name is correct, declare the object. File: C:/Users/IWMAI/Desktop/ECE241-Project/modules.v Line: 148
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(135): created implicit net for "ghost1_x" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 135
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(136): created implicit net for "ghost1_y" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 136
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(137): created implicit net for "ghost2_x" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 137
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(138): created implicit net for "ghost2_y" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 138
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(139): created implicit net for "ghost3_x" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 139
+Warning (10236): Verilog HDL Implicit Net warning at fsm.v(140): created implicit net for "ghost3_y" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 140
+Error (10231): Verilog HDL error at _modules.v(592): value cannot be assigned to input "f_data" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 592
+Info (12127): Elaborating entity "main" for the top level hierarchy
+Warning (10034): Output port "HEX1" at main.v(5) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 5
+Warning (10034): Output port "HEX0" at main.v(5) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 5
+Warning (10034): Output port "HEX4" at main.v(9) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 9
+Warning (10034): Output port "HEX5" at main.v(9) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 9
+Warning (10034): Output port "LEDR[9..1]" at main.v(10) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 10
+Warning (10034): Output port "plot" at main.v(15) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 15
+Error (12153): Can't elaborate top-level user hierarchy
 Info (144001): Generated suppressed messages file C:/Users/IWMAI/Desktop/ECE241-Project/output_files/milestone2.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 4 warnings
-    Error: Peak virtual memory: 4777 megabytes
-    Error: Processing ended: Wed Nov 20 16:30:12 2024
-    Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:09
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 12 warnings
+    Error: Peak virtual memory: 4781 megabytes
+    Error: Processing ended: Sat Nov 23 05:32:06 2024
+    Error: Elapsed time: 00:00:05
+    Error: Total CPU time (on all processors): 00:00:12
 
 
 +------------------------------------------+

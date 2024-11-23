@@ -169,50 +169,6 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
 endmodule
 
 
-module m_eat_food(clock, resetn, enable, wren, finished, data, addr, player_x, player_y, food_x, food_y, food_exists);
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-
-    // Player and food coordinates
-    input [4:0] player_x, food_x;
-    input [3:0] player_y, food_y;
-    input food_exists;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 15'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 0; // Disable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b011; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
 // here we re-define this module in case the upper one does not work
 module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
 
