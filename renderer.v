@@ -7,15 +7,14 @@ module m_renderer (
     // VGA outputs
     output reg [7:0] VGA_X,         // VGA x-coordinate
     output reg [6:0] VGA_Y,         // VGA y-coordinate
-    output reg [2:0] VGA_COLOR,     // VGA color output
+    output reg [11:0] VGA_COLOR,    // VGA color output (12-bit: R,G,B each 4-bit)
 
     // Background
-    input wire [2:0] bg_color,
+    input wire [11:0] bg_color,     // 12-bit background color
 
     // Player
     input wire [4:0] pl_game_x,
     input wire [3:0] pl_game_y,
-    input wire [2:0] pl_color,
 
     // Ghosts
     input wire [4:0] g1_game_x,
@@ -33,6 +32,7 @@ module m_renderer (
     // Rendering variables
     reg [4:0] curr_x, curr_y;       // Current rendering logical coordinates
     reg [3:0] dx, dy;               // Offsets within the block
+    wire [11:0] pl_color;           // Player color (12-bit: R,G,B each 4-bit)
 
     // Rendering target index
     reg [1:0] render_index;         // 0: Player, 1: Ghost 1, 2: Ghost 2, 3: Ghost 3
@@ -104,7 +104,7 @@ module m_renderer (
                     // Draw player or ghost
                     VGA_X <= curr_x * 5 + dx;
                     VGA_Y <= curr_y * 5 + dy;
-                    VGA_COLOR <= (render_index == 0) ? pl_color : 3'b110; // Assuming ghosts have a fixed color
+                    VGA_COLOR <= (render_index == 0) ? pl_color : 12'hFFF; // Assume ghosts are white (12-bit color)
 
                     if (dx < 4)
                         dx <= dx + 1'b1;
@@ -129,5 +129,12 @@ module m_renderer (
             finished <= 1'b0;
         end
     end
+
+    // Player module instantiation
+    player u_player (
+        .address(dy * 5 + dx),
+        .clock(clock),
+        .q(pl_color)
+    );
 
 endmodule

@@ -529,13 +529,13 @@ R8
 !i113 1
 R9
 vm_renderer
-!s110 1732367608
+Z28 !s110 1732369052
 !i10b 1
-!s100 V8hRY?]BSVg]f;HP5GHI=2
-I5R<7e9I35[VS^bfof<ET91
+!s100 :zIFzX?Rg[:Z<JD6EADJA1
+I1ZIzW>E?g53M0<ShHn^C[3
 R1
 R2
-w1732366737
+w1732368983
 8../renderer.v
 F../renderer.v
 L0 1
@@ -543,7 +543,7 @@ R5
 r1
 !s85 0
 31
-!s108 1732367608.000000
+Z29 !s108 1732369052.000000
 !s107 ../renderer.v|
 !s90 -reportprogress|300|../renderer.v|
 !i113 1
@@ -650,23 +650,23 @@ R8
 !i113 1
 R9
 vrenderer_tb
-!s110 1732367489
+R28
 !i10b 1
-!s100 CCTf5O_5AKaYEjV<[6amL1
-IeIG1?M6<<eO7eVmD7Aboj0
+!s100 C8```M:S7PSlBCdLk<k>J1
+I[e;4ihAeJHgeJnmP7iDg:2
 R1
 R2
-w1732367488
-8./renderer_testbench.v
-F./renderer_testbench.v
+w1732369049
+8./_renderer.v
+F./_renderer.v
 L0 3
 R5
 r1
 !s85 0
 31
-!s108 1732367489.000000
-!s107 ./renderer_testbench.v|
-!s90 -reportprogress|300|./renderer_testbench.v|
+R29
+!s107 ./_renderer.v|
+!s90 -reportprogress|300|./_renderer.v|
 !i113 1
 R9
 vtop
@@ -705,8 +705,8 @@ r1
 !s85 0
 31
 R6
-Z28 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
-Z29 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
+Z30 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
+Z31 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
 !i113 1
 R9
 vvga_address_translator
@@ -725,8 +725,8 @@ r1
 !s85 0
 31
 R6
-R28
-R29
+R30
+R31
 !i113 1
 R9
 vvga_controller
@@ -745,8 +745,8 @@ r1
 !s85 0
 31
 R6
-R28
-R29
+R30
+R31
 !i113 1
 R9
 vvga_pll
@@ -765,7 +765,7 @@ r1
 !s85 0
 31
 R6
-R28
-R29
+R30
+R31
 !i113 1
 R9

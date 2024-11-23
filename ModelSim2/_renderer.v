@@ -11,26 +11,26 @@ module renderer_tb;
     // VGA outputs
     wire [7:0] VGA_X;
     wire [6:0] VGA_Y;
-    wire [2:0] VGA_COLOR;
+    wire [11:0] VGA_COLOR;
 
     // Background
-    reg [2:0] bg_color;
+    reg [11:0] bg_color;
 
     // Player
     reg [4:0] pl_game_x;
     reg [3:0] pl_game_y;
-    reg [2:0] pl_color;
+    reg [11:0] pl_color;
 
     // Ghosts
     reg [4:0] g1_game_x;
     reg [3:0] g1_game_y;
-    reg [2:0] g1_color;
+    reg [11:0] g1_color;
     reg [4:0] g2_game_x;
     reg [3:0] g2_game_y;
-    reg [2:0] g2_color;
+    reg [11:0] g2_color;
     reg [4:0] g3_game_x;
     reg [3:0] g3_game_y;
-    reg [2:0] g3_color;
+    reg [11:0] g3_color;
 
     // Instantiate the renderer module
     m_renderer uut (
