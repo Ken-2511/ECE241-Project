@@ -132,7 +132,7 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
     output reg [14:0] addr;
 
     // Player
-    input [1:0] direction;
+    input [2:0] direction;
     output reg [4:0] player_x;
     output reg [3:0] player_y;
 
@@ -169,6 +169,51 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
 endmodule
 
 
+module m_eat_food(clock, resetn, enable, wren, finished, data, addr, player_x, player_y, food_x, food_y, food_exists);
+
+    parameter cbit = 11;
+
+    // Basic inputs
+    input clock, resetn, enable;
+
+    // Output write enable signal
+    output reg wren; // wren signal for controlling writes
+
+    // Finish signal
+    output reg finished;
+
+    // Data and address control
+    output reg [cbit:0] data;
+    output reg [14:0] addr;
+
+    // Player and food coordinates
+    input [4:0] player_x, food_x;
+    input [3:0] player_y, food_y;
+    input food_exists;
+
+    always @ (posedge clock) begin
+        if (!resetn) begin
+            finished <= 0;  // Reset to initial state
+            data <= 3'b000;
+            addr <= 15'b0;
+            wren <= 0; // Disable write
+        end
+        else if (enable) begin
+            wren <= 0; // Disable write
+            finished <= 1;  // Finish immediately when enabled, for testing
+            data <= 3'b011; // Example data value
+            addr <= addr + 1; // Increment address
+        end
+        else if (finished) begin
+            wren <= 0; // Disable write when finished
+            finished <= 0;  // Reset to initial state
+        end
+    end
+
+endmodule
+
+
+// here we re-define this module in case the upper one does not work
 module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
 
     // TODO: Implement this module
@@ -535,7 +580,7 @@ module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X,
 endmodule
 
 
-module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR);
+module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, f_addr, f_q, f_wren, f_data);
 
     parameter cbit = 11;
 
@@ -575,13 +620,20 @@ module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, V
 
     // assign addr = _addr;
 
-    food FOOD (
-        .address(temp_food_addr),
-        .clock(clock),
-        .q(food_exists),
-        .wren(1'b0),
-        .data(1'b0)
-    );
+    // food FOOD (
+    //     .address(temp_food_addr),
+    //     .clock(clock),
+    //     .q(food_exists),
+    //     .wren(1'b0),
+    //     .data(1'b0)
+    // );
+    output [8:0] f_addr;
+    input f_q;
+    output f_wren;
+    input f_data;
+    assign f_addr = temp_food_addr;
+    assign f_wren = 1'b0;
+    assign f_data = 1'b0;
 
     // For controlling the data and address
     always @ (posedge clock) begin

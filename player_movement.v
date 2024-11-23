@@ -23,7 +23,7 @@ endmodule
 module movement_FSM(clock, resetn, enable, w, z); // Add wall collision later
     input clock, resetn, enable;
     input [2:0] w;
-    output reg [3:0] z;
+    output reg [2:0] z;
 
     reg [2:0] state, next_state;
     parameter still = 3'b000, up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;

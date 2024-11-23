@@ -40,7 +40,7 @@ module fsm_game_state(clock, resetn, enable, data, addr, wren, q, VGA_X, VGA_Y, 
 
     //half sec counter
     wire hs_enable;
-    half_sec_counter(CLOCK_50, enable, hs_enable); 
+    half_sec_counter hs_counter (CLOCK_50, enable, hs_enable); 
 
     // PS2 controller input
     input [7:0] last_key_received;

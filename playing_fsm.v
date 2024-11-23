@@ -67,7 +67,7 @@ module m_playing(
     //Player
     wire [4:0] player_x; //may need to put the x and y back if error 
     wire [3:0] player_y;
-    wire [3:0] w; //internal carry to deal with the movement FSM
+    wire [2:0] w; //internal carry to deal with the movement FSM
     wire [2:0] direction;
     parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
     get_direction find_direction(last_key_received, hs_enable, w);
@@ -95,6 +95,19 @@ module m_playing(
         .data(blk_data),
         .wren(blk_wren),
         .q(blk_q)
+    );
+
+    // The food onchip memory
+    wire [8:0] f_addr;
+    wire f_q;
+    wire f_wren;
+    wire f_data;
+    food FOOD (
+        .address(f_addr),
+        .clock(clock),
+        .q(f_q),
+        .wren(f_wren),
+        .data(f_data)
     );
 
     // State transition logic
@@ -347,7 +360,12 @@ module m_playing(
         .wren(wr_eat_food),
         .finished(f_eat_food),
         .data(dt_eat_food),
-        .addr(ad_eat_food)
+        .addr(ad_eat_food),
+        .player_x(player_x),
+        .player_y(player_y),
+        .food_x(f_addr[4:0]),
+        .food_y(f_addr[3:0]),
+        .food_exists(f_q)
     );
 
     m_update_ghost_directions m_update_ghost_directions_inst(
@@ -427,7 +445,11 @@ module m_playing(
         .addr(ad_render_food),
         .VGA_X(vga_x_render_food),
         .VGA_Y(vga_y_render_food),
-        .VGA_COLOR(vga_color_render_food)
+        .VGA_COLOR(vga_color_render_food),
+        .f_addr(f_addr),
+        .f_q(f_q),
+        .f_wren(f_wren),
+        .f_data(f_data)
     );
     // module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost_x, ghost_y, direct);
     // // Ghost position and direction

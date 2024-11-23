@@ -1,10 +1,4 @@
-/*
-*   Displays a pattern, which is read from a small memory, at (x,y) on the VGA output.
-*   To set coordinates, first place the desired value of y onto SW[6:0] and press KEY[1].
-*   Next, place the desired value of x onto SW[7:0] and then press KEY[2]. The (x,y)
-*   coordinates are displayed (in hexadecimal) on (HEX3-2,HEX1-0). Finally, press KEY[3]
-*   to draw the pattern at location (x,y).
-*/
+// This is the top module
 module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 				VGA_R, VGA_G, VGA_B,
 				VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK,
