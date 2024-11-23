@@ -46,7 +46,7 @@ module main (
     fsm_game_state game_fsm (
         .clock(CLOCK_50),
         .resetn(KEY[0]),
-        .enable(~KEY[3]),
+        .enable(KEY[0]),
         .last_key_received(last_key_received),
         .VGA_X(VGA_X),
         .VGA_Y(VGA_Y),
@@ -60,7 +60,7 @@ module main (
         .colour(VGA_COLOR),
         .x(VGA_X),
         .y(VGA_Y),
-        .plot(~KEY[3]),
+        .plot(1'b1),
         .VGA_R(VGA_R),
         .VGA_G(VGA_G),
         .VGA_B(VGA_B),
