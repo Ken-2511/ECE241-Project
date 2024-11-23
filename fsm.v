@@ -2,182 +2,153 @@ module fsm_game_state (
     input clock,
     input resetn,
     input enable,
-    output reg [cbit:0] data,
+    input [7:0] last_key_received,
+    output reg [11:0] data,
     output reg [14:0] addr,
     output reg wren,
-    input [cbit:0] q,
+    input [11:0] q,
     output reg [7:0] VGA_X,
     output reg [6:0] VGA_Y,
-    output reg [cbit:0] VGA_COLOR,
-    input [7:0] last_key_received,
-    output reg finished
+    output reg [11:0] VGA_COLOR
 );
 
-    parameter cbit = 11;
-
-    // Higher-Level Game States
+    // State encoding
     parameter GREETING = 3'b000, 
-              PLAYING = 3'b001, 
-              GAME_OVER = 3'b010;
+              PLAYING_LOGIC = 3'b001, 
+              PLAYING_RENDER = 3'b010, 
+              GAME_OVER = 3'b011;
 
-    // Playing Sub-States
-    parameter GAME_LOGIC = 3'b011,
-              RENDER = 3'b100;
-
-    // State Register
     reg [2:0] state, next_state;
 
-    // Render Counter
-    reg [2:0] render_counter;
+    // Signals for logic and rendering
+    reg e_logic, e_render, e_game_over;
 
-    // Game Logic Outputs
-    wire [4:0] player_x, ghost1_x, ghost2_x, ghost3_x;
-    wire [3:0] player_y, ghost1_y, ghost2_y, ghost3_y;
-    wire [8:0] food_address;
-    wire food_exists;
+    // Completion signals
+    wire logic_done, render_done;
 
-    // Collision Detection
+    // Collision detection signal
     wire collision_detected;
 
-    // Submodule Enables
-    reg e_game_logic, e_render, e_collision;
+    // Trigger for starting the game
+    wire start_game = (last_key_received == 8'h29); // SPACE key to start
 
-    // State Transition Logic
+    // State transition
     always @(posedge clock or negedge resetn) begin
         if (!resetn)
-            state <= GREETING;
+            state <= GREETING; // Reset to GREETING state
         else if (enable)
             state <= next_state;
     end
 
-    // Next State Logic
+    // Next state logic
     always @(*) begin
         case (state)
-            GREETING:
-                next_state = enable ? PLAYING : GREETING;
+            GREETING: 
+                next_state = start_game ? PLAYING_LOGIC : GREETING;
 
-            PLAYING: begin
-                if (e_game_logic && collision_detected)
-                    next_state = GAME_OVER;
-                else if (e_render && render_counter == 3'b100)
-                    next_state = GAME_LOGIC; // Complete rendering, return to logic
-                else
-                    next_state = PLAYING; // Stay in PLAYING while rendering or logic is ongoing
-            end
+            PLAYING_LOGIC: 
+                next_state = collision_detected ? GAME_OVER : PLAYING_RENDER;
 
-            GAME_OVER:
-                next_state = GREETING;
+            PLAYING_RENDER:
+                next_state = render_done ? PLAYING_LOGIC : PLAYING_RENDER;
 
-            default:
+            GAME_OVER: 
+                next_state = GREETING; // Game over returns to GREETING
+
+            default: 
                 next_state = GREETING;
         endcase
     end
 
-    // Output Logic
+    // Output logic
     always @(*) begin
         // Default values
-        e_game_logic = 0;
+        e_logic = 0;
         e_render = 0;
-        e_collision = 0;
+        e_game_over = 0;
         wren = 0;
-        finished = 0;
 
         case (state)
             GREETING: begin
-                data = 0;
-                addr = 0;
+                data = 12'h000; // Default VGA color
                 VGA_X = 0;
                 VGA_Y = 0;
-                VGA_COLOR = 0;
+                VGA_COLOR = 12'h000; // Background color
             end
 
-            PLAYING: begin
-                if (e_game_logic) begin
-                    e_collision = 1;
-                    wren = 1; // Enable memory writes for logic updates
-                end else if (e_render) begin
-                    e_render = 1;
-                    wren = 0; // Render is read-only
-                end
+            PLAYING_LOGIC: begin
+                e_logic = 1; // Enable game logic
+            end
+
+            PLAYING_RENDER: begin
+                e_render = 1; // Enable rendering
             end
 
             GAME_OVER: begin
-                finished = 1;
-                data = 0;
-                addr = 0;
-                wren = 0;
+                e_game_over = 1; // Trigger game over behavior
+                data = 12'hF00; // Example game over color
+            end
+
+            default: begin
+                // Defaults
+                data = 12'h000;
                 VGA_X = 0;
                 VGA_Y = 0;
-                VGA_COLOR = 0;
+                VGA_COLOR = 12'h000;
             end
         endcase
     end
 
-    // Render Counter
-    always @(posedge clock or negedge resetn) begin
-        if (!resetn)
-            render_counter <= 3'b000;
-        else if (state == RENDER)
-            render_counter <= render_counter + 1;
-        else
-            render_counter <= 3'b000;
-    end
+    // Instantiate submodules
 
-    // Submodules
-
-    // Game Logic
+    // Game logic module
     m_game_logic game_logic_inst (
         .clock(clock),
         .resetn(resetn),
-        .enable(e_game_logic),
-        .player_x(player_x),
-        .player_y(player_y),
-        .ghost1_x(ghost1_x),
-        .ghost1_y(ghost1_y),
-        .ghost2_x(ghost2_x),
-        .ghost2_y(ghost2_y),
-        .ghost3_x(ghost3_x),
-        .ghost3_y(ghost3_y),
-        .food_address(food_address),
-        .food_exists(food_exists),
-        .last_key_received(last_key_received)
+        .enable(e_logic),
+        .finished(logic_done), // Logic done signal
+        .player_x(VGA_X),
+        .player_y(VGA_Y),
+        .data(data),
+        .addr(addr),
+        .wren(wren)
     );
 
-    // Collision Detection
-    m_ghost_collision ghost_collision_inst (
-        .clock(clock),
-        .resetn(resetn),
-        .enable(e_collision),
-        .player_x(player_x),
-        .player_y(player_y),
-        .ghost1_x(ghost1_x),
-        .ghost1_y(ghost1_y),
-        .ghost2_x(ghost2_x),
-        .ghost2_y(ghost2_y),
-        .ghost3_x(ghost3_x),
-        .ghost3_y(ghost3_y),
-        .collided(collision_detected)
-    );
-
-    // Renderer
+    // Rendering module
     m_renderer renderer_inst (
         .clock(clock),
         .resetn(resetn),
         .enable(e_render),
-        .component(render_counter), // Which component to render
-        .player_x(player_x),
-        .player_y(player_y),
+        .VGA_X(VGA_X),
+        .VGA_Y(VGA_Y),
+        .VGA_COLOR(VGA_COLOR),
+        .finished(render_done) // Render done signal
+    );
+
+    // Collision detection module
+    m_ghost_collision collision_inst (
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_logic), // Check for collision during logic update
+        .player_x(VGA_X),
+        .player_y(VGA_Y),
         .ghost1_x(ghost1_x),
         .ghost1_y(ghost1_y),
         .ghost2_x(ghost2_x),
         .ghost2_y(ghost2_y),
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
-        .food_address(food_address),
-        .food_exists(food_exists),
-        .VGA_X(VGA_X),
-        .VGA_Y(VGA_Y),
-        .VGA_COLOR(VGA_COLOR)
+        .collided(collision_detected) // High when collision detected
+    );
+
+    // Game over module
+    m_game_over game_over_inst (
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_game_over),
+        .data(data),
+        .addr(addr),
+        .wren(wren)
     );
 
 endmodule
