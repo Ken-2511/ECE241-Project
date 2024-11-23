@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Sat Nov 23 07:28:57 2024
+Sat Nov 23 07:40:02 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -42,14 +42,15 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  34. Parameter Settings for Inferred Entity Instance: fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0
  35. altsyncram Parameter Settings by Entity Instance
  36. altpll Parameter Settings by Entity Instance
- 37. Port Connectivity Checks: "fsm_game_state:game_fsm|m_renderer:renderer_inst"
- 38. Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst"
- 39. Port Connectivity Checks: "fsm_game_state:game_fsm|m_greeting:greeting_inst"
- 40. Port Connectivity Checks: "PS2_Controller:PS2"
- 41. Post-Synthesis Netlist Statistics for Top Partition
- 42. Elapsed Time Per Partition
- 43. Analysis & Synthesis Messages
- 44. Analysis & Synthesis Suppressed Messages
+ 37. Port Connectivity Checks: "vga_adapter:VGA"
+ 38. Port Connectivity Checks: "fsm_game_state:game_fsm|m_renderer:renderer_inst"
+ 39. Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst"
+ 40. Port Connectivity Checks: "fsm_game_state:game_fsm|m_greeting:greeting_inst"
+ 41. Port Connectivity Checks: "PS2_Controller:PS2"
+ 42. Post-Synthesis Netlist Statistics for Top Partition
+ 43. Elapsed Time Per Partition
+ 44. Analysis & Synthesis Messages
+ 45. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -76,7 +77,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 23 07:28:57 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 23 07:40:01 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; main                                           ;
@@ -262,9 +263,9 @@ https://fpgasoftware.intel.com/eula.
 ; Combinational ALUT usage for logic          ; 586            ;
 ;     -- 7 input functions                    ; 0              ;
 ;     -- 6 input functions                    ; 41             ;
-;     -- 5 input functions                    ; 36             ;
+;     -- 5 input functions                    ; 34             ;
 ;     -- 4 input functions                    ; 97             ;
-;     -- <=3 input functions                  ; 412            ;
+;     -- <=3 input functions                  ; 414            ;
 ;                                             ;                ;
 ; Dedicated logic registers                   ; 189            ;
 ;                                             ;                ;
@@ -279,8 +280,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 199            ;
-; Total fan-out                               ; 3799           ;
-; Average fan-out                             ; 3.97           ;
+; Total fan-out                               ; 3791           ;
+; Average fan-out                             ; 3.96           ;
 +---------------------------------------------+----------------+
 
 
@@ -497,7 +498,7 @@ Encoding Type:  One-Hot
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 79    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 145   ;
+; Number of registers using Clock Enable       ; 141   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1255,6 +1256,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+-------------------------------------------------------+
 
 
++---------------------------------------------+
+; Port Connectivity Checks: "vga_adapter:VGA" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; plot ; Input ; Info     ; Stuck at VCC      ;
++------+-------+----------+-------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "fsm_game_state:game_fsm|m_renderer:renderer_inst"                                                                                                                           ;
 +-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1302,10 +1312,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 189                         ;
-;     CLR               ; 6                           ;
+;     CLR               ; 10                          ;
 ;     CLR SCLR          ; 10                          ;
 ;     ENA               ; 8                           ;
-;     ENA CLR           ; 38                          ;
+;     ENA CLR           ; 34                          ;
 ;     ENA CLR SCLR      ; 25                          ;
 ;     ENA SCLR          ; 74                          ;
 ;     SCLR              ; 10                          ;
@@ -1322,9 +1332,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 12                          ;
 ;         2 data inputs ; 119                         ;
-;         3 data inputs ; 44                          ;
+;         3 data inputs ; 46                          ;
 ;         4 data inputs ; 58                          ;
-;         5 data inputs ; 36                          ;
+;         5 data inputs ; 34                          ;
 ;         6 data inputs ; 41                          ;
 ;     shared            ; 38                          ;
 ;         0 data inputs ; 4                           ;
@@ -1337,7 +1347,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 39                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.30                       ;
-; Average LUT depth     ; 7.63                        ;
+; Average LUT depth     ; 7.64                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1356,7 +1366,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Nov 23 07:28:51 2024
+    Info: Processing started: Sat Nov 23 07:39:55 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file greeting_win_over.v
@@ -1470,14 +1480,9 @@ Warning (10034): Output port "ghost3_y" at _modules.v(10) has no driver File: C:
 Info (12128): Elaborating entity "m_renderer" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 169
 Warning (10230): Verilog HDL assignment warning at renderer.v(84): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 84
 Warning (10230): Verilog HDL assignment warning at renderer.v(85): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 85
-Warning (10230): Verilog HDL assignment warning at renderer.v(89): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 89
-Warning (10230): Verilog HDL assignment warning at renderer.v(92): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 92
 Warning (10230): Verilog HDL assignment warning at renderer.v(97): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 97
 Warning (10230): Verilog HDL assignment warning at renderer.v(105): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 105
 Warning (10230): Verilog HDL assignment warning at renderer.v(106): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 106
-Warning (10230): Verilog HDL assignment warning at renderer.v(110): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 110
-Warning (10230): Verilog HDL assignment warning at renderer.v(113): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 113
-Warning (10230): Verilog HDL assignment warning at renderer.v(118): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 118
 Info (10264): Verilog HDL Case Statement information at renderer.v(76): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 76
 Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:game_fsm|m_game_over:game_over_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 180
 Warning (10034): Output port "VGA_X" at greeting_win_over.v(66) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 66
@@ -1566,7 +1571,7 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf Line: 34
     Info: Must be connected
-Warning (21074): Design contains 10 input pin(s) that do not drive logic
+Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
     Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
     Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
@@ -1577,6 +1582,7 @@ Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
 Info (21057): Implemented 738 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
     Info (21059): Implemented 55 output pins
@@ -1584,10 +1590,10 @@ Info (21057): Implemented 738 device resources after synthesis - the final resou
     Info (21061): Implemented 628 logic cells
     Info (21064): Implemented 39 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 40 warnings
-    Info: Peak virtual memory: 4897 megabytes
-    Info: Processing ended: Sat Nov 23 07:28:57 2024
-    Info: Elapsed time: 00:00:06
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 4929 megabytes
+    Info: Processing ended: Sat Nov 23 07:40:02 2024
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:13
 
 
