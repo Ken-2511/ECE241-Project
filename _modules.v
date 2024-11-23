@@ -37,9 +37,6 @@ module m_collision (
     end
 endmodule
 
-
-
-
 /*
 module m_game_over(clock, resetn, enable, finished, data, addr, wren);
 

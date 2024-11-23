@@ -84,5 +84,6 @@ module main (
         .B(last_key_received)
     );
     defparam debounce.n = 8;
+    defparam debounce.THRESHOLD = 25000;
 
 endmodule
