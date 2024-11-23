@@ -5,7 +5,8 @@ module fsm_game_state (
     input [7:0] last_key_received,
     output reg [7:0] VGA_X,
     output reg [6:0] VGA_Y,
-    output reg [11:0] VGA_COLOR
+    output reg [11:0] VGA_COLOR,
+    input start_key
 );
 
     // State encoding
@@ -26,7 +27,9 @@ module fsm_game_state (
     wire collision_detected;
 
     // Trigger for starting the game
-    wire start_game = (last_key_received == 8'h29); // SPACE key to start
+    // wire start_game = (last_key_received == 8'h29); // SPACE key to start
+    wire start_game;
+    assign start_game = ~start_key;
 
     // Player and ghosts data
     wire [4:0] player_x, ghost1_x, ghost2_x, ghost3_x;
@@ -36,6 +39,7 @@ module fsm_game_state (
     wire [7:0] vga_x_greeting, vga_x_render, vga_x_game_over;
     wire [6:0] vga_y_greeting, vga_y_render, vga_y_game_over;
     wire [11:0] vga_color_greeting, vga_color_render, vga_color_game_over;
+    wire [11:0] bg_color;
 
     // State transition
     always @(posedge clock or negedge resetn) begin
@@ -76,7 +80,6 @@ module fsm_game_state (
         case (state)
             GREETING: begin
                 e_greeting = 1; // Enable greeting screen
-                e_render = 1; // Enable rendering for GREETING screen
             end
 
             PLAYING_LOGIC: begin
@@ -158,6 +161,7 @@ module fsm_game_state (
         .VGA_X(vga_x_render),
         .VGA_Y(vga_y_render),
         .VGA_COLOR(vga_color_render),
+        .bg_color(bg_color),
         .pl_game_x(player_x),
         .pl_game_y(player_y),
         .g1_game_x(ghost1_x),
@@ -193,6 +197,15 @@ module fsm_game_state (
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
         .collision_detected(collision_detected)
+    );
+
+    // the instance for the background color
+    canvas u_canvas (
+        .address(VGA_Y * 160 + VGA_X),
+        .clock(clock),
+        .data(12'h000),
+        .wren(1'b0),
+        .q(bg_color)
     );
 
 endmodule

@@ -51,7 +51,8 @@ module main (
         .last_key_received(last_key_received),
         .VGA_X(VGA_X),
         .VGA_Y(VGA_Y),
-        .VGA_COLOR(VGA_COLOR)
+        .VGA_COLOR(VGA_COLOR),
+        .start_key(KEY[2])
     );
 
     // VGA Adapter
@@ -62,7 +63,7 @@ module main (
         .x(VGA_X),
         .y(VGA_Y),
         .plot(1'b1),
-        .VGA_R(VGA_R),
+        .VGA_R(VGA_R),78
         .VGA_G(VGA_G),
         .VGA_B(VGA_B),
         .VGA_HS(VGA_HS),

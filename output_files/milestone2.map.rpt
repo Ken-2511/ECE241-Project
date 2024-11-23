@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Sat Nov 23 09:39:23 2024
+Sat Nov 23 10:23:10 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -26,34 +26,36 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
  18. Multiplexer Restructuring Statistics (Restructuring Performed)
  19. Source assignments for fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated
  20. Source assignments for fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated
- 21. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated
- 22. Parameter Settings for User Entity Instance: Top-level Entity: |main
- 23. Parameter Settings for User Entity Instance: PS2_Controller:PS2
- 24. Parameter Settings for User Entity Instance: PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out
- 25. Parameter Settings for User Entity Instance: fsm_game_state:game_fsm
- 26. Parameter Settings for User Entity Instance: fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component
- 27. Parameter Settings for User Entity Instance: fsm_game_state:game_fsm|m_renderer:renderer_inst
- 28. Parameter Settings for User Entity Instance: fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component
- 29. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 30. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 31. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 32. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 33. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 34. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 35. Parameter Settings for User Entity Instance: debounce_filter:debounce
- 36. Parameter Settings for Inferred Entity Instance: fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0
- 37. Parameter Settings for Inferred Entity Instance: fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Div0
- 38. altsyncram Parameter Settings by Entity Instance
- 39. altpll Parameter Settings by Entity Instance
- 40. Port Connectivity Checks: "vga_adapter:VGA"
- 41. Port Connectivity Checks: "fsm_game_state:game_fsm|m_renderer:renderer_inst"
- 42. Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst"
- 43. Port Connectivity Checks: "fsm_game_state:game_fsm|m_greeting:greeting_inst"
- 44. Port Connectivity Checks: "PS2_Controller:PS2"
- 45. Post-Synthesis Netlist Statistics for Top Partition
- 46. Elapsed Time Per Partition
- 47. Analysis & Synthesis Messages
- 48. Analysis & Synthesis Suppressed Messages
+ 21. Source assignments for fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated
+ 22. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated
+ 23. Parameter Settings for User Entity Instance: Top-level Entity: |main
+ 24. Parameter Settings for User Entity Instance: PS2_Controller:PS2
+ 25. Parameter Settings for User Entity Instance: PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out
+ 26. Parameter Settings for User Entity Instance: fsm_game_state:game_fsm
+ 27. Parameter Settings for User Entity Instance: fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component
+ 28. Parameter Settings for User Entity Instance: fsm_game_state:game_fsm|m_renderer:renderer_inst
+ 29. Parameter Settings for User Entity Instance: fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component
+ 30. Parameter Settings for User Entity Instance: fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component
+ 31. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 32. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 33. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 34. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 35. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 36. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 37. Parameter Settings for User Entity Instance: debounce_filter:debounce
+ 38. Parameter Settings for Inferred Entity Instance: fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0
+ 39. Parameter Settings for Inferred Entity Instance: fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Div0
+ 40. altsyncram Parameter Settings by Entity Instance
+ 41. altpll Parameter Settings by Entity Instance
+ 42. Port Connectivity Checks: "vga_adapter:VGA"
+ 43. Port Connectivity Checks: "fsm_game_state:game_fsm|canvas:u_canvas"
+ 44. Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst"
+ 45. Port Connectivity Checks: "fsm_game_state:game_fsm|m_greeting:greeting_inst"
+ 46. Port Connectivity Checks: "PS2_Controller:PS2"
+ 47. Post-Synthesis Netlist Statistics for Top Partition
+ 48. Elapsed Time Per Partition
+ 49. Analysis & Synthesis Messages
+ 50. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -80,16 +82,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 23 09:39:23 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 23 10:23:10 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; main                                           ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 228                                            ;
+; Total registers                 ; 213                                            ;
 ; Total pins                      ; 70                                             ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 249,900                                        ;
+; Total block memory bits         ; 480,300                                        ;
 ; Total DSP Blocks                ; 0                                              ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
@@ -227,6 +229,7 @@ https://fpgasoftware.intel.com/eula.
 ; vga_adapter/vga_adapter.v                  ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v                  ;         ;
 ; utils.v                                    ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/utils.v                                    ;         ;
 ; fsm.v                                      ; yes             ; User Verilog HDL File                  ; C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v                                      ;         ;
+; canvas.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/canvas.v                                   ;         ;
 ; player.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/player.v                                   ;         ;
 ; greeting_screen.v                          ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/greeting_screen.v                          ;         ;
 ; altsyncram.tdf                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf         ;         ;
@@ -244,10 +247,11 @@ https://fpgasoftware.intel.com/eula.
 ; db/mux_gfb.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_gfb.tdf                             ;         ;
 ; db/altsyncram_45g1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_45g1.tdf                     ;         ;
 ; player.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/Desktop/ECE241-Project/player.mif                                 ;         ;
-; db/altsyncram_ldm1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf                     ;         ;
+; db/altsyncram_kno1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_kno1.tdf                     ;         ;
 ; canvas.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/Desktop/ECE241-Project/canvas.mif                                 ;         ;
 ; db/decode_7la.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_7la.tdf                          ;         ;
 ; db/mux_2hb.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_2hb.tdf                             ;         ;
+; db/altsyncram_ldm1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf                     ;         ;
 ; altpll.tdf                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf             ;         ;
 ; stratix_pll.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_pll.inc        ;         ;
 ; stratixii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratixii_pll.inc      ;         ;
@@ -268,20 +272,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 347            ;
+; Estimate of Logic utilization (ALMs needed) ; 382            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 638            ;
-;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 48             ;
-;     -- 5 input functions                    ; 47             ;
-;     -- 4 input functions                    ; 109            ;
-;     -- <=3 input functions                  ; 434            ;
+; Combinational ALUT usage for logic          ; 681            ;
+;     -- 7 input functions                    ; 1              ;
+;     -- 6 input functions                    ; 78             ;
+;     -- 5 input functions                    ; 34             ;
+;     -- 4 input functions                    ; 128            ;
+;     -- <=3 input functions                  ; 440            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 228            ;
+; Dedicated logic registers                   ; 213            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 70             ;
 ; Total MLAB memory bits                      ; 0              ;
-; Total block memory bits                     ; 249900         ;
+; Total block memory bits                     ; 480300         ;
 ;                                             ;                ;
 ; Total DSP Blocks                            ; 0              ;
 ;                                             ;                ;
@@ -289,9 +293,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 250            ;
-; Total fan-out                               ; 4234           ;
-; Average fan-out                             ; 3.99           ;
+; Maximum fan-out                             ; 271            ;
+; Total fan-out                               ; 4958           ;
+; Average fan-out                             ; 4.41           ;
 +---------------------------------------------+----------------+
 
 
@@ -300,12 +304,15 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                             ; Entity Name               ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |main                                                   ; 638 (1)             ; 228 (8)                   ; 249900            ; 0          ; 70   ; 0            ; |main                                                                                                                                                           ; main                      ; work         ;
+; |main                                                   ; 681 (2)             ; 213 (8)                   ; 480300            ; 0          ; 70   ; 0            ; |main                                                                                                                                                           ; main                      ; work         ;
 ;    |PS2_Controller:PS2|                                 ; 108 (6)             ; 90 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2                                                                                                                                        ; PS2_Controller            ; work         ;
 ;       |Altera_UP_PS2_Command_Out:PS2_Command_Out|       ; 86 (86)             ; 60 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out                                                                                              ; Altera_UP_PS2_Command_Out ; work         ;
 ;       |Altera_UP_PS2_Data_In:PS2_Data_In|               ; 16 (16)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In                                                                                                      ; Altera_UP_PS2_Data_In     ; work         ;
-;    |debounce_filter:debounce|                           ; 26 (26)             ; 31 (31)                   ; 0                 ; 0          ; 0    ; 0            ; |main|debounce_filter:debounce                                                                                                                                  ; debounce_filter           ; work         ;
-;    |fsm_game_state:game_fsm|                            ; 415 (30)            ; 69 (3)                    ; 19500             ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm                                                                                                                                   ; fsm_game_state            ; work         ;
+;    |fsm_game_state:game_fsm|                            ; 483 (44)            ; 85 (3)                    ; 249900            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm                                                                                                                                   ; fsm_game_state            ; work         ;
+;       |canvas:u_canvas|                                 ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|canvas:u_canvas                                                                                                                   ; canvas                    ; work         ;
+;          |altsyncram:altsyncram_component|              ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component                                                                                   ; altsyncram                ; work         ;
+;             |altsyncram_kno1:auto_generated|            ; 3 (0)               ; 2 (2)                     ; 230400            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated                                                    ; altsyncram_kno1           ; work         ;
+;                |decode_01a:rden_decode|                 ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|decode_01a:rden_decode                             ; decode_01a                ; work         ;
 ;       |m_greeting:greeting_inst|                        ; 346 (26)            ; 35 (33)                   ; 19200             ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst                                                                                                          ; m_greeting                ; work         ;
 ;          |greeting_screen:U1|                           ; 4 (0)               ; 2 (0)                     ; 19200             ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1                                                                                       ; greeting_screen           ; work         ;
 ;             |altsyncram:altsyncram_component|           ; 4 (0)               ; 2 (0)                     ; 19200             ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component                                                       ; altsyncram                ; work         ;
@@ -320,7 +327,7 @@ https://fpgasoftware.intel.com/eula.
 ;             |lpm_divide_q3m:auto_generated|             ; 162 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0|lpm_divide_q3m:auto_generated                                                            ; lpm_divide_q3m            ; work         ;
 ;                |sign_div_unsign_tlh:divider|            ; 162 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0|lpm_divide_q3m:auto_generated|sign_div_unsign_tlh:divider                                ; sign_div_unsign_tlh       ; work         ;
 ;                   |alt_u_div_00f:divider|               ; 162 (162)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0|lpm_divide_q3m:auto_generated|sign_div_unsign_tlh:divider|alt_u_div_00f:divider          ; alt_u_div_00f             ; work         ;
-;       |m_renderer:renderer_inst|                        ; 39 (39)             ; 31 (31)                   ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst                                                                                                          ; m_renderer                ; work         ;
+;       |m_renderer:renderer_inst|                        ; 90 (90)             ; 45 (45)                   ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst                                                                                                          ; m_renderer                ; work         ;
 ;          |player:u_player|                              ; 0 (0)               ; 0 (0)                     ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player                                                                                          ; player                    ; work         ;
 ;             |altsyncram:altsyncram_component|           ; 0 (0)               ; 0 (0)                     ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component                                                          ; altsyncram                ; work         ;
 ;                |altsyncram_45g1:auto_generated|         ; 0 (0)               ; 0 (0)                     ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated                           ; altsyncram_45g1           ; work         ;
@@ -346,6 +353,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------------------------+
 ; Name                                                                                                                                          ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF                    ;
 +-----------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------------------------+
+; fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|ALTSYNCRAM                             ; AUTO ; Single Port      ; 19200        ; 12           ; --           ; --           ; 230400 ; ../canvas.mif          ;
 ; fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated|ALTSYNCRAM ; AUTO ; ROM              ; 19200        ; 1            ; --           ; --           ; 19200  ; ../greeting_screen.mif ;
 ; fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated|ALTSYNCRAM    ; AUTO ; ROM              ; 25           ; 12           ; --           ; --           ; 300    ; player.mif             ;
 ; vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|ALTSYNCRAM                                                              ; AUTO ; Simple Dual Port ; 19200        ; 12           ; 19200        ; 12           ; 230400 ; canvas.mif             ;
@@ -359,6 +367,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------+-------------------+
 ; Altera ; ROM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1 ; greeting_screen.v ;
 ; Altera ; ROM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player    ; player.v          ;
+; Altera ; RAM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |main|fsm_game_state:game_fsm|canvas:u_canvas                             ; canvas.v          ;
 +--------+--------------+---------+--------------+--------------+---------------------------------------------------------------------------+-------------------+
 
 
@@ -444,15 +453,11 @@ Encoding Type:  One-Hot
 ; fsm_game_state:game_fsm|m_greeting:greeting_inst|VGA_COLOR[4]                                                 ; Merged with fsm_game_state:game_fsm|m_greeting:greeting_inst|VGA_COLOR[0]               ;
 ; fsm_game_state:game_fsm|m_greeting:greeting_inst|VGA_COLOR[3,5,7,8]                                           ; Merged with fsm_game_state:game_fsm|m_greeting:greeting_inst|VGA_COLOR[11]              ;
 ; fsm_game_state:game_fsm|m_greeting:greeting_inst|VGA_COLOR[9]                                                 ; Merged with fsm_game_state:game_fsm|m_greeting:greeting_inst|VGA_COLOR[10]              ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[1..3]                                                 ; Merged with fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[0]                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[0..3]                                                 ; Merged with fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[0]                  ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[1]                                                    ; Merged with fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[0]                  ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[2]                                                    ; Merged with fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[1]                  ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[3]                                                    ; Merged with fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[2]                  ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[1..7]                                ; Merged with PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0] ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0]                                   ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[0]                                                    ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[4]                                                    ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[5,7]                                                   ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[4..6]                                                  ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[4]                                                     ; Merged with fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[6]                   ;
 ; fsm_game_state:game_fsm|state~8                                                                               ; Lost fanout                                                                             ;
 ; fsm_game_state:game_fsm|state~9                                                                               ; Lost fanout                                                                             ;
 ; fsm_game_state:game_fsm|state~10                                                                              ; Lost fanout                                                                             ;
@@ -479,11 +484,8 @@ Encoding Type:  One-Hot
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR ; Lost fanout                                                                             ;
 ; fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[3]                                                        ; Stuck at GND due to stuck port data_in                                                  ;
 ; fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[3]                                                        ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[3]                                                     ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[3]                                                     ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[4]                                                    ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[6]                                                     ; Stuck at GND due to stuck port data_in                                                  ;
-; Total Number of Removed Registers = 71                                                                        ;                                                                                         ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[3,4]                                                  ; Stuck at GND due to stuck port data_in                                                  ;
+; Total Number of Removed Registers = 57                                                                        ;                                                                                         ;
 +---------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
 
@@ -492,14 +494,6 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------+
 ; Register name                                                         ; Reason for Removal        ; Registers Removed due to This Register                                                                        ;
 +-----------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------+
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[0]            ; Stuck at GND              ; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[7],                                                    ;
-;                                                                       ; due to stuck port data_in ; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[5],                                                    ;
-;                                                                       ;                           ; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[6],                                                    ;
-;                                                                       ;                           ; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[5],                                                    ;
-;                                                                       ;                           ; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[4],                                                    ;
-;                                                                       ;                           ; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[3],                                                    ;
-;                                                                       ;                           ; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[3],                                                    ;
-;                                                                       ;                           ; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[6]                                                     ;
 ; PS2_Controller:PS2|idle_counter[3]                                    ; Lost Fanouts              ; PS2_Controller:PS2|idle_counter[4], PS2_Controller:PS2|idle_counter[5],                                       ;
 ;                                                                       ;                           ; PS2_Controller:PS2|idle_counter[6], PS2_Controller:PS2|idle_counter[7]                                        ;
 ; PS2_Controller:PS2|s_ps2_transceiver~2                                ; Lost Fanouts              ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_was_sent,                                ;
@@ -508,9 +502,9 @@ Encoding Type:  One-Hot
 ;                                                                       ;                           ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR ;
 ; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT          ; Stuck at GND              ; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER,                                                ;
 ;                                                                       ; due to stuck port data_in ; PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA                 ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[3]                ; Stuck at GND              ; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[4],                                                   ;
+;                                                                       ; due to stuck port data_in ; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[3]                                                    ;
 ; fsm_game_state:game_fsm|m_collision:collision_inst|collision_detected ; Stuck at GND              ; fsm_game_state:game_fsm|m_game_over:game_over_inst|finished                                                   ;
-;                                                                       ; due to stuck port data_in ;                                                                                                               ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[3]                ; Stuck at GND              ; fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[4]                                                    ;
 ;                                                                       ; due to stuck port data_in ;                                                                                                               ;
 +-----------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------+
 
@@ -520,12 +514,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 228   ;
-; Number of registers using Synchronous Clear  ; 134   ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 118   ;
+; Total registers                              ; 213   ;
+; Number of registers using Synchronous Clear  ; 120   ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 101   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 177   ;
+; Number of registers using Clock Enable       ; 168   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -538,17 +532,18 @@ Encoding Type:  One-Hot
 ; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[3]                             ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[5]                                                                             ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[1]                            ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |main|debounce_filter:debounce|counter[13]                                                              ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[3]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[6]                            ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[8]          ;
 ; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[20]                  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[1]                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[3]                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[0]                                ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[9]                  ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[17]                 ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[3]                                            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[1]                                            ;
-; 14:1               ; 2 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[4]                                        ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[1] ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR[9]                                     ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[2]                                            ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[0]                                        ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 8 LEs                ; 10 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[2]                                        ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[8] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
 
 
@@ -568,6 +563,15 @@ Encoding Type:  One-Hot
 +---------------------------------+--------------------+------+------------------------------------------------------------------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                        ;
 +---------------------------------+--------------------+------+------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                              ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                               ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------+
@@ -770,6 +774,67 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                                           ;
 ; CBXI_PARAMETER                     ; altsyncram_45g1      ; Untyped                                                                           ;
 +------------------------------------+----------------------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                     ;
++------------------------------------+----------------------+----------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                           ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                  ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                                  ;
+; WIDTH_A                            ; 12                   ; Signed Integer                                           ;
+; WIDTHAD_A                          ; 15                   ; Signed Integer                                           ;
+; NUMWORDS_A                         ; 19200                ; Signed Integer                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                  ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                  ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                  ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                  ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                  ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                  ;
+; WIDTH_B                            ; 1                    ; Untyped                                                  ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                  ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                  ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                  ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                  ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                  ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                  ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                  ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                  ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                  ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                  ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                  ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                  ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                  ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                  ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                  ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                  ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                  ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                  ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                  ;
+; INIT_FILE                          ; ../canvas.mif        ; Untyped                                                  ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                  ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                  ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                  ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                  ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                  ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                  ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                  ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                  ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                  ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                  ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                  ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                  ;
+; CBXI_PARAMETER                     ; altsyncram_kno1      ; Untyped                                                  ;
++------------------------------------+----------------------+----------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1324,7 +1389,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+-----------------------------------------------------------------------------------------------------+
 ; Name                                      ; Value                                                                                               ;
 +-------------------------------------------+-----------------------------------------------------------------------------------------------------+
-; Number of entity instances                ; 3                                                                                                   ;
+; Number of entity instances                ; 4                                                                                                   ;
 ; Entity Instance                           ; fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component ;
 ;     -- OPERATION_MODE                     ; ROM                                                                                                 ;
 ;     -- WIDTH_A                            ; 1                                                                                                   ;
@@ -1340,6 +1405,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OPERATION_MODE                     ; ROM                                                                                                 ;
 ;     -- WIDTH_A                            ; 12                                                                                                  ;
 ;     -- NUMWORDS_A                         ; 25                                                                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                        ;
+;     -- WIDTH_B                            ; 1                                                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                           ;
+; Entity Instance                           ; fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component                             ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                                         ;
+;     -- WIDTH_A                            ; 12                                                                                                  ;
+;     -- NUMWORDS_A                         ; 19200                                                                                               ;
 ;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                        ;
 ;     -- WIDTH_B                            ; 1                                                                                                   ;
 ;     -- NUMWORDS_B                         ; 1                                                                                                   ;
@@ -1387,13 +1463,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "fsm_game_state:game_fsm|m_renderer:renderer_inst"                                                                                               ;
-+----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port     ; Type  ; Severity ; Details                                                                                                                                      ;
-+----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; bg_color ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fsm_game_state:game_fsm|canvas:u_canvas"                                                                                                                                              ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                             ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (15 bits) it drives.  The 17 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; data    ; Input ; Info     ; Stuck at GND                                                                                                                                                                        ;
+; wren    ; Input ; Info     ; Stuck at GND                                                                                                                                                                        ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -1431,43 +1509,46 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 228                         ;
-;     CLR               ; 13                          ;
-;     CLR SCLR          ; 10                          ;
+; arriav_ff             ; 213                         ;
+;     CLR               ; 4                           ;
+;     CLR SCLR          ; 11                          ;
 ;     ENA               ; 8                           ;
-;     ENA CLR           ; 55                          ;
-;     ENA CLR SCLR      ; 40                          ;
+;     ENA CLR           ; 59                          ;
+;     ENA CLR SCLR      ; 25                          ;
+;     ENA CLR SLD       ; 2                           ;
 ;     ENA SCLR          ; 74                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 18                          ;
+;     plain             ; 20                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 641                         ;
-;     arith             ; 259                         ;
+; arriav_lcell_comb     ; 684                         ;
+;     arith             ; 251                         ;
 ;         0 data inputs ; 28                          ;
-;         1 data inputs ; 115                         ;
-;         2 data inputs ; 11                          ;
-;         3 data inputs ; 69                          ;
+;         1 data inputs ; 101                         ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 72                          ;
 ;         4 data inputs ; 36                          ;
-;     normal            ; 344                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 12                          ;
-;         2 data inputs ; 117                         ;
-;         3 data inputs ; 49                          ;
-;         4 data inputs ; 70                          ;
-;         5 data inputs ; 47                          ;
-;         6 data inputs ; 48                          ;
-;     shared            ; 38                          ;
-;         0 data inputs ; 4                           ;
-;         1 data inputs ; 18                          ;
-;         2 data inputs ; 10                          ;
-;         3 data inputs ; 3                           ;
-;         4 data inputs ; 3                           ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 376                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 115                         ;
+;         3 data inputs ; 52                          ;
+;         4 data inputs ; 82                          ;
+;         5 data inputs ; 34                          ;
+;         6 data inputs ; 78                          ;
+;     shared            ; 56                          ;
+;         0 data inputs ; 8                           ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 10                          ;
 ; boundary_port         ; 70                          ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 51                          ;
+; stratixv_ram_block    ; 87                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.30                       ;
-; Average LUT depth     ; 7.05                        ;
+; Average LUT depth     ; 6.72                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1486,7 +1567,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Nov 23 09:39:17 2024
+    Info: Processing started: Sat Nov 23 10:23:04 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file greeting_win_over.v
@@ -1494,7 +1575,7 @@ Info (12021): Found 2 design units, including 2 entities, in source file greetin
     Info (12023): Found entity 2: m_game_over File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 61
 Info (12021): Found 2 design units, including 2 entities, in source file _modules.v
     Info (12023): Found entity 1: m_game_logic File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 2
-    Info (12023): Found entity 2: m_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 22
+    Info (12023): Found entity 2: m_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 31
 Info (12021): Found 1 design units, including 1 entities, in source file renderer.v
     Info (12023): Found entity 1: m_renderer File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
@@ -1556,9 +1637,9 @@ Info (12128): Elaborating entity "PS2_Controller" for hierarchy "PS2_Controller:
 Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In" File: C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/PS2_Controller.v Line: 247
 Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/PS2_Controller.v Line: 267
 Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:H3" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 43
-Info (12128): Elaborating entity "fsm_game_state" for hierarchy "fsm_game_state:game_fsm" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 55
-Info (10264): Verilog HDL Case Statement information at fsm.v(98): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 98
-Info (12128): Elaborating entity "m_greeting" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 133
+Info (12128): Elaborating entity "fsm_game_state" for hierarchy "fsm_game_state:game_fsm" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 56
+Info (10264): Verilog HDL Case Statement information at fsm.v(101): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 101
+Info (12128): Elaborating entity "m_greeting" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 136
 Warning (10230): Verilog HDL assignment warning at greeting_win_over.v(27): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 27
 Warning (10230): Verilog HDL assignment warning at greeting_win_over.v(28): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 28
 Warning (10230): Verilog HDL assignment warning at greeting_win_over.v(45): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 45
@@ -1589,16 +1670,52 @@ Info (12128): Elaborating entity "decode_01a" for hierarchy "fsm_game_state:game
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_gfb.tdf
     Info (12023): Found entity 1: mux_gfb File: C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_gfb.tdf Line: 23
 Info (12128): Elaborating entity "mux_gfb" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated|mux_gfb:mux2" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_abh1.tdf Line: 41
-Info (12128): Elaborating entity "m_game_logic" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 150
-Warning (10034): Output port "player_x" at _modules.v(7) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 7
-Warning (10034): Output port "player_y" at _modules.v(8) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 8
-Warning (10034): Output port "ghost1_x" at _modules.v(9) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 9
-Warning (10034): Output port "ghost2_x" at _modules.v(9) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 9
-Warning (10034): Output port "ghost3_x" at _modules.v(9) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 9
-Warning (10034): Output port "ghost1_y" at _modules.v(10) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 10
-Warning (10034): Output port "ghost2_y" at _modules.v(10) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 10
-Warning (10034): Output port "ghost3_y" at _modules.v(10) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 10
-Info (12128): Elaborating entity "m_renderer" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 169
+Info (12128): Elaborating entity "m_game_logic" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 153
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "player_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "player_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost1_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost1_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost2_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost2_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost3_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost3_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_y[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_y[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_y[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_y[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_x[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_x[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_x[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_x[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_x[4]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost2_y[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost2_y[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost2_y[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost2_y[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost2_x[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost2_x[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost2_x[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost2_x[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost2_x[4]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost1_y[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost1_y[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost1_y[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost1_y[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost1_x[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost1_x[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost1_x[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost1_x[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost1_x[4]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "player_y[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "player_y[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "player_y[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "player_y[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "player_x[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "player_x[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "player_x[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "player_x[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "player_x[4]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (12128): Elaborating entity "m_renderer" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 173
 Warning (10036): Verilog HDL or VHDL warning at renderer.v(35): object "curr_color" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 35
 Warning (10230): Verilog HDL assignment warning at renderer.v(94): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 94
 Warning (10230): Verilog HDL assignment warning at renderer.v(95): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 95
@@ -1631,12 +1748,40 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_renderer:rend
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_45g1.tdf
     Info (12023): Found entity 1: altsyncram_45g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_45g1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_45g1" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:game_fsm|m_game_over:game_over_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 180
+Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:game_fsm|m_game_over:game_over_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 184
 Warning (10034): Output port "VGA_X" at greeting_win_over.v(66) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 66
 Warning (10034): Output port "VGA_Y" at greeting_win_over.v(67) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 67
 Warning (10034): Output port "VGA_COLOR" at greeting_win_over.v(69) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 69
-Info (12128): Elaborating entity "m_collision" for hierarchy "fsm_game_state:game_fsm|m_collision:collision_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 196
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 73
+Info (12128): Elaborating entity "m_collision" for hierarchy "fsm_game_state:game_fsm|m_collision:collision_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 200
+Info (12128): Elaborating entity "canvas" for hierarchy "fsm_game_state:game_fsm|canvas:u_canvas" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 209
+Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/canvas.v Line: 86
+Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/canvas.v Line: 86
+Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/canvas.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "../canvas.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "19200"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "15"
+    Info (12134): Parameter "width_a" = "12"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_kno1.tdf
+    Info (12023): Found entity 1: altsyncram_kno1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_kno1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_kno1" for hierarchy "fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7la.tdf
+    Info (12023): Found entity 1: decode_7la File: C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_7la.tdf Line: 23
+Info (12128): Elaborating entity "decode_7la" for hierarchy "fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|decode_7la:decode3" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_kno1.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
+    Info (12023): Found entity 1: mux_2hb File: C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_2hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_2hb" for hierarchy "fsm_game_state:game_fsm|canvas:u_canvas|altsyncram:altsyncram_component|altsyncram_kno1:auto_generated|mux_2hb:mux2" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_kno1.tdf Line: 46
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 74
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 157
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 178
 Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 178
@@ -1659,12 +1804,6 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ldm1.tdf
     Info (12023): Found entity 1: altsyncram_ldm1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 34
 Info (12128): Elaborating entity "altsyncram_ldm1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7la.tdf
-    Info (12023): Found entity 1: decode_7la File: C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_7la.tdf Line: 23
-Info (12128): Elaborating entity "decode_7la" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|decode_7la:decode2" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 47
-Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
-    Info (12023): Found entity 1: mux_2hb File: C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_2hb.tdf Line: 23
-Info (12128): Elaborating entity "mux_2hb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 50
 Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 201
 Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_pll.v Line: 53
 Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_pll.v Line: 53
@@ -1684,7 +1823,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
     Info (12023): Found entity 1: altpll_80u File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf Line: 26
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 216
-Info (12128): Elaborating entity "debounce_filter" for hierarchy "debounce_filter:debounce" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 85
+Info (12128): Elaborating entity "debounce_filter" for hierarchy "debounce_filter:debounce" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 86
 Warning (10230): Verilog HDL assignment warning at utils.v(171): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 171
 Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fsm_game_state:game_fsm|m_greeting:greeting_inst|Mod0" File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 27
@@ -1719,7 +1858,7 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf Line: 34
     Info: Must be connected
-Warning (21074): Design contains 11 input pin(s) that do not drive logic
+Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
     Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
     Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
@@ -1729,20 +1868,19 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
-Info (21057): Implemented 818 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 877 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
     Info (21059): Implemented 55 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 696 logic cells
-    Info (21064): Implemented 51 RAM segments
+    Info (21061): Implemented 719 logic cells
+    Info (21064): Implemented 87 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 42 warnings
-    Info: Peak virtual memory: 4897 megabytes
-    Info: Processing ended: Sat Nov 23 09:39:23 2024
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 4917 megabytes
+    Info: Processing ended: Sat Nov 23 10:23:10 2024
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:13
+    Info: Total CPU time (on all processors): 00:00:14
 
 
 +------------------------------------------+

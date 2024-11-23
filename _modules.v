@@ -11,8 +11,17 @@ module m_game_logic (
     input [7:0] last_key_received
 );
     always @(posedge clock or negedge resetn) begin
-        if (!resetn)
+        if (!resetn) begin
             finished <= 0;
+            player_x <= 5'b00000;
+            player_y <= 4'b0001;
+            ghost1_x <= 5'b00011;
+            ghost1_y <= 4'b0011;
+            ghost2_x <= 5'b00110;
+            ghost2_y <= 4'b0110;
+            ghost3_x <= 5'b01000;
+            ghost3_y <= 4'b1000;
+        end
         else if (enable)
             finished <= 1;
     end

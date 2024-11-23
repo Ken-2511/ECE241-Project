@@ -110,10 +110,10 @@ module m_renderer (
     output reg [7:0] VGA_X,
     output reg [6:0] VGA_Y,
     output reg [11:0] VGA_COLOR,
-    input [4:0] player_x,
-    input [3:0] player_y,
-    input [4:0] ghost1_x, ghost2_x, ghost3_x,
-    input [3:0] ghost1_y, ghost2_y, ghost3_y
+    input [4:0] pl_game_x,
+    input [3:0] pl_game_y,
+    input [4:0] g1_game_x, g2_game_x, g3_game_x,
+    input [3:0] g1_game_y, g2_game_y, g3_game_y
 );
     always @(posedge clock or negedge resetn) begin
         if (!resetn)
