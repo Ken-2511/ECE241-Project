@@ -1,49 +1,46 @@
-module m_greeting(clock, resetn, enable, finished, data, addr, wren);
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-    // Finish signal
-    output reg finished;
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-    output reg wren;
-    reg late_addr;
-
-    // instantiate the greeting module
-    wire q;
-    greeting_screen U1 (
-        .address(addr),
-        .clock(clock),
-        .q(q)
-    );
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            addr <= 15'b0;
-        end
-        else if (enable) begin
-            // counting the address from 0 to 19200
-            if (addr < 19200) begin
-                addr <= addr + 1;
-                late_addr <= addr;
-                data <= q == 1'b1 ? 12'hfa8 : 12'h611;
-            end
-            else begin
-                finished <= 1;
-                addr <= 15'b0;
-            end
-        end
-        else if (finished)
-            finished <= 0;  // Reset to initial state when finished
+// Mock game logic module
+module m_game_logic (
+    input clock,
+    input resetn,
+    input enable,
+    output reg finished,
+    output reg [4:0] player_x,
+    output reg [3:0] player_y,
+    output reg [4:0] ghost1_x, ghost2_x, ghost3_x,
+    output reg [3:0] ghost1_y, ghost2_y, ghost3_y,
+    input [7:0] last_key_received
+);
+    always @(posedge clock or negedge resetn) begin
+        if (!resetn)
+            finished <= 0;
+        else if (enable)
+            finished <= 1;
     end
+endmodule
 
+// Mock collision detection module
+module m_collision (
+    input clock,
+    input resetn,
+    input enable,
+    input [4:0] player_x,
+    input [3:0] player_y,
+    input [4:0] ghost1_x, ghost2_x, ghost3_x,
+    input [3:0] ghost1_y, ghost2_y, ghost3_y,
+    output reg collision_detected
+);
+    always @(posedge clock or negedge resetn) begin
+        if (!resetn)
+            collision_detected <= 0;
+        else if (enable)
+            collision_detected <= 1; // Simulate collision detected
+    end
 endmodule
 
 
+
+
+/*
 module m_game_over(clock, resetn, enable, finished, data, addr, wren);
 
     parameter cbit = 11;
@@ -892,3 +889,4 @@ module m_update_vga(
 
 endmodule
 
+*/

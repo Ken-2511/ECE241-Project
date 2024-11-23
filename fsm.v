@@ -158,14 +158,14 @@ module fsm_game_state (
         .VGA_X(vga_x_render),
         .VGA_Y(vga_y_render),
         .VGA_COLOR(vga_color_render),
-        .player_x(player_x),
-        .player_y(player_y),
-        .ghost1_x(ghost1_x),
-        .ghost1_y(ghost1_y),
-        .ghost2_x(ghost2_x),
-        .ghost2_y(ghost2_y),
-        .ghost3_x(ghost3_x),
-        .ghost3_y(ghost3_y)
+        .pl_game_x(player_x),
+        .pl_game_y(player_y),
+        .g1_game_x(ghost1_x),
+        .g1_game_y(ghost1_y),
+        .g2_game_x(ghost2_x),
+        .g2_game_y(ghost2_y),
+        .g3_game_x(ghost3_x),
+        .g3_game_y(ghost3_y)
     );
 
     // Game over module

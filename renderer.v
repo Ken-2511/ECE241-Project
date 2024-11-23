@@ -1,122 +1,88 @@
-module renderer (
-    input wire clock,               // Clock signal
-    input wire resetn,              // Active-low reset
-    input wire enable,              // Enable rendering
-    output reg finished,            // Rendering finished flag
+module m_renderer (
+    input wire clock,               // 时钟信号
+    input wire resetn,              // 低电平复位
+    input wire enable,              // 启用渲染
+    output reg finished,            // 渲染完成标志
 
-    // VGA outputs
-    output reg [7:0] VGA_X,         // VGA x-coordinate
-    output reg [6:0] VGA_Y,         // VGA y-coordinate
-    output reg [2:0] VGA_COLOR,     // VGA color output
+    // VGA 输出
+    output reg [7:0] VGA_X,         // VGA x 坐标
+    output reg [6:0] VGA_Y,         // VGA y 坐标
+    output reg [2:0] VGA_COLOR,     // VGA 颜色输出
 
-    // Background
+    // 背景
     input wire [2:0] bg_color,
 
-    // Player
+    // 玩家
     input wire [4:0] pl_game_x,
     input wire [3:0] pl_game_y,
     input wire [2:0] pl_color,
 
-    // Ghosts
+    // 幽灵
     input wire [4:0] g1_game_x,
     input wire [3:0] g1_game_y,
-    input wire [2:0] g1_color,
     input wire [4:0] g2_game_x,
     input wire [3:0] g2_game_y,
-    input wire [2:0] g2_color,
     input wire [4:0] g3_game_x,
-    input wire [3:0] g3_game_y,
-    input wire [2:0] g3_color
+    input wire [3:0] g3_game_y
 );
 
-    // State encoding
-    parameter IDLE = 3'b000, ERASE_PLAYER = 3'b001, ERASE_GHOSTS = 3'b010,
-              DRAW_PLAYER = 3'b011, DRAW_GHOSTS = 3'b100, DONE = 3'b101;
+    // 状态编码
+    parameter IDLE = 3'b000, ERASE = 3'b001, DRAW = 3'b010, DONE = 3'b011;
     reg [2:0] state, next_state;
 
-    // Previous positions for erasing
-    reg [4:0] prev_pl_game_x, prev_g1_game_x, prev_g2_game_x, prev_g3_game_x;
-    reg [3:0] prev_pl_game_y, prev_g1_game_y, prev_g2_game_y, prev_g3_game_y;
+    // 渲染变量
+    reg [4:0] curr_x, curr_y;       // 当前渲染的逻辑坐标
+    reg [3:0] dx, dy;               // 块内的偏移量
 
-    // Ghost index for sequential updates
-    reg [1:0] ghost_index; // 0: Ghost 1, 1: Ghost 2, 2: Ghost 3
+    // 渲染目标索引
+    reg [1:0] render_index;         // 0: 玩家，1: 幽灵 1，2: 幽灵 2，3: 幽灵 3
 
-    // Pixel rendering variables
-    reg [3:0] dx, dy; // Offset within the 5x5 block
-
-    // Ghost current and previous positions based on ghost_index
-    wire [7:0] curr_ghost_canvas_x, prev_ghost_canvas_x;
-    wire [6:0] curr_ghost_canvas_y, prev_ghost_canvas_y;
-    wire [2:0] curr_ghost_color;
-
-    assign curr_ghost_canvas_x = (ghost_index == 0) ? g1_game_x * 5 :
-                                 (ghost_index == 1) ? g2_game_x * 5 :
-                                 g3_game_x * 5;
-
-    assign curr_ghost_canvas_y = (ghost_index == 0) ? g1_game_y * 5 :
-                                 (ghost_index == 1) ? g2_game_y * 5 :
-                                 g3_game_y * 5;
-
-    assign curr_ghost_color = (ghost_index == 0) ? g1_color :
-                              (ghost_index == 1) ? g2_color :
-                              g3_color;
-
-    assign prev_ghost_canvas_x = (ghost_index == 0) ? prev_g1_game_x * 5 :
-                                 (ghost_index == 1) ? prev_g2_game_x * 5 :
-                                 prev_g3_game_x * 5;
-
-    assign prev_ghost_canvas_y = (ghost_index == 0) ? prev_g1_game_y * 5 :
-                                 (ghost_index == 1) ? prev_g2_game_y * 5 :
-                                 prev_g3_game_y * 5;
-
-    // State transition logic
-    always @ (posedge clock or negedge resetn) begin
+    // 状态转换逻辑
+    always @(posedge clock or negedge resetn) begin
         if (!resetn)
             state <= IDLE;
         else if (enable)
             state <= next_state;
     end
 
-    always @ (*) begin
+    // 下一状态逻辑
+    always @(*) begin
         case (state)
-            IDLE: next_state = ERASE_PLAYER;
-            ERASE_PLAYER: next_state = (dx == 4 && dy == 4) ? ERASE_GHOSTS : ERASE_PLAYER;
-            ERASE_GHOSTS: next_state = (dx == 4 && dy == 4 && ghost_index == 2) ? DRAW_PLAYER : ERASE_GHOSTS;
-            DRAW_PLAYER: next_state = (dx == 4 && dy == 4) ? DRAW_GHOSTS : DRAW_PLAYER;
-            DRAW_GHOSTS: next_state = (dx == 4 && dy == 4 && ghost_index == 2) ? DONE : DRAW_GHOSTS;
-            DONE: next_state = IDLE;
-            default: next_state = IDLE;
+            IDLE: 
+                next_state = ERASE;
+            ERASE: 
+                next_state = (render_index == 3 && dx == 4 && dy == 4) ? DRAW : ERASE;
+            DRAW: 
+                next_state = (render_index == 3 && dx == 4 && dy == 4) ? DONE : DRAW;
+            DONE: 
+                next_state = IDLE;
+            default: 
+                next_state = IDLE;
         endcase
     end
 
-    // Rendering logic
-    always @ (posedge clock or negedge resetn) begin
+    // VGA 渲染逻辑
+    always @(posedge clock or negedge resetn) begin
         if (!resetn) begin
-            // Reset state and variables
+            // 初始化
             VGA_X <= 0;
             VGA_Y <= 0;
-            VGA_COLOR <= 3'b0;
+            VGA_COLOR <= 0;
             dx <= 0;
             dy <= 0;
-            ghost_index <= 0;
+            render_index <= 0;
             finished <= 0;
-
-            // Reset previous positions
-            prev_pl_game_x <= 0;
-            prev_pl_game_y <= 0;
-            prev_g1_game_x <= 0;
-            prev_g1_game_y <= 0;
-            prev_g2_game_x <= 0;
-            prev_g2_game_y <= 0;
-            prev_g3_game_x <= 0;
-            prev_g3_game_y <= 0;
-        end
-        else if (enable) begin
+        end else if (enable) begin
             case (state)
-                // Erase previous player position
-                ERASE_PLAYER: begin
-                    VGA_X <= prev_pl_game_x * 5 + dx;
-                    VGA_Y <= prev_pl_game_y * 5 + dy;
+                ERASE: begin
+                    // 根据 render_index 确定当前对象的坐标
+                    {curr_x, curr_y} <= (render_index == 0) ? {pl_game_x, pl_game_y} :
+                                        (render_index == 1) ? {g1_game_x, g1_game_y} :
+                                        (render_index == 2) ? {g2_game_x, g2_game_y} : {g3_game_x, g3_game_y};
+
+                    // 输出背景颜色
+                    VGA_X <= curr_x * 5 + dx;
+                    VGA_Y <= curr_y * 5 + dy;
                     VGA_COLOR <= bg_color;
 
                     if (dx < 4)
@@ -124,96 +90,42 @@ module renderer (
                     else if (dy < 4) begin
                         dx <= 0;
                         dy <= dy + 1;
-                    end
-                    else begin
+                    end else begin
                         dx <= 0;
                         dy <= 0;
+                        if (render_index < 3)
+                            render_index <= render_index + 1;
+                        else
+                            render_index <= 0;
                     end
                 end
 
-                // Erase previous ghost positions
-                ERASE_GHOSTS: begin
-                    VGA_X <= prev_ghost_canvas_x + dx;
-                    VGA_Y <= prev_ghost_canvas_y + dy;
-                    VGA_COLOR <= bg_color;
+                DRAW: begin
+                    // 绘制玩家或幽灵
+                    VGA_X <= curr_x * 5 + dx;
+                    VGA_Y <= curr_y * 5 + dy;
+                    VGA_COLOR <= (render_index == 0) ? pl_color : 3'b110; // 假定幽灵为固定颜色
 
                     if (dx < 4)
                         dx <= dx + 1;
                     else if (dy < 4) begin
                         dx <= 0;
                         dy <= dy + 1;
-                    end
-                    else if (ghost_index < 2) begin
+                    end else begin
                         dx <= 0;
                         dy <= 0;
-                        ghost_index <= ghost_index + 1;
-                    end
-                    else begin
-                        dx <= 0;
-                        dy <= 0;
-                        ghost_index <= 0;
+                        if (render_index < 3)
+                            render_index <= render_index + 1;
+                        else
+                            render_index <= 0;
                     end
                 end
 
-                // Draw current player position
-                DRAW_PLAYER: begin
-                    VGA_X <= pl_game_x * 5 + dx;
-                    VGA_Y <= pl_game_y * 5 + dy;
-                    VGA_COLOR <= pl_color;
-
-                    if (dx < 4)
-                        dx <= dx + 1;
-                    else if (dy < 4) begin
-                        dx <= 0;
-                        dy <= dy + 1;
-                    end
-                    else begin
-                        dx <= 0;
-                        dy <= 0;
-                    end
-                end
-
-                // Draw current ghost positions
-                DRAW_GHOSTS: begin
-                    VGA_X <= curr_ghost_canvas_x + dx;
-                    VGA_Y <= curr_ghost_canvas_y + dy;
-                    VGA_COLOR <= curr_ghost_color;
-
-                    if (dx < 4)
-                        dx <= dx + 1;
-                    else if (dy < 4) begin
-                        dx <= 0;
-                        dy <= dy + 1;
-                    end
-                    else if (ghost_index < 2) begin
-                        dx <= 0;
-                        dy <= 0;
-                        ghost_index <= ghost_index + 1;
-                    end
-                    else begin
-                        dx <= 0;
-                        dy <= 0;
-                        ghost_index <= 0;
-                    end
-                end
-
-                // Mark rendering as finished
                 DONE: begin
                     finished <= 1;
-
-                    // Update previous positions
-                    prev_pl_game_x <= pl_game_x;
-                    prev_pl_game_y <= pl_game_y;
-                    prev_g1_game_x <= g1_game_x;
-                    prev_g1_game_y <= g1_game_y;
-                    prev_g2_game_x <= g2_game_x;
-                    prev_g2_game_y <= g2_game_y;
-                    prev_g3_game_x <= g3_game_x;
-                    prev_g3_game_y <= g3_game_y;
                 end
             endcase
-        end
-        else begin
+        end else begin
             finished <= 0;
         end
     end

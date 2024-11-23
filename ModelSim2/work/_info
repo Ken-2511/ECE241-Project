@@ -9,182 +9,182 @@ z2
 cModel Technology
 dC:/intelFPGA/18.1
 vfsm_game_state
-!s110 1732363507
+Z0 !s110 1732364756
 !i10b 1
 !s100 72Z5fh8;_7:31=N4cC1=P1
 IBKkUJ6O^Yz=HzAmVKJ4Rk0
-Z0 VDg1SIo80bB@j0V0VzS_@n1
-Z1 dC:/Users/IWMAI/Desktop/ECE241-Project/ModelSim2
-w1732363474
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/IWMAI/Desktop/ECE241-Project/ModelSim2
+w1732364746
 8../fsm.v
 F../fsm.v
 L0 1
-Z2 OV;L;10.5b;63
+Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1732363507.000000
+Z4 !s108 1732364756.000000
 !s107 ../fsm.v|
 !s90 -reportprogress|300|../fsm.v|
 !i113 1
-Z3 tCvgOpt 0
+Z5 tCvgOpt 0
 vfsm_game_state_tb
 !s110 1732359785
 !i10b 1
 !s100 b@T8iVe<ZVEoLeWCcAXIj2
 IzDRW3kHl7PnEg9JAUcPWk1
-R0
 R1
-w1732359692
-Z4 8./_fsm.v
-Z5 F./_fsm.v
-L0 3
 R2
+w1732359692
+Z6 8./_fsm.v
+Z7 F./_fsm.v
+L0 3
+R3
 r1
 !s85 0
 31
 !s108 1732359785.000000
-Z6 !s107 ./_fsm.v|
-Z7 !s90 -reportprogress|300|./_fsm.v|
+Z8 !s107 ./_fsm.v|
+Z9 !s90 -reportprogress|300|./_fsm.v|
 !i113 1
-R3
+R5
 vfsm_tb
-Z8 !s110 1732363508
+R0
 !i10b 1
 !s100 B=X2fOT18lf2LI?4SnHNI3
 I]U5n1FZPM>j122^:@IZKi0
-R0
 R1
-Z9 w1732363147
-R4
-R5
-L0 5
 R2
+Z10 w1732363147
+R6
+R7
+L0 5
+R3
 r1
 !s85 0
 31
-Z10 !s108 1732363508.000000
-R6
-R7
-!i113 1
-R3
-vm_collision
+R4
 R8
+R9
+!i113 1
+R5
+vm_collision
+R0
 !i10b 1
 !s100 WQE_6kk[j7XWPUaUnj1P70
 Ik:KjVeifhgljbECXjaa1I0
-R0
 R1
-R9
-R4
-R5
-Z11 L0 127
 R2
-r1
-!s85 0
-31
 R10
 R6
 R7
-!i113 1
+Z11 L0 127
 R3
-vm_game_logic
+r1
+!s85 0
+31
+R4
 R8
+R9
+!i113 1
+R5
+vm_game_logic
+R0
 !i10b 1
 !s100 nmC2K]c[_WnR5_3i]RW:C3
 I35:;@TB_c4O16PDV^5W5V3
-R0
 R1
-R9
-R4
-R5
-L0 85
 R2
-r1
-!s85 0
-31
 R10
 R6
 R7
-!i113 1
+L0 85
 R3
-vm_game_over
+r1
+!s85 0
+31
+R4
 R8
+R9
+!i113 1
+R5
+vm_game_over
+R0
 !i10b 1
 !s100 lggIT0n^OQ6b9bHV?7QE^3
 I>b@Ye@GFaG6IkB7eM8Unk1
-R0
 R1
-R9
-R4
-R5
-L0 146
 R2
-r1
-!s85 0
-31
 R10
 R6
 R7
-!i113 1
+L0 146
 R3
+r1
+!s85 0
+31
+R4
+R8
+R9
+!i113 1
+R5
 vm_ghost_collision
 !s110 1732363079
 !i10b 1
 !s100 lCHBIeMan;B761[Df6X5Y0
 IREYeADM43QK<@AZOjlENR3
-R0
 R1
-w1732363049
-R4
-R5
-R11
 R2
+w1732363049
+R6
+R7
+R11
+R3
 r1
 !s85 0
 31
 !s108 1732363079.000000
-R6
-R7
-!i113 1
-R3
-vm_greeting
 R8
+R9
+!i113 1
+R5
+vm_greeting
+R0
 !i10b 1
 !s100 3:0zOWgQGl[ETz>C4Y;0a1
 IVhLe:P8?`fOmz`bVBNONL2
-R0
 R1
-R9
-R4
-R5
-L0 67
 R2
-r1
-!s85 0
-31
 R10
 R6
 R7
-!i113 1
+L0 67
 R3
-vm_renderer
+r1
+!s85 0
+31
+R4
 R8
+R9
+!i113 1
+R5
+vm_renderer
+R0
 !i10b 1
 !s100 LZCZ@>Y^?XHd6^ZckW;4J3
 Io^Y1LL?M@f9`48oX8OLf33
-R0
 R1
-R9
-R4
-R5
-L0 105
 R2
-r1
-!s85 0
-31
 R10
 R6
 R7
-!i113 1
+L0 105
 R3
+r1
+!s85 0
+31
+R4
+R8
+R9
+!i113 1
+R5

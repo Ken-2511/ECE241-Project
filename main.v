@@ -6,8 +6,6 @@ module main (
     output [7:0] VGA_R, VGA_G, VGA_B,
     output VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK,
     inout PS2_CLK, PS2_DAT,
-    output [7:0] VGA_X_D,
-    output [6:0] VGA_Y_D,
     output [11:0] VGA_COLOR
 );
 
