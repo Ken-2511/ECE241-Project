@@ -113,7 +113,7 @@ module m_clear_screen(clock, resetn, enable, wren, finished, data, addr, last_ke
 endmodule
 
 
-module m_update_position(clock, resetn, enable, wren, finished, data, addr, direction, player_x, player_y);
+module m_update_position(clock, resetn, enable, wren, finished, data, addr, direction, player_x, player_y, hs_enable);
 
     parameter cbit = 11;
     parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100; //TODO: STILL NEED TO DO COLLISIONS
@@ -146,7 +146,7 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
             player_x <= 5'b00001;
             player_y <= 4'b0001;
         end
-        else if (he_enable) begin
+        else if (hs_enable) begin
             case(direction)
                 up: begin player_x <= player_x; player_y <= player_y - 1; end
                 left: begin player_x <= player_x - 1; player_y <= player_y; end
@@ -658,7 +658,7 @@ module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X,
     output reg [cbit:0] VGA_COLOR;
 
     // Ghost position and direction
-    input [4:0] ghost1_x. ghost2_x, ghost3_x;
+    input [4:0] ghost1_x, ghost2_x, ghost3_x;
     input [3:0] ghost1_y, ghost2_y, ghost3_y;
     input [1:0] direct;
 

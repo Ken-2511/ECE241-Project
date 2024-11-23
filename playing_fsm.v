@@ -336,7 +336,8 @@ module m_playing(
         .addr(ad_update_position),
         .direction(direction),
         .player_x(player_x),
-        .player_y(player_y)
+        .player_y(player_y),
+        .hs_enable(hs_enable)
     );
 
     m_eat_food m_eat_food_inst(
