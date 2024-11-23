@@ -54,7 +54,6 @@ module m_renderer (
     always @(posedge clock or negedge resetn) begin
         if (!resetn) begin
             state <= IDLE;
-            first_time_rendering <= 1;
         end
         else if (enable)
             state <= next_state;
@@ -98,6 +97,7 @@ module m_renderer (
             curr_y <= 0;
             curr_color <= bg_color;
             finished <= 0;
+            first_time_rendering <= 1;
         end else if (enable) begin
             case (state)
                 IDLE: begin
@@ -114,16 +114,18 @@ module m_renderer (
                 DRAW_BG: begin
                     // Draw the background
                     if (bg_x == 159) begin
-                        bg_x <= 0;
-                        bg_y <= bg_y + 1;
-                    end else begin
                         if (bg_y == 119) begin
+                            first_time_rendering <= 0;
                             bg_x <= 0;
                             bg_y <= 0;
-                            first_time_rendering <= 0;
-                        end else begin
-                            bg_x <= bg_x + 1;
                         end
+                        else begin
+                            bg_x <= 0;
+                            bg_y <= bg_y + 1;
+                        end
+                    end
+                    else begin
+                        bg_x <= bg_x + 1;
                     end
                     VGA_COLOR <= bg_color;  // VGA color is still driven by bg_color
                     VGA_X <= bg_x;
