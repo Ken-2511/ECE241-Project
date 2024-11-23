@@ -24,7 +24,12 @@ module m_game_logic (
             ghost3_y <= 4'b1000;
         end
         else if (enable) begin
-            player_x <= player_x + 1;
+            if (player_x < 5'd29)
+                player_x <= player_x + 1;
+            else begin
+                player_x <= 5'b00001;
+                player_y <= player_y + 1;
+            end
             finished <= 1;
         end
         else
@@ -48,6 +53,48 @@ module m_collision (
             collision_detected <= 0;
         else if (enable)
             collision_detected <= 0;
+    end
+endmodule
+
+
+module m_init_background (
+    input clock,
+    input resetn,
+    input enable,
+    output reg finished,
+    output reg [7:0] bg_x,
+    output reg [6:0] bg_y,
+    input [11:0] bg_color,
+    output reg [7:0] VGA_X,
+    output reg [6:0] VGA_Y,
+    output reg [11:0] VGA_COLOR
+);
+    always @(posedge clock or negedge resetn) begin
+        if (!resetn) begin
+            finished <= 0;
+            bg_x <= 0;
+            bg_y <= 0;
+        end
+        else if (enable) begin
+            if (bg_x < 8'd160)
+                bg_x <= bg_x + 1;
+            else begin
+                if (bg_y < 7'd120) begin
+                    bg_x <= 0;
+                    bg_y <= bg_y + 1;
+                end
+                else
+                    finished <= 1;
+            end
+        end
+        else
+            finished <= 0;
+    end
+
+    always @(posedge clock) begin
+        VGA_X <= bg_x;
+        VGA_Y <= bg_y;
+        VGA_COLOR <= bg_color;
     end
 endmodule
 

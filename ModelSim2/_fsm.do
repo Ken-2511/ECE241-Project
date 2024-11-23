@@ -22,6 +22,7 @@ add wave -noupdate -label e_game_over -radix binary /fsm_tb/uut/e_game_over
 
 # Completion Signals
 add wave -noupdate -divider completion_signals
+add wave -noupdate -label greeting_done -radix binary /fsm_tb/uut/greeting_done
 add wave -noupdate -label logic_done -radix binary /fsm_tb/uut/logic_done
 add wave -noupdate -label render_done -radix binary /fsm_tb/uut/render_done
 add wave -noupdate -label game_over_done -radix binary /fsm_tb/uut/game_over_done

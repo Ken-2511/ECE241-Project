@@ -27,12 +27,15 @@ module m_renderer (
     input wire [11:0] bg_color
 );
 
+    // flag for first time rendering
+    reg first_time_rendering;
+
     // let VGA be the delayed version of bg
     reg [7:0] _temp_x;
     reg [6:0] _temp_y;
 
     // State encoding
-    parameter IDLE = 3'b000, ERASE = 3'b001, DRAW = 3'b010, DONE = 3'b011;
+    parameter IDLE = 3'b000, ERASE = 3'b001, DRAW = 3'b010, DONE = 3'b011, DRAW_BG = 3'b100;
     reg [2:0] state, next_state;
 
     // Rendering variables
@@ -41,14 +44,18 @@ module m_renderer (
     reg [3:0] dx, dy;               // Offsets within the block
     reg [11:0] curr_color;          // Current rendering color (12-bit: R,G,B each 4-bit)
     wire [11:0] pl_color;           // Player color
+    reg [11:0] pl_color1;           // delayed player color
+    reg [11:0] pl_color2;           // delayed player color
 
     // Rendering target index
     reg [1:0] render_index;         // 0: Player, 1: Ghost 1, 2: Ghost 2, 3: Ghost 3
 
     // State transition logic
     always @(posedge clock or negedge resetn) begin
-        if (!resetn)
+        if (!resetn) begin
             state <= IDLE;
+            first_time_rendering <= 1;
+        end
         else if (enable)
             state <= next_state;
     end
@@ -57,7 +64,9 @@ module m_renderer (
     always @(*) begin
         case (state)
             IDLE: 
-                next_state = ERASE;
+                next_state = (first_time_rendering) ? DRAW_BG : ERASE;
+            DRAW_BG:
+                next_state = (VGA_X == 159 && VGA_Y == 119) ? ERASE : DRAW_BG;
             ERASE: 
                 next_state = (render_index == 3 && dx == 4 && dy == 4) ? DRAW : ERASE;
             DRAW: 
@@ -79,6 +88,8 @@ module m_renderer (
             _temp_y <= 0;
             VGA_X <= 0;
             VGA_Y <= 0;
+            pl_color1 <= 0;
+            pl_color2 <= 0;
             VGA_COLOR <= 0;
             dx <= 0;
             dy <= 0;
@@ -98,6 +109,25 @@ module m_renderer (
                     curr_y <= pl_game_y;
                     curr_color <= bg_color;
                     finished <= 0;
+                end
+
+                DRAW_BG: begin
+                    // Draw the background
+                    if (bg_x == 159) begin
+                        bg_x <= 0;
+                        bg_y <= bg_y + 1;
+                    end else begin
+                        if (bg_y == 119) begin
+                            bg_x <= 0;
+                            bg_y <= 0;
+                            first_time_rendering <= 0;
+                        end else begin
+                            bg_x <= bg_x + 1;
+                        end
+                    end
+                    VGA_COLOR <= bg_color;  // VGA color is still driven by bg_color
+                    VGA_X <= bg_x;
+                    VGA_Y <= bg_y;
                 end
 
                 ERASE: begin
@@ -141,7 +171,9 @@ module m_renderer (
                     _temp_y <= bg_y;
                     VGA_X <= _temp_x;
                     VGA_Y <= _temp_y;
-                    VGA_COLOR <= (render_index == 0) ? pl_color : 12'hFFF; // Assume ghosts are white
+                    pl_color1 <= pl_color;
+                    pl_color2 <= pl_color1;
+                    VGA_COLOR <= (render_index == 0) ? pl_color2 : 12'hFFF; // Assume ghosts are white
 
                     if (dx < 4)
                         dx <= dx + 1;

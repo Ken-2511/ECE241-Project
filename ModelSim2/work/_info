@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/intelFPGA/18.1
 vbackground
-Z0 !s110 1732397917
+Z0 !s110 1732402605
 !i10b 1
 !s100 MVL@QJ`Io7b9NW@mb[8540
 INSGHcQmHP@A?8<QkPhA<<0
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1732397917.000000
+Z5 !s108 1732402605.000000
 !s107 ../background.v|
 !s90 -reportprogress|300|../background.v|
 !i113 1
@@ -171,11 +171,11 @@ R6
 vfsm_game_state
 R0
 !i10b 1
-!s100 G?cd[4iJ6KQNZ:XhohM5?0
-Io<ZiD>6JCIN1SZ_kPb@4_3
+!s100 jS@M2i[b4cZJ0FnI?:WnY3
+IV20E[>0M:f?E0cU:^4@9l3
 R1
 R2
-w1732396325
+w1732401659
 8../fsm.v
 F../fsm.v
 L0 1
@@ -451,28 +451,28 @@ R6
 vm_collision
 R0
 !i10b 1
-!s100 9QSQTX0h0zbGGG=U:`Czb1
-IL6W@F^AGn?Ooh8kfIWJEo3
+!s100 Q=SbUm>giTCO9VOBP>Md13
+Ij<EX@Y6mYzA2OQ;b]RUJm2
 R1
 R2
-Z25 w1732395242
+Z25 w1732401474
 Z26 8../_modules.v
 Z27 F../_modules.v
-Z28 L0 36
+L0 41
 R4
 r1
 !s85 0
 31
 R5
-Z29 !s107 ../_modules.v|
-Z30 !s90 -reportprogress|300|../_modules.v|
+Z28 !s107 ../_modules.v|
+Z29 !s90 -reportprogress|300|../_modules.v|
 !i113 1
 R6
 vm_game_logic
 R0
 !i10b 1
-!s100 =bN_7gb]Wb7XTkd@kONkL2
-IidIZ004kI<DgGH6<84ooD2
+!s100 ?NOH?<l@4P;jQ_6]Und6O0
+IY0bWH92N=ORY1^m]f4=nD1
 R1
 R2
 R25
@@ -484,8 +484,8 @@ r1
 !s85 0
 31
 R5
+R28
 R29
-R30
 !i113 1
 R6
 vm_game_over
@@ -548,14 +548,34 @@ R17
 R18
 !i113 1
 R6
+vm_init_background
+R0
+!i10b 1
+!s100 7j^Mdgi:[Sf=<7EV<4_Ql1
+IZBR5o8LczzaC@^5=Z6@k20
+R1
+R2
+R25
+R26
+R27
+L0 60
+R4
+r1
+!s85 0
+31
+R5
+R28
+R29
+!i113 1
+R6
 vm_renderer
 R0
 !i10b 1
-!s100 1S5z`eN<>gzIDI;MN47VM3
-Ibjg3DofggO_;5?DkEjOOD2
+!s100 DbHc77U>iH53DCgNE?J9z2
+If8kJjmXKicRYS^fjJE^;V3
 R1
 R2
-w1732397911
+w1732402602
 8../renderer.v
 F../renderer.v
 L0 1
@@ -630,7 +650,7 @@ R11
 !i113 1
 R6
 vplayer
-Z31 !s110 1732397632
+Z30 !s110 1732400905
 !i10b 1
 !s100 F@dYUNF[A@eO9Xi`l=88^0
 IeY]M>0mj9ce4k]ohCcN092
@@ -644,7 +664,7 @@ R4
 r1
 !s85 0
 31
-Z32 !s108 1732397632.000000
+Z31 !s108 1732400905.000000
 !s107 ../player.v|
 !s90 -reportprogress|300|../player.v|
 !i113 1
@@ -670,7 +690,7 @@ R11
 !i113 1
 R6
 vrenderer_tb
-R31
+R30
 !i10b 1
 !s100 NkIQgShoSNY<2LkcHI1=F0
 I1NgUb<`=5jW[PMbGB6RjN1
@@ -684,7 +704,7 @@ R4
 r1
 !s85 0
 31
-R32
+R31
 !s107 ./_renderer.v|
 !s90 -reportprogress|300|./_renderer.v|
 !i113 1
@@ -725,8 +745,8 @@ r1
 !s85 0
 31
 R9
-Z33 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
-Z34 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
+Z32 !s107 ../vga_adapter/vga_pll.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_adapter.v|
+Z33 !s90 -reportprogress|300|../vga_adapter/vga_adapter.v|../vga_adapter/vga_address_translator.v|../vga_adapter/vga_controller.v|../vga_adapter/vga_pll.v|
 !i113 1
 R6
 vvga_address_translator
@@ -745,8 +765,8 @@ r1
 !s85 0
 31
 R9
+R32
 R33
-R34
 !i113 1
 R6
 vvga_controller
@@ -765,8 +785,8 @@ r1
 !s85 0
 31
 R9
+R32
 R33
-R34
 !i113 1
 R6
 vvga_pll
@@ -779,13 +799,13 @@ R2
 R8
 8../vga_adapter/vga_pll.v
 F../vga_adapter/vga_pll.v
-R28
+L0 36
 R4
 r1
 !s85 0
 31
 R9
+R32
 R33
-R34
 !i113 1
 R6
