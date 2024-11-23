@@ -36,6 +36,8 @@ add wave -noupdate -label VGA_X -radix unsigned /fsm_tb/uut/VGA_X
 add wave -noupdate -label VGA_Y -radix unsigned /fsm_tb/uut/VGA_Y
 add wave -noupdate -label VGA_COLOR -radix hexadecimal /fsm_tb/uut/VGA_COLOR
 add wave -noupdate -label bg_color -radix hexadecimal /fsm_tb/uut/bg_color
+add wave -noupdate -label bg_x -radix unsigned /fsm_tb/uut/bg_x
+add wave -noupdate -label bg_y -radix unsigned /fsm_tb/uut/bg_y
 
 # Player Position
 add wave -noupdate -divider player_signals

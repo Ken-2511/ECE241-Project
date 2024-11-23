@@ -42,15 +42,15 @@ module fsm_game_state (
     wire [11:0] vga_color_greeting, vga_color_render, vga_color_game_over;
 
     // Background signals
-    wire [4:0] bg_x;
-    wire [3:0] bg_y;
+    wire [7:0] bg_x;
+    wire [6:0] bg_y;
     reg bg_wren;
     reg [11:0] bg_write_data;
     wire [11:0] bg_color;
     wire [14:0] bg_address;
 
     // Calculate background memory address
-    assign bg_address = bg_y * 5'd20 + bg_x; // Adjust for your background width
+    assign bg_address = bg_y * 8'd160 + bg_x; // Adjust for your background width
 
     // signals for eating food
     wire food_eaten;
@@ -199,9 +199,6 @@ module fsm_game_state (
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
         .last_key_received(last_key_received),
-        .bg_x(bg_x),
-        .bg_y(bg_y),
-        .bg_color(bg_color),
         .food_eaten(food_eaten)
     );
 

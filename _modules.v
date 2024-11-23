@@ -9,9 +9,6 @@ module m_game_logic (
     output reg [4:0] ghost1_x, ghost2_x, ghost3_x,
     output reg [3:0] ghost1_y, ghost2_y, ghost3_y,
     input [7:0] last_key_received,
-    output reg [4:0] bg_x,
-    output reg [3:0] bg_y,
-    output reg [11:0] bg_color,
     output reg food_eaten
 );
     always @(posedge clock or negedge resetn) begin

@@ -22,10 +22,14 @@ module m_renderer (
     input wire [3:0] g3_game_y,
 
     // Background
-    input wire [4:0] bg_x,
-    input wire [3:0] bg_y,
+    output reg [7:0] bg_x,
+    output reg [6:0] bg_y,
     input wire [11:0] bg_color
 );
+
+    // let VGA be the delayed version of bg
+    reg [7:0] _temp_x;
+    reg [6:0] _temp_y;
 
     // State encoding
     parameter IDLE = 3'b000, ERASE = 3'b001, DRAW = 3'b010, DONE = 3'b011;
@@ -69,6 +73,10 @@ module m_renderer (
     always @(posedge clock or negedge resetn) begin
         if (!resetn) begin
             // Initialize
+            bg_x <= 0;
+            bg_y <= 0;
+            _temp_x <= 0;
+            _temp_y <= 0;
             VGA_X <= 0;
             VGA_Y <= 0;
             VGA_COLOR <= 0;
@@ -94,8 +102,12 @@ module m_renderer (
 
                 ERASE: begin
                     // Erase the current object's previous position
-                    VGA_X <= curr_x * 5 + dx;
-                    VGA_Y <= curr_y * 5 + dy;
+                    bg_x <= curr_x * 5 + dx;
+                    bg_y <= curr_y * 5 + dy;
+                    _temp_x <= bg_x;
+                    _temp_y <= bg_y;
+                    VGA_X <= _temp_x;
+                    VGA_Y <= _temp_y;
                     VGA_COLOR <= bg_color;
 
                     if (dx < 4)
@@ -123,8 +135,12 @@ module m_renderer (
 
                 DRAW: begin
                     // Draw the current object's current position
-                    VGA_X <= curr_x * 5 + dx;
-                    VGA_Y <= curr_y * 5 + dy;
+                    bg_x <= curr_x * 5 + dx;
+                    bg_y <= curr_y * 5 + dy;
+                    _temp_x <= bg_x;
+                    _temp_y <= bg_y;
+                    VGA_X <= _temp_x;
+                    VGA_Y <= _temp_y;
                     VGA_COLOR <= (render_index == 0) ? pl_color : 12'hFFF; // Assume ghosts are white
 
                     if (dx < 4)

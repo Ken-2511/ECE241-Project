@@ -61,7 +61,7 @@ module object_mem (address, clock, data);
 endmodule
 
 
-module delay_one_cycle #(parameter n = 8, parameter n_cycles = 1) (
+module delay_n_cycle #(parameter n = 8, parameter n_cycles = 1) (
     input clock, 
     input resetn,
     input [n-1:0] signal_in,
@@ -91,6 +91,22 @@ module delay_one_cycle #(parameter n = 8, parameter n_cycles = 1) (
     end
 endmodule
 
+
+module delay_one_cycle #(parameter n = 8) (
+    input clock, 
+    input resetn,
+    input [n-1:0] signal_in,
+    output reg [n-1:0] signal_out
+);
+
+    always @(posedge clock or negedge resetn) begin
+        if (!resetn)
+            signal_out <= {n{1'b0}}; // Reset to all zeros
+        else
+            signal_out <= signal_in; // Delay signal by one clock cycle
+    end
+
+endmodule
 
 
 module game_coord_2_canvas_coord (game_x, game_y, canvas_x, canvas_y);

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Sat Nov 23 14:58:00 2024
+Sat Nov 23 16:57:24 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -85,13 +85,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 23 14:58:00 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 23 16:57:24 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; main                                           ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 250                                            ;
+; Total registers                 ; 280                                            ;
 ; Total pins                      ; 70                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 480,300                                        ;
@@ -209,9 +209,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processors 7-16        ;   0.0%      ;
+;     Processors 5-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -277,16 +275,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 403            ;
+; Estimate of Logic utilization (ALMs needed) ; 405            ;
 ;                                             ;                ;
 ; Combinational ALUT usage for logic          ; 718            ;
 ;     -- 7 input functions                    ; 1              ;
 ;     -- 6 input functions                    ; 83             ;
 ;     -- 5 input functions                    ; 39             ;
-;     -- 4 input functions                    ; 130            ;
-;     -- <=3 input functions                  ; 465            ;
+;     -- 4 input functions                    ; 125            ;
+;     -- <=3 input functions                  ; 470            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 250            ;
+; Dedicated logic registers                   ; 280            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 70             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -298,9 +296,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 308            ;
-; Total fan-out                               ; 5207           ;
-; Average fan-out                             ; 4.35           ;
+; Maximum fan-out                             ; 338            ;
+; Total fan-out                               ; 5315           ;
+; Average fan-out                             ; 4.33           ;
 +---------------------------------------------+----------------+
 
 
@@ -309,11 +307,11 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                             ; Entity Name               ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |main                                                   ; 718 (2)             ; 250 (8)                   ; 480300            ; 0          ; 70   ; 0            ; |main                                                                                                                                                           ; main                      ; work         ;
+; |main                                                   ; 718 (2)             ; 280 (8)                   ; 480300            ; 0          ; 70   ; 0            ; |main                                                                                                                                                           ; main                      ; work         ;
 ;    |PS2_Controller:PS2|                                 ; 108 (6)             ; 90 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2                                                                                                                                        ; PS2_Controller            ; work         ;
 ;       |Altera_UP_PS2_Command_Out:PS2_Command_Out|       ; 86 (86)             ; 60 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out                                                                                              ; Altera_UP_PS2_Command_Out ; work         ;
 ;       |Altera_UP_PS2_Data_In:PS2_Data_In|               ; 16 (16)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In                                                                                                      ; Altera_UP_PS2_Data_In     ; work         ;
-;    |fsm_game_state:game_fsm|                            ; 520 (76)            ; 122 (31)                  ; 249900            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm                                                                                                                                   ; fsm_game_state            ; work         ;
+;    |fsm_game_state:game_fsm|                            ; 520 (76)            ; 152 (31)                  ; 249900            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm                                                                                                                                   ; fsm_game_state            ; work         ;
 ;       |background:u_background|                         ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|background:u_background                                                                                                           ; background                ; work         ;
 ;          |altsyncram:altsyncram_component|              ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|background:u_background|altsyncram:altsyncram_component                                                                           ; altsyncram                ; work         ;
 ;             |altsyncram_d0p1:auto_generated|            ; 3 (0)               ; 2 (2)                     ; 230400            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|background:u_background|altsyncram:altsyncram_component|altsyncram_d0p1:auto_generated                                            ; altsyncram_d0p1           ; work         ;
@@ -333,7 +331,7 @@ https://fpgasoftware.intel.com/eula.
 ;             |lpm_divide_q3m:auto_generated|             ; 162 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0|lpm_divide_q3m:auto_generated                                                            ; lpm_divide_q3m            ; work         ;
 ;                |sign_div_unsign_tlh:divider|            ; 162 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0|lpm_divide_q3m:auto_generated|sign_div_unsign_tlh:divider                                ; sign_div_unsign_tlh       ; work         ;
 ;                   |alt_u_div_00f:divider|               ; 162 (162)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0|lpm_divide_q3m:auto_generated|sign_div_unsign_tlh:divider|alt_u_div_00f:divider          ; alt_u_div_00f             ; work         ;
-;       |m_renderer:renderer_inst|                        ; 90 (90)             ; 49 (49)                   ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst                                                                                                          ; m_renderer                ; work         ;
+;       |m_renderer:renderer_inst|                        ; 90 (90)             ; 79 (79)                   ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst                                                                                                          ; m_renderer                ; work         ;
 ;          |player:u_player|                              ; 0 (0)               ; 0 (0)                     ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player                                                                                          ; player                    ; work         ;
 ;             |altsyncram:altsyncram_component|           ; 0 (0)               ; 0 (0)                     ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component                                                          ; altsyncram                ; work         ;
 ;                |altsyncram_45g1:auto_generated|         ; 0 (0)               ; 0 (0)                     ; 300               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated                           ; altsyncram_45g1           ; work         ;
@@ -510,12 +508,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 250   ;
+; Total registers                              ; 280   ;
 ; Number of registers using Synchronous Clear  ; 146   ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 138   ;
+; Number of registers using Asynchronous Clear ; 168   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 174   ;
+; Number of registers using Clock Enable       ; 204   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -535,21 +533,21 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[2]                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[1]                                                                             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[6]                                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[4]                            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[3]                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[2]                                                                             ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[2]                                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[3]                            ;
 ; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[1]          ;
 ; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[17]                  ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[3]                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[0]                                ;
 ; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[17]                 ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[0]                                            ;
-; 6:1                ; 12 bits   ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR[6]                                     ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR[2]                                     ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[0]                                            ;
-; 13:1               ; 4 bits    ; 32 LEs        ; 12 LEs               ; 20 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[2]                                        ;
-; 13:1               ; 5 bits    ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[2]                                        ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[0] ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 12 LEs               ; 20 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[3]                                        ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[4]                                        ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[6] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
 
 
@@ -1471,15 +1469,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "fsm_game_state:game_fsm|background:u_background"                                                                                                                                      ;
-+---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type  ; Severity ; Details                                                                                                                                                                             ;
-+---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; address ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (15 bits) it drives.  The 17 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data    ; Input ; Info     ; Stuck at GND                                                                                                                                                                        ;
-; wren    ; Input ; Info     ; Stuck at GND                                                                                                                                                                        ;
-+---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "fsm_game_state:game_fsm|background:u_background" ;
++------------+-------+----------+---------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                     ;
++------------+-------+----------+---------------------------------------------+
+; data[7..0] ; Input ; Info     ; Stuck at GND                                ;
++------------+-------+----------+---------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -1535,11 +1531,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 250                         ;
+; arriav_ff             ; 280                         ;
 ;     CLR               ; 9                           ;
 ;     CLR SCLR          ; 37                          ;
 ;     ENA               ; 8                           ;
-;     ENA CLR           ; 67                          ;
+;     ENA CLR           ; 97                          ;
 ;     ENA CLR SCLR      ; 25                          ;
 ;     ENA SCLR          ; 74                          ;
 ;     SCLR              ; 10                          ;
@@ -1564,16 +1560,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         6 data inputs ; 83                          ;
 ;     shared            ; 56                          ;
 ;         0 data inputs ; 6                           ;
-;         1 data inputs ; 20                          ;
-;         2 data inputs ; 16                          ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 19                          ;
 ;         3 data inputs ; 4                           ;
-;         4 data inputs ; 10                          ;
+;         4 data inputs ; 5                           ;
 ; boundary_port         ; 70                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 87                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.30                       ;
-; Average LUT depth     ; 6.40                        ;
+; Average LUT depth     ; 6.27                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1592,7 +1588,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Nov 23 14:57:54 2024
+    Info: Processing started: Sat Nov 23 16:57:18 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file greeting_win_over.v
@@ -1600,7 +1596,7 @@ Info (12021): Found 2 design units, including 2 entities, in source file greetin
     Info (12023): Found entity 2: m_game_over File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 61
 Info (12021): Found 2 design units, including 2 entities, in source file _modules.v
     Info (12023): Found entity 1: m_game_logic File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 2
-    Info (12023): Found entity 2: m_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 35
+    Info (12023): Found entity 2: m_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file renderer.v
     Info (12023): Found entity 1: m_renderer File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
@@ -1626,16 +1622,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_ada
     Info (12023): Found entity 1: vga_address_translator File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_address_translator.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file vga_adapter/vga_adapter.v
     Info (12023): Found entity 1: vga_adapter File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 51
-Info (12021): Found 9 design units, including 9 entities, in source file utils.v
+Info (12021): Found 10 design units, including 10 entities, in source file utils.v
     Info (12023): Found entity 1: regn File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 1
     Info (12023): Found entity 2: count File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 14
     Info (12023): Found entity 3: hex7seg File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 26
     Info (12023): Found entity 4: object_mem File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 53
-    Info (12023): Found entity 5: delay_one_cycle File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 64
-    Info (12023): Found entity 6: game_coord_2_canvas_coord File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 96
-    Info (12023): Found entity 7: canvas_coord_2_mem_addr File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 109
-    Info (12023): Found entity 8: half_sec_counter File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 120
-    Info (12023): Found entity 9: debounce_filter File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 148
+    Info (12023): Found entity 5: delay_n_cycle File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 64
+    Info (12023): Found entity 6: delay_one_cycle File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 95
+    Info (12023): Found entity 7: game_coord_2_canvas_coord File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 112
+    Info (12023): Found entity 8: canvas_coord_2_mem_addr File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 125
+    Info (12023): Found entity 9: half_sec_counter File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 136
+    Info (12023): Found entity 10: debounce_filter File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 164
 Info (12021): Found 1 design units, including 1 entities, in source file top.v
     Info (12023): Found entity 1: top File: C:/Users/IWMAI/Desktop/ECE241-Project/top.v Line: 5
 Info (12021): Found 0 design units, including 0 entities, in source file ps2.v
@@ -1665,9 +1662,9 @@ Info (12128): Elaborating entity "Altera_UP_PS2_Data_In" for hierarchy "PS2_Cont
 Info (12128): Elaborating entity "Altera_UP_PS2_Command_Out" for hierarchy "PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out" File: C:/Users/IWMAI/Desktop/ECE241-Project/PS2_Controller/PS2_Controller.v Line: 267
 Info (12128): Elaborating entity "hex7seg" for hierarchy "hex7seg:H3" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 43
 Info (12128): Elaborating entity "fsm_game_state" for hierarchy "fsm_game_state:game_fsm" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 57
-Warning (10230): Verilog HDL assignment warning at fsm.v(55): truncated value with size 32 to match size of target (26) File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 55
-Info (10264): Verilog HDL Case Statement information at fsm.v(130): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 130
-Info (12128): Elaborating entity "m_greeting" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 165
+Warning (10230): Verilog HDL assignment warning at fsm.v(68): truncated value with size 32 to match size of target (26) File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 68
+Info (10264): Verilog HDL Case Statement information at fsm.v(150): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 150
+Info (12128): Elaborating entity "m_greeting" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 185
 Warning (10230): Verilog HDL assignment warning at greeting_win_over.v(27): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 27
 Warning (10230): Verilog HDL assignment warning at greeting_win_over.v(28): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 28
 Warning (10230): Verilog HDL assignment warning at greeting_win_over.v(45): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 45
@@ -1698,59 +1695,60 @@ Info (12128): Elaborating entity "decode_01a" for hierarchy "fsm_game_state:game
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_gfb.tdf
     Info (12023): Found entity 1: mux_gfb File: C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_gfb.tdf Line: 23
 Info (12128): Elaborating entity "mux_gfb" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated|mux_gfb:mux2" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_abh1.tdf Line: 41
-Info (12128): Elaborating entity "m_game_logic" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 182
-Warning (10230): Verilog HDL assignment warning at _modules.v(26): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 26
-Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "player_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost1_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost1_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost2_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost2_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost3_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Warning (10240): Verilog HDL Always Construct warning at _modules.v(13): inferring latch(es) for variable "ghost3_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost3_y[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost3_y[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost3_y[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost3_y[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost3_x[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost3_x[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost3_x[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost3_x[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost3_x[4]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost2_y[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost2_y[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost2_y[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost2_y[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost2_x[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost2_x[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost2_x[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost2_x[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost2_x[4]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost1_y[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost1_y[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost1_y[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost1_y[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost1_x[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost1_x[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost1_x[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost1_x[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "ghost1_x[4]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "player_y[0]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "player_y[1]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "player_y[2]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (10041): Inferred latch for "player_y[3]" at _modules.v(13) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
-Info (12128): Elaborating entity "m_renderer" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 202
-Warning (10036): Verilog HDL or VHDL warning at renderer.v(36): object "curr_color" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 36
-Warning (10230): Verilog HDL assignment warning at renderer.v(95): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 95
-Warning (10230): Verilog HDL assignment warning at renderer.v(96): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 96
-Warning (10230): Verilog HDL assignment warning at renderer.v(100): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 100
-Warning (10230): Verilog HDL assignment warning at renderer.v(103): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 103
-Warning (10230): Verilog HDL assignment warning at renderer.v(108): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 108
-Warning (10230): Verilog HDL assignment warning at renderer.v(124): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 124
-Warning (10230): Verilog HDL assignment warning at renderer.v(125): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 125
-Warning (10230): Verilog HDL assignment warning at renderer.v(129): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 129
-Warning (10230): Verilog HDL assignment warning at renderer.v(132): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 132
-Warning (10230): Verilog HDL assignment warning at renderer.v(138): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 138
-Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player" File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 164
+Info (12128): Elaborating entity "m_game_logic" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 203
+Warning (10230): Verilog HDL assignment warning at _modules.v(27): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 27
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(14): inferring latch(es) for variable "player_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(14): inferring latch(es) for variable "ghost1_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(14): inferring latch(es) for variable "ghost1_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(14): inferring latch(es) for variable "ghost2_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(14): inferring latch(es) for variable "ghost2_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(14): inferring latch(es) for variable "ghost3_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Warning (10240): Verilog HDL Always Construct warning at _modules.v(14): inferring latch(es) for variable "ghost3_y", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Warning (10034): Output port "food_eaten" at _modules.v(13) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 13
+Info (10041): Inferred latch for "ghost3_y[0]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost3_y[1]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost3_y[2]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost3_y[3]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost3_x[0]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost3_x[1]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost3_x[2]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost3_x[3]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost3_x[4]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost2_y[0]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost2_y[1]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost2_y[2]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost2_y[3]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost2_x[0]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost2_x[1]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost2_x[2]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost2_x[3]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost2_x[4]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost1_y[0]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost1_y[1]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost1_y[2]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost1_y[3]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost1_x[0]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost1_x[1]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost1_x[2]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost1_x[3]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "ghost1_x[4]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "player_y[0]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "player_y[1]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "player_y[2]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (10041): Inferred latch for "player_y[3]" at _modules.v(14) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 14
+Info (12128): Elaborating entity "m_renderer" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 225
+Warning (10036): Verilog HDL or VHDL warning at renderer.v(42): object "curr_color" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 42
+Warning (10230): Verilog HDL assignment warning at renderer.v(105): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 105
+Warning (10230): Verilog HDL assignment warning at renderer.v(106): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 106
+Warning (10230): Verilog HDL assignment warning at renderer.v(114): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 114
+Warning (10230): Verilog HDL assignment warning at renderer.v(117): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 117
+Warning (10230): Verilog HDL assignment warning at renderer.v(122): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 122
+Warning (10230): Verilog HDL assignment warning at renderer.v(138): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 138
+Warning (10230): Verilog HDL assignment warning at renderer.v(139): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 139
+Warning (10230): Verilog HDL assignment warning at renderer.v(147): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 147
+Warning (10230): Verilog HDL assignment warning at renderer.v(150): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 150
+Warning (10230): Verilog HDL assignment warning at renderer.v(156): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 156
+Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player" File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 182
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 82
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 82
 Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 82
@@ -1771,11 +1769,11 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_renderer:rend
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_45g1.tdf
     Info (12023): Found entity 1: altsyncram_45g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_45g1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_45g1" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:game_fsm|m_game_over:game_over_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 213
+Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:game_fsm|m_game_over:game_over_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 236
 Warning (10034): Output port "VGA_X" at greeting_win_over.v(66) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 66
 Warning (10034): Output port "VGA_Y" at greeting_win_over.v(67) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 67
 Warning (10034): Output port "VGA_COLOR" at greeting_win_over.v(69) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 69
-Info (12128): Elaborating entity "background" for hierarchy "fsm_game_state:game_fsm|background:u_background" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 250
+Info (12128): Elaborating entity "background" for hierarchy "fsm_game_state:game_fsm|background:u_background" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 245
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:game_fsm|background:u_background|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/background.v Line: 86
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|background:u_background|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/background.v Line: 86
 Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|background:u_background|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/background.v Line: 86
@@ -1846,7 +1844,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 216
 Info (12128): Elaborating entity "debounce_filter" for hierarchy "debounce_filter:debounce" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 87
-Warning (10230): Verilog HDL assignment warning at utils.v(171): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 171
+Warning (10230): Verilog HDL assignment warning at utils.v(187): truncated value with size 32 to match size of target (15) File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 187
 Info (278001): Inferred 2 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fsm_game_state:game_fsm|m_greeting:greeting_inst|Mod0" File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 27
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fsm_game_state:game_fsm|m_greeting:greeting_inst|Div0" File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 28
@@ -1870,7 +1868,7 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_greeting:gree
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_nbm.tdf
     Info (12023): Found entity 1: lpm_divide_nbm File: C:/Users/IWMAI/Desktop/ECE241-Project/db/lpm_divide_nbm.tdf Line: 25
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 7
 Info (286030): Timing-Driven Synthesis is running
@@ -1890,16 +1888,16 @@ Warning (21074): Design contains 9 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
-Info (21057): Implemented 915 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 945 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
     Info (21059): Implemented 55 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 757 logic cells
+    Info (21061): Implemented 787 logic cells
     Info (21064): Implemented 87 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
-    Info: Peak virtual memory: 4929 megabytes
-    Info: Processing ended: Sat Nov 23 14:58:00 2024
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 42 warnings
+    Info: Peak virtual memory: 4950 megabytes
+    Info: Processing ended: Sat Nov 23 16:57:24 2024
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:14
 

@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/intelFPGA/18.1
 vbackground
-Z0 !s110 1732394710
+Z0 !s110 1732397917
 !i10b 1
 !s100 MVL@QJ`Io7b9NW@mb[8540
 INSGHcQmHP@A?8<QkPhA<<0
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1732394710.000000
+Z5 !s108 1732397917.000000
 !s107 ../background.v|
 !s90 -reportprogress|300|../background.v|
 !i113 1
@@ -171,11 +171,11 @@ R6
 vfsm_game_state
 R0
 !i10b 1
-!s100 D3E?6[IN:?loV>AUVzjzM2
-IAA^FAUA7O2eo7WdG]RPE`2
+!s100 G?cd[4iJ6KQNZ:XhohM5?0
+Io<ZiD>6JCIN1SZ_kPb@4_3
 R1
 R2
-w1732394433
+w1732396325
 8../fsm.v
 F../fsm.v
 L0 1
@@ -398,7 +398,7 @@ R2
 R8
 8../greeting_screen.v
 F../greeting_screen.v
-Z25 L0 39
+L0 39
 R4
 r1
 !s85 0
@@ -451,14 +451,14 @@ R6
 vm_collision
 R0
 !i10b 1
-!s100 aN;3=]`VOjh5k1`SX=2KR3
-IR21<eG_i@z6iFA5Qho?Og0
+!s100 9QSQTX0h0zbGGG=U:`Czb1
+IL6W@F^AGn?Ooh8kfIWJEo3
 R1
 R2
-Z26 w1732394491
-Z27 8../_modules.v
-Z28 F../_modules.v
-R25
+Z25 w1732395242
+Z26 8../_modules.v
+Z27 F../_modules.v
+Z28 L0 36
 R4
 r1
 !s85 0
@@ -471,13 +471,13 @@ R6
 vm_game_logic
 R0
 !i10b 1
-!s100 PRhif=mKfR7=g]Zoah?8J1
-I_YC?5KDXYZ?D]XnVLI2H@0
+!s100 =bN_7gb]Wb7XTkd@kONkL2
+IidIZ004kI<DgGH6<84ooD2
 R1
 R2
+R25
 R26
 R27
-R28
 L0 2
 R4
 r1
@@ -551,11 +551,11 @@ R6
 vm_renderer
 R0
 !i10b 1
-!s100 92KG67W`;KCd`@PnT<]e40
-IO03EMC78IgLiiEz85FFM33
+!s100 1S5z`eN<>gzIDI;MN47VM3
+Ibjg3DofggO_;5?DkEjOOD2
 R1
 R2
-w1732394567
+w1732397911
 8../renderer.v
 F../renderer.v
 L0 1
@@ -630,7 +630,7 @@ R11
 !i113 1
 R6
 vplayer
-Z31 !s110 1732394697
+Z31 !s110 1732397632
 !i10b 1
 !s100 F@dYUNF[A@eO9Xi`l=88^0
 IeY]M>0mj9ce4k]ohCcN092
@@ -644,7 +644,7 @@ R4
 r1
 !s85 0
 31
-Z32 !s108 1732394697.000000
+Z32 !s108 1732397632.000000
 !s107 ../player.v|
 !s90 -reportprogress|300|../player.v|
 !i113 1
@@ -672,11 +672,11 @@ R6
 vrenderer_tb
 R31
 !i10b 1
-!s100 S7RQ8Tj1a7?mIeFTAJ>g=1
-I7Y:cI`9RY]9K:R]7hBQmb1
+!s100 NkIQgShoSNY<2LkcHI1=F0
+I1NgUb<`=5jW[PMbGB6RjN1
 R1
 R2
-w1732394693
+w1732397386
 8./_renderer.v
 F./_renderer.v
 L0 3
@@ -779,7 +779,7 @@ R2
 R8
 8../vga_adapter/vga_pll.v
 F../vga_adapter/vga_pll.v
-L0 36
+R28
 R4
 r1
 !s85 0

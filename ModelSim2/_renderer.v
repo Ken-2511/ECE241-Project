@@ -31,8 +31,8 @@ module renderer_tb;
 
     // Background
     reg [11:0] bg_color;
-    reg [4:0] bg_x;
-    reg [3:0] bg_y;
+    wire [7:0] bg_x;
+    wire [6:0] bg_y;
 
     // Instantiate the renderer module
     m_renderer uut (
