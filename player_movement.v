@@ -2,7 +2,7 @@
 module get_direction(key, enable, w);
     input [7:0] key;
     input enable;
-    output reg [3:0] w;
+    output reg [2:0] w;
 
     parameter W = 8'b00011101, A = 8'b00011100, S = 8'b00011011, D = 8'b00100011;
 

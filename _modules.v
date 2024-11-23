@@ -2,121 +2,100 @@
 module m_game_logic (
     input clock,
     input resetn,
+    input hs_enable,
     input enable,
     output reg finished,
     output reg [4:0] player_x,
     output reg [3:0] player_y,
     output reg [4:0] ghost1_x, ghost2_x, ghost3_x,
     output reg [3:0] ghost1_y, ghost2_y, ghost3_y,
+    output reg game_over,
     input [7:0] last_key_received
 );
+    //may or may mot use this design
+    reg e_update_player_position, e_wall_collision, e_update_ghost_positions, e_ghost_collision, e_eat_food; //enable flads
+    reg f_update_player_position, f_wall_collision, f_update_ghost_positions, f_ghost_collision, f_eat_food; //finished flags
+    reg [3:0] state, next_state;
+
+    parameter update_player_position = 3'b000, wall_collision = 3'b001, update_ghost_positions = 3'b010, ghost_collision = 3'b011, eat_food = 3'b100;
+
+    //turn it into an FSM
     always @(posedge clock or negedge resetn) begin
         if (!resetn) begin
             finished <= 0;
-            player_x <= 5'b00000;
+            player_x <= 5'b00001;
             player_y <= 4'b0001;
-            ghost1_x <= 5'b00011;
+            ghost1_x <= 5'b00101;
             ghost1_y <= 4'b0011;
             ghost2_x <= 5'b00110;
             ghost2_y <= 4'b0110;
             ghost3_x <= 5'b01000;
             ghost3_y <= 4'b1000;
+
+            state <= update_player_position;
         end
-        else if (enable)
-            finished <= 1;
-    end
-endmodule
-
-// Mock collision detection module
-module m_collision (
-    input clock,
-    input resetn,
-    input enable,
-    input [4:0] player_x,
-    input [3:0] player_y,
-    input [4:0] ghost1_x, ghost2_x, ghost3_x,
-    input [3:0] ghost1_y, ghost2_y, ghost3_y,
-    output reg collision_detected
-);
-    always @(posedge clock or negedge resetn) begin
-        if (!resetn)
-            collision_detected <= 0;
-        else if (enable)
-            collision_detected <= 0;
-    end
-endmodule
-
-/*
-module m_game_over(clock, resetn, enable, finished, data, addr, wren);
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-    // Finish signal
-    output reg finished;
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-    output reg wren;
-
-    always @ (posedge clock) begin
-        if (!resetn)
-            finished <= 0;  // Reset to initial state
-        else if (enable)
-            finished <= 0;  // Never finish, for testing
-        else if (finished)
-            finished <= 0;  // Reset to initial state when finished
+        else if (enable) begin 
+            state <= next_state;
+        end 
     end
 
+    always @(*) begin 
+        case(state)
+            update_player_position:
+                if (f_update_player_position) next_state = wall_collision;
+                else next_state = update_player_position;
+            wall_collision:
+                if (f_wall_collision) next_state = update_ghost_positions;
+                else next_state = wall_collision;
+            update_ghost_positions:
+                if(f_update_ghost_positions) next_state = ghost_collision;
+                else next_state = update_ghost_positions;
+            ghost_collision:
+                if(f_ghost_collision) next_state = eat_food;
+                else next_state = ghost_collision;
+            eat_food:
+                if(f_eat_food) next_state = update_player_position;
+                else next_state = eat_food;
+            default: next_state = update_player_position;
+        endcase 
+    end 
+
+    always @(*) begin 
+        //defaults
+        e_update_player_position = 0;
+        e_update_ghost_positions = 0;
+        e_wall_collision = 0;
+        e_eat_food = 0;
+        e_ghost_collision = 0;
+
+        case(state)
+            update_player_position: e_update_player_position = 1;
+            wall_collision: e_wall_collision = 1;
+            update_ghost_positions: e_update_ghost_positions = 1;
+            ghost_collision: e_ghost_collision = 1;
+            eat_food: e_eat_food = 1;
+            default: e_update_player_position = 1;
+        endcase 
+    end 
+
+    //player 
+    wire [2:0] w, direction;
+    get_direction GD(last_key_received, hs_enable, direction); //in player_movement.v
+    movement_FSM MF(clock, resetn, he_enable, w, direction); //in player_movement.v
+    m_update_player_position U1(clock, resetn, e_update_player_position, f_update_player_position, direction, player_x, player_y, hs_enable);
+    //put the wall collision here I guess, it's module U2
+
+    //ghosts
+    m_update_ghost_positions U3(clock, resetn, e_update_ghost_positions, f_update_ghost_positions, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y);
+    m_collision U4(clock, resetn, e_ghost_collision, f_ghost_collision, player_x, player_y, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y, game_over);
+
+    //TODO: eat food
 endmodule
 
-// This file contains the modules for the game logic and rendering of the game.
+//HELPER MODULES-----------------------------------------------------------------------------------------------------------------------
 
-module m_clear_screen(clock, resetn, enable, wren, finished, data, addr, last_key_received);
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-    
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-
-    // Last key received
-    input [7:0] last_key_received;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 15'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            // 8'h29 <- this is for the SPACE key
-            // wait for the SPACE key to be pressed
-            // if (last_key_received == 8'h29) begin
-                finished <= 1;  // Finish immediately when enabled, for testing
-            // end
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_update_position(clock, resetn, enable, wren, finished, data, addr, direction, player_x, player_y, hs_enable);
+//update player position module
+module m_update_player_position(clock, resetn, enable, finished, direction, player_x, player_y, hs_enable);
 
     parameter cbit = 11;
     parameter up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100; //TODO: STILL NEED TO DO COLLISIONS
@@ -124,15 +103,8 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
     // Basic inputs
     input clock, resetn, enable, hs_enable;
 
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
     // Finish signal
     output reg finished;
-
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
 
     // Player
     input [2:0] direction;
@@ -144,7 +116,6 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
             finished <= 0;  // Reset to initial state
             data <= 3'b0;
             addr <= 15'b0;
-            wren <= 1'b0; // Disable write
 
             player_x <= 5'b00001;
             player_y <= 4'b0001;
@@ -158,117 +129,31 @@ module m_update_position(clock, resetn, enable, wren, finished, data, addr, dire
                 default: begin player_x <= player_x; player_y <= player_y; end
             endcase
 
-            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
             data <= 3'b010; // Example data value
             addr <= addr + 1; // Increment address
         end
         else if (finished) begin
-            wren <= 0; // Disable write when finished
             finished <= 0;  // Reset to initial state
         end
     end
 
 endmodule
 
-
-// here we re-define this module in case the upper one does not work
-module m_eat_food(clock, resetn, enable, wren, finished, data, addr);
-
-    // TODO: Implement this module
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 15'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 0; // Disable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b011; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
+//check collision with walls module
+module m_wall_collision(clock, resetn, enable, player_x, player_y);
 endmodule
 
-
-module m_update_ghost_directions(clock, resetn, enable, wren, finished, data, addr); //leave it blank
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 15'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            wren <= 0; // Disable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b100; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, addr, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y); 
+//update ghost position module
+module m_update_ghost_positions(clock, resetn, enable, finished, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y); 
 
     parameter cbit = 11;
 
     // Basic inputs
     input clock, resetn, enable;
 
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
     // Finish signal
     output reg finished;
-
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
 
     // Ghost coordinates
     reg [6:0] address1, address2, address3;
@@ -284,33 +169,27 @@ module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, add
             address3 <= 7'b0;
 
             finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 15'b0;
-            wren <= 0; // Disable write
         end
         else if (enable) begin
-            //set addresses back to 0 to restart the paths
+            //update positions, set addresses to 0 if they reach the end of the path
             if(address1 == 63)
                address1 <= 7'b0;
+            else
+                address1 <= address1 + 1;
         
             if(address2 == 78)
                 address2 <= 7'b0;
+            else
+                address2 <= address2 + 1;
         
             if(address3 == 50)
                 address3 <= 7'b0;
+            else
+                address3 <= address3 + 1;
 
-            //update positions
-            address1 <= address1 + 1;
-            address2 <= address2 + 1;
-            address3 <= address3 + 1;
-
-            wren <= 0; // Disable write
             finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b101; // Example data value
-            addr <= addr + 1; // Increment address
         end
         else if (finished) begin
-            wren <= 0; // Disable write when finished
             finished <= 0;  // Reset to initial state
         end
     end
@@ -328,571 +207,37 @@ module m_update_ghost_positions(clock, resetn, enable, wren, finished, data, add
 
 endmodule
 
-
-module m_fill_screen(clock, resetn, enable, wren, finished, data, addr); // leave it blank
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
+// ghost collision detection module
+module m_collision (clock, resetn, enable, finished, player_x, player_y, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y, ghost_collision);
+    input clock,
+    input resetn,
+    input enable,
+    input [4:0] player_x,
+    input [3:0] player_y,
+    input [4:0] ghost1_x, ghost2_x, ghost3_x,
+    input [3:0] ghost1_y, ghost2_y, ghost3_y,
     output reg finished;
+    output reg ghost_collision
 
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-
-    always @ (posedge clock) begin
+    always @(posedge clock or negedge resetn) begin
         if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 17'b0;
-            wren <= 0; // Disable write
+            ghost_collision <= 1'b0;
+            finished <= 1'b0;
         end
-        else if (enable) begin
-            wren <= 0; // Disable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b110; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_render_blocks(clock, resetn, enable, wren, finished, data, addr, blk_addr, blk_q, blk_wren);
-
-    // TODO: Implement this module
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output wren;
-    assign wren = 0; // Disable write (we are always reading)
-
-    // Finish signal
-    output reg finished;
-
-    // Canvas signal
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-
-    // Block memory inputs
-    output [8:0] blk_addr;
-    output blk_wren;
-    input blk_q;
-    assign blk_wren = 1'b0; // Disable write (we are always reading)
-
-    // Coordinates
-    reg [4:0] maze_x;
-    reg [3:0] maze_y;
-    reg hold_initial;
-    reg [2:0] dx, dy;
-
-    assign blk_addr = {maze_y * 29 + maze_x};
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;
-            data <= 3'b000;
-            addr <= 15'b0;
-            maze_x <= 3'b0;
-            maze_y <= 3'b0;
-            dx <= 3'b0;
-            dy <= 3'b0;
-            hold_initial <= 1;
-        end
-        else if (enable) begin
-			// update the position
-			if (dx == 3'o4) begin
-				dx <= 0;
-				if (dy == 3'o4) begin
-					dy <= 0;
-                    if (maze_x == 29 - 1) begin
-                        maze_x <= 0;
-                        if (maze_y == 13 - 1) begin
-                            maze_y <= 0;
-                            finished <= 1;
-                        end
-                        else
-                            maze_y <= maze_y + 1;
-                    end
-                    else
-                        maze_x <= maze_x + 1;
-				end
-				else
-					dy <= dy + 1;
-			end
-			else begin
-				dx <= dx + 1;
-            end
-            // update the data and address
-            data <= blk_q == 1'b1 ? 12'hff : 12'h00;
-            addr <= (maze_y * 29 + maze_x) * 160 + dy * 160 + dx;
-		end
-        else if (finished) begin
-            finished <= 0;
-        end
-    end
-
-endmodule
-
-
-module m_render_player(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, game_x, game_y, direct);
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output [cbit:0] data; // the later data
-    reg [cbit:0] _data; // the earlier data
-    output [14:0] addr; // the later address
-    reg [14:0] _addr; // the earlier address
-
-    // VGA outputs
-    output reg [7:0] VGA_X;
-    output reg [6:0] VGA_Y;
-    output reg [cbit:0] VGA_COLOR;
-
-    // Player position and direction
-    input [5:0] game_x;
-    input [4:0] game_y;
-    input [1:0] direct;
-    wire [7:0] canvas_x;
-    wire [6:0] canvas_y;
-    reg [3:0] dx, dy;
-    wire [cbit:0] color;
-    wire [4:0] temp_player_addr;
-
-    game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
-
-    player U2 (
-        .address(temp_player_addr),
-        .clock(clock),
-        .q(color)
-    );
-
-    assign temp_player_addr = dy * 5 + dx;
-
-    assign data = _data;
-
-    assign addr = _addr;
-
-    reg hold_initial; // for keeping dx and dy at initial state
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;
-            _data <= 12'h000;
-            _addr <= 15'b0;
-            wren <= 0;
-            dx <= 3'b0;
-            dy <= 3'b0;
-            hold_initial <= 1;
-        end
-        else if (enable) begin
-            if (hold_initial) begin
-                hold_initial <= 0;
-                dx <= 3'b0;
-                dy <= 3'b0;
-            end
-            else if (dx < 4) begin
-                dx <= dx + 1;
-            end
-            else if (dy < 4) begin
-                dy <= dy + 1;
-                dx <= 0;
-            end
-            else begin
-                finished <= 1;
-                wren <= 0;
-            end
-            wren <= 1;
-            _data <= color;
-            _addr <= (game_y + canvas_y + dy) * 160 + game_x + canvas_x + dx;
-        end
-        else if (finished) begin
-            finished <= 0;
-            hold_initial <= 1;
-            // wren <= 0;
-        end
-    end
-
-endmodule
-
-
-module m_render_food(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, f_addr, f_q, f_wren, f_data);
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-    // reg [14:0] _addr; // the earlier address
-
-    // VGA outputs
-    output reg [7:0] VGA_X;
-    output reg [6:0] VGA_Y;
-    output reg [cbit:0] VGA_COLOR;
-
-    // Food position
-    reg hold_initial;
-    reg [5:0] game_x;
-    reg [4:0] game_y;
-    wire [7:0] canvas_x;
-    wire [6:0] canvas_y;
-    wire [cbit:0] color;
-    wire food_exists;
-    wire [8:0] temp_food_addr;
-    assign temp_food_addr = game_y * 29 + game_x;
-
-    assign color = 12'hfff;
-
-    game_coord_2_canvas_coord U1 (game_x, game_y, canvas_x, canvas_y);
-
-    // assign addr = _addr;
-
-    // food FOOD (
-    //     .address(temp_food_addr),
-    //     .clock(clock),
-    //     .q(food_exists),
-    //     .wren(1'b0),
-    //     .data(1'b0)
-    // );
-    output [8:0] f_addr;
-    input f_q;
-    output f_wren;
-    input f_data;
-    assign f_addr = temp_food_addr;
-    assign f_wren = 1'b0;
-    assign f_data = 1'b0;
-
-    // For controlling the data and address
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;
-            data <= 23'b0;
-            addr <= 15'b0;
-            wren <= 0;
-            game_x <= 0;
-            game_y <= 0;
-            hold_initial <= 1;
-        end
-        else if (finished) begin
-            wren <= 0;
-        end
-        else if (enable) begin
-            // Check if food exists
-            if (food_exists) begin
-                wren <= 1;
-            end
-            else begin
-                wren <= 0;
-            end
-            data <= color;
-            addr <= (canvas_y + 2) * 160 + canvas_x + 2; // +2 is for centering the food
-            // Meanwhile, update the food position
-            if (hold_initial) begin
-                hold_initial <= 0;
-                game_x <= 0;
-                game_y <= 0;
-            end
-            else if (game_x < 28) begin
-                game_x <= game_x + 1;
-            end
-            else if (game_y < 12) begin
-                game_x <= 0;
-                game_y <= game_y + 1;
-            end
-            else begin
-                finished <= 1;
-            end
-        end
-        else begin
-            wren <= 0;
-        end
-    end
-
-endmodule
-
-
-module m_render_ghosts(clock, resetn, enable, wren, finished, data, addr, VGA_X, VGA_Y, VGA_COLOR, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y, direct, last_key_received);
-
-    // TODO: Implement this module
-
-    parameter cbit = 11;
-    parameter num_ghosts = 4;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-
-    // VGA outputs
-    output reg [7:0] VGA_X;
-    output reg [6:0] VGA_Y;
-    output reg [cbit:0] VGA_COLOR;
-
-    // Ghost position and direction
-    input [4:0] ghost1_x, ghost2_x, ghost3_x;
-    input [3:0] ghost1_y, ghost2_y, ghost3_y;
-    input [1:0] direct;
-
-    // PS2 inputs
-    input [7:0] last_key_received;
-
-    // // Ghost position and direction
-    // input [5:0] ghost_x [0:num_ghosts-1];
-    // input [4:0] ghost_y [0:num_ghosts-1];
-    // input [1:0] direct [0:num_ghosts-1];
-
-    // // Intermediate variables
-    reg [2:0] dx, dy; // Offset within the ghost's sprite
-    reg [1:0] ghost_index; // Track which ghost we are rendering
-    wire [7:0] canvas_x;
-    wire [6:0] canvas_y;
-    wire [cbit:0] color;
-
-    // // Convert game coordinates to canvas coordinates
-    // game_coord_2_canvas_coord coord_converter (
-    //     .game_x(ghost_x[ghost_index]), 
-    //     .game_y(ghost_y[ghost_index]), 
-    //     .canvas_x(canvas_x),
-    //     .canvas_y(canvas_y)
-    // );
-
-    // // Ghost sprite memory read (each ghost has an 8x8 sprite)
-    // ghost_sprite ghost_sprite_memory (
-    //     .address({dy, dx}), 
-    //     .clock(clock), 
-    //     .q(color)
-    // );
-
-    always @(posedge clock) begin
-        if (!resetn) begin
-            // Reset state
-            finished <= 0;
-            data <= 12'h000;
-            addr <= 15'b0;
-            wren <= 0;
-            VGA_X <= 0;
-            VGA_Y <= 0;
-            VGA_COLOR <= 0;
-            dx <= 0;
-            dy <= 0;
-            ghost_index <= 0;
-        end 
-        else if (enable) begin
-    //         wren <= 1; // Enable write
-    //         data <= color;
-    //         VGA_X <= canvas_x + dx;
-    //         VGA_Y <= canvas_y + dy;
-    //         VGA_COLOR <= color;
-    //         addr <= (canvas_y + dy) * 320 + (canvas_x + dx);
-
-    //         // Update sprite coordinates
-    //         if (dx < 7) begin
-    //             dx <= dx + 1;
-    //         end
-    //         else if (dy < 7) begin
-    //             dx <= 0;
-    //             dy <= dy + 1;
-    //         end
-    //         else begin
-    //             // Finished rendering current ghost, move to the next one
-    //             if (ghost_index < num_ghosts - 1) begin
-    //                 ghost_index <= ghost_index + 1;
-    //                 dx <= 0;
-    //                 dy <= 0;
-    //             end
-    //             else begin
-    //                 // All ghosts rendered
-                //  if (last_key_received == 8'h29) begin
-                    finished <= 1;
-                //  end
-    //                 wren <= 0;
-    //                 ghost_index <= 0;
-    //                 dx <= 0;
-    //                 dy <= 0;
-    //             end
-    //         end
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0; // Reset to initial state
-        end
-    end
-
-endmodule
-
-
-module m_ghost_collision(clock, resetn, enable, wren, finished, data, addr, player_x, player_y, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y, collided);
-
-    // TODO: it might contain some bugs
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Entity coordinates
-    input [4:0] player_x, ghost1_x, ghost2_x, ghost3_x;
-    input [3:0] player_y, ghost1_y, ghost2_y, ghost3_y; 
-
-    // Output write enable signal
-    output reg wren; // wren signal for controlling writes
-
-    // Finish signal
-    output reg finished;
-    output reg collided;
-
-    // Data and address control
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;  // Reset to initial state
-            data <= 3'b000;
-            addr <= 15'b0;
-            wren <= 0; // Disable write
-        end
-        else if (enable) begin
-            //check collisions
+        else if (enable) begin 
+            //check collisions with ghosts
             if( (player_x == ghost1_x && player_y == ghost1_y) || (player_x == ghost2_x && player_y == ghost2_y) || (player_x == ghost3_x && player_y == ghost3_y) ) begin
-                collided <= 1'b1;
+                ghost_collision <= 1'b1;
             end
             else begin
-                collided <= 1'b0;
+                ghost_collision <= 1'b0;
             end 
 
-            //move through fsm
-            wren <= 0; // Disable write
-            finished <= 1;  // Finish immediately when enabled, for testing
-            data <= 3'b100; // Example data value
-            addr <= addr + 1; // Increment address
-        end
-        else if (finished) begin
-            wren <= 0; // Disable write when finished
-            finished <= 0;  // Reset to initial state
-        end
+            finished <= 1'b1;
+        end 
     end
-
 endmodule
 
-
-module m_update_vga(
-    clock,
-    resetn,
-    enable,
-    wren,
-    finished,
-    data,
-    addr,
-    q,
-    VGA_X,      // Additional output
-    VGA_Y,      // Additional output
-    VGA_COLOR   // Additional output
-);
-
-    parameter cbit = 11;
-
-    // Basic inputs
-    input clock, resetn, enable;
-
-    // Outputs
-    output reg wren;
-    output reg finished;
-    output reg [cbit:0] data;
-    output reg [14:0] addr;
-    // Input
-    input [cbit:0] q;
-
-    // Additional outputs for VGA
-    output reg [7:0] VGA_X;
-    output reg [6:0] VGA_Y;
-    output reg [cbit:0] VGA_COLOR;
-
-    // Internal counters
-    reg [7:0] x_counter;
-    reg [6:0] y_counter;
-
-    // Assume RAM data output is connected to the data line (read when wren=0)
-    // If there is a dedicated RAM data output signal, adjust accordingly
-
-    always @ (posedge clock) begin
-        if (!resetn) begin
-            finished <= 0;
-            x_counter <= 0;
-            y_counter <= 0;
-            wren <= 0;
-            VGA_X <= 0;
-            VGA_Y <= 0;
-            VGA_COLOR <= 0;
-            addr <= 0;
-        end else if (enable) begin
-            if (!finished) begin
-                wren <= 0; // Read mode, do not write to RAM
-                if (x_counter < 160) begin
-                    VGA_X <= x_counter;
-                    VGA_Y <= y_counter;
-                    addr <= y_counter * 160 + x_counter; // Assume screen resolution is 320x240
-                    VGA_COLOR <= q; // Color data read from RAM
-                    x_counter <= x_counter + 1;
-                end else if (y_counter < 120) begin
-                    x_counter <= 0;
-                    y_counter <= y_counter + 1;
-                end else begin
-                    finished <= 1;
-                    x_counter <= 0;
-                    y_counter <= 0;
-                    VGA_X <= 0;
-                    VGA_Y <= 0;
-                    VGA_COLOR <= 0;
-                end
-            end else begin
-                finished <= 0; // Reset finished flag
-            end
-        end else begin
-            wren <= 0;
-        end
-    end
-
-endmodule
-
-*/
+//module for eating food
+module m_eat_food(clock, resetn, enable, player_x, player_y, food_x, food_y, food_eaten); //TODO: fix this
+endmodule 
