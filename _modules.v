@@ -13,7 +13,7 @@ module m_game_logic (
     always @(posedge clock or negedge resetn) begin
         if (!resetn) begin
             finished <= 0;
-            player_x <= 5'b00000;
+            player_x <= 5'b00001;
             player_y <= 4'b0001;
             ghost1_x <= 5'b00011;
             ghost1_y <= 4'b0011;

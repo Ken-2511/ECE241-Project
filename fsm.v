@@ -200,12 +200,13 @@ module fsm_game_state (
     );
 
     // the instance for the background color
-    canvas u_canvas (
-        .address(VGA_Y * 160 + VGA_X),
-        .clock(clock),
-        .data(12'h000),
-        .wren(1'b0),
-        .q(bg_color)
-    );
+    // canvas u_canvas (
+    //     .address(VGA_Y * 160 + VGA_X),
+    //     .clock(clock),
+    //     .data(12'h000),
+    //     .wren(1'b0),
+    //     .q(bg_color)
+    // );
+    assign bg_color = 12'hf00; // Red background
 
 endmodule
