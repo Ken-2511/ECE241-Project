@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Sat Nov 23 18:20:37 2024
+Sat Nov 23 18:34:37 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -85,7 +85,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 23 18:20:37 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 23 18:34:37 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; main                                           ;
@@ -277,14 +277,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 419            ;
+; Estimate of Logic utilization (ALMs needed) ; 416            ;
 ;                                             ;                ;
 ; Combinational ALUT usage for logic          ; 752            ;
 ;     -- 7 input functions                    ; 0              ;
 ;     -- 6 input functions                    ; 65             ;
-;     -- 5 input functions                    ; 40             ;
-;     -- 4 input functions                    ; 132            ;
-;     -- <=3 input functions                  ; 515            ;
+;     -- 5 input functions                    ; 37             ;
+;     -- 4 input functions                    ; 137            ;
+;     -- <=3 input functions                  ; 513            ;
 ;                                             ;                ;
 ; Dedicated logic registers                   ; 310            ;
 ;                                             ;                ;
@@ -299,8 +299,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 368            ;
-; Total fan-out                               ; 5522           ;
-; Average fan-out                             ; 4.27           ;
+; Total fan-out                               ; 5506           ;
+; Average fan-out                             ; 4.26           ;
 +---------------------------------------------+----------------+
 
 
@@ -512,7 +512,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Total registers                              ; 310   ;
 ; Number of registers using Synchronous Clear  ; 154   ;
-; Number of registers using Synchronous Load   ; 29    ;
+; Number of registers using Synchronous Load   ; 21    ;
 ; Number of registers using Asynchronous Clear ; 198   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 234   ;
@@ -532,30 +532,29 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[0]                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[5]                                                                             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[3]                            ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[1]                                         ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[1]                                         ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[6]          ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[5]                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[1]                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[0]                                ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[1]                  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_x[6]                                          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[0]                                            ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_y[1]                                          ;
-; 6:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR[11]                                    ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[0]                                            ;
-; 13:1               ; 9 bits    ; 72 LEs        ; 18 LEs               ; 54 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[1]                                        ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[1] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[7]                              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[5]                                                                              ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[0]                                              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[5]                             ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[6]                                          ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[2]           ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[15]                   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[3]                            ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[2]                                 ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[13]                  ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_x[3]                                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[3]                                             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_y[0]                                           ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR[4]                                      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[0]                                             ;
+; 13:1               ; 9 bits    ; 72 LEs        ; 18 LEs               ; 54 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[0]                                         ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[10] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1543,9 +1542,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     CLR               ; 9                           ;
 ;     CLR SCLR          ; 37                          ;
 ;     ENA               ; 8                           ;
-;     ENA CLR           ; 90                          ;
+;     ENA CLR           ; 98                          ;
 ;     ENA CLR SCLR      ; 33                          ;
-;     ENA CLR SLD       ; 29                          ;
+;     ENA CLR SLD       ; 21                          ;
 ;     ENA SCLR          ; 74                          ;
 ;     SCLR              ; 10                          ;
 ;     plain             ; 20                          ;
@@ -1560,10 +1559,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     normal            ; 407                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 16                          ;
-;         2 data inputs ; 125                         ;
-;         3 data inputs ; 68                          ;
-;         4 data inputs ; 91                          ;
-;         5 data inputs ; 40                          ;
+;         2 data inputs ; 124                         ;
+;         3 data inputs ; 67                          ;
+;         4 data inputs ; 96                          ;
+;         5 data inputs ; 37                          ;
 ;         6 data inputs ; 65                          ;
 ;     shared            ; 56                          ;
 ;         0 data inputs ; 6                           ;
@@ -1595,7 +1594,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sat Nov 23 18:20:30 2024
+    Info: Processing started: Sat Nov 23 18:34:31 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file greeting_win_over.v
@@ -1744,17 +1743,17 @@ Info (12128): Elaborating entity "m_renderer" for hierarchy "fsm_game_state:game
 Warning (10036): Verilog HDL or VHDL warning at renderer.v(45): object "curr_color" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 45
 Warning (10230): Verilog HDL assignment warning at renderer.v(124): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 124
 Warning (10230): Verilog HDL assignment warning at renderer.v(128): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 128
-Warning (10230): Verilog HDL assignment warning at renderer.v(137): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 137
-Warning (10230): Verilog HDL assignment warning at renderer.v(138): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 138
-Warning (10230): Verilog HDL assignment warning at renderer.v(145): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 145
-Warning (10230): Verilog HDL assignment warning at renderer.v(148): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 148
-Warning (10230): Verilog HDL assignment warning at renderer.v(153): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 153
-Warning (10230): Verilog HDL assignment warning at renderer.v(169): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 169
-Warning (10230): Verilog HDL assignment warning at renderer.v(170): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 170
-Warning (10230): Verilog HDL assignment warning at renderer.v(180): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 180
-Warning (10230): Verilog HDL assignment warning at renderer.v(183): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 183
-Warning (10230): Verilog HDL assignment warning at renderer.v(189): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 189
-Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player" File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 215
+Warning (10230): Verilog HDL assignment warning at renderer.v(138): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 138
+Warning (10230): Verilog HDL assignment warning at renderer.v(139): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 139
+Warning (10230): Verilog HDL assignment warning at renderer.v(147): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 147
+Warning (10230): Verilog HDL assignment warning at renderer.v(150): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 150
+Warning (10230): Verilog HDL assignment warning at renderer.v(155): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 155
+Warning (10230): Verilog HDL assignment warning at renderer.v(171): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 171
+Warning (10230): Verilog HDL assignment warning at renderer.v(172): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 172
+Warning (10230): Verilog HDL assignment warning at renderer.v(182): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 182
+Warning (10230): Verilog HDL assignment warning at renderer.v(185): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 185
+Warning (10230): Verilog HDL assignment warning at renderer.v(191): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 191
+Info (12128): Elaborating entity "player" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player" File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 217
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 82
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 82
 Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/player.v Line: 82
@@ -1903,9 +1902,9 @@ Info (21057): Implemented 1005 device resources after synthesis - the final reso
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 44 warnings
     Info: Peak virtual memory: 4913 megabytes
-    Info: Processing ended: Sat Nov 23 18:20:37 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:14
+    Info: Processing ended: Sat Nov 23 18:34:37 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:13
 
 
 +------------------------------------------+
