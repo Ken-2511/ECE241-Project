@@ -1,5 +1,5 @@
 // This is the top module
-module milestone2(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
+module main(CLOCK_50, SW, KEY, HEX3, HEX2, HEX1, HEX0,
 				VGA_R, VGA_G, VGA_B,
 				VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK,
 				PS2_CLK, PS2_DAT,

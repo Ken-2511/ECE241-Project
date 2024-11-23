@@ -205,18 +205,19 @@ module m_playing(
 
     // Output logic
     always @ (*) begin
-        e_clear_screen = (game_state == CLEAR_SCREEN);
+        e_clear_screen = (game_state == CLEAR_SCREEN); // remove this state
         e_update_position = (game_state == UPDATE_POSITION);
         e_eat_food = (game_state == EAT_FOOD);
-        e_update_ghost_directions = (game_state == UPDATE_GHOST_DIRECTIONS);
+        e_update_ghost_directions = (game_state == UPDATE_GHOST_DIRECTIONS); // remove this state
         e_update_ghost_positions = (game_state == UPDATE_GHOST_POSITIONS);
-        e_fill_screen = (game_state == FILL_SCREEN);
-        e_render_blocks = (game_state == RENDER_BLOCKS);
+        e_fill_screen = (game_state == FILL_SCREEN); // remove this state
+        e_render_blocks = (game_state == RENDER_BLOCKS); // only enable this in the beginning
+        // combine all the render states into one
         e_render_player = (game_state == RENDER_PLAYER);
         e_render_food = (game_state == RENDER_FOOD);
         e_render_ghosts = (game_state == RENDER_GHOSTS);
-        e_ghost_collision = (game_state == GHOST_COLLISION);
-        e_update_vga = (game_state == UPDATE_VGA);
+        e_ghost_collision = (game_state == GHOST_COLLISION); // move this up, in the game control states
+        e_update_vga = (game_state == UPDATE_VGA); // move this into the render states
         finished = (game_state == GAME_OVER);  // Set finished flag when in GAME_OVER state
 
         case (game_state)
