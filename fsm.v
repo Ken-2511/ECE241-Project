@@ -38,6 +38,7 @@ module fsm_game_state (
     // Player and ghosts data
     wire [4:0] player_x, ghost1_x, ghost2_x, ghost3_x;
     wire [3:0] player_y, ghost1_y, ghost2_y, ghost3_y;
+    wire [7:0] player_score;
 
     // VGA signals from submodules
     wire [7:0] vga_x_greeting, vga_x_render, vga_x_game_over;
@@ -100,6 +101,8 @@ module fsm_game_state (
         endcase
     end
 
+    //TODO: win state and check game over status
+
     // Arbitration logic for VGA signals
     always @(*) begin
         case (state)
@@ -154,8 +157,7 @@ module fsm_game_state (
         .ghost2_y(ghost2_y),
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
-        .game_over(game_over),
-        .you_won(you_won),
+        .score(player_score),
         .last_key_received(last_key_received)
     );
 
@@ -203,7 +205,7 @@ module fsm_game_state (
         .ghost2_y(ghost2_y),
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
-        .collision_detected(collision_detected)
+        .ghost_collision(collision_detected)
     );
 
     // the instance for the background color
