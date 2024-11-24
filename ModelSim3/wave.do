@@ -21,6 +21,7 @@ add wave -noupdate -label ghost2_x -radix unsigned /testbench/logic/ghost2_x
 add wave -noupdate -label ghost2_y -radix unsigned /testbench/logic/ghost2_y
 add wave -noupdate -label ghost3_x -radix unsigned /testbench/logic/ghost3_x
 add wave -noupdate -label ghost3_y -radix unsigned /testbench/logic/ghost3_y
+add wave -noupdate -label direction -radix binary /testbench/logic/direction
 add wave -noupdate -label score -radix unsigned /testbench/logic/score
 add wave -noupdate -label food_eaten -radix binary /testbench/logic/food_eaten
 

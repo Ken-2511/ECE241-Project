@@ -16,16 +16,72 @@ module m_game_logic (
     
     reg [3:0] state, next_state;
 
-    parameter update_player_position = 3'b000, wall_collision = 3'b001, update_ghost_positions = 3'b010, eat_food = 3'b011;
+    parameter wall_collision = 3'b000, update_player_position = 3'b001, update_ghost_positions = 3'b010, eat_food = 3'b011;
     parameter [7:0] won_score = 8'b10111100;
 
+    //player movement
+    reg collision; // wall collision
+    wire [2:0] w, direction;
+    wire collided;
+    assign collided = collision;
+    get_direction GD(last_key_received, hs_enable, w); //in player_movement.v
+    movement_FSM MF(clock, resetn, hs_enable, w, collided, direction); //in player_movement.v
+
+    parameter still = 3'b000, up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
+
+    //calculating stuff for wall collision
+    wire [4:0] columns = 5'b11101;
+    wire [3:0] directly_up = player_y - 1;
+    wire [4:0] directly_left = player_x - 1;
+    wire [3:0] directly_down = player_y + 1;
+    wire [4:0] directly_right = player_x + 1;
+
+    reg [8:0] address_temp_wall;
+    wire wall;
+    wire [8:0] address_wall;
+    assign address_wall = address_temp_wall;
+
+    blocks B(address_wall, clock, 1'b0, 1'b0, wall);
+
+    //stuff for updating ghost positions
+    reg [6:0] address1, address2, address3;
+    wire [12:0] g1, g2, g3;
+    wire [6:0] address_g1, address_g2, address_g3;
+
+    ghost1 G1(address1, clock, g1);
+    ghost2 G2(address2, clock, g2);
+    ghost3 G3(address3, clock, g3);
+
+    assign ghost1_x = g1[12:8];
+    assign ghost1_y = g1[7:4];
+    assign ghost2_x = g2[12:8];
+    assign ghost2_y = g2[7:4];
+    assign ghost3_x = g3[12:8];
+    assign ghost3_y = g3[7:4];
+
+    //stuff for eating food
+    wire [8:0] address_food;
+    assign address_food = player_y * columns + player_x;
+    wire food_dot;
+
+    reg wr;
+    wire wren, q;
+    assign wren = wr;
+
+    food F(address_food, clock, 1'b0, wren, food_dot);
+
     //data for calculating stuff in the outputs/operations
-    reg e_update_player_position, e_wall_collision, e_update_ghost_positions, e_eat_food; //enable flags
+   // reg e_update_player_position, e_wall_collision, e_update_ghost_positions, e_eat_food; //enable flags
     reg f_update_player_position, f_wall_collision, f_update_ghost_positions, f_eat_food; //finished flags
 
     //FSM
     initial begin
-        score = 8'b0;
+        player_x = 5'b00001;
+        player_y = 4'b0001;
+        address1 = 7'b0;
+        address2 = 7'b0;
+        address3 = 7'b0;
+        score <= 8'b0;
     end 
 
     //move to next state
@@ -65,60 +121,6 @@ module m_game_logic (
         endcase 
     end
 
-    //player movement
-    reg collision; // wall collision
-    wire [2:0] w, direction;
-    wire collided;
-    assign collided = collision;
-    get_direction GD(last_key_received, hs_enable, w); //in player_movement.v
-    movement_FSM MF(clock, resetn, hs_enable, w, collided, direction); //in player_movement.v
-
-    parameter still = 3'b000, up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
-
-    //calculating stuff for wall collision
-    wire [4:0] columns = 5'b11101;
-    wire [3:0] directly_up = player_y - 1;
-    wire [4:0] directly_left = player_x - 1;
-    wire [3:0] directly_down = player_y + 1;
-    wire [4:0] directly_right = player_x + 1;
-
-    reg [8:0] address_temp_wall;
-    wire wall;
-    wire [8:0] address_wall;
-    assign address_wall = address_temp_wall;
-
-    blocks B(address_wall, clock, 1'b0, 1'b0, wall);
-
-    //stuff for updating ghost positions
-    reg [6:0] address1, address2, address3;
-    wire [12:0] g1, g2, g3;
-    wire [6:0] address_g1, address_g2, address_g3;
-    assign address_g1 = address1;
-    assign address_g2 = address2;
-    assign address_g3 = address3;
-
-    ghost1 G1(address_g1, clock, g1);
-    ghost2 G2(address_g2, clock, g2);
-    ghost3 G3(address_g3, clock, g3);
-
-    assign ghost1_x = g1[12:8];
-    assign ghost1_y = g1[7:4];
-    assign ghost2_x = g2[12:8];
-    assign ghost2_y = g2[7:4];
-    assign ghost3_x = g3[12:8];
-    assign ghost3_y = g3[7:4];
-
-    //stuff for eating food
-    wire [8:0] address_food;
-    assign address_food = player_y * columns + player_x;
-    wire food_dot;
-
-    reg wr;
-    wire wren, q;
-    assign wren = wr;
-
-    food F(address_food, clock, 1'b0, wren, food_dot);
-
     //FSM outputs
     always @(*) begin 
         //defaults
@@ -139,7 +141,6 @@ module m_game_logic (
                 endcase
 
                 if (!resetn) begin
-                    f_wall_collision <= 1'b0;
                     collision <= 1'b0; 
                 end
                 else if(enable && direction != still) begin
@@ -148,12 +149,11 @@ module m_game_logic (
                     else
                         collision <= 1'b0;
             
-                    f_wall_collision <= 1'b1;
                 end 
                 else begin 
-                    f_wall_collision <= 1'b1; 
                     collision <= 1'b0;
                 end 
+                f_wall_collision <= 1'b1;
             end 
 
             //for updating player position
@@ -183,8 +183,6 @@ module m_game_logic (
                     address1 <= 7'b0;
                     address2 <= 7'b0;
                     address3 <= 7'b0;
-
-                    f_update_ghost_positions <= 1'b0;
                 end
                 else if (enable) begin
                     //update positions, set addresses to 0 if they reach the end of the path
@@ -202,9 +200,8 @@ module m_game_logic (
                         address3 <= 7'b0;
                     else
                         address3 <= address3 + 1;
-
-                    f_update_ghost_positions <= 1'b1;
                 end
+                f_update_ghost_positions <= 1'b1;
             end 
 
             //for eating food and incrementing the score

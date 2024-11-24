@@ -1,6 +1,6 @@
 Flow report for milestone2
-Sun Nov 24 10:41:11 2024
-Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Sun Nov 24 12:40:47 2024
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -21,9 +21,9 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2024  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -33,34 +33,33 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Flow Summary                                                                     ;
-+---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Sun Nov 24 10:41:05 2024          ;
-; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
-; Revision Name                   ; milestone2                                     ;
-; Top-level Entity Name           ; main                                           ;
-; Family                          ; Cyclone V                                      ;
-; Device                          ; 5CSEMA5F31C6                                   ;
-; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 683 / 32,070 ( 2 % )                           ;
-; Total registers                 ; 383                                            ;
-; Total pins                      ; 70 / 457 ( 15 % )                              ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 272,312 / 4,065,280 ( 7 % )                    ;
-; Total DSP Blocks                ; 3 / 87 ( 3 % )                                 ;
-; Total HSSI RX PCSs              ; 0                                              ;
-; Total HSSI PMA RX Deserializers ; 0                                              ;
-; Total HSSI TX PCSs              ; 0                                              ;
-; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 1 / 6 ( 17 % )                                 ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                                  ;
-+---------------------------------+------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++---------------------------------+---------------------------------------------+
+; Flow Status                     ; Successful - Sun Nov 24 12:40:40 2024       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; milestone2                                  ;
+; Top-level Entity Name           ; main                                        ;
+; Family                          ; Cyclone V                                   ;
+; Device                          ; 5CSEMA5F31C6                                ;
+; Timing Models                   ; Final                                       ;
+; Logic utilization (in ALMs)     ; 680 / 32,070 ( 2 % )                        ;
+; Total registers                 ; 377                                         ;
+; Total pins                      ; 70 / 457 ( 15 % )                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 272,312 / 4,065,280 ( 7 % )                 ;
+; Total DSP Blocks                ; 3 / 87 ( 3 % )                              ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1 / 6 ( 17 % )                              ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
++---------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -68,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/24/2024 10:37:17 ;
+; Start date & time ; 11/24/2024 12:38:54 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; milestone2          ;
 +-------------------+---------------------+
@@ -79,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 255638748126082.173246263614912        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 24929605474875.173246993314884         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; NUM_PARALLEL_PROCESSORS             ; All                                    ; --            ; --          ; --         ;
@@ -98,11 +97,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4934 MB             ; 00:00:13                           ;
-; Fitter               ; 00:03:32     ; 1.0                     ; 8016 MB             ; 00:23:05                           ;
-; Assembler            ; 00:00:07     ; 1.0                     ; 5232 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:05     ; 2.1                     ; 5454 MB             ; 00:00:07                           ;
-; Total                ; 00:03:50     ; --                      ; --                  ; 00:23:29                           ;
+; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4943 MB             ; 00:00:11                           ;
+; Fitter               ; 00:01:28     ; 1.1                     ; 7919 MB             ; 00:03:32                           ;
+; Assembler            ; 00:00:06     ; 1.0                     ; 4866 MB             ; 00:00:06                           ;
+; Timing Analyzer      ; 00:00:06     ; 2.6                     ; 5361 MB             ; 00:00:11                           ;
+; Total                ; 00:01:51     ; --                      ; --                  ; 00:04:00                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -111,10 +110,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; LEGION           ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; LEGION           ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; LEGION           ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; LEGION           ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; IWMAIN           ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; IWMAIN           ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; IWMAIN           ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; IWMAIN           ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

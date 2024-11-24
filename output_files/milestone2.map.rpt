@@ -1,6 +1,6 @@
 Analysis & Synthesis report for milestone2
-Sun Nov 24 10:37:23 2024
-Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Sun Nov 24 12:39:04 2024
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -89,9 +89,9 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2024  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -101,32 +101,31 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
-+---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 24 10:37:23 2024          ;
-; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
-; Revision Name                   ; milestone2                                     ;
-; Top-level Entity Name           ; main                                           ;
-; Family                          ; Cyclone V                                      ;
-; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 364                                            ;
-; Total pins                      ; 70                                             ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 272,312                                        ;
-; Total DSP Blocks                ; 3                                              ;
-; Total HSSI RX PCSs              ; 0                                              ;
-; Total HSSI PMA RX Deserializers ; 0                                              ;
-; Total HSSI TX PCSs              ; 0                                              ;
-; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 1                                              ;
-; Total DLLs                      ; 0                                              ;
-+---------------------------------+------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Nov 24 12:39:04 2024       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; milestone2                                  ;
+; Top-level Entity Name           ; main                                        ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 364                                         ;
+; Total pins                      ; 70                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 272,312                                     ;
+; Total DSP Blocks                ; 3                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -222,7 +221,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 32          ;
+; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -234,7 +233,10 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
-;     Processors 6-16        ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -265,15 +267,15 @@ https://fpgasoftware.intel.com/eula.
 ; greeting_screen.v                          ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/greeting_screen.v                          ;         ;
 ; ghost3.v                                   ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/ghost3.v                                   ;         ;
 ; game_over_screen.v                         ; yes             ; User Wizard-Generated File             ; C:/Users/IWMAI/Desktop/ECE241-Project/game_over_screen.v                         ;         ;
-; altsyncram.tdf                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf         ;         ;
-; stratix_ram_block.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc  ;         ;
-; lpm_mux.inc                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc            ;         ;
-; lpm_decode.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc         ;         ;
-; aglobal231.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc         ;         ;
-; a_rdenreg.inc                              ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc          ;         ;
-; altrom.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc             ;         ;
-; altram.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc             ;         ;
-; altdpram.inc                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc           ;         ;
+; altsyncram.tdf                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf            ;         ;
+; stratix_ram_block.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc     ;         ;
+; lpm_mux.inc                                ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc               ;         ;
+; lpm_decode.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc            ;         ;
+; aglobal181.inc                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc            ;         ;
+; a_rdenreg.inc                              ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc             ;         ;
+; altrom.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                ;         ;
+; altram.inc                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                ;         ;
+; altdpram.inc                               ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc              ;         ;
 ; db/altsyncram_abh1.tdf                     ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_abh1.tdf                     ;         ;
 ; greeting_screen.mif                        ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/Desktop/ECE241-Project/greeting_screen.mif                        ;         ;
 ; db/decode_01a.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_01a.tdf                          ;         ;
@@ -296,14 +298,14 @@ https://fpgasoftware.intel.com/eula.
 ; canvas.mif                                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/IWMAI/Desktop/ECE241-Project/canvas.mif                                 ;         ;
 ; db/decode_7la.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_7la.tdf                          ;         ;
 ; db/mux_2hb.tdf                             ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_2hb.tdf                             ;         ;
-; altpll.tdf                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf             ;         ;
-; stratix_pll.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_pll.inc        ;         ;
-; stratixii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratixii_pll.inc      ;         ;
-; cycloneii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/cycloneii_pll.inc      ;         ;
+; altpll.tdf                                 ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf                ;         ;
+; stratix_pll.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_pll.inc           ;         ;
+; stratixii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratixii_pll.inc         ;         ;
+; cycloneii_pll.inc                          ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cycloneii_pll.inc         ;         ;
 ; db/altpll_80u.tdf                          ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf                          ;         ;
-; lpm_divide.tdf                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf         ;         ;
-; abs_divider.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc        ;         ;
-; sign_div_unsign.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc    ;         ;
+; lpm_divide.tdf                             ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_divide.tdf            ;         ;
+; abs_divider.inc                            ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/abs_divider.inc           ;         ;
+; sign_div_unsign.inc                        ; yes             ; Megafunction                           ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc       ;         ;
 ; db/lpm_divide_q3m.tdf                      ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/lpm_divide_q3m.tdf                      ;         ;
 ; db/sign_div_unsign_tlh.tdf                 ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/sign_div_unsign_tlh.tdf                 ;         ;
 ; db/alt_u_div_00f.tdf                       ; yes             ; Auto-Generated Megafunction            ; C:/Users/IWMAI/Desktop/ECE241-Project/db/alt_u_div_00f.tdf                       ;         ;
@@ -316,14 +318,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 686            ;
+; Estimate of Logic utilization (ALMs needed) ; 685            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 1275           ;
+; Combinational ALUT usage for logic          ; 1274           ;
 ;     -- 7 input functions                    ; 1              ;
 ;     -- 6 input functions                    ; 85             ;
 ;     -- 5 input functions                    ; 117            ;
 ;     -- 4 input functions                    ; 204            ;
-;     -- <=3 input functions                  ; 868            ;
+;     -- <=3 input functions                  ; 867            ;
 ;                                             ;                ;
 ; Dedicated logic registers                   ; 364            ;
 ;                                             ;                ;
@@ -338,7 +340,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 417            ;
-; Total fan-out                               ; 7114           ;
+; Total fan-out                               ; 7113           ;
 ; Average fan-out                             ; 3.81           ;
 +---------------------------------------------+----------------+
 
@@ -348,13 +350,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                ; Entity Name               ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |main                                                   ; 1275 (2)            ; 364 (8)                   ; 272312            ; 3          ; 70   ; 0            ; |main                                                                                                                                                              ; main                      ; work         ;
+; |main                                                   ; 1274 (2)            ; 364 (8)                   ; 272312            ; 3          ; 70   ; 0            ; |main                                                                                                                                                              ; main                      ; work         ;
 ;    |PS2_Controller:PS2|                                 ; 109 (6)             ; 90 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2                                                                                                                                           ; PS2_Controller            ; work         ;
 ;       |Altera_UP_PS2_Command_Out:PS2_Command_Out|       ; 87 (87)             ; 60 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out                                                                                                 ; Altera_UP_PS2_Command_Out ; work         ;
 ;       |Altera_UP_PS2_Data_In:PS2_Data_In|               ; 16 (16)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In                                                                                                         ; Altera_UP_PS2_Data_In     ; work         ;
 ;    |debounce_filter:debounce|                           ; 23 (23)             ; 29 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |main|debounce_filter:debounce                                                                                                                                     ; debounce_filter           ; work         ;
-;    |fsm_game_state:game_fsm|                            ; 1054 (65)           ; 207 (32)                  ; 41912             ; 3          ; 0    ; 0            ; |main|fsm_game_state:game_fsm                                                                                                                                      ; fsm_game_state            ; work         ;
-;       |m_game_logic:game_logic_inst|                    ; 159 (136)           ; 11 (3)                    ; 3212              ; 3          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst                                                                                                         ; m_game_logic              ; work         ;
+;    |fsm_game_state:game_fsm|                            ; 1053 (65)           ; 207 (32)                  ; 41912             ; 3          ; 0    ; 0            ; |main|fsm_game_state:game_fsm                                                                                                                                      ; fsm_game_state            ; work         ;
+;       |m_game_logic:game_logic_inst|                    ; 158 (135)           ; 11 (3)                    ; 3212              ; 3          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst                                                                                                         ; m_game_logic              ; work         ;
 ;          |blocks:B|                                     ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B                                                                                                ; blocks                    ; work         ;
 ;             |altsyncram:altsyncram_component|           ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B|altsyncram:altsyncram_component                                                                ; altsyncram                ; work         ;
 ;                |altsyncram_8do1:auto_generated|         ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated                                 ; altsyncram_8do1           ; work         ;
@@ -674,7 +676,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ;                                                              ;                           ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR ;
 ; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT ; Stuck at GND              ; PS2_Controller:PS2|s_ps2_transceiver.PS2_STATE_3_END_TRANSFER,                                                ;
 ;                                                              ; due to stuck port data_in ; PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA                 ;
-; fsm_game_state:game_fsm|m_game_logic:game_logic_inst|state~9 ; Lost Fanouts              ; fsm_game_state:game_fsm|m_game_logic:game_logic_inst|state.eat_food                                           ;
+; fsm_game_state:game_fsm|m_game_logic:game_logic_inst|state~8 ; Lost Fanouts              ; fsm_game_state:game_fsm|m_game_logic:game_logic_inst|state.eat_food                                           ;
 +--------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------+
 
 
@@ -688,7 +690,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 244   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 271   ;
+; Number of registers using Clock Enable       ; 273   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -709,32 +711,32 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[7]                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[2]                                                                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[3]                                                                             ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[9]                                             ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[6]                            ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|debounce_filter:debounce|counter[0]                                                               ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[1]                                         ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[8]          ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[17]                  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[2]                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[2]                                ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[1]                  ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_x[6]                                          ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[2]                                            ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|debounce_filter:debounce|counter[3]                                                               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[0]                                         ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[9]          ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[18]                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[1]                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[3]                                ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[4]                  ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_x[5]                                          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[1]                                            ;
 ; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_y[4]                                          ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[3]                                            ;
 ; 13:1               ; 9 bits    ; 72 LEs        ; 18 LEs               ; 54 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_y[0]                                        ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[9] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address1[5]                                  ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address2[5]                                  ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address3[2]                                  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address1[4]                                  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address2[4]                                  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address3[3]                                  ;
 ; 8:1                ; 9 bits    ; 45 LEs        ; 18 LEs               ; 27 LEs                 ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Mux0                                         ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Add0                                         ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Add0                                         ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Add0                                         ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Add0                                         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Add1                                         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Add1                                         ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Add1                                         ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Add1                                         ;
 ; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|Selector22                                                                ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|player_x[3]                                  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|player_x[2]                                  ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|player_y[1]                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
 
@@ -948,8 +950,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------+---------------------------------------------------------------+
 ; Parameter Name         ; Value    ; Type                                                          ;
 +------------------------+----------+---------------------------------------------------------------+
-; update_player_position ; 000      ; Unsigned Binary                                               ;
-; wall_collision         ; 001      ; Unsigned Binary                                               ;
+; wall_collision         ; 000      ; Unsigned Binary                                               ;
+; update_player_position ; 001      ; Unsigned Binary                                               ;
 ; update_ghost_positions ; 010      ; Unsigned Binary                                               ;
 ; eat_food               ; 011      ; Unsigned Binary                                               ;
 ; won_score              ; 10111100 ; Unsigned Binary                                               ;
@@ -2186,34 +2188,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3"                          ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; q[12..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; q[1..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3"                        ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; q[3..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2"                          ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; q[12..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; q[1..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2"                        ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; q[3..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1"                          ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; q[12..11] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; q[1..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1"                        ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; q[3..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------+
@@ -2273,16 +2272,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 364                         ;
-;     CLR               ; 18                          ;
+;     CLR               ; 16                          ;
 ;     CLR SCLR          ; 37                          ;
 ;     ENA               ; 8                           ;
-;     ENA CLR           ; 128                         ;
+;     ENA CLR           ; 130                         ;
 ;     ENA CLR SCLR      ; 61                          ;
 ;     ENA SCLR          ; 74                          ;
 ;     SCLR              ; 14                          ;
 ;     plain             ; 24                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1278                        ;
+; arriav_lcell_comb     ; 1277                        ;
 ;     arith             ; 504                         ;
 ;         0 data inputs ; 57                          ;
 ;         1 data inputs ; 205                         ;
@@ -2292,10 +2291,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         5 data inputs ; 5                           ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 709                         ;
+;     normal            ; 708                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 20                          ;
-;         2 data inputs ; 216                         ;
+;         2 data inputs ; 215                         ;
 ;         3 data inputs ; 146                         ;
 ;         4 data inputs ; 128                         ;
 ;         5 data inputs ; 112                         ;
@@ -2320,7 +2319,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -2329,16 +2328,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sun Nov 24 10:37:16 2024
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sun Nov 24 12:38:53 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
-Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 2 design units, including 2 entities, in source file greeting_win_over.v
     Info (12023): Found entity 1: m_greeting File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 1
     Info (12023): Found entity 2: m_game_over File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 60
 Info (12021): Found 2 design units, including 2 entities, in source file _modules.v
     Info (12023): Found entity 1: m_game_logic File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 2
-    Info (12023): Found entity 2: m_ghost_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 234
+    Info (12023): Found entity 2: m_ghost_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 229
 Info (12021): Found 1 design units, including 1 entities, in source file renderer.v
     Info (12023): Found entity 1: m_renderer File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
@@ -2437,29 +2436,28 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_greeting:gree
     Info (12134): Parameter "width_a" = "1"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_abh1.tdf
-    Info (12023): Found entity 1: altsyncram_abh1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_abh1.tdf Line: 32
-Info (12128): Elaborating entity "altsyncram_abh1" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12023): Found entity 1: altsyncram_abh1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_abh1.tdf Line: 31
+Info (12128): Elaborating entity "altsyncram_abh1" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
-    Info (12023): Found entity 1: decode_01a File: C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_01a.tdf Line: 23
-Info (12128): Elaborating entity "decode_01a" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated|decode_01a:rden_decode" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_abh1.tdf Line: 40
+    Info (12023): Found entity 1: decode_01a File: C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_01a.tdf Line: 22
+Info (12128): Elaborating entity "decode_01a" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated|decode_01a:rden_decode" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_abh1.tdf Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_gfb.tdf
-    Info (12023): Found entity 1: mux_gfb File: C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_gfb.tdf Line: 23
-Info (12128): Elaborating entity "mux_gfb" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated|mux_gfb:mux2" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_abh1.tdf Line: 41
+    Info (12023): Found entity 1: mux_gfb File: C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_gfb.tdf Line: 22
+Info (12128): Elaborating entity "mux_gfb" for hierarchy "fsm_game_state:game_fsm|m_greeting:greeting_inst|greeting_screen:U1|altsyncram:altsyncram_component|altsyncram_abh1:auto_generated|mux_gfb:mux2" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_abh1.tdf Line: 40
 Info (12128): Elaborating entity "m_game_logic" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 213
-Warning (10036): Verilog HDL or VHDL warning at _modules.v(112): object "address_food" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 112
-Warning (10858): Verilog HDL warning at _modules.v(117): object q used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 117
-Warning (10230): Verilog HDL assignment warning at _modules.v(80): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 80
-Warning (10230): Verilog HDL assignment warning at _modules.v(81): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 81
-Warning (10230): Verilog HDL assignment warning at _modules.v(82): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 82
-Warning (10230): Verilog HDL assignment warning at _modules.v(83): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 83
+Warning (10858): Verilog HDL warning at _modules.v(68): object q used but never assigned File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 68
+Warning (10230): Verilog HDL assignment warning at _modules.v(34): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 34
+Warning (10230): Verilog HDL assignment warning at _modules.v(35): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 35
+Warning (10230): Verilog HDL assignment warning at _modules.v(36): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 36
+Warning (10230): Verilog HDL assignment warning at _modules.v(37): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 37
+Warning (10230): Verilog HDL assignment warning at _modules.v(169): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 169
+Warning (10230): Verilog HDL assignment warning at _modules.v(170): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 170
 Warning (10230): Verilog HDL assignment warning at _modules.v(171): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 171
 Warning (10230): Verilog HDL assignment warning at _modules.v(172): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 172
-Warning (10230): Verilog HDL assignment warning at _modules.v(173): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 173
-Warning (10230): Verilog HDL assignment warning at _modules.v(174): truncated value with size 32 to match size of target (5) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 174
-Warning (10230): Verilog HDL assignment warning at _modules.v(196): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 196
-Warning (10230): Verilog HDL assignment warning at _modules.v(201): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 201
-Warning (10230): Verilog HDL assignment warning at _modules.v(206): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 206
-Warning (10230): Verilog HDL assignment warning at _modules.v(222): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 222
+Warning (10230): Verilog HDL assignment warning at _modules.v(192): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 192
+Warning (10230): Verilog HDL assignment warning at _modules.v(197): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 197
+Warning (10230): Verilog HDL assignment warning at _modules.v(202): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 202
+Warning (10230): Verilog HDL assignment warning at _modules.v(217): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 217
 Warning (10240): Verilog HDL Always Construct warning at _modules.v(127): inferring latch(es) for variable "address_temp_wall", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
 Warning (10240): Verilog HDL Always Construct warning at _modules.v(127): inferring latch(es) for variable "collision", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
 Warning (10240): Verilog HDL Always Construct warning at _modules.v(127): inferring latch(es) for variable "player_x", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
@@ -2469,7 +2467,7 @@ Warning (10240): Verilog HDL Always Construct warning at _modules.v(127): inferr
 Warning (10240): Verilog HDL Always Construct warning at _modules.v(127): inferring latch(es) for variable "address3", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
 Warning (10240): Verilog HDL Always Construct warning at _modules.v(127): inferring latch(es) for variable "wr", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
 Warning (10240): Verilog HDL Always Construct warning at _modules.v(127): inferring latch(es) for variable "score", which holds its previous value in one or more paths through the always construct File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
-Warning (10030): Net "q" at _modules.v(117) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 117
+Warning (10030): Net "q" at _modules.v(68) has no driver or initial value, using a default initial value '0' File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 68
 Warning (10034): Output port "finished" at _modules.v(7) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 7
 Warning (10034): Output port "food_eaten" at _modules.v(15) has no driver File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 15
 Info (10041): Inferred latch for "score[0]" at _modules.v(127) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
@@ -2521,13 +2519,13 @@ Info (10041): Inferred latch for "address_temp_wall[5]" at _modules.v(127) File:
 Info (10041): Inferred latch for "address_temp_wall[6]" at _modules.v(127) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
 Info (10041): Inferred latch for "address_temp_wall[7]" at _modules.v(127) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
 Info (10041): Inferred latch for "address_temp_wall[8]" at _modules.v(127) File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
-Info (12128): Elaborating entity "get_direction" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|get_direction:GD" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 73
-Info (12128): Elaborating entity "movement_FSM" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|movement_FSM:MF" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 74
+Info (12128): Elaborating entity "get_direction" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|get_direction:GD" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 27
+Info (12128): Elaborating entity "movement_FSM" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|movement_FSM:MF" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 28
 Warning (10235): Verilog HDL Always Construct warning at player_movement.v(41): variable "collided" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 41
 Warning (10235): Verilog HDL Always Construct warning at player_movement.v(47): variable "collided" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 47
 Warning (10235): Verilog HDL Always Construct warning at player_movement.v(53): variable "collided" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 53
 Warning (10235): Verilog HDL Always Construct warning at player_movement.v(59): variable "collided" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 59
-Info (12128): Elaborating entity "blocks" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 90
+Info (12128): Elaborating entity "blocks" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 44
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v Line: 86
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v Line: 86
 Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/blocks.v Line: 86
@@ -2547,9 +2545,9 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:ga
     Info (12134): Parameter "width_a" = "1"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8do1.tdf
-    Info (12023): Found entity 1: altsyncram_8do1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_8do1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_8do1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "ghost1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 100
+    Info (12023): Found entity 1: altsyncram_8do1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_8do1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_8do1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "ghost1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 51
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.v Line: 82
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.v Line: 82
 Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost1.v Line: 82
@@ -2568,9 +2566,9 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:ga
     Info (12134): Parameter "width_a" = "13"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_q4g1.tdf
-    Info (12023): Found entity 1: altsyncram_q4g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_q4g1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "ghost2" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 101
+    Info (12023): Found entity 1: altsyncram_q4g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_q4g1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "ghost2" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 52
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost2.v Line: 82
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost2.v Line: 82
 Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost2.v Line: 82
@@ -2589,9 +2587,9 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:ga
     Info (12134): Parameter "width_a" = "13"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r4g1.tdf
-    Info (12023): Found entity 1: altsyncram_r4g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_r4g1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "ghost3" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 102
+    Info (12023): Found entity 1: altsyncram_r4g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_r4g1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "ghost3" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 53
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost3.v Line: 82
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost3.v Line: 82
 Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/ghost3.v Line: 82
@@ -2610,9 +2608,9 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:ga
     Info (12134): Parameter "width_a" = "13"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_s4g1.tdf
-    Info (12023): Found entity 1: altsyncram_s4g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_s4g1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "food" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 122
+    Info (12023): Found entity 1: altsyncram_s4g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_s4g1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "food" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F" File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 71
 Info (12128): Elaborating entity "altsyncram" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/food.v Line: 86
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F|altsyncram:altsyncram_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/food.v Line: 86
 Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/food.v Line: 86
@@ -2632,8 +2630,8 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_logic:ga
     Info (12134): Parameter "width_a" = "1"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r6o1.tdf
-    Info (12023): Found entity 1: altsyncram_r6o1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r6o1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_r6o1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12023): Found entity 1: altsyncram_r6o1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r6o1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_r6o1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "m_renderer" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 235
 Warning (10036): Verilog HDL or VHDL warning at renderer.v(45): object "curr_color" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 45
 Warning (10036): Verilog HDL or VHDL warning at renderer.v(48): object "pl_color2" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 48
@@ -2668,8 +2666,8 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_renderer:rend
     Info (12134): Parameter "width_a" = "12"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_45g1.tdf
-    Info (12023): Found entity 1: altsyncram_45g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_45g1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_45g1" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12023): Found entity 1: altsyncram_45g1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_45g1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_45g1" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|player:u_player|altsyncram:altsyncram_component|altsyncram_45g1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:game_fsm|m_game_over:game_over_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 246
 Warning (10230): Verilog HDL assignment warning at greeting_win_over.v(86): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 86
 Warning (10230): Verilog HDL assignment warning at greeting_win_over.v(87): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 87
@@ -2693,8 +2691,8 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_over:gam
     Info (12134): Parameter "width_a" = "1"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_v9h1.tdf
-    Info (12023): Found entity 1: altsyncram_v9h1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_v9h1.tdf Line: 32
-Info (12128): Elaborating entity "altsyncram_v9h1" for hierarchy "fsm_game_state:game_fsm|m_game_over:game_over_inst|game_over_screen:U1|altsyncram:altsyncram_component|altsyncram_v9h1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12023): Found entity 1: altsyncram_v9h1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_v9h1.tdf Line: 31
+Info (12128): Elaborating entity "altsyncram_v9h1" for hierarchy "fsm_game_state:game_fsm|m_game_over:game_over_inst|game_over_screen:U1|altsyncram:altsyncram_component|altsyncram_v9h1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "m_ghost_collision" for hierarchy "fsm_game_state:game_fsm|m_ghost_collision:collision_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 262
 Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 75
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 157
@@ -2717,14 +2715,14 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|altsyncram:VideoMemory"
     Info (12134): Parameter "power_up_uninitialized" = "FALSE"
     Info (12134): Parameter "init_file" = "canvas.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ldm1.tdf
-    Info (12023): Found entity 1: altsyncram_ldm1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 34
-Info (12128): Elaborating entity "altsyncram_ldm1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+    Info (12023): Found entity 1: altsyncram_ldm1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 33
+Info (12128): Elaborating entity "altsyncram_ldm1" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_7la.tdf
-    Info (12023): Found entity 1: decode_7la File: C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_7la.tdf Line: 23
-Info (12128): Elaborating entity "decode_7la" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|decode_7la:decode2" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 47
+    Info (12023): Found entity 1: decode_7la File: C:/Users/IWMAI/Desktop/ECE241-Project/db/decode_7la.tdf Line: 22
+Info (12128): Elaborating entity "decode_7la" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|decode_7la:decode2" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 46
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
-    Info (12023): Found entity 1: mux_2hb File: C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_2hb.tdf Line: 23
-Info (12128): Elaborating entity "mux_2hb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 50
+    Info (12023): Found entity 1: mux_2hb File: C:/Users/IWMAI/Desktop/ECE241-Project/db/mux_2hb.tdf Line: 22
+Info (12128): Elaborating entity "mux_2hb" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_ldm1.tdf Line: 49
 Info (12128): Elaborating entity "vga_pll" for hierarchy "vga_adapter:VGA|vga_pll:mypll" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 201
 Info (12128): Elaborating entity "altpll" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_pll.v Line: 53
 Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_pll.v Line: 53
@@ -2741,26 +2739,26 @@ Info (12133): Instantiated megafunction "vga_adapter:VGA|vga_pll:mypll|altpll:al
     Info (12134): Parameter "clk0_multiply_by" = "1"
     Info (12134): Parameter "clk0_duty_cycle" = "50"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altpll_80u.tdf
-    Info (12023): Found entity 1: altpll_80u File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf Line: 26
-Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altpll.tdf Line: 898
+    Info (12023): Found entity 1: altpll_80u File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf Line: 25
+Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altpll.tdf Line: 897
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/IWMAI/Desktop/ECE241-Project/vga_adapter/vga_adapter.v Line: 216
 Info (12128): Elaborating entity "debounce_filter" for hierarchy "debounce_filter:debounce" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 87
 Warning (10230): Verilog HDL assignment warning at utils.v(187): truncated value with size 32 to match size of target (13) File: C:/Users/IWMAI/Desktop/ECE241-Project/utils.v Line: 187
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated|q_a[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r6o1.tdf Line: 37
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated|q_a[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 35
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated|q_a[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 56
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated|q_a[11]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 266
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated|q_a[12]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 287
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated|q_a[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 35
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated|q_a[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 56
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated|q_a[11]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 266
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated|q_a[12]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 287
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|q_a[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 35
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|q_a[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 56
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|q_a[11]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 266
-        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|q_a[12]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 287
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated|q_a[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r6o1.tdf Line: 36
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated|q_a[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 34
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated|q_a[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 55
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated|q_a[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 76
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost3:G3|altsyncram:altsyncram_component|altsyncram_s4g1:auto_generated|q_a[3]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_s4g1.tdf Line: 97
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated|q_a[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 34
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated|q_a[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 55
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated|q_a[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 76
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost2:G2|altsyncram:altsyncram_component|altsyncram_r4g1:auto_generated|q_a[3]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r4g1.tdf Line: 97
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|q_a[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 34
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|q_a[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 55
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|q_a[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 76
+        Warning (14320): Synthesized away node "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated|q_a[3]" File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_q4g1.tdf Line: 97
 Info (278001): Inferred 4 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fsm_game_state:game_fsm|m_game_over:game_over_inst|Mod0" File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 86
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "fsm_game_state:game_fsm|m_greeting:greeting_inst|Mod0" File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 27
@@ -2773,11 +2771,11 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_over:gam
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_q3m.tdf
-    Info (12023): Found entity 1: lpm_divide_q3m File: C:/Users/IWMAI/Desktop/ECE241-Project/db/lpm_divide_q3m.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_q3m File: C:/Users/IWMAI/Desktop/ECE241-Project/db/lpm_divide_q3m.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_tlh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_tlh File: C:/Users/IWMAI/Desktop/ECE241-Project/db/sign_div_unsign_tlh.tdf Line: 25
+    Info (12023): Found entity 1: sign_div_unsign_tlh File: C:/Users/IWMAI/Desktop/ECE241-Project/db/sign_div_unsign_tlh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_00f.tdf
-    Info (12023): Found entity 1: alt_u_div_00f File: C:/Users/IWMAI/Desktop/ECE241-Project/db/alt_u_div_00f.tdf Line: 23
+    Info (12023): Found entity 1: alt_u_div_00f File: C:/Users/IWMAI/Desktop/ECE241-Project/db/alt_u_div_00f.tdf Line: 22
 Info (12130): Elaborated megafunction instantiation "fsm_game_state:game_fsm|m_game_over:game_over_inst|lpm_divide:Div0" File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 87
 Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_over:game_over_inst|lpm_divide:Div0" with the following parameter: File: C:/Users/IWMAI/Desktop/ECE241-Project/greeting_win_over.v Line: 87
     Info (12134): Parameter "LPM_WIDTHN" = "15"
@@ -2785,7 +2783,7 @@ Info (12133): Instantiated megafunction "fsm_game_state:game_fsm|m_game_over:gam
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_nbm.tdf
-    Info (12023): Found entity 1: lpm_divide_nbm File: C:/Users/IWMAI/Desktop/ECE241-Project/db/lpm_divide_nbm.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_nbm File: C:/Users/IWMAI/Desktop/ECE241-Project/db/lpm_divide_nbm.tdf Line: 24
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13012): Latch fsm_game_state:game_fsm|m_game_logic:game_logic_inst|player_x[0] has unsafe behavior File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 127
     Warning (13013): Ports D and ENA on the latch are fed by the same signal KEY[0] File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
@@ -2854,7 +2852,7 @@ Info (17049): 30 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/IWMAI/Desktop/ECE241-Project/output_files/milestone2.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf Line: 34
+Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altpll_80u.tdf Line: 33
     Info: Must be connected
 Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 3
@@ -2876,11 +2874,11 @@ Info (21057): Implemented 1524 device resources after synthesis - the final reso
     Info (21064): Implemented 82 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 3 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 149 warnings
-    Info: Peak virtual memory: 4934 megabytes
-    Info: Processing ended: Sun Nov 24 10:37:23 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:13
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 148 warnings
+    Info: Peak virtual memory: 4943 megabytes
+    Info: Processing ended: Sun Nov 24 12:39:04 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:11
 
 
 +------------------------------------------+
