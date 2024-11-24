@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/IWMAI/Desktop/ECE241-Project/ModelSim3
 vbackground
-Z1 !s110 1732472471
+Z1 !s110 1732482167
 !i10b 1
 !s100 MVL@QJ`Io7b9NW@mb[8540
 INSGHcQmHP@A?8<QkPhA<<0
@@ -23,7 +23,7 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1732472471.000000
+Z6 !s108 1732482167.000000
 Z7 !s107 ../utils.v|../top.v|../renderer.v|../ps2.v|../player_movement.v|../player.v|../old_code.v|../main.v|../greeting_win_over.v|../greeting_screen.v|../ghosts_movement.v|../ghost3.v|../ghost2.v|../ghost1.v|../game_over_screen.v|../fsm.v|../food.v|../canvas.v|../blocks.v|../background.v|../_modules.v|
 Z8 !s90 -reportprogress|300|../_modules.v|../background.v|../blocks.v|../canvas.v|../food.v|../fsm.v|../game_over_screen.v|../ghost1.v|../ghost2.v|../ghost3.v|../ghosts_movement.v|../greeting_screen.v|../greeting_win_over.v|../main.v|../old_code.v|../player.v|../player_movement.v|../ps2.v|../renderer.v|../top.v|../utils.v|
 !i113 1
@@ -251,13 +251,13 @@ R9
 vget_direction
 R1
 !i10b 1
-!s100 md2J`z9T_=42D6b=Mg><d0
-Ib059H8=^^dCh`c2^TU5z^1
+!s100 leAVG@WWFZV5]VGMjM>Y53
+I[ADQ:0?YfO3CA0gX3^kk@0
 R2
 R0
-R3
-Z13 8../player_movement.v
-Z14 F../player_movement.v
+Z13 w1732477873
+Z14 8../player_movement.v
+Z15 F../player_movement.v
 L0 2
 R5
 r1
@@ -296,8 +296,8 @@ IfWmQN1c;9H;VTX5[l=GU72
 R2
 R0
 R3
-Z15 8../ghosts_movement.v
-Z16 F../ghosts_movement.v
+Z16 8../ghosts_movement.v
+Z17 F../ghosts_movement.v
 L0 3
 R5
 r1
@@ -336,8 +336,8 @@ I5F>HZfjkY<V;4mQniJdDS3
 R2
 R0
 R3
-R15
 R16
+R17
 L0 34
 R5
 r1
@@ -376,8 +376,8 @@ IT`]ziR^L@WIcciTTfV_2[0
 R2
 R0
 R3
-R15
 R16
+R17
 L0 65
 R5
 r1
@@ -451,13 +451,13 @@ R9
 vm_game_logic
 R1
 !i10b 1
-!s100 meHC^f6_Q1?S_MI0NZGV52
-I8G:B]VdA03NiL:n2KZNoo2
+!s100 kINBnoHFMoQEX@19aOQZb3
+IfV]Z_2e<;;6dniKmFQ=L41
 R2
 R0
-Z17 w1732472465
-Z18 8../_modules.v
-Z19 F../_modules.v
+Z18 w1732481892
+Z19 8../_modules.v
+Z20 F../_modules.v
 L0 2
 R5
 r1
@@ -476,8 +476,8 @@ IlZl>4<l3jnNZ_[>PW1LW33
 R2
 R0
 R3
-Z20 8../greeting_win_over.v
-Z21 F../greeting_win_over.v
+Z21 8../greeting_win_over.v
+Z22 F../greeting_win_over.v
 L0 60
 R5
 r1
@@ -491,14 +491,14 @@ R9
 vm_ghost_collision
 R1
 !i10b 1
-!s100 hZ?AMi1CKW3Z[W@QW66o]3
-I^UZQ4WgI<K4FzEXkbhZo[2
+!s100 K=_=7agRkkkdk<GfTlL^f3
+IA;>gc]gabYo5:J>ezM;bN3
 R2
 R0
-R17
 R18
 R19
-L0 210
+R20
+L0 247
 R5
 r1
 !s85 0
@@ -516,8 +516,8 @@ I3VzE:d0IcBAfmN>ZdCRiE0
 R2
 R0
 R3
-R20
 R21
+R22
 L0 1
 R5
 r1
@@ -571,14 +571,14 @@ R9
 vmovement_FSM
 R1
 !i10b 1
-!s100 eQidN`nDePAR00?6FV;bY0
-IeV0SZAJYj5z]U^JdELOWo3
+!s100 4RRCHL>g_z5CWL@lU4aHg3
+I]L_1SPRSIk]T0fIL`S43c2
 R2
 R0
-R3
 R13
 R14
-L0 23
+R15
+L0 21
 R5
 r1
 !s85 0

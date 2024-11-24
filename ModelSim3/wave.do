@@ -12,18 +12,16 @@ add wave -noupdate -label enable -radix binary /testbench/enable
 
 # Game Logic Module Signals
 add wave -noupdate -divider m_game_logic
-add wave -noupdate -label finished -radix binary /testbench/logic/finished
 add wave -noupdate -label player_x -radix unsigned /testbench/logic/player_x
 add wave -noupdate -label player_y -radix unsigned /testbench/logic/player_y
-add wave -noupdate -label ghost1_x -radix unsigned /testbench/logic/ghost1_x
-add wave -noupdate -label ghost1_y -radix unsigned /testbench/logic/ghost1_y
-add wave -noupdate -label ghost2_x -radix unsigned /testbench/logic/ghost2_x
-add wave -noupdate -label ghost2_y -radix unsigned /testbench/logic/ghost2_y
-add wave -noupdate -label ghost3_x -radix unsigned /testbench/logic/ghost3_x
-add wave -noupdate -label ghost3_y -radix unsigned /testbench/logic/ghost3_y
+add wave -noupdate -label collision -radix binary /testbench/logic/collision
 add wave -noupdate -label direction -radix binary /testbench/logic/direction
-add wave -noupdate -label score -radix unsigned /testbench/logic/score
-add wave -noupdate -label food_eaten -radix binary /testbench/logic/food_eaten
+add wave -noupdate -label wall -radix binary /testbench/logic/wall
+add wave -noupdate -label address_wall -radix unsigned /testbench/logic/address_wall
+add wave -noupdate -label directly_up -radix unsigned /testbench/logic/directly_up
+add wave -noupdate -label directly_left -radix unsigned /testbench/logic/directly_left
+add wave -noupdate -label directly_down -radix unsigned /testbench/logic/directly_down
+add wave -noupdate -label directly_right -radix unsigned /testbench/logic/directly_right
 
 # Input Signals
 add wave -noupdate -divider inputs

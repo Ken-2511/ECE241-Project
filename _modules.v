@@ -20,14 +20,13 @@ module m_game_logic (
     parameter [7:0] won_score = 8'b10111100;
 
     //player movement
-    reg collision; // wall collision
-    wire [2:0] w, direction;
-    wire collided;
-    assign collided = collision;
+    reg [3:0] collision; // wall collision: 3 is up, 2 is left, 1 is down, 0 is right
+    wire [2:0] w;
+    wire [1:0] direction;
     get_direction GD(last_key_received, hs_enable, w); //in player_movement.v
-    movement_FSM MF(clock, resetn, hs_enable, w, collided, direction); //in player_movement.v
+    movement_FSM MF(clock, resetn, hs_enable, w, direction); //in player_movement.v
 
-    parameter still = 3'b000, up = 3'b001, left = 3'b010, down = 3'b011, right = 3'b100;
+    parameter up = 2'b00, left = 2'b01, down = 2'b10, right = 2'b11;
 
     //calculating stuff for wall collision
     wire [4:0] columns = 5'b11101;
@@ -36,11 +35,10 @@ module m_game_logic (
     wire [3:0] directly_down = player_y + 1;
     wire [4:0] directly_right = player_x + 1;
 
-    reg [8:0] address_temp_wall;
+    reg [8:0] address_wall;
     wire wall;
-    wire [8:0] address_wall;
-    assign address_wall = address_temp_wall;
-
+   // wire [8:0] address_wall;
+   // assign address_wall = address_temp_wall;
     blocks B(address_wall, clock, 1'b0, 1'b0, wall);
 
     //stuff for updating ghost positions
@@ -69,7 +67,6 @@ module m_game_logic (
     food F(address_food, clock, 1'b0, wr, food_dot);
 
     //data for calculating stuff in the outputs/operations
-   // reg e_update_player_position, e_wall_collision, e_update_ghost_positions, e_eat_food; //enable flags
     reg f_update_player_position, f_wall_collision, f_update_ghost_positions, f_eat_food; //finished flags
 
     //move to next state
@@ -121,35 +118,40 @@ module m_game_logic (
             //for checking wall collision
             wall_collision: begin 
                 case(direction)
-                    up: address_temp_wall = directly_up * columns + player_x;
-                    left: address_temp_wall = player_y * columns + directly_left;
-                    down: address_temp_wall = directly_down * columns + player_x;
-                    right: address_temp_wall = player_y * columns + directly_right;
-                    default: address_temp_wall = 8'b0;
+                    up: address_wall = directly_up * columns + player_x;
+                    left: address_wall = player_y * columns + directly_left;
+                    down: address_wall = directly_down * columns + player_x;
+                    right: address_wall = player_y * columns + directly_right;
                 endcase
 
                 if (!resetn) begin
-                    collision <= 1'b0; 
+                    collision <= 4'b0; 
                     finished = 1'b0;
                     food_eaten = 1'b0;
                     player_x = 5'b00001;
                     player_y = 4'b0001;
+                    address_wall = 9'b000000001;
                     address1 = 7'b0;
                     address2 = 7'b0;
                     address3 = 7'b0;
                     score <= 8'b0;
                     wr <= 1'b0;
                 end
-                else if(enable && direction != still) begin
-                    if(wall)
-                        collision <= 1'b1;
-                    else
-                        collision <= 1'b0;
+                else if(enable) begin
+                    if(direction == up && wall) collision[3] <= 1'b1;
+                    else collision[3] <= 1'b0;
+
+                    if(direction == left && wall) collision[2] <= 1'b1;
+                    else collision[2] <= 1'b0;
+
+                    if(direction == down && wall) collision[1] <= 1'b1;
+                    else collision[1] <= 1'b0;
+
+                    if(direction == right && wall) collision[0] <= 1'b1;
+                    else collision[0] <= 1'b0;
             
                 end 
-                else begin 
-                    collision <= 1'b0;
-                end 
+
                 f_wall_collision <= 1'b1;
             end 
 
@@ -157,11 +159,46 @@ module m_game_logic (
             update_player_position: begin 
                if (enable) begin
                     case(direction)
-                        up: begin player_x <= player_x; player_y <= player_y - 1; end
-                        left: begin player_x <= player_x - 1; player_y <= player_y; end
-                        down: begin player_x <= player_x; player_y <= player_y + 1; end
-                        right: begin player_x <= player_x + 1; player_y <= player_y; end
-                        default: begin player_x <= player_x; player_y <= player_y; end
+                        up: begin 
+                            if(!collision[3]) begin
+                                player_y <= player_y - 1;
+                                player_x <= player_x;
+                            end
+                            else begin 
+                                player_y <= player_y; 
+                                player_x <= player_x;
+                            end
+                        end
+                        left: begin 
+                            if(!collision[2]) begin 
+                                player_x <= player_x - 1;
+                                player_y <= player_y;
+                            end 
+                            else begin
+                                player_x <= player_x;
+                                player_y <= player_y;
+                            end
+                        end
+                        down: begin 
+                            if(!collision[1]) begin
+                                player_y <= player_y + 1;
+                                player_x <= player_x;
+                            end
+                            else begin
+                                player_y <= player_y;
+                                player_x <= player_x;
+                            end
+                        end
+                        right: begin 
+                            if(!collision[0]) begin
+                                player_x <= player_x + 1;
+                                player_y <= player_y;
+                            end
+                            else begin
+                                player_x <= player_x;
+                                player_y <= player_y;
+                            end
+                        end
                     endcase
 
                     f_update_player_position <= 1'b1;
