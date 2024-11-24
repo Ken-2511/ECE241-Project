@@ -46,7 +46,6 @@ module m_game_logic (
     //stuff for updating ghost positions
     reg [6:0] address1, address2, address3;
     wire [12:0] g1, g2, g3;
-    wire [6:0] address_g1, address_g2, address_g3;
 
     ghost1 G1(address1, clock, g1);
     ghost2 G2(address2, clock, g2);
@@ -65,24 +64,13 @@ module m_game_logic (
     wire food_dot;
 
     reg wr;
-    wire wren, q;
-    assign wren = wr;
+    wire q;
 
-    food F(address_food, clock, 1'b0, wren, food_dot);
+    food F(address_food, clock, 1'b0, wr, food_dot);
 
     //data for calculating stuff in the outputs/operations
    // reg e_update_player_position, e_wall_collision, e_update_ghost_positions, e_eat_food; //enable flags
     reg f_update_player_position, f_wall_collision, f_update_ghost_positions, f_eat_food; //finished flags
-
-    //FSM
-    initial begin
-        player_x = 5'b00001;
-        player_y = 4'b0001;
-        address1 = 7'b0;
-        address2 = 7'b0;
-        address3 = 7'b0;
-        score <= 8'b0;
-    end 
 
     //move to next state
     always @(posedge clock or negedge resetn) begin
@@ -122,7 +110,7 @@ module m_game_logic (
     end
 
     //FSM outputs
-    always @(*) begin 
+    always @(posedge clock) begin 
         //defaults
         f_wall_collision = 1'b0;
         f_update_player_position = 1'b0;
@@ -142,6 +130,15 @@ module m_game_logic (
 
                 if (!resetn) begin
                     collision <= 1'b0; 
+                    finished = 1'b0;
+                    food_eaten = 1'b0;
+                    player_x = 5'b00001;
+                    player_y = 4'b0001;
+                    address1 = 7'b0;
+                    address2 = 7'b0;
+                    address3 = 7'b0;
+                    score <= 8'b0;
+                    wr <= 1'b0;
                 end
                 else if(enable && direction != still) begin
                     if(wall)
@@ -158,13 +155,7 @@ module m_game_logic (
 
             //for updating player position
             update_player_position: begin 
-                if (!resetn) begin
-                    f_update_player_position <= 1'b0;
-
-                   player_x <= 5'b00001;
-                   player_y <= 4'b0001;
-               end
-               else if (enable) begin
+               if (enable) begin
                     case(direction)
                         up: begin player_x <= player_x; player_y <= player_y - 1; end
                         left: begin player_x <= player_x - 1; player_y <= player_y; end
@@ -178,13 +169,8 @@ module m_game_logic (
             end 
 
             //for updating ghost positions
-            update_ghost_positions: begin 
-                if (!resetn) begin
-                    address1 <= 7'b0;
-                    address2 <= 7'b0;
-                    address3 <= 7'b0;
-                end
-                else if (enable) begin
+            update_ghost_positions: begin
+                if (enable) begin
                     //update positions, set addresses to 0 if they reach the end of the path
                     if(address1 == 63)
                         address1 <= 7'b0;
@@ -206,21 +192,16 @@ module m_game_logic (
 
             //for eating food and incrementing the score
             eat_food: begin
-                if(!resetn) begin
-                    wr <= 1'b0;
-                    f_eat_food <= 1'b0;
-                    score <= 8'b0;
-                end
-                else if(enable) begin
+                if(enable) begin
                     wr <= 1'b0;
                     if(q) begin
                         score <= score + 1;
                         wr <= 1'b1;
-                        f_eat_food <= 1'b1;
                     end
                 end 
+                f_eat_food <= 1'b1;
             end 
-        endcase 
+        endcase
     end 
 
 endmodule

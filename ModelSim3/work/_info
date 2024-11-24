@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/IWMAI/Desktop/ECE241-Project/ModelSim3
 vbackground
-Z1 !s110 1732470072
+Z1 !s110 1732472471
 !i10b 1
 !s100 MVL@QJ`Io7b9NW@mb[8540
 INSGHcQmHP@A?8<QkPhA<<0
@@ -23,7 +23,7 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1732470072.000000
+Z6 !s108 1732472471.000000
 Z7 !s107 ../utils.v|../top.v|../renderer.v|../ps2.v|../player_movement.v|../player.v|../old_code.v|../main.v|../greeting_win_over.v|../greeting_screen.v|../ghosts_movement.v|../ghost3.v|../ghost2.v|../ghost1.v|../game_over_screen.v|../fsm.v|../food.v|../canvas.v|../blocks.v|../background.v|../_modules.v|
 Z8 !s90 -reportprogress|300|../_modules.v|../background.v|../blocks.v|../canvas.v|../food.v|../fsm.v|../game_over_screen.v|../ghost1.v|../ghost2.v|../ghost3.v|../ghosts_movement.v|../greeting_screen.v|../greeting_win_over.v|../main.v|../old_code.v|../player.v|../player_movement.v|../ps2.v|../renderer.v|../top.v|../utils.v|
 !i113 1
@@ -451,11 +451,11 @@ R9
 vm_game_logic
 R1
 !i10b 1
-!s100 b`V]CE6X@ZLnkJ9eEN5f;2
-Id6iB?`JU]T2U?Fo7R9n4]1
+!s100 meHC^f6_Q1?S_MI0NZGV52
+I8G:B]VdA03NiL:n2KZNoo2
 R2
 R0
-Z17 w1732469930
+Z17 w1732472465
 Z18 8../_modules.v
 Z19 F../_modules.v
 L0 2
@@ -491,14 +491,14 @@ R9
 vm_ghost_collision
 R1
 !i10b 1
-!s100 CA<7PmF>BZ`5c?B>F<`FV0
-I:dnlYZ0f>]=nzF09oYiJb1
+!s100 hZ?AMi1CKW3Z[W@QW66o]3
+I^UZQ4WgI<K4FzEXkbhZo[2
 R2
 R0
 R17
 R18
 R19
-L0 229
+L0 210
 R5
 r1
 !s85 0
@@ -652,11 +652,11 @@ R9
 vtestbench
 R1
 !i10b 1
-!s100 fP:1AAXMU]CWn9>HG<8j00
-IS0Qb>eDHJeBAM?hIZg2F70
+!s100 ClMYk4@bDBl?2`jD@g=S70
+I:8[KMMYVi1g@OkETl2^bE3
 R2
 R0
-w1732469253
+w1732471373
 8testbench.v
 Ftestbench.v
 L0 5

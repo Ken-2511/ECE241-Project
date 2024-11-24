@@ -20,7 +20,7 @@ module testbench();
         hs_enable <= 1'b1; resetn <=1'b0 ; enable <= 1'b1;
         CLOCK_50 <= 1'b1;
 
-        #30 resetn <= 1'b1;
+        #50 resetn <= 1'b1;
 
         #20 last_key_received <= 8'b00100011;
     end 
