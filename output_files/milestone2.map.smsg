@@ -1,7 +1,7 @@
-Warning (10268): Verilog HDL information at _modules.v(112): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 112
-Info (10281): Verilog HDL Declaration information at _modules.v(47): object "g1" differs only in case from object "G1" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 47
-Info (10281): Verilog HDL Declaration information at _modules.v(47): object "g2" differs only in case from object "G2" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 47
-Info (10281): Verilog HDL Declaration information at _modules.v(47): object "g3" differs only in case from object "G3" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 47
+Warning (10268): Verilog HDL information at _modules.v(110): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 110
+Info (10281): Verilog HDL Declaration information at _modules.v(46): object "g1" differs only in case from object "G1" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 46
+Info (10281): Verilog HDL Declaration information at _modules.v(46): object "g2" differs only in case from object "G2" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 46
+Info (10281): Verilog HDL Declaration information at _modules.v(46): object "g3" differs only in case from object "G3" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 46
 Info (10281): Verilog HDL Declaration information at player_movement.v(5): object "w" differs only in case from object "W" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 5
 Warning (10268): Verilog HDL information at player_movement.v(30): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 30
 Info (10281): Verilog HDL Declaration information at fsm.v(18): object "GAME_OVER" differs only in case from object "game_over" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 18
