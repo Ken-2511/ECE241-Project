@@ -260,15 +260,6 @@ module fsm_game_state (
         .ghost_collision(collision_detected)
     );
 
-    // the instance for the background color
-    canvas u_canvas (
-        .address(VGA_Y * 160 + VGA_X),
-        .clock(clock),
-        .data(12'h000),
-        .wren(1'b0),
-        .q(bg_color)
-    );
-
     //you won module - TODO
 
 endmodule

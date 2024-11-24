@@ -7,8 +7,8 @@ module m_game_logic (
     output reg finished,
     output reg [4:0] player_x,
     output reg [3:0] player_y,
-    output reg [4:0] ghost1_x, ghost2_x, ghost3_x,
-    output reg [3:0] ghost1_y, ghost2_y, ghost3_y,
+    output wire [4:0] ghost1_x, ghost2_x, ghost3_x,
+    output wire [3:0] ghost1_y, ghost2_y, ghost3_y,
     output reg [7:0] score,
     input [7:0] last_key_received,
     output reg food_eaten
@@ -18,6 +18,10 @@ module m_game_logic (
 
     parameter update_player_position = 3'b000, wall_collision = 3'b001, update_ghost_positions = 3'b010, eat_food = 3'b011;
     parameter [7:0] won_score = 8'b10111100;
+
+    //data for calculating stuff in the outputs/operations
+    reg e_update_player_position, e_wall_collision, e_update_ghost_positions, e_eat_food; //enable flags
+    reg f_update_player_position, f_wall_collision, f_update_ghost_positions, f_eat_food; //finished flags
 
     //FSM
     initial begin
@@ -59,11 +63,7 @@ module m_game_logic (
                 
             default: next_state = wall_collision;
         endcase 
-    end 
-
-    //data for calculating stuff in the outputs/operations
-    reg e_update_player_position, e_wall_collision, e_update_ghost_positions, e_eat_food; //enable flags
-    reg f_update_player_position, f_wall_collision, f_update_ghost_positions, f_eat_food; //finished flags
+    end
 
     //player movement
     reg collision; // wall collision
@@ -87,11 +87,11 @@ module m_game_logic (
     wire [8:0] address_wall;
     assign address_wall = address_temp_wall;
 
-    blocks B(address_wall, clock, 3'b0, 1'b0, wall);
+    blocks B(address_wall, clock, 1'b0, 1'b0, wall);
 
     //stuff for updating ghost positions
     reg [6:0] address1, address2, address3;
-    wire [10:0] g1, g2, g3;
+    wire [12:0] g1, g2, g3;
     wire [6:0] address_g1, address_g2, address_g3;
     assign address_g1 = address1;
     assign address_g2 = address2;
@@ -116,6 +116,8 @@ module m_game_logic (
     reg wr;
     wire wren, q;
     assign wren = wr;
+    
+    wire [8:0] address;
 
     food F(address, clock, 1'b0, wren, food_dot);
 
@@ -229,19 +231,32 @@ module m_game_logic (
 endmodule
 
 // ghost collision detection module
-module m_ghost_collision (clock, resetn, enable, finished, player_x, player_y, ghost1_x, ghost1_y, ghost2_x, ghost2_y, ghost3_x, ghost3_y, ghost_collision);
+module m_ghost_collision (
+    clock,
+    resetn,
+    enable,
+    player_x,
+    player_y,
+    ghost1_x,
+    ghost1_y,
+    ghost2_x,
+    ghost2_y,
+    ghost3_x,
+    ghost3_y,
+    ghost_collision
+);
     input clock, resetn, enable;
     input [4:0] player_x;
     input [3:0] player_y;
     input [4:0] ghost1_x, ghost2_x, ghost3_x;
     input [3:0] ghost1_y, ghost2_y, ghost3_y;
-    output reg finished;
+    // output reg finished;
     output reg ghost_collision;
 
     always @(posedge clock or negedge resetn) begin
         if (!resetn) begin
             ghost_collision <= 1'b0;
-            finished <= 1'b0;
+            // finished <= 1'b0;
         end
         else if (enable) begin 
             //check collisions with ghosts
@@ -252,7 +267,7 @@ module m_ghost_collision (clock, resetn, enable, finished, player_x, player_y, g
                 ghost_collision <= 1'b0;
             end 
 
-            finished <= 1'b1;
+            // finished <= 1'b1;
         end 
     end
 endmodule

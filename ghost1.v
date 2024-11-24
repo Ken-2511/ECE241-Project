@@ -44,7 +44,7 @@ module ghost1 (
 
 	input	[6:0]  address;
 	input	  clock;
-	output	[10:0]  q;
+	output	[12:0]  q;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
@@ -53,8 +53,8 @@ module ghost1 (
 // synopsys translate_on
 `endif
 
-	wire [10:0] sub_wire0;
-	wire [10:0] q = sub_wire0[10:0];
+	wire [12:0] sub_wire0;
+	wire [12:0] q = sub_wire0[12:0];
 
 	altsyncram	altsyncram_component (
 				.address_a (address),
@@ -72,7 +72,7 @@ module ghost1 (
 				.clocken1 (1'b1),
 				.clocken2 (1'b1),
 				.clocken3 (1'b1),
-				.data_a ({11{1'b1}}),
+				.data_a ({13{1'b1}}),
 				.data_b (1'b1),
 				.eccstatus (),
 				.q_b (),
@@ -93,7 +93,7 @@ module ghost1 (
 		altsyncram_component.outdata_aclr_a = "NONE",
 		altsyncram_component.outdata_reg_a = "UNREGISTERED",
 		altsyncram_component.widthad_a = 7,
-		altsyncram_component.width_a = 11,
+		altsyncram_component.width_a = 13,
 		altsyncram_component.width_byteena_a = 1;
 
 
@@ -128,7 +128,7 @@ endmodule
 // Retrieval info: PRIVATE: SingleClock NUMERIC "1"
 // Retrieval info: PRIVATE: UseDQRAM NUMERIC "0"
 // Retrieval info: PRIVATE: WidthAddr NUMERIC "7"
-// Retrieval info: PRIVATE: WidthData NUMERIC "11"
+// Retrieval info: PRIVATE: WidthData NUMERIC "13"
 // Retrieval info: PRIVATE: rden NUMERIC "0"
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ADDRESS_ACLR_A STRING "NONE"
@@ -143,14 +143,14 @@ endmodule
 // Retrieval info: CONSTANT: OUTDATA_ACLR_A STRING "NONE"
 // Retrieval info: CONSTANT: OUTDATA_REG_A STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "7"
-// Retrieval info: CONSTANT: WIDTH_A NUMERIC "11"
+// Retrieval info: CONSTANT: WIDTH_A NUMERIC "13"
 // Retrieval info: CONSTANT: WIDTH_BYTEENA_A NUMERIC "1"
 // Retrieval info: USED_PORT: address 0 0 7 0 INPUT NODEFVAL "address[6..0]"
 // Retrieval info: USED_PORT: clock 0 0 0 0 INPUT VCC "clock"
-// Retrieval info: USED_PORT: q 0 0 11 0 OUTPUT NODEFVAL "q[10..0]"
+// Retrieval info: USED_PORT: q 0 0 13 0 OUTPUT NODEFVAL "q[12..0]"
 // Retrieval info: CONNECT: @address_a 0 0 7 0 address 0 0 7 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
-// Retrieval info: CONNECT: q 0 0 11 0 @q_a 0 0 11 0
+// Retrieval info: CONNECT: q 0 0 13 0 @q_a 0 0 13 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL ghost1.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL ghost1.inc FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL ghost1.cmp FALSE
