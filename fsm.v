@@ -97,7 +97,7 @@ module fsm_game_state (
                 next_state = start_game ? PLAYING_LOGIC : GREETING;
 
             PLAYING_LOGIC: 
-                next_state = collision_detected ? GAME_OVER : PLAYING_RENDER;
+                next_state = collision_detected ? GAME_OVER : logic_done ? PLAYING_RENDER : PLAYING_LOGIC;
 
             PLAYING_RENDER:
                 next_state = render_done ? WAITING : PLAYING_RENDER;

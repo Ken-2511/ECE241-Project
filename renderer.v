@@ -47,6 +47,75 @@ module m_renderer (
     reg [11:0] pl_color1;           // delayed player color
     reg [11:0] pl_color2;           // delayed player color
 
+    // for convinience, we just define the player and ghost picture here
+    // they are 5x5 blocks
+
+    // player_data
+    wire [11:0] player_data [4:0][4:0];
+    // line 1
+    assign player_data[0][0] = 12'hF00;
+    assign player_data[0][1] = 12'hFF3;
+    assign player_data[0][2] = 12'hFF3;
+    assign player_data[0][3] = 12'h000;
+    assign player_data[0][4] = 12'hFF3;
+    // line 2
+    assign player_data[1][0] = 12'hFF3;
+    assign player_data[1][1] = 12'hFF3;
+    assign player_data[1][2] = 12'hFF3;
+    assign player_data[1][3] = 12'hFF3;
+    assign player_data[1][4] = 12'hFF3;
+    // line 3
+    assign player_data[2][0] = 12'hFF3;
+    assign player_data[2][1] = 12'hFF3;
+    assign player_data[2][2] = 12'hFF3;
+    assign player_data[2][3] = 12'hFF3;
+    assign player_data[2][4] = 12'hFF3;
+    // line 4
+    assign player_data[3][0] = 12'h000;
+    assign player_data[3][1] = 12'h000;
+    assign player_data[3][2] = 12'hFF3;
+    assign player_data[3][3] = 12'hFF3;
+    assign player_data[3][4] = 12'hFF3;
+    // line 5
+    assign player_data[4][0] = 12'hFF3;
+    assign player_data[4][1] = 12'hFF3;
+    assign player_data[4][2] = 12'hFF3;
+    assign player_data[4][3] = 12'h000;
+    assign player_data[4][4] = 12'hF00;
+
+    // ghost_data
+    wire [11:0] ghost_data [4:0][4:0];
+    //line 1
+    assign ghost_data[0][0] = 12'h000;
+    assign ghost_data[0][1] = 12'h000;
+    assign ghost_data[0][2] = 12'hFFF;
+    assign ghost_data[0][3] = 12'h000;
+    assign ghost_data[0][4] = 12'h000;
+    // line 2
+    assign ghost_data[1][0] = 12'h000;
+    assign ghost_data[1][1] = 12'hFFF;
+    assign ghost_data[1][2] = 12'hFFF;
+    assign ghost_data[1][3] = 12'hFFF;
+    assign ghost_data[1][4] = 12'h000;
+    // line 3
+    assign ghost_data[2][0] = 12'hFFF;
+    assign ghost_data[2][1] = 12'hFFF;
+    assign ghost_data[2][2] = 12'hF00; // the red eye
+    assign ghost_data[2][3] = 12'hFFF;
+    assign ghost_data[2][4] = 12'hFFF;
+    // line 4
+    assign ghost_data[3][0] = 12'hFFF;
+    assign ghost_data[3][1] = 12'hFFF;
+    assign ghost_data[3][2] = 12'hFFF;
+    assign ghost_data[3][3] = 12'hFFF;
+    assign ghost_data[3][4] = 12'hFFF;
+    // line 5
+    assign ghost_data[4][0] = 12'hFFF;
+    assign ghost_data[4][1] = 12'h000;
+    assign ghost_data[4][2] = 12'hFFF;
+    assign ghost_data[4][3] = 12'h000;
+    assign ghost_data[4][4] = 12'hFFF;
+
     // Rendering target index
     reg [1:0] render_index;         // 0: Player, 1: Ghost 1, 2: Ghost 2, 3: Ghost 3
 
@@ -87,11 +156,8 @@ module m_renderer (
             // Initialize
             bg_x <= 8'b0;
             bg_y <= 7'b0;
-            VGA_X <= 0, VGA_X_ <= 8'b0; VGA_X__ <= 8'b0; VGA_X___ <= 8'b0;
-            VGA_Y <= 0, VGA_Y_ <= 7'b0; VGA_Y__ <= 7'b0; VGA_Y___ <= 7'b0;
-            VGA_COLOR <= 12'b0;
-            pl_color1 <= 12'b0;
-            pl_color2 <= 12'b0;
+            VGA_X___ <= 8'b0; VGA_X__ <= 8'b0; VGA_X_ <= 8'b0; VGA_X <= 8'b0;
+            VGA_Y___ <= 7'b0; VGA_Y__ <= 7'b0; VGA_Y_ <= 7'b0; VGA_Y <= 7'b0;
             VGA_COLOR <= 12'b0;
             dx <= 4'b0;
             dy <= 4'b0;
@@ -177,8 +243,6 @@ module m_renderer (
                     _temp_y <= bg_y;
                     VGA_X <= _temp_x;
                     VGA_Y <= _temp_y;
-                    pl_color1 <= pl_color;
-                    pl_color2 <= pl_color1;
                     VGA_COLOR <= (render_index == 0) ? pl_color1 : 12'hFFF; // Assume ghosts are white
 
                     if (dx < 4)
