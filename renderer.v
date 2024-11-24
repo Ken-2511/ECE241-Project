@@ -65,7 +65,8 @@ module m_renderer (
             IDLE: 
                 next_state = (first_time_rendering) ? DRAW_BG : ERASE;
             DRAW_BG:
-                next_state = (VGA_X == 159 && VGA_Y == 119) ? ERASE : DRAW_BG;
+                next_state = ERASE; // for testing other modules
+                // next_state = (VGA_X == 159 && VGA_Y == 119) ? ERASE : DRAW_BG;
             ERASE: 
                 next_state = (render_index == 3 && dx == 4 && dy == 4) ? DRAW : ERASE;
             DRAW: 
@@ -78,25 +79,27 @@ module m_renderer (
     end
 
     // VGA rendering logic
+    reg [7:0] VGA_X___, VGA_X__, VGA_X_; // for delaying the VGA signals
+    reg [6:0] VGA_Y___, VGA_Y__, VGA_Y_;
+    reg [11:0] VGA_COLOR___, VGA_COLOR__, VGA_COLOR_;
     always @(posedge clock or negedge resetn) begin
         if (!resetn) begin
             // Initialize
-            bg_x <= 0;
-            bg_y <= 0;
-            _temp_x <= 0;
-            _temp_y <= 0;
-            VGA_X <= 0;
-            VGA_Y <= 0;
-            pl_color1 <= 0;
-            pl_color2 <= 0;
-            VGA_COLOR <= 0;
-            dx <= 0;
-            dy <= 0;
-            render_index <= 0;
-            curr_x <= 0;
-            curr_y <= 0;
+            bg_x <= 8'b0;
+            bg_y <= 7'b0;
+            VGA_X <= 0, VGA_X_ <= 8'b0; VGA_X__ <= 8'b0; VGA_X___ <= 8'b0;
+            VGA_Y <= 0, VGA_Y_ <= 7'b0; VGA_Y__ <= 7'b0; VGA_Y___ <= 7'b0;
+            VGA_COLOR <= 12'b0;
+            pl_color1 <= 12'b0;
+            pl_color2 <= 12'b0;
+            VGA_COLOR <= 12'b0;
+            dx <= 4'b0;
+            dy <= 4'b0;
+            render_index <= 2'b0;
+            curr_x <= 5'b0;
+            curr_y <= 4'b0;
             curr_color <= bg_color;
-            finished <= 0;
+            finished <= 1'b0;
             first_time_rendering <= 1;
         end else if (enable) begin
             case (state)
