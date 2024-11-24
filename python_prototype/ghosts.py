@@ -42,7 +42,7 @@ BEGIN
     for i in range(len(movements), DEPTH):
         mif_content += f"{i}   :   0000000000000;\n"
 
-    mif_content += "END\n"
+    mif_content += "END;\n"
 
     # Write to file
     with open(filename, "w") as mif_file:

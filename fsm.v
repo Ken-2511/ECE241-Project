@@ -30,7 +30,8 @@ module fsm_game_state (
     wire greeting_done, logic_done, render_done, game_over_done;
 
     // Collision detection signal
-    wire collision_detected = collided;
+    wire collision_detected;
+    // assign collision_detected = collided; // uncomment this line to use the pseudo-collision signal
 
     // Trigger for starting the game
     wire start_game;

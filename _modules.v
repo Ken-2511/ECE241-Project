@@ -101,12 +101,12 @@ module m_game_logic (
     ghost2 G2(address_g2, clock, g2);
     ghost3 G3(address_g3, clock, g3);
 
-    assign ghost1_x = g1[10:6];
-    assign ghost1_y = g1[5:2];
-    assign ghost2_x = g2[10:6];
-    assign ghost2_y = g2[5:2];
-    assign ghost3_x = g3[10:6];
-    assign ghost3_y = g3[5:2];
+    assign ghost1_x = g1[12:8];
+    assign ghost1_y = g1[7:4];
+    assign ghost2_x = g2[12:8];
+    assign ghost2_y = g2[7:4];
+    assign ghost3_x = g3[12:8];
+    assign ghost3_y = g3[7:4];
 
     //stuff for eating food
     wire [8:0] address_food;
@@ -116,10 +116,8 @@ module m_game_logic (
     reg wr;
     wire wren, q;
     assign wren = wr;
-    
-    wire [8:0] address;
 
-    food F(address, clock, 1'b0, wren, food_dot);
+    food F(address_food, clock, 1'b0, wren, food_dot);
 
     //FSM outputs
     always @(*) begin 
@@ -166,7 +164,7 @@ module m_game_logic (
                    player_x <= 5'b00001;
                    player_y <= 4'b0001;
                end
-               else if (hs_enable) begin
+               else if (enable) begin
                     case(direction)
                         up: begin player_x <= player_x; player_y <= player_y - 1; end
                         left: begin player_x <= player_x - 1; player_y <= player_y; end

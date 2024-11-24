@@ -1,0 +1,691 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/IWMAI/Desktop/ECE241-Project/ModelSim3
+vbackground
+Z1 !s110 1732464250
+!i10b 1
+!s100 MVL@QJ`Io7b9NW@mb[8540
+INSGHcQmHP@A?8<QkPhA<<0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1732458638
+8../background.v
+F../background.v
+Z4 L0 40
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1732464250.000000
+Z7 !s107 ../utils.v|../top.v|../renderer.v|../ps2.v|../player_movement.v|../player.v|../old_code.v|../main.v|../greeting_win_over.v|../greeting_screen.v|../ghosts_movement.v|../ghost3.v|../ghost2.v|../ghost1.v|../game_over_screen.v|../fsm.v|../food.v|../canvas.v|../blocks.v|../background.v|../_modules.v|
+Z8 !s90 -reportprogress|300|../_modules.v|../background.v|../blocks.v|../canvas.v|../food.v|../fsm.v|../game_over_screen.v|../ghost1.v|../ghost2.v|../ghost3.v|../ghosts_movement.v|../greeting_screen.v|../greeting_win_over.v|../main.v|../old_code.v|../player.v|../player_movement.v|../ps2.v|../renderer.v|../top.v|../utils.v|
+!i113 1
+Z9 tCvgOpt 0
+vblocks
+R1
+!i10b 1
+!s100 EDm0f9?R^P2U^3=e_cMg;0
+I9=BHh]2kz1LO9bR^@;BJB1
+R2
+R0
+Z10 w1732458593
+8../blocks.v
+F../blocks.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vcanvas
+R1
+!i10b 1
+!s100 4_EMdSV0b[LdDGjG71`ML2
+IkINPcD8gLCE``Xj0;>6zD3
+R2
+R0
+w1732461093
+8../canvas.v
+F../canvas.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vcanvas_coord_2_mem_addr
+Z11 !s110 1732464251
+!i10b 1
+!s100 MCNXJ<GVVlVf6ONXo_f6F2
+IQRnha>LMDc;`P^QGjJEUW0
+R2
+R0
+R3
+Z12 8../utils.v
+Z13 F../utils.v
+L0 125
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vcount
+R11
+!i10b 1
+!s100 C;?RL:Sk5Qh[Z_d7Z=zMm1
+I:IXN?R709OdU<P8UL[YV90
+R2
+R0
+R3
+R12
+R13
+L0 14
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vdebounce_filter
+R11
+!i10b 1
+!s100 7h]O8XAGX3U8DoCl6nFmm2
+InhGXa3lnNZ[WLfHVdaoOL1
+R2
+R0
+R3
+R12
+R13
+L0 164
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vdelay_n_cycle
+R11
+!i10b 1
+!s100 Vk;FW8nYg[]a3NBnSBFm_2
+IX=A@bzPN:9;CLQ6<=_<cL2
+R2
+R0
+R3
+R12
+R13
+L0 64
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vdelay_one_cycle
+R11
+!i10b 1
+!s100 DI>j3]U]Fe4@f:hmNMdc>0
+IOnllE6b>l]VziF4S3Zll30
+R2
+R0
+R3
+R12
+R13
+L0 95
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vfood
+R1
+!i10b 1
+!s100 ZFnkEjQdJUY5]h0zzZcU41
+Inc<BzYT0WFjWoH9g_D>8J3
+R2
+R0
+R10
+8../food.v
+F../food.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vfsm_game_state
+R1
+!i10b 1
+!s100 A>SW=3`o9gF_3bJ<c`1<O0
+IM7KX`aM9@4gg5A@X<lCL12
+R2
+R0
+w1732462633
+8../fsm.v
+F../fsm.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vgame_coord_2_canvas_coord
+R11
+!i10b 1
+!s100 Wg>fVKRg`KmbTfnRX>6L;3
+I5UcLzBch^8T@_8Kdk^bn40
+R2
+R0
+R3
+R12
+R13
+L0 112
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vgame_over_screen
+R1
+!i10b 1
+!s100 ;BIBWePWljWQJ>do<j8C;2
+Ia__YNIY<RLVb_g_MJa`=52
+R2
+R0
+R3
+8../game_over_screen.v
+F../game_over_screen.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vget_direction
+R11
+!i10b 1
+!s100 md2J`z9T_=42D6b=Mg><d0
+Ib059H8=^^dCh`c2^TU5z^1
+R2
+R0
+Z14 w1732458830
+Z15 8../player_movement.v
+Z16 F../player_movement.v
+L0 2
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vghost1
+R1
+!i10b 1
+!s100 ?3UQAM35jF3lo9SF3Z@Pi3
+I8lZnac`IGSOF;MNn3iAkL2
+R2
+R0
+w1732461057
+8../ghost1.v
+F../ghost1.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vghost1_path
+R11
+!i10b 1
+!s100 ?L[49X3mM4<`P6c<Z:T;B2
+IfWmQN1c;9H;VTX5[l=GU72
+R2
+R0
+R10
+Z17 8../ghosts_movement.v
+Z18 F../ghosts_movement.v
+L0 3
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vghost2
+R1
+!i10b 1
+!s100 _kP=f4NPY:>07;3HF9J3U1
+I=Qg`EA9[e_51AO@WdiHjQ3
+R2
+R0
+R10
+8../ghost2.v
+F../ghost2.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vghost2_path
+R11
+!i10b 1
+!s100 YI=k<jU;NU^4a>EBS?lRW1
+I5F>HZfjkY<V;4mQniJdDS3
+R2
+R0
+R10
+R17
+R18
+L0 34
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vghost3
+R11
+!i10b 1
+!s100 BBB];<ln@eEzNiXnVXMl32
+Ih<eTa@H^h^SW@i0EdH40<2
+R2
+R0
+w1732461134
+8../ghost3.v
+F../ghost3.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vghost3_path
+R11
+!i10b 1
+!s100 `T`H?f4c92M]iGS`0kJ@22
+IT`]ziR^L@WIcciTTfV_2[0
+R2
+R0
+R10
+R17
+R18
+L0 65
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vgreeting_screen
+R11
+!i10b 1
+!s100 PFQWe7AmT`kQU8X>OkN2Z3
+I7GzM4X>oBdji7oK3Lb>3Z3
+R2
+R0
+R10
+8../greeting_screen.v
+F../greeting_screen.v
+L0 39
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vhalf_sec_counter
+R11
+!i10b 1
+!s100 k?g27Vz:0;CA3:K?C[>Od3
+I:[THei`[5XDNFkXP]ah3m0
+R2
+R0
+R3
+R12
+R13
+L0 136
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vhex7seg
+R11
+!i10b 1
+!s100 9GZOZAIRMiXg<cL<fm3;=3
+I;A[Do4mDiC8C>LIMR>30o1
+R2
+R0
+R3
+R12
+R13
+L0 26
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vm_game_logic
+R1
+!i10b 1
+!s100 TJN9N8j[?>B4LIIQJOP1E2
+ITX`92]?ebBNjF[]BNhJ@Q3
+R2
+R0
+Z19 w1732463281
+Z20 8../_modules.v
+Z21 F../_modules.v
+L0 2
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vm_game_over
+R11
+!i10b 1
+!s100 AVkEcKoRjj49<kCabX<g[1
+IlZl>4<l3jnNZ_[>PW1LW33
+R2
+R0
+R3
+Z22 8../greeting_win_over.v
+Z23 F../greeting_win_over.v
+L0 60
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vm_ghost_collision
+R1
+!i10b 1
+!s100 cla2l;n4FLi7603^8MECn3
+I?iTKm_4g0TblDzcHJHakb1
+R2
+R0
+R19
+R20
+R21
+L0 232
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vm_greeting
+R11
+!i10b 1
+!s100 zaEKcmjO[04_]j[DnT8TX3
+I3VzE:d0IcBAfmN>ZdCRiE0
+R2
+R0
+R3
+R22
+R23
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vm_renderer
+R11
+!i10b 1
+!s100 [7KF1HlaEmcB1XMgYW9Bo0
+I7GlCUW^@`AaCz^?ZF294<1
+R2
+R0
+R3
+8../renderer.v
+F../renderer.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vmain
+R11
+!i10b 1
+!s100 SXgBAUlo=?Xo58M=i]eY@0
+I58kWzJd^H0H:zjSZD9X2a0
+R2
+R0
+R3
+8../main.v
+F../main.v
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vmovement_FSM
+R11
+!i10b 1
+!s100 eQidN`nDePAR00?6FV;bY0
+IeV0SZAJYj5z]U^JdELOWo3
+R2
+R0
+R14
+R15
+R16
+L0 23
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+nmovement_@f@s@m
+vobject_mem
+R11
+!i10b 1
+!s100 MCYS`NHmV[GaYkLKeZbWH1
+Ia7KA6RcHYJ=jz50Ucz5f:3
+R2
+R0
+R3
+R12
+R13
+L0 53
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vplayer
+R11
+!i10b 1
+!s100 F@dYUNF[A@eO9Xi`l=88^0
+IeY]M>0mj9ce4k]ohCcN092
+R2
+R0
+R10
+8../player.v
+F../player.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vregn
+R11
+!i10b 1
+!s100 iV=8QY<I=hT92;7m>>ba[2
+IZG>hFTkE>bkE]hMk`YFJ?3
+R2
+R0
+R3
+R12
+R13
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
+vtestbench
+R11
+!i10b 1
+!s100 V>EJ]f@mCb`Zjl=oEAIlg1
+I2VBVZJ5]XNGkl^73]_2YE0
+R2
+R0
+w1732464248
+8testbench.v
+Ftestbench.v
+L0 5
+R5
+r1
+!s85 0
+31
+!s108 1732464251.000000
+!s107 testbench.v|
+!s90 -reportprogress|300|testbench.v|
+!i113 1
+R9
+vtop
+R11
+!i10b 1
+!s100 ^4jZU=C7aABcCO:N^J9`N3
+I@MDH@cHZDaM]CNF5H`L8:2
+R2
+R0
+R10
+8../top.v
+F../top.v
+L0 5
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R9
