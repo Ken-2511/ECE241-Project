@@ -52,7 +52,7 @@ module main (
         .VGA_X(VGA_X),
         .VGA_Y(VGA_Y),
         .VGA_COLOR(VGA_COLOR),
-        .start_key(KEY[2]),
+        .start_key(~(last_key_received == 8'h29)),
         .collided(~KEY[3])
     );
 
@@ -86,6 +86,6 @@ module main (
         .B(last_key_received)
     );
     defparam debounce.n = 8;
-    defparam debounce.THRESHOLD = 25000;
+    defparam debounce.THRESHOLD = 5000;
 
 endmodule

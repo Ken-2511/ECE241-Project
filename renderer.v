@@ -176,7 +176,7 @@ module m_renderer (
                     VGA_Y <= _temp_y;
                     pl_color1 <= pl_color;
                     pl_color2 <= pl_color1;
-                    VGA_COLOR <= (render_index == 0) ? pl_color2 : 12'hFFF; // Assume ghosts are white
+                    VGA_COLOR <= (render_index == 0) ? pl_color1 : 12'hFFF; // Assume ghosts are white
 
                     if (dx < 4)
                         dx <= dx + 1;

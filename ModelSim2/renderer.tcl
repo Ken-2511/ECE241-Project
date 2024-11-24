@@ -23,4 +23,4 @@ vsim work.renderer_tb -Lf 220model -Lf altera_mf_ver -Lf verilog
 # show waveforms specified in wave.do
 do _renderer.do
 # advance the simulation the desired amount of time
-run 300000 ns
+run 7000 ns
