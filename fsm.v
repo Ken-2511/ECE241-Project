@@ -15,12 +15,16 @@ module fsm_game_state (
               PLAYING_LOGIC = 3'b001, 
               PLAYING_RENDER = 3'b010, 
               WAITING = 3'b011,
-              GAME_OVER = 3'b100;
+              GAME_OVER = 3'b100,
+              YOU_WON = 3'b100;
 
     reg [2:0] state, next_state;
 
     // Signals for logic and rendering
-    reg e_logic, e_render, e_game_over, e_greeting;
+    reg e_logic, e_render, e_greeting, e_game_over, e_you_won;
+    wire game_over, you_won;
+    assign game_over = e_game_over;
+    assign you_won = e_you_won;
 
     // Completion signals
     wire greeting_done, logic_done, render_done, game_over_done;
@@ -35,6 +39,7 @@ module fsm_game_state (
     // Player and ghosts data
     wire [4:0] player_x, ghost1_x, ghost2_x, ghost3_x;
     wire [3:0] player_y, ghost1_y, ghost2_y, ghost3_y;
+    wire [7:0] player_score;
 
     // VGA signals from submodules
     wire [7:0] vga_x_greeting, vga_x_render, vga_x_game_over;
@@ -145,6 +150,8 @@ module fsm_game_state (
         endcase
     end
 
+    //TODO: win state and check game over status
+
     // Arbitration logic for VGA signals
     always @(*) begin
         case (state)
@@ -188,6 +195,7 @@ module fsm_game_state (
     m_game_logic game_logic_inst (
         .clock(clock),
         .resetn(resetn),
+        .hs_enable(hs_enable),
         .enable(e_logic),
         .finished(logic_done), // Logic done signal
         .player_x(player_x),
@@ -198,6 +206,7 @@ module fsm_game_state (
         .ghost2_y(ghost2_y),
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
+        .score(player_score),
         .last_key_received(last_key_received),
         .food_eaten(food_eaten)
     );
@@ -235,13 +244,31 @@ module fsm_game_state (
         .VGA_COLOR(vga_color_game_over)
     );
 
-    // Background module
-    background u_background (
-        .address(bg_address),
+    // Collision detection module
+    m_ghost_collision collision_inst (
         .clock(clock),
-        .data(bg_write_data),
-        .wren(bg_wren),
+        .resetn(resetn),
+        .enable(e_logic), // Check for collision during logic update
+        .player_x(player_x),
+        .player_y(player_y),
+        .ghost1_x(ghost1_x),
+        .ghost1_y(ghost1_y),
+        .ghost2_x(ghost2_x),
+        .ghost2_y(ghost2_y),
+        .ghost3_x(ghost3_x),
+        .ghost3_y(ghost3_y),
+        .ghost_collision(collision_detected)
+    );
+
+    // the instance for the background color
+    canvas u_canvas (
+        .address(VGA_Y * 160 + VGA_X),
+        .clock(clock),
+        .data(12'h000),
+        .wren(1'b0),
         .q(bg_color)
     );
+
+    //you won module - TODO
 
 endmodule
