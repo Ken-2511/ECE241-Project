@@ -2,7 +2,6 @@
 module m_game_logic (
     input clock,
     input resetn,
-    input hs_enable,
     input enable,
     output reg finished,
     output reg [4:0] player_x,
@@ -17,14 +16,13 @@ module m_game_logic (
     reg [3:0] state, next_state;
 
     parameter wall_collision = 3'b000, update_player_position = 3'b001, update_ghost_positions = 3'b010, eat_food = 3'b011;
-    parameter [7:0] won_score = 8'b10111100;
 
     //player movement
     reg [3:0] collision; // wall collision: 3 is up, 2 is left, 1 is down, 0 is right
     wire [2:0] w;
     wire [1:0] direction;
-    get_direction GD(last_key_received, hs_enable, w); //in player_movement.v
-    movement_FSM MF(clock, resetn, hs_enable, w, direction); //in player_movement.v
+    get_direction GD(last_key_received, w); //in player_movement.v
+    movement_FSM MF(clock, resetn, w, direction); //in player_movement.v
 
     parameter up = 2'b00, left = 2'b01, down = 2'b10, right = 2'b11;
 
@@ -62,11 +60,9 @@ module m_game_logic (
     wire food_dot;
 
     reg wr;
-    wire q;
 
     food F(address_food, clock, 1'b0, wr, food_dot);
 
-    //data for calculating stuff in the outputs/operations
     reg f_update_player_position, f_wall_collision, f_update_ghost_positions, f_eat_food; //finished flags
 
     //move to next state
@@ -77,6 +73,9 @@ module m_game_logic (
         else if (enable) begin 
             state <= next_state;
         end 
+        else if(finished) begin 
+            state <= wall_collision;
+        end
     end
 
     //state logic
@@ -98,8 +97,7 @@ module m_game_logic (
             end 
                 
             eat_food: begin
-                if(f_eat_food) next_state = wall_collision;
-                else next_state = eat_food;
+                next_state = eat_food;
             end 
                 
             default: next_state = wall_collision;
@@ -113,6 +111,7 @@ module m_game_logic (
         f_update_player_position = 1'b0;
         f_update_ghost_positions = 1'b0;
         f_eat_food = 1'b0;
+        finished = 1'b0;
 
         case(state)
             //for checking wall collision
@@ -130,7 +129,6 @@ module m_game_logic (
                     food_eaten = 1'b0;
                     player_x = 5'b00001;
                     player_y = 4'b0001;
-                    address_wall = 9'b000000001;
                     address1 = 7'b0;
                     address2 = 7'b0;
                     address3 = 7'b0;
@@ -151,13 +149,14 @@ module m_game_logic (
                     else collision[0] <= 1'b0;
             
                 end 
+                
 
                 f_wall_collision <= 1'b1;
             end 
 
             //for updating player position
             update_player_position: begin 
-               if (enable) begin
+                if (enable) begin
                     case(direction)
                         up: begin 
                             if(!collision[3]) begin
@@ -231,12 +230,13 @@ module m_game_logic (
             eat_food: begin
                 if(enable) begin
                     wr <= 1'b0;
-                    if(q) begin
+                    if(food_dot) begin
                         score <= score + 1;
                         wr <= 1'b1;
                     end
                 end 
                 f_eat_food <= 1'b1;
+                finished = 1'b1;
             end 
         endcase
     end 
@@ -266,7 +266,7 @@ module m_ghost_collision (
     // output reg finished;
     output reg ghost_collision;
 
-    always @(posedge clock or negedge resetn) begin
+    always @(*) begin
         if (!resetn) begin
             ghost_collision <= 1'b0;
             // finished <= 1'b0;
