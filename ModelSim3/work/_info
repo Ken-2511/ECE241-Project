@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/IWMAI/Desktop/ECE241-Project/ModelSim3
 vbackground
-Z1 !s110 1732482167
+Z1 !s110 1732482543
 !i10b 1
 !s100 MVL@QJ`Io7b9NW@mb[8540
 INSGHcQmHP@A?8<QkPhA<<0
@@ -23,7 +23,7 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1732482167.000000
+Z6 !s108 1732482543.000000
 Z7 !s107 ../utils.v|../top.v|../renderer.v|../ps2.v|../player_movement.v|../player.v|../old_code.v|../main.v|../greeting_win_over.v|../greeting_screen.v|../ghosts_movement.v|../ghost3.v|../ghost2.v|../ghost1.v|../game_over_screen.v|../fsm.v|../food.v|../canvas.v|../blocks.v|../background.v|../_modules.v|
 Z8 !s90 -reportprogress|300|../_modules.v|../background.v|../blocks.v|../canvas.v|../food.v|../fsm.v|../game_over_screen.v|../ghost1.v|../ghost2.v|../ghost3.v|../ghosts_movement.v|../greeting_screen.v|../greeting_win_over.v|../main.v|../old_code.v|../player.v|../player_movement.v|../ps2.v|../renderer.v|../top.v|../utils.v|
 !i113 1
@@ -650,7 +650,7 @@ R8
 !i113 1
 R9
 vtestbench
-R1
+!s110 1732482544
 !i10b 1
 !s100 ClMYk4@bDBl?2`jD@g=S70
 I:8[KMMYVi1g@OkETl2^bE3
@@ -664,7 +664,7 @@ R5
 r1
 !s85 0
 31
-R6
+!s108 1732482544.000000
 !s107 testbench.v|
 !s90 -reportprogress|300|testbench.v|
 !i113 1
