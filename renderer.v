@@ -9,10 +9,6 @@ module m_renderer (
     output reg [6:0] VGA_Y,         // VGA y-coordinate
     output reg [11:0] VGA_COLOR,    // VGA color output (12-bit: R,G,B each 4-bit)
 
-    // Player
-    input wire [4:0] pl_game_x,
-    input wire [3:0] pl_game_y,
-
     // Ghosts
     input wire [4:0] g1_game_x,
     input wire [3:0] g1_game_y,
@@ -43,9 +39,6 @@ module m_renderer (
     reg [3:0] curr_y;
     reg [3:0] dx, dy;               // Offsets within the block
     reg [11:0] curr_color;          // Current rendering color (12-bit: R,G,B each 4-bit)
-    wire [11:0] pl_color;           // Player color
-    reg [11:0] pl_color1;           // delayed player color
-    reg [11:0] pl_color2;           // delayed player color
 
     // for convinience, we just define the player and ghost picture here
     // they are 5x5 blocks
@@ -275,12 +268,5 @@ module m_renderer (
             finished <= 0;
         end
     end
-
-    // Player
-    player u_player (
-        .address(dy * 5'd5 + dx),
-        .clock(clock),
-        .q(pl_color)
-    );
 
 endmodule
