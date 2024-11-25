@@ -33,6 +33,9 @@ module m_renderer (
     // player and ghost data
     wire [11:0] selected_data;
     wire is_ghost;
+    // last game x and y
+    reg [4:0] g1_game_x_, g2_game_x_, g3_game_x_;
+    reg [3:0] g1_game_y_, g2_game_y_, g3_game_y_;
 
     // Rendering variables
     reg [4:0] curr_x;       // Current rendering logical coordinates
@@ -74,9 +77,9 @@ module m_renderer (
             IDLE: 
                 next_state = (first_time_rendering) ? DRAW_BG : ERASE;
             DRAW_BG:
-                next_state = ERASE; // for testing other states
-                // next_state = (VGA_X == 159 && VGA_Y == 119) ? ERASE : DRAW_BG;
-            ERASE: 
+                // next_state = ERASE; // for testing other states
+                next_state = (VGA_X == 159 && VGA_Y == 119) ? ERASE : DRAW_BG;
+            ERASE:
                 next_state = render_index == 3 && dx == 4 && dy == 4 ? DRAW_PLAYER : ERASE;
             DRAW_PLAYER:
                 next_state = (dx == 4 && dy == 4) ? DRAW_GHOST1 : DRAW_PLAYER;
@@ -97,7 +100,7 @@ module m_renderer (
     reg [7:0] VGA_X___, VGA_X__, VGA_X_; // for delaying the VGA signals
     reg [6:0] VGA_Y___, VGA_Y__, VGA_Y_;
     reg [11:0] VGA_COLOR___, VGA_COLOR__, VGA_COLOR_;
-    always @(posedge clock or negedge resetn) begin
+    always @(posedge clock) begin
         if (!resetn) begin
             // Initialize
             bg_x <= 8'b0;
@@ -113,6 +116,12 @@ module m_renderer (
             curr_color <= bg_color;
             finished <= 1'b0;
             first_time_rendering <= 1;
+            g1_game_x_ <= 4'b0001;
+            g1_game_y_ <= 3'b001;
+            g2_game_x_ <= 4'b0001;
+            g2_game_y_ <= 3'b001;
+            g3_game_x_ <= 4'b0001;
+            g3_game_y_ <= 3'b001;
         end else if (enable) begin
             case (state)
                 IDLE: begin
@@ -158,17 +167,26 @@ module m_renderer (
                     end else begin
                         dx <= 0;
                         dy <= 0;
-                        if (render_index < 3) begin
+                        if (render_index == 0) begin
+                            render_index <= 1;
+                            curr_x <= pl_game_x;
+                            curr_y <= pl_game_y;
+                        end
+                        else if (render_index < 3) begin
                             render_index <= render_index + 1;
                             case (render_index + 1)
-                                1: {curr_x, curr_y} <= {g1_game_x, g1_game_y};
-                                2: {curr_x, curr_y} <= {g2_game_x, g2_game_y};
-                                3: {curr_x, curr_y} <= {g3_game_x, g3_game_y};
+                                1: {curr_x, curr_y} <= {g1_game_x_, g1_game_y_};
+                                2: {curr_x, curr_y} <= {g2_game_x_, g2_game_y_};
+                                3: {curr_x, curr_y} <= {g3_game_x_, g3_game_y_};
                             endcase
                         end else begin
                             render_index <= 0;
-                            curr_x <= pl_game_x;
-                            curr_y <= pl_game_y;
+                            g1_game_x_ <= g1_game_x;
+                            g1_game_y_ <= g1_game_y;
+                            g2_game_x_ <= g2_game_x;
+                            g2_game_y_ <= g2_game_y;
+                            g3_game_x_ <= g3_game_x;
+                            g3_game_y_ <= g3_game_y;
                         end
                     end
                     bg_x <= curr_x * 5 + dx;
@@ -192,7 +210,6 @@ module m_renderer (
                     else begin
                         dx <= 0;
                         dy <= 0;
-                        next_state <= DRAW_GHOST1;
                     end
                     VGA_X <= pl_game_x * 5 + dx;
                     VGA_Y <= pl_game_y * 5 + dy;
@@ -211,11 +228,6 @@ module m_renderer (
                     else begin
                         dx <= 0;
                         dy <= 0;
-                        case (state)
-                            DRAW_GHOST1: next_state <= DRAW_GHOST2;
-                            DRAW_GHOST2: next_state <= DRAW_GHOST3;
-                            DRAW_GHOST3: next_state <= DONE;
-                        endcase
                     end
                     
                     case (state)

@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/IWMAI/Desktop/ECE241-Project/ModelSim2
 vbackground
-Z1 !s110 1732461430
+Z1 !s110 1732525544
 !i10b 1
 !s100 MVL@QJ`Io7b9NW@mb[8540
 INSGHcQmHP@A?8<QkPhA<<0
@@ -23,7 +23,7 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1732461430.000000
+Z6 !s108 1732525544.000000
 Z7 !s107 ../utils.v|../top.v|../renderer.v|../ps2.v|../player_movement.v|../player.v|../old_code.v|../main.v|../greeting_win_over.v|../greeting_screen.v|../ghosts_movement.v|../ghost3.v|../ghost2.v|../ghost1.v|../game_over_screen.v|../fsm.v|../food.v|../canvas.v|../blocks.v|../background.v|../_modules.v|
 Z8 !s90 -reportprogress|300|../_modules.v|../background.v|../blocks.v|../canvas.v|../food.v|../fsm.v|../game_over_screen.v|../ghost1.v|../ghost2.v|../ghost3.v|../ghosts_movement.v|../greeting_screen.v|../greeting_win_over.v|../main.v|../old_code.v|../player.v|../player_movement.v|../ps2.v|../renderer.v|../top.v|../utils.v|
 !i113 1
@@ -191,11 +191,11 @@ R9
 vfsm_game_state
 R1
 !i10b 1
-!s100 KJ:aD^7=VX3WGYNnALH3Z3
-IO^iG000ljLG>0C5PHjC983
+!s100 ?FA^b4P<[JGY@lJ;UeIJD3
+Ie95jMeK?DEHb9k7eRKUlH1
 R2
 R0
-w1732461380
+Z13 w1732518706
 8../fsm.v
 F../fsm.v
 L0 1
@@ -211,11 +211,11 @@ R9
 vfsm_tb
 R1
 !i10b 1
-!s100 [g>k@_;7TJC<AGoINmYHg0
-IHX?g9ejg;h<d@;?i48T610
+!s100 Emd7;G8P?6U:N00VE]F4b1
+I5TGaV`3FN5<k=F7I1VXK`2
 R2
 R0
-R3
+w1732524793
 8./_fsm.v
 F./_fsm.v
 L0 5
@@ -271,11 +271,11 @@ R9
 vget_direction
 R1
 !i10b 1
-!s100 md2J`z9T_=42D6b=Mg><d0
-Ib059H8=^^dCh`c2^TU5z^1
+!s100 Vge[XFK1_[ONECBmCShSI1
+IUMba?l;=lY=I>n=oP_kO>2
 R2
 R0
-Z13 w1732458830
+R13
 Z14 8../player_movement.v
 Z15 F../player_movement.v
 L0 2
@@ -411,14 +411,14 @@ R9
 vgreeting_screen
 R1
 !i10b 1
-!s100 PFQWe7AmT`kQU8X>OkN2Z3
-I7GzM4X>oBdji7oK3Lb>3Z3
+!s100 dQRYU9k[HIPH4FoUo[ofz1
+IDhjVc[zJCoMDUde=FI?mF0
 R2
 R0
-R10
+w1732523753
 8../greeting_screen.v
 F../greeting_screen.v
-L0 39
+R4
 R5
 r1
 !s85 0
@@ -471,13 +471,13 @@ R9
 vm_game_logic
 R1
 !i10b 1
-!s100 3YQJLzg35g35RRGg90`V90
-IFNVo3MSlN@<:iIJ;jz<?:0
+!s100 TnVU==LnCPi9Gi8Ti7Foj2
+IRR<=26Pi^9kR=ATc3lC3a0
 R2
 R0
-Z18 w1732461322
-Z19 8../_modules.v
-Z20 F../_modules.v
+R13
+Z18 8../_modules.v
+Z19 F../_modules.v
 L0 2
 R5
 r1
@@ -496,8 +496,8 @@ IlZl>4<l3jnNZ_[>PW1LW33
 R2
 R0
 R3
-Z21 8../greeting_win_over.v
-Z22 F../greeting_win_over.v
+Z20 8../greeting_win_over.v
+Z21 F../greeting_win_over.v
 L0 60
 R5
 r1
@@ -511,14 +511,14 @@ R9
 vm_ghost_collision
 R1
 !i10b 1
-!s100 EkCJo<8I:hDl:YUT1Lm[a2
-I8[9KzCeK4KWTMW:XJ4Eaa3
+!s100 F1e`n3@G@hjZF=n5j^L=B3
+Ibz43Y?dgFI@lBTbQ60lkf1
 R2
 R0
+R13
 R18
 R19
-R20
-L0 234
+L0 260
 R5
 r1
 !s85 0
@@ -536,8 +536,8 @@ I3VzE:d0IcBAfmN>ZdCRiE0
 R2
 R0
 R3
+R20
 R21
-R22
 L0 1
 R5
 r1
@@ -549,43 +549,43 @@ R8
 !i113 1
 R9
 vm_player_ghost_data
-Z23 !s110 1732522566
+Z22 !s110 1732526001
 !i10b 1
-!s100 ^gX_SREcV<_0`;]MBg1`90
-IQURNML:`iO3dTP0zU:Yb`2
+!s100 P`j0zJ`MP?X5ATM=?1>]`0
+INE<9WH_ok<lL1Ljm>TCQe1
 R2
 R0
-Z24 w1732522563
-Z25 8../renderer.v
-Z26 F../renderer.v
-L0 261
+Z23 w1732525995
+Z24 8../renderer.v
+Z25 F../renderer.v
+L0 273
 R5
 r1
 !s85 0
 31
-Z27 !s108 1732522566.000000
-Z28 !s107 ../renderer.v|
-Z29 !s90 -reportprogress|300|../renderer.v|
+Z26 !s108 1732526001.000000
+Z27 !s107 ../renderer.v|
+Z28 !s90 -reportprogress|300|../renderer.v|
 !i113 1
 R9
 vm_renderer
-R23
+R22
 !i10b 1
-!s100 O9[m@AzK?Qo_`ZIXG7@AP2
-IL<JTofc:2dHo@Y<YmPd4B2
+!s100 CE;V@_;S?0D1z3a6Y?mUk0
+IJWno];fOQ`c?8>zl<:CTE0
 R2
 R0
+R23
 R24
 R25
-R26
 L0 1
 R5
 r1
 !s85 0
 31
+R26
 R27
 R28
-R29
 !i113 1
 R9
 vmain
@@ -595,7 +595,7 @@ R1
 I58kWzJd^H0H:zjSZD9X2a0
 R2
 R0
-R3
+w1732478291
 8../main.v
 F../main.v
 L0 1
@@ -611,14 +611,14 @@ R9
 vmovement_FSM
 R1
 !i10b 1
-!s100 eQidN`nDePAR00?6FV;bY0
-IeV0SZAJYj5z]U^JdELOWo3
+!s100 mW^74hCI0NL@_1mbY?dMR1
+IU[ZfNMfjDEdUTYbnmLNGO0
 R2
 R0
 R13
 R14
 R15
-L0 23
+L0 20
 R5
 r1
 !s85 0
@@ -650,7 +650,7 @@ R8
 !i113 1
 R9
 vplayer
-Z30 !s110 1732522567
+R22
 !i10b 1
 !s100 F@dYUNF[A@eO9Xi`l=88^0
 IeY]M>0mj9ce4k]ohCcN092
@@ -664,7 +664,7 @@ R5
 r1
 !s85 0
 31
-Z31 !s108 1732522567.000000
+R26
 !s107 ../player.v|
 !s90 -reportprogress|300|../player.v|
 !i113 1
@@ -690,7 +690,7 @@ R8
 !i113 1
 R9
 vrenderer_tb
-R30
+R22
 !i10b 1
 !s100 NkIQgShoSNY<2LkcHI1=F0
 I1NgUb<`=5jW[PMbGB6RjN1
@@ -704,7 +704,7 @@ R5
 r1
 !s85 0
 31
-R31
+R26
 !s107 ./_renderer.v|
 !s90 -reportprogress|300|./_renderer.v|
 !i113 1

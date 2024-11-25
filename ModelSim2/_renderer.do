@@ -32,6 +32,15 @@ add wave -noupdate -label g3_game_x -radix unsigned /renderer_tb/g3_game_x
 add wave -noupdate -label g3_game_y -radix unsigned /renderer_tb/g3_game_y
 add wave -noupdate -label g3_color -radix hexadecimal /renderer_tb/g3_color
 
+# Delayed Ghost Signals
+add wave -noupdate -divider delayed_ghost_signals
+add wave -noupdate -label g1_game_x_ -radix unsigned /renderer_tb/uut/g1_game_x_
+add wave -noupdate -label g1_game_y_ -radix unsigned /renderer_tb/uut/g1_game_y_
+add wave -noupdate -label g2_game_x_ -radix unsigned /renderer_tb/uut/g2_game_x_
+add wave -noupdate -label g2_game_y_ -radix unsigned /renderer_tb/uut/g2_game_y_
+add wave -noupdate -label g3_game_x_ -radix unsigned /renderer_tb/uut/g3_game_x_
+add wave -noupdate -label g3_game_y_ -radix unsigned /renderer_tb/uut/g3_game_y_
+
 # Background Signals
 add wave -noupdate -divider background_signals
 add wave -noupdate -label bg_color -radix hexadecimal /renderer_tb/bg_color

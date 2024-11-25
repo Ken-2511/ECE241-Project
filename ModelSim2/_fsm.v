@@ -47,16 +47,16 @@ module fsm_tb;
         collided = 0;
 
         // Apply reset
-        #20 resetn = 1;
+        #40 resetn = 1;
         #20 enable = 1;
 
         // Test GREETING state
-        #20 start_key = 0; // No key pressed
-        #20 start_key = 1; // 触发开始游戏
+        // #20 start_key = 0; // No key pressed
+        // #20 start_key = 1; // 触发开始游戏
 
         // Test PLAYING states
-        #40 start_key = 0; // Reset start_key after game starts
-        last_key_received = 8'h00; // No additional input
+        // #40 start_key = 0; // Reset start_key after game starts
+        last_key_received = 8'h29; // No additional input
         // collided = 1'b1; // Simulate collision during PLAYING_LOGIC
 
         // Simulate collision during PLAYING_LOGIC
