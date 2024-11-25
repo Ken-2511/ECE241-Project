@@ -89,7 +89,7 @@ module m_renderer (
             ERASE_GHOST2:
                 next_state = (dx == 4 && dy == 4) ? ERASE_GHOST3 : ERASE_GHOST2;
             ERASE_GHOST3:
-                next_state = (dx == 4 && dy == 4 && erase_counter == 1) ? DRAW_PLAYER : ERASE_GHOST3;
+                next_state = (dx == 4 && dy == 4 && erase_counter == 2) ? DRAW_PLAYER : ERASE_GHOST3;
             DRAW_PLAYER:
                 next_state = (dx == 4 && dy == 4) ? DRAW_GHOST1 : DRAW_PLAYER;
             DRAW_GHOST1:
@@ -241,17 +241,17 @@ module m_renderer (
                     else if (dy < 4) begin
                         dx <= 0;
                         dy <= dy + 1;
-                    end else if (erase_counter < 1) begin
+                    end else if (erase_counter < 2) begin
                         erase_counter <= erase_counter + 1;
                         // VGA_X__ <= VGA_X_;
                         // VGA_Y__ <= VGA_Y_;
                         // VGA_COLOR__ <= VGA_COLOR_;
                         VGA_X_ <= VGA_X__;
                         VGA_Y_ <= VGA_Y__;
-                        VGA_COLOR_ <= VGA_COLOR__;
+                        // VGA_COLOR_ <= VGA_COLOR__;
                         VGA_X <= VGA_X_;
                         VGA_Y <= VGA_Y_;
-                        VGA_COLOR <= VGA_COLOR_;
+                        VGA_COLOR <= bg_color;
                     end
                     else begin
                         erase_counter <= 0;
@@ -264,6 +264,7 @@ module m_renderer (
                     VGA_Y_ <= bg_y;
                     VGA_X <= VGA_X_;
                     VGA_Y <= VGA_Y_;
+                    VGA_COLOR_ <= bg_color;
                     VGA_COLOR <= bg_color;
                 end
 
@@ -407,11 +408,11 @@ module m_player_ghost_data (
     // player_data
     wire [11:0] player_data [4:0][4:0];
     // line 1
-    assign player_data[0][0] = 12'hF00;
-    assign player_data[0][1] = 12'hFF3;
+    assign player_data[0][0] = 12'h531;
+    assign player_data[0][1] = 12'h531;
     assign player_data[0][2] = 12'hFF3;
     assign player_data[0][3] = 12'h531;
-    assign player_data[0][4] = 12'hFF3;
+    assign player_data[0][4] = 12'h531;
     // line 2
     assign player_data[1][0] = 12'hFF3;
     assign player_data[1][1] = 12'hFF3;
@@ -425,17 +426,17 @@ module m_player_ghost_data (
     assign player_data[2][3] = 12'hFF3;
     assign player_data[2][4] = 12'hFF3;
     // line 4
-    assign player_data[3][0] = 12'h531;
-    assign player_data[3][1] = 12'h531;
+    assign player_data[3][0] = 12'hFF3;
+    assign player_data[3][1] = 12'hFF3;
     assign player_data[3][2] = 12'hFF3;
     assign player_data[3][3] = 12'hFF3;
     assign player_data[3][4] = 12'hFF3;
     // line 5
-    assign player_data[4][0] = 12'hFF3;
-    assign player_data[4][1] = 12'hFF3;
+    assign player_data[4][0] = 12'h531;
+    assign player_data[4][1] = 12'h531;
     assign player_data[4][2] = 12'hFF3;
     assign player_data[4][3] = 12'h531;
-    assign player_data[4][4] = 12'hF00;
+    assign player_data[4][4] = 12'h531;
 
     // ghost_data
     wire [11:0] ghost_data [4:0][4:0];

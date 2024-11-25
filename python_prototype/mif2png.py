@@ -52,7 +52,7 @@ def mif_to_png(input_filename, output_filename):
     img.save(output_filename)
 
 # 使用示例
-input_filename = "background.mif"  # 输入 MIF 文件
+input_filename = "background_with_yellow.mif"  # 输入 MIF 文件
 output_filename = "output.png"  # 输出 PNG 文件
 
 # 运行程序

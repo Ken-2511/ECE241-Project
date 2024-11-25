@@ -11,9 +11,13 @@ add wave -noupdate -label enable -radix binary /renderer_tb/enable
 # Renderer Module Signals
 add wave -noupdate -divider renderer_signals
 add wave -noupdate -label finished -radix binary /renderer_tb/uut/finished
+add wave -noupdate -label VGA_X_ -radix unsigned /renderer_tb/uut/VGA_X_
 add wave -noupdate -label VGA_X -radix unsigned /renderer_tb/uut/VGA_X
+add wave -noupdate -label VGA_Y_ -radix unsigned /renderer_tb/uut/VGA_Y_
 add wave -noupdate -label VGA_Y -radix unsigned /renderer_tb/uut/VGA_Y
+add wave -noupdate -label VGA_COLOR_ -radix hexadecimal /renderer_tb/uut/VGA_COLOR_
 add wave -noupdate -label VGA_COLOR -radix hexadecimal /renderer_tb/uut/VGA_COLOR
+add wave -noupdate -label erase_counter -radix unsigned /renderer_tb/uut/erase_counter
 
 # Player Signals
 add wave -noupdate -divider player_signals

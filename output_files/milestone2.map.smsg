@@ -1,6 +1,6 @@
-Warning (10268): Verilog HDL information at _modules.v(112): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 112
-Info (10281): Verilog HDL Declaration information at _modules.v(42): object "g1" differs only in case from object "G1" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 42
-Info (10281): Verilog HDL Declaration information at _modules.v(42): object "g2" differs only in case from object "G2" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 42
-Info (10281): Verilog HDL Declaration information at _modules.v(42): object "g3" differs only in case from object "G3" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 42
+Warning (10268): Verilog HDL information at _modules.v(116): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 116
+Info (10281): Verilog HDL Declaration information at _modules.v(46): object "g1" differs only in case from object "G1" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 46
+Info (10281): Verilog HDL Declaration information at _modules.v(46): object "g2" differs only in case from object "G2" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 46
+Info (10281): Verilog HDL Declaration information at _modules.v(46): object "g3" differs only in case from object "G3" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 46
 Info (10281): Verilog HDL Declaration information at player_movement.v(4): object "w" differs only in case from object "W" in the same scope File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 4
 Warning (10268): Verilog HDL information at player_movement.v(29): always construct contains both blocking and non-blocking assignments File: C:/Users/IWMAI/Desktop/ECE241-Project/player_movement.v Line: 29

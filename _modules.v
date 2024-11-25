@@ -10,7 +10,11 @@ module m_game_logic (
     output wire [3:0] ghost1_y, ghost2_y, ghost3_y,
     output reg [7:0] score,
     input [7:0] last_key_received,
-    output reg food_eaten
+    output reg food_eaten,
+    output reg [7:0] bg_x,
+    output reg [6:0] bg_y,
+    output reg [2:0] bg_color,
+    output reg bg_wren
 );
 
     reg [3:0] state, next_state;
@@ -210,6 +214,17 @@ module m_game_logic (
                             end
                         end
                     endcase
+
+                    // check eating food
+                    if(food_dot) begin
+                        bg_x <= player_x * 5 + 2;
+                        bg_y <= player_y * 5 + 2;
+                        bg_color <= 12'hace;
+                        bg_wren <= 1'b1;
+                    end
+                    else begin
+                        bg_wren <= 1'b0;
+                    end
 
                     f_update_player_position = 1'b1;
                 end
