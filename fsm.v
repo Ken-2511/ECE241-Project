@@ -99,12 +99,9 @@ module fsm_game_state (
 
             PLAYING_RENDER:
                 next_state = render_done ? WAITING : PLAYING_RENDER;
-            
-            YOU_WON:
-                next_state = YOU_WON;
 
             WAITING: 
-                next_state = (hs_enable == 1) ? (player_score == 8'd10) ? YOU_WON : PLAYING_LOGIC : WAITING;
+                next_state = (hs_enable == 1) ? PLAYING_LOGIC : WAITING;
 
             GAME_OVER: 
                 next_state = GAME_OVER;
@@ -171,11 +168,6 @@ module fsm_game_state (
                 VGA_X = vga_x_game_over;
                 VGA_Y = vga_y_game_over;
                 VGA_COLOR = vga_color_game_over;
-            end
-            YOU_WON: begin
-                VGA_X = vga_x_you_won;
-                VGA_Y = vga_y_you_won;
-                VGA_COLOR = vga_color_you_won;
             end
             default: begin
                 VGA_X = 8'd0;

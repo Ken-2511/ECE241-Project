@@ -128,7 +128,6 @@ module m_you_won (
 
     // Internal signals for managing rendering
     reg [14:0] pixel_counter; // Counts up to 19200 (160x120)
-    wire [11:0] color_data;   // Color data from greeting_screen
     reg [7:0] x_pos;          // Current X position
     reg [6:0] y_pos;          // Current Y position
 
