@@ -7,21 +7,23 @@ quietly WaveActivateNextPane {} 0
 # Clock and Reset signals
 add wave -noupdate -label clock -radix binary /testbench/CLOCK_50
 add wave -noupdate -label resetn -radix binary /testbench/resetn
-add wave -noupdate -label hs_enable -radix binary /testbench/hs_enable
 add wave -noupdate -label enable -radix binary /testbench/enable
 
 # Game Logic Module Signals
 add wave -noupdate -divider m_game_logic
 add wave -noupdate -label player_x -radix unsigned /testbench/logic/player_x
 add wave -noupdate -label player_y -radix unsigned /testbench/logic/player_y
+add wave -noupdate -label ghost1_x -radix unsigned /testbench/logic/ghost1_x
+add wave -noupdate -label ghost1_y -radix unsigned /testbench/logic/ghost1_y
 add wave -noupdate -label collision -radix binary /testbench/logic/collision
 add wave -noupdate -label direction -radix binary /testbench/logic/direction
 add wave -noupdate -label wall -radix binary /testbench/logic/wall
-add wave -noupdate -label address_wall -radix unsigned /testbench/logic/address_wall
-add wave -noupdate -label directly_up -radix unsigned /testbench/logic/directly_up
-add wave -noupdate -label directly_left -radix unsigned /testbench/logic/directly_left
-add wave -noupdate -label directly_down -radix unsigned /testbench/logic/directly_down
-add wave -noupdate -label directly_right -radix unsigned /testbench/logic/directly_right
+
+# finished signals
+add wave -noupdate -label f_wall_collision -radix binary /testbench/logic/f_wall_collision
+add wave -noupdate -label f_update_player_position -radix binary /testbench/logic/f_update_player_position
+add wave -noupdate -label f_update_ghost_positions -radix binary /testbench/logic/f_update_ghost_positions
+add wave -noupdate -label finished -radix binary /testbench/logic/finished
 
 # Input Signals
 add wave -noupdate -divider inputs
