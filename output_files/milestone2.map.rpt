@@ -1,5 +1,5 @@
 Analysis & Synthesis report for milestone2
-Mon Nov 25 04:15:53 2024
+Mon Nov 25 05:03:58 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -108,13 +108,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 25 04:15:53 2024          ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 25 05:03:58 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; milestone2                                     ;
 ; Top-level Entity Name           ; main                                           ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 422                                            ;
+; Total registers                 ; 439                                            ;
 ; Total pins                      ; 70                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 502,412                                        ;
@@ -232,10 +232,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
+;     Processors 5-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -317,16 +314,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 714            ;
+; Estimate of Logic utilization (ALMs needed) ; 748            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 1311           ;
-;     -- 7 input functions                    ; 2              ;
-;     -- 6 input functions                    ; 104            ;
-;     -- 5 input functions                    ; 132            ;
-;     -- 4 input functions                    ; 217            ;
-;     -- <=3 input functions                  ; 856            ;
+; Combinational ALUT usage for logic          ; 1368           ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 117            ;
+;     -- 5 input functions                    ; 151            ;
+;     -- 4 input functions                    ; 234            ;
+;     -- <=3 input functions                  ; 866            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 422            ;
+; Dedicated logic registers                   ; 439            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 70             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -338,8 +335,8 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 499            ;
-; Total fan-out                               ; 8039           ;
+; Maximum fan-out                             ; 516            ;
+; Total fan-out                               ; 8338           ;
 ; Average fan-out                             ; 4.05           ;
 +---------------------------------------------+----------------+
 
@@ -349,21 +346,21 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                ; Entity Name               ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |main                                                   ; 1311 (2)            ; 422 (8)                   ; 502412            ; 3          ; 70   ; 0            ; |main                                                                                                                                                              ; main                      ; work         ;
-;    |PS2_Controller:PS2|                                 ; 108 (7)             ; 90 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2                                                                                                                                           ; PS2_Controller            ; work         ;
-;       |Altera_UP_PS2_Command_Out:PS2_Command_Out|       ; 86 (86)             ; 60 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out                                                                                                 ; Altera_UP_PS2_Command_Out ; work         ;
+; |main                                                   ; 1368 (2)            ; 439 (8)                   ; 502412            ; 3          ; 70   ; 0            ; |main                                                                                                                                                              ; main                      ; work         ;
+;    |PS2_Controller:PS2|                                 ; 105 (8)             ; 90 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2                                                                                                                                           ; PS2_Controller            ; work         ;
+;       |Altera_UP_PS2_Command_Out:PS2_Command_Out|       ; 82 (82)             ; 60 (60)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out                                                                                                 ; Altera_UP_PS2_Command_Out ; work         ;
 ;       |Altera_UP_PS2_Data_In:PS2_Data_In|               ; 15 (15)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In                                                                                                         ; Altera_UP_PS2_Data_In     ; work         ;
 ;    |debounce_filter:debounce|                           ; 23 (23)             ; 29 (29)                   ; 0                 ; 0          ; 0    ; 0            ; |main|debounce_filter:debounce                                                                                                                                     ; debounce_filter           ; work         ;
-;    |fsm_game_state:game_fsm|                            ; 1091 (76)           ; 265 (32)                  ; 272012            ; 3          ; 0    ; 0            ; |main|fsm_game_state:game_fsm                                                                                                                                      ; fsm_game_state            ; work         ;
+;    |fsm_game_state:game_fsm|                            ; 1151 (77)           ; 282 (32)                  ; 272012            ; 3          ; 0    ; 0            ; |main|fsm_game_state:game_fsm                                                                                                                                      ; fsm_game_state            ; work         ;
 ;       |background:background_inst|                      ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|background:background_inst                                                                                                           ; background                ; work         ;
 ;          |altsyncram:altsyncram_component|              ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|background:background_inst|altsyncram:altsyncram_component                                                                           ; altsyncram                ; work         ;
 ;             |altsyncram_d0p1:auto_generated|            ; 3 (0)               ; 2 (2)                     ; 230400            ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|background:background_inst|altsyncram:altsyncram_component|altsyncram_d0p1:auto_generated                                            ; altsyncram_d0p1           ; work         ;
 ;                |decode_01a:rden_decode|                 ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|background:background_inst|altsyncram:altsyncram_component|altsyncram_d0p1:auto_generated|decode_01a:rden_decode                     ; decode_01a                ; work         ;
-;       |m_game_logic:game_logic_inst|                    ; 98 (87)             ; 59 (54)                   ; 3212              ; 3          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst                                                                                                         ; m_game_logic              ; work         ;
+;       |m_game_logic:game_logic_inst|                    ; 97 (87)             ; 59 (54)                   ; 3212              ; 3          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst                                                                                                         ; m_game_logic              ; work         ;
 ;          |blocks:B|                                     ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B                                                                                                ; blocks                    ; work         ;
 ;             |altsyncram:altsyncram_component|           ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B|altsyncram:altsyncram_component                                                                ; altsyncram                ; work         ;
 ;                |altsyncram_8do1:auto_generated|         ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|blocks:B|altsyncram:altsyncram_component|altsyncram_8do1:auto_generated                                 ; altsyncram_8do1           ; work         ;
-;          |get_direction:GD|                             ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|get_direction:GD                                                                                        ; get_direction             ; work         ;
+;          |get_direction:GD|                             ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|get_direction:GD                                                                                        ; get_direction             ; work         ;
 ;          |ghost1:G1|                                    ; 0 (0)               ; 0 (0)                     ; 900               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1                                                                                               ; ghost1                    ; work         ;
 ;             |altsyncram:altsyncram_component|           ; 0 (0)               ; 0 (0)                     ; 900               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component                                                               ; altsyncram                ; work         ;
 ;                |altsyncram_q4g1:auto_generated|         ; 0 (0)               ; 0 (0)                     ; 900               ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|ghost1:G1|altsyncram:altsyncram_component|altsyncram_q4g1:auto_generated                                ; altsyncram_q4g1           ; work         ;
@@ -403,8 +400,8 @@ https://fpgasoftware.intel.com/eula.
 ;             |lpm_divide_q3m:auto_generated|             ; 162 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0|lpm_divide_q3m:auto_generated                                                               ; lpm_divide_q3m            ; work         ;
 ;                |sign_div_unsign_tlh:divider|            ; 162 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0|lpm_divide_q3m:auto_generated|sign_div_unsign_tlh:divider                                   ; sign_div_unsign_tlh       ; work         ;
 ;                   |alt_u_div_00f:divider|               ; 162 (162)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_greeting:greeting_inst|lpm_divide:Mod0|lpm_divide_q3m:auto_generated|sign_div_unsign_tlh:divider|alt_u_div_00f:divider             ; alt_u_div_00f             ; work         ;
-;       |m_renderer:renderer_inst|                        ; 208 (203)           ; 102 (102)                 ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst                                                                                                             ; m_renderer                ; work         ;
-;          |m_player_ghost_data:player_ghost_data|        ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|m_player_ghost_data:player_ghost_data                                                                       ; m_player_ghost_data       ; work         ;
+;       |m_renderer:renderer_inst|                        ; 268 (264)           ; 119 (119)                 ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst                                                                                                             ; m_renderer                ; work         ;
+;          |m_player_ghost_data:player_ghost_data|        ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|m_player_ghost_data:player_ghost_data                                                                       ; m_player_ghost_data       ; work         ;
 ;    |hex7seg:H2|                                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|hex7seg:H2                                                                                                                                                   ; hex7seg                   ; work         ;
 ;    |hex7seg:H3|                                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |main|hex7seg:H3                                                                                                                                                   ; hex7seg                   ; work         ;
 ;    |vga_adapter:VGA|                                    ; 73 (1)              ; 30 (0)                    ; 230400            ; 0          ; 0    ; 0            ; |main|vga_adapter:VGA                                                                                                                                              ; vga_adapter               ; work         ;
@@ -480,20 +477,23 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|state                                                                              ;
-+-------------------+---------------+------------+-------------------+-------------------+-------------------+-------------------+-------------+------------+
-; Name              ; state.DRAW_BG ; state.DONE ; state.DRAW_GHOST3 ; state.DRAW_GHOST2 ; state.DRAW_GHOST1 ; state.DRAW_PLAYER ; state.ERASE ; state.IDLE ;
-+-------------------+---------------+------------+-------------------+-------------------+-------------------+-------------------+-------------+------------+
-; state.IDLE        ; 0             ; 0          ; 0                 ; 0                 ; 0                 ; 0                 ; 0           ; 0          ;
-; state.ERASE       ; 0             ; 0          ; 0                 ; 0                 ; 0                 ; 0                 ; 1           ; 1          ;
-; state.DRAW_PLAYER ; 0             ; 0          ; 0                 ; 0                 ; 0                 ; 1                 ; 0           ; 1          ;
-; state.DRAW_GHOST1 ; 0             ; 0          ; 0                 ; 0                 ; 1                 ; 0                 ; 0           ; 1          ;
-; state.DRAW_GHOST2 ; 0             ; 0          ; 0                 ; 1                 ; 0                 ; 0                 ; 0           ; 1          ;
-; state.DRAW_GHOST3 ; 0             ; 0          ; 1                 ; 0                 ; 0                 ; 0                 ; 0           ; 1          ;
-; state.DONE        ; 0             ; 1          ; 0                 ; 0                 ; 0                 ; 0                 ; 0           ; 1          ;
-; state.DRAW_BG     ; 1             ; 0          ; 0                 ; 0                 ; 0                 ; 0                 ; 0           ; 1          ;
-+-------------------+---------------+------------+-------------------+-------------------+-------------------+-------------------+-------------+------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|state                                                                                                                                                     ;
++--------------------+--------------------+--------------------+--------------------+---------------+------------+-------------------+-------------------+-------------------+-------------------+--------------------+------------+
+; Name               ; state.ERASE_GHOST3 ; state.ERASE_GHOST2 ; state.ERASE_GHOST1 ; state.DRAW_BG ; state.DONE ; state.DRAW_GHOST3 ; state.DRAW_GHOST2 ; state.DRAW_GHOST1 ; state.DRAW_PLAYER ; state.ERASE_PLAYER ; state.IDLE ;
++--------------------+--------------------+--------------------+--------------------+---------------+------------+-------------------+-------------------+-------------------+-------------------+--------------------+------------+
+; state.IDLE         ; 0                  ; 0                  ; 0                  ; 0             ; 0          ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 0          ;
+; state.ERASE_PLAYER ; 0                  ; 0                  ; 0                  ; 0             ; 0          ; 0                 ; 0                 ; 0                 ; 0                 ; 1                  ; 1          ;
+; state.DRAW_PLAYER  ; 0                  ; 0                  ; 0                  ; 0             ; 0          ; 0                 ; 0                 ; 0                 ; 1                 ; 0                  ; 1          ;
+; state.DRAW_GHOST1  ; 0                  ; 0                  ; 0                  ; 0             ; 0          ; 0                 ; 0                 ; 1                 ; 0                 ; 0                  ; 1          ;
+; state.DRAW_GHOST2  ; 0                  ; 0                  ; 0                  ; 0             ; 0          ; 0                 ; 1                 ; 0                 ; 0                 ; 0                  ; 1          ;
+; state.DRAW_GHOST3  ; 0                  ; 0                  ; 0                  ; 0             ; 0          ; 1                 ; 0                 ; 0                 ; 0                 ; 0                  ; 1          ;
+; state.DONE         ; 0                  ; 0                  ; 0                  ; 0             ; 1          ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 1          ;
+; state.DRAW_BG      ; 0                  ; 0                  ; 0                  ; 1             ; 0          ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 1          ;
+; state.ERASE_GHOST1 ; 0                  ; 0                  ; 1                  ; 0             ; 0          ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 1          ;
+; state.ERASE_GHOST2 ; 0                  ; 1                  ; 0                  ; 0             ; 0          ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 1          ;
+; state.ERASE_GHOST3 ; 1                  ; 0                  ; 0                  ; 0             ; 0          ; 0                 ; 0                 ; 0                 ; 0                 ; 0                  ; 1          ;
++--------------------+--------------------+--------------------+--------------------+---------------+------------+-------------------+-------------------+-------------------+-------------------+--------------------+------------+
 
 
 Encoding Type:  One-Hot
@@ -595,15 +595,16 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; fsm_game_state:game_fsm|m_game_over:game_over_inst|VGA_COLOR[3,5,7,8]                                         ; Merged with fsm_game_state:game_fsm|m_game_over:game_over_inst|VGA_COLOR[11]            ;
 ; fsm_game_state:game_fsm|m_greeting:greeting_inst|VGA_COLOR[9]                                                 ; Merged with fsm_game_state:game_fsm|m_greeting:greeting_inst|VGA_COLOR[10]              ;
 ; fsm_game_state:game_fsm|m_game_over:game_over_inst|VGA_COLOR[9]                                               ; Merged with fsm_game_state:game_fsm|m_game_over:game_over_inst|VGA_COLOR[10]            ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR_[1,4..6]                                           ; Merged with fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR_[0]              ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR_[8,9,11]                                           ; Merged with fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR_[10]             ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[1..7]                                ; Merged with PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0] ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|ps2_command[0]                                   ; Stuck at GND due to stuck port data_in                                                  ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|g1_game_y_[0..3]                                             ; Lost fanout                                                                             ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|g1_game_x_[0..4]                                             ; Lost fanout                                                                             ;
 ; fsm_game_state:game_fsm|state~9                                                                               ; Lost fanout                                                                             ;
 ; fsm_game_state:game_fsm|state~10                                                                              ; Lost fanout                                                                             ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|state~9                                                      ; Lost fanout                                                                             ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|state~10                                                     ; Lost fanout                                                                             ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|state~11                                                     ; Lost fanout                                                                             ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|state~12                                                     ; Lost fanout                                                                             ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|state~13                                                     ; Lost fanout                                                                             ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|state~14                                                     ; Lost fanout                                                                             ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|state~15                                                     ; Lost fanout                                                                             ;
 ; fsm_game_state:game_fsm|m_game_logic:game_logic_inst|state~7                                                  ; Lost fanout                                                                             ;
 ; fsm_game_state:game_fsm|m_game_logic:game_logic_inst|state~8                                                  ; Lost fanout                                                                             ;
 ; fsm_game_state:game_fsm|m_game_logic:game_logic_inst|state~10                                                 ; Lost fanout                                                                             ;
@@ -626,9 +627,10 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_0_IDLE               ; Stuck at GND due to stuck port data_in                                                  ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT   ; Lost fanout                                                                             ;
 ; PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR ; Lost fanout                                                                             ;
-; fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[3]                                                        ; Stuck at GND due to stuck port data_in                                                  ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|done_counter[2,3]                                            ; Stuck at GND due to stuck port data_in                                                  ;
 ; fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[3]                                                        ; Stuck at GND due to stuck port data_in                                                  ;
-; Total Number of Removed Registers = 74                                                                        ;                                                                                         ;
+; fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[3]                                                        ; Stuck at GND due to stuck port data_in                                                  ;
+; Total Number of Removed Registers = 75                                                                        ;                                                                                         ;
 +---------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
 
@@ -653,12 +655,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 422   ;
-; Number of registers using Synchronous Clear  ; 272   ;
-; Number of registers using Synchronous Load   ; 24    ;
-; Number of registers using Asynchronous Clear ; 155   ;
+; Total registers                              ; 439   ;
+; Number of registers using Synchronous Clear  ; 256   ;
+; Number of registers using Synchronous Load   ; 41    ;
+; Number of registers using Asynchronous Clear ; 158   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 327   ;
+; Number of registers using Clock Enable       ; 343   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -668,41 +670,49 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|render_index[1]                                  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[0]                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[6]                                                                             ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[4]                                             ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[5]                            ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|debounce_filter:debounce|counter[10]                                                              ;
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y_[4]                                        ;
-; 3:1                ; 21 bits   ; 42 LEs        ; 0 LEs                ; 42 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|g3_game_y_[2]                                    ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|g3_game_y_[0]                                    ;
-; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[1]          ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[4]                   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|received_data[3]                             ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|_last_key_received[2]                                                                             ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |main|vga_adapter:VGA|vga_controller:controller|yCounter[5]                                             ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_X[1]                                         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_shift_reg[2]                            ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|debounce_filter:debounce|counter[0]                                                               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|g3_game_x_[1]                                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|g3_game_x_[0]                                    ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|g2_game_x_[4]                                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|g2_game_x_[0]                                    ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|g1_game_x_[4]                                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|g1_game_x_[0]                                    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|pl_game_y_[2]                                    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR_[0]                                    ;
+; 4:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|command_initiate_counter[5]          ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|waiting_counter[11]                  ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|cur_bit[0]                           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|data_count[3]                                ;
-; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[4]                  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|collision[1]                                 ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|delay[2]                                     ;
-; 6:1                ; 15 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y[4]                                         ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_x[7]                                          ;
+; 4:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |main|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|transfer_counter[2]                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|done_counter[3]                                  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|collision[3]                                 ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|delay[3]                                     ;
 ; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address1[6]                                  ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address2[6]                                  ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address3[5]                                  ;
-; 7:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_y[1]                                          ;
-; 8:1                ; 12 bits   ; 60 LEs        ; 48 LEs               ; 12 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR[7]                                     ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address2[3]                                  ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|address3[0]                                  ;
+; 7:1                ; 12 bits   ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_COLOR[6]                                     ;
+; 8:1                ; 15 bits   ; 75 LEs        ; 0 LEs                ; 75 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|VGA_Y_[2]                                        ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 8 LEs                ; 40 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_x[0]                                          ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|player_x[0]                                  ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|player_y[3]                                  ;
+; 10:1               ; 7 bits    ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|bg_y[5]                                          ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dx[0]                                            ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[2]                                            ;
-; 9:1                ; 5 bits    ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|player_x[1]                                  ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|player_y[1]                                  ;
-; 15:1               ; 9 bits    ; 90 LEs        ; 18 LEs               ; 72 LEs                 ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|curr_x[4]                                        ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[1] ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|state                                            ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Selector58                                   ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Selector51                                   ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|dy[1]                                            ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_ldm1:auto_generated|mux_2hb:mux3|result_node[5] ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|state                                            ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Selector61                                   ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|Selector56                                   ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_game_logic:game_logic_inst|state                                        ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|Selector6                                                                 ;
-; 5:1                ; 15 bits   ; 45 LEs        ; 45 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|Add10                                            ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|Selector22                                                                ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|Add21                                            ;
+; 6:1                ; 15 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|Add23                                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|Add7                                             ;
+; 6:1                ; 15 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |main|fsm_game_state:game_fsm|m_renderer:renderer_inst|Add7                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------+
 
 
@@ -1264,14 +1274,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                 ;
 +----------------+-------+----------------------------------------------------------------------+
-; IDLE           ; 000   ; Unsigned Binary                                                      ;
-; ERASE          ; 001   ; Unsigned Binary                                                      ;
-; DRAW_PLAYER    ; 010   ; Unsigned Binary                                                      ;
-; DRAW_GHOST1    ; 011   ; Unsigned Binary                                                      ;
-; DRAW_GHOST2    ; 100   ; Unsigned Binary                                                      ;
-; DRAW_GHOST3    ; 101   ; Unsigned Binary                                                      ;
-; DONE           ; 110   ; Unsigned Binary                                                      ;
-; DRAW_BG        ; 111   ; Unsigned Binary                                                      ;
+; IDLE           ; 0000  ; Unsigned Binary                                                      ;
+; ERASE_PLAYER   ; 0001  ; Unsigned Binary                                                      ;
+; DRAW_PLAYER    ; 0010  ; Unsigned Binary                                                      ;
+; DRAW_GHOST1    ; 0011  ; Unsigned Binary                                                      ;
+; DRAW_GHOST2    ; 0100  ; Unsigned Binary                                                      ;
+; DRAW_GHOST3    ; 0101  ; Unsigned Binary                                                      ;
+; DONE           ; 0110  ; Unsigned Binary                                                      ;
+; DRAW_BG        ; 0111  ; Unsigned Binary                                                      ;
+; ERASE_GHOST1   ; 1000  ; Unsigned Binary                                                      ;
+; ERASE_GHOST2   ; 1001  ; Unsigned Binary                                                      ;
+; ERASE_GHOST3   ; 1010  ; Unsigned Binary                                                      ;
 +----------------+-------+----------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -2232,49 +2245,48 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 422                         ;
+; arriav_ff             ; 439                         ;
 ;     CLR               ; 14                          ;
 ;     CLR SCLR          ; 36                          ;
-;     ENA               ; 52                          ;
-;     ENA CLR           ; 52                          ;
+;     ENA               ; 65                          ;
+;     ENA CLR           ; 55                          ;
 ;     ENA CLR SCLR      ; 53                          ;
-;     ENA SCLR          ; 148                         ;
+;     ENA SCLR          ; 132                         ;
 ;     ENA SCLR SLD      ; 22                          ;
+;     ENA SLD           ; 16                          ;
 ;     SCLR              ; 12                          ;
 ;     SCLR SLD          ; 1                           ;
-;     SLD               ; 1                           ;
+;     SLD               ; 2                           ;
 ;     plain             ; 31                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1314                        ;
-;     arith             ; 514                         ;
+; arriav_lcell_comb     ; 1371                        ;
+;     arith             ; 522                         ;
 ;         0 data inputs ; 56                          ;
-;         1 data inputs ; 204                         ;
-;         2 data inputs ; 19                          ;
-;         3 data inputs ; 147                         ;
-;         4 data inputs ; 84                          ;
-;         5 data inputs ; 4                           ;
-;     extend            ; 2                           ;
-;         7 data inputs ; 2                           ;
-;     normal            ; 724                         ;
+;         1 data inputs ; 207                         ;
+;         2 data inputs ; 16                          ;
+;         3 data inputs ; 144                         ;
+;         4 data inputs ; 90                          ;
+;         5 data inputs ; 9                           ;
+;     normal            ; 783                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 20                          ;
-;         2 data inputs ; 225                         ;
-;         3 data inputs ; 112                         ;
-;         4 data inputs ; 133                         ;
-;         5 data inputs ; 128                         ;
-;         6 data inputs ; 104                         ;
-;     shared            ; 74                          ;
-;         0 data inputs ; 8                           ;
-;         1 data inputs ; 40                          ;
-;         2 data inputs ; 22                          ;
-;         3 data inputs ; 4                           ;
+;         2 data inputs ; 245                         ;
+;         3 data inputs ; 113                         ;
+;         4 data inputs ; 144                         ;
+;         5 data inputs ; 142                         ;
+;         6 data inputs ; 117                         ;
+;     shared            ; 66                          ;
+;         0 data inputs ; 7                           ;
+;         1 data inputs ; 38                          ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 3                           ;
 ; arriav_mac            ; 3                           ;
 ; boundary_port         ; 70                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 106                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 16.30                       ;
-; Average LUT depth     ; 7.19                        ;
+; Average LUT depth     ; 7.13                        ;
 +-----------------------+-----------------------------+
 
 
@@ -2293,7 +2305,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Nov 25 04:15:46 2024
+    Info: Processing started: Mon Nov 25 05:03:51 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
 Info (20032): Parallel compilation is enabled and will use up to 8 processors
 Info (12021): Found 2 design units, including 2 entities, in source file greeting_win_over.v
@@ -2304,7 +2316,7 @@ Info (12021): Found 2 design units, including 2 entities, in source file _module
     Info (12023): Found entity 2: m_ghost_collision File: C:/Users/IWMAI/Desktop/ECE241-Project/_modules.v Line: 260
 Info (12021): Found 2 design units, including 2 entities, in source file renderer.v
     Info (12023): Found entity 1: m_renderer File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 1
-    Info (12023): Found entity 2: m_player_ghost_data File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 273
+    Info (12023): Found entity 2: m_player_ghost_data File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 375
 Info (12021): Found 1 design units, including 1 entities, in source file main.v
     Info (12023): Found entity 1: main File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 1
 Info (12021): Found 3 design units, including 3 entities, in source file ghosts_movement.v
@@ -2530,35 +2542,51 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_r6o1 File: C:/Users/IWMAI/Desktop/ECE241-Project/db/altsyncram_r6o1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_r6o1" for hierarchy "fsm_game_state:game_fsm|m_game_logic:game_logic_inst|food:F|altsyncram:altsyncram_component|altsyncram_r6o1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "m_renderer" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 231
+Warning (10036): Verilog HDL or VHDL warning at renderer.v(41): object "curr_x" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 41
+Warning (10036): Verilog HDL or VHDL warning at renderer.v(42): object "curr_y" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 42
 Warning (10036): Verilog HDL or VHDL warning at renderer.v(44): object "curr_color" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 44
-Warning (10036): Verilog HDL or VHDL warning at renderer.v(100): object "VGA_X___" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 100
-Warning (10036): Verilog HDL or VHDL warning at renderer.v(100): object "VGA_X__" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 100
-Warning (10036): Verilog HDL or VHDL warning at renderer.v(101): object "VGA_Y___" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 101
-Warning (10036): Verilog HDL or VHDL warning at renderer.v(101): object "VGA_Y__" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 101
-Warning (10036): Verilog HDL or VHDL warning at renderer.v(102): object "VGA_COLOR___" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 102
-Warning (10036): Verilog HDL or VHDL warning at renderer.v(102): object "VGA_COLOR__" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 102
-Warning (10036): Verilog HDL or VHDL warning at renderer.v(102): object "VGA_COLOR_" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 102
-Warning (10230): Verilog HDL assignment warning at renderer.v(141): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 141
-Warning (10230): Verilog HDL assignment warning at renderer.v(145): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 145
-Warning (10230): Verilog HDL assignment warning at renderer.v(162): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 162
-Warning (10230): Verilog HDL assignment warning at renderer.v(166): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 166
-Warning (10230): Verilog HDL assignment warning at renderer.v(176): truncated value with size 32 to match size of target (2) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 176
-Warning (10230): Verilog HDL assignment warning at renderer.v(192): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 192
-Warning (10230): Verilog HDL assignment warning at renderer.v(193): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 193
-Warning (10230): Verilog HDL assignment warning at renderer.v(204): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 204
-Warning (10230): Verilog HDL assignment warning at renderer.v(208): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 208
-Warning (10230): Verilog HDL assignment warning at renderer.v(214): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 214
-Warning (10230): Verilog HDL assignment warning at renderer.v(215): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 215
-Warning (10230): Verilog HDL assignment warning at renderer.v(222): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 222
-Warning (10230): Verilog HDL assignment warning at renderer.v(226): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 226
-Warning (10230): Verilog HDL assignment warning at renderer.v(235): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 235
-Warning (10230): Verilog HDL assignment warning at renderer.v(236): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 236
-Warning (10230): Verilog HDL assignment warning at renderer.v(240): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 240
-Warning (10230): Verilog HDL assignment warning at renderer.v(241): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 241
-Warning (10230): Verilog HDL assignment warning at renderer.v(245): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 245
-Warning (10230): Verilog HDL assignment warning at renderer.v(246): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 246
-Info (10264): Verilog HDL Case Statement information at renderer.v(233): all case item expressions in this case statement are onehot File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 233
-Info (12128): Elaborating entity "m_player_ghost_data" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|m_player_ghost_data:player_ghost_data" File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 267
+Warning (10036): Verilog HDL or VHDL warning at renderer.v(108): object "VGA_X___" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 108
+Warning (10036): Verilog HDL or VHDL warning at renderer.v(108): object "VGA_X__" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 108
+Warning (10036): Verilog HDL or VHDL warning at renderer.v(109): object "VGA_Y___" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 109
+Warning (10036): Verilog HDL or VHDL warning at renderer.v(109): object "VGA_Y__" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 109
+Warning (10036): Verilog HDL or VHDL warning at renderer.v(110): object "VGA_COLOR___" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 110
+Warning (10036): Verilog HDL or VHDL warning at renderer.v(110): object "VGA_COLOR__" assigned a value but never read File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 110
+Warning (10230): Verilog HDL assignment warning at renderer.v(151): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 151
+Warning (10230): Verilog HDL assignment warning at renderer.v(155): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 155
+Warning (10230): Verilog HDL assignment warning at renderer.v(172): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 172
+Warning (10230): Verilog HDL assignment warning at renderer.v(176): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 176
+Warning (10230): Verilog HDL assignment warning at renderer.v(183): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 183
+Warning (10230): Verilog HDL assignment warning at renderer.v(184): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 184
+Warning (10230): Verilog HDL assignment warning at renderer.v(195): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 195
+Warning (10230): Verilog HDL assignment warning at renderer.v(199): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 199
+Warning (10230): Verilog HDL assignment warning at renderer.v(204): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 204
+Warning (10230): Verilog HDL assignment warning at renderer.v(205): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 205
+Warning (10230): Verilog HDL assignment warning at renderer.v(216): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 216
+Warning (10230): Verilog HDL assignment warning at renderer.v(220): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 220
+Warning (10230): Verilog HDL assignment warning at renderer.v(225): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 225
+Warning (10230): Verilog HDL assignment warning at renderer.v(226): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 226
+Warning (10230): Verilog HDL assignment warning at renderer.v(237): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 237
+Warning (10230): Verilog HDL assignment warning at renderer.v(241): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 241
+Warning (10230): Verilog HDL assignment warning at renderer.v(246): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 246
+Warning (10230): Verilog HDL assignment warning at renderer.v(247): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 247
+Warning (10230): Verilog HDL assignment warning at renderer.v(258): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 258
+Warning (10230): Verilog HDL assignment warning at renderer.v(262): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 262
+Warning (10230): Verilog HDL assignment warning at renderer.v(270): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 270
+Warning (10230): Verilog HDL assignment warning at renderer.v(271): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 271
+Warning (10230): Verilog HDL assignment warning at renderer.v(281): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 281
+Warning (10230): Verilog HDL assignment warning at renderer.v(285): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 285
+Warning (10230): Verilog HDL assignment warning at renderer.v(293): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 293
+Warning (10230): Verilog HDL assignment warning at renderer.v(294): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 294
+Warning (10230): Verilog HDL assignment warning at renderer.v(304): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 304
+Warning (10230): Verilog HDL assignment warning at renderer.v(308): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 308
+Warning (10230): Verilog HDL assignment warning at renderer.v(316): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 316
+Warning (10230): Verilog HDL assignment warning at renderer.v(317): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 317
+Warning (10230): Verilog HDL assignment warning at renderer.v(327): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 327
+Warning (10230): Verilog HDL assignment warning at renderer.v(331): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 331
+Warning (10230): Verilog HDL assignment warning at renderer.v(339): truncated value with size 32 to match size of target (8) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 339
+Warning (10230): Verilog HDL assignment warning at renderer.v(340): truncated value with size 32 to match size of target (7) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 340
+Warning (10230): Verilog HDL assignment warning at renderer.v(350): truncated value with size 32 to match size of target (4) File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 350
+Info (12128): Elaborating entity "m_player_ghost_data" for hierarchy "fsm_game_state:game_fsm|m_renderer:renderer_inst|m_player_ghost_data:player_ghost_data" File: C:/Users/IWMAI/Desktop/ECE241-Project/renderer.v Line: 369
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "player_data" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "ghost_data" into its bus
 Info (12128): Elaborating entity "m_game_over" for hierarchy "fsm_game_state:game_fsm|m_game_over:game_over_inst" File: C:/Users/IWMAI/Desktop/ECE241-Project/fsm.v Line: 242
@@ -2707,7 +2735,7 @@ Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 7
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 40 registers lost all their fanouts during netlist optimizations.
+Info (17049): 32 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/IWMAI/Desktop/ECE241-Project/output_files/milestone2.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
@@ -2725,17 +2753,17 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/IWMAI/Desktop/ECE241-Project/main.v Line: 4
-Info (21057): Implemented 1583 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1641 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
     Info (21059): Implemented 55 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1403 logic cells
+    Info (21061): Implemented 1461 logic cells
     Info (21064): Implemented 106 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 3 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 85 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 102 warnings
     Info: Peak virtual memory: 4917 megabytes
-    Info: Processing ended: Mon Nov 25 04:15:53 2024
+    Info: Processing ended: Mon Nov 25 05:03:58 2024
     Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:14
 

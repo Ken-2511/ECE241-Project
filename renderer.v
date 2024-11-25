@@ -42,21 +42,24 @@ module m_renderer (
     reg [3:0] curr_y;
     reg [3:0] dx, dy;       // Offsets within the block
     reg [11:0] curr_color;  // Current rendering color (12-bit: R,G,B each 4-bit)
-    reg top_left_corner;    // For indicating whether it is the first time rendering the top left corner
 
-    // Rendering target index
+    // Done counter for making sure the delay is correct
+    reg [3:0] done_counter;
 
     // State encoding
-    parameter IDLE = 3'b000, 
-              ERASE = 3'b001, 
-              DRAW_PLAYER = 3'b010, 
-              DRAW_GHOST1 = 3'b011, 
-              DRAW_GHOST2 = 3'b100, 
-              DRAW_GHOST3 = 3'b101, 
-              DONE = 3'b110, 
-              DRAW_BG = 3'b111;
+    parameter IDLE = 4'b0000, 
+              ERASE_PLAYER = 4'b0001, 
+              DRAW_PLAYER = 4'b0010, 
+              DRAW_GHOST1 = 4'b0011, 
+              DRAW_GHOST2 = 4'b0100, 
+              DRAW_GHOST3 = 4'b0101, 
+              DONE = 4'b0110, 
+              DRAW_BG = 4'b0111,
+              ERASE_GHOST1 = 4'b1000,
+              ERASE_GHOST2 = 4'b1001,
+              ERASE_GHOST3 = 4'b1010;
     
-    reg [2:0] state, next_state;
+    reg [3:0] state, next_state;
 
     assign is_ghost = state == DRAW_GHOST1 || state == DRAW_GHOST2 || state == DRAW_GHOST3;
 
@@ -74,12 +77,18 @@ module m_renderer (
     always @(*) begin
         case (state)
             IDLE: 
-                next_state = (first_time_rendering) ? DRAW_BG : ERASE;
+                next_state = (first_time_rendering) ? DRAW_BG : ERASE_PLAYER;
             DRAW_BG:
-                // next_state = ERASE; // for testing other states
-                next_state = (VGA_X == 159 && VGA_Y == 119) ? ERASE : DRAW_BG;
-            ERASE:
-                next_state = (dx == 4 && dy == 4) ? DRAW_PLAYER : ERASE;
+                // next_state = ERASE_PLAYER; // for testing
+                next_state = (VGA_X == 159 && VGA_Y == 119) ? ERASE_PLAYER : DRAW_BG;
+            ERASE_PLAYER:
+                next_state = (dx == 4 && dy == 4) ? ERASE_GHOST1 : ERASE_PLAYER;
+            ERASE_GHOST1:
+                next_state = (dx == 4 && dy == 4) ? ERASE_GHOST2 : ERASE_GHOST1;
+            ERASE_GHOST2:
+                next_state = (dx == 4 && dy == 4) ? ERASE_GHOST3 : ERASE_GHOST2;
+            ERASE_GHOST3:
+                next_state = (dx == 4 && dy == 4) ? DRAW_PLAYER : ERASE_GHOST3;
             DRAW_PLAYER:
                 next_state = (dx == 4 && dy == 4) ? DRAW_GHOST1 : DRAW_PLAYER;
             DRAW_GHOST1:
@@ -114,13 +123,17 @@ module m_renderer (
             curr_color <= bg_color;
             finished <= 1'b0;
             first_time_rendering <= 1;
-            g1_game_x_ <= 4'b0001;
-            g1_game_y_ <= 3'b001;
-            g2_game_x_ <= 4'b0001;
-            g2_game_y_ <= 3'b001;
-            g3_game_x_ <= 4'b0001;
-            g3_game_y_ <= 3'b001;
-        end else if (enable) begin
+            pl_game_x_ <= 5'b0;
+            pl_game_y_ <= 4'b0;
+            g1_game_x_ <= 5'b00001;
+            g1_game_y_ <= 4'b0001;
+            g2_game_x_ <= 5'b00001;
+            g2_game_y_ <= 4'b0001;
+            g3_game_x_ <= 5'b00001;
+            g3_game_y_ <= 4'b0001;
+            done_counter <= 4'b0;
+        end
+        else if (enable) begin
             case (state)
                 IDLE: begin
                     // Prepare for rendering
@@ -153,8 +166,8 @@ module m_renderer (
                     VGA_COLOR <= bg_color;
                 end
 
-                ERASE: begin
-                    // Erase the current object's previous position
+                ERASE_PLAYER: begin
+                    // Erase the player's previous position
                     if (dx < 4) begin
                         dx <= dx + 1;
                     end
@@ -169,6 +182,69 @@ module m_renderer (
                     end
                     bg_x <= pl_game_x_ * 5 + dx;
                     bg_y <= pl_game_y_ * 5 + dy;
+                    VGA_X_ <= bg_x;
+                    VGA_Y_ <= bg_y;
+                    VGA_X <= VGA_X_;
+                    VGA_Y <= VGA_Y_;
+                    VGA_COLOR <= bg_color;
+                end
+
+                ERASE_GHOST1: begin
+                    // Erase ghost 1's previous position
+                    if (dx < 4) begin
+                        dx <= dx + 1;
+                    end
+                    else if (dy < 4) begin
+                        dx <= 0;
+                        dy <= dy + 1;
+                    end else begin
+                        dx <= 0;
+                        dy <= 0;
+                    end
+                    bg_x <= g1_game_x_ * 5 + dx;
+                    bg_y <= g1_game_y_ * 5 + dy;
+                    VGA_X_ <= bg_x;
+                    VGA_Y_ <= bg_y;
+                    VGA_X <= VGA_X_;
+                    VGA_Y <= VGA_Y_;
+                    VGA_COLOR <= bg_color;
+                end
+
+                ERASE_GHOST2: begin
+                    // Erase ghost 2's previous position
+                    if (dx < 4) begin
+                        dx <= dx + 1;
+                    end
+                    else if (dy < 4) begin
+                        dx <= 0;
+                        dy <= dy + 1;
+                    end else begin
+                        dx <= 0;
+                        dy <= 0;
+                    end
+                    bg_x <= g2_game_x_ * 5 + dx;
+                    bg_y <= g2_game_y_ * 5 + dy;
+                    VGA_X_ <= bg_x;
+                    VGA_Y_ <= bg_y;
+                    VGA_X <= VGA_X_;
+                    VGA_Y <= VGA_Y_;
+                    VGA_COLOR <= bg_color;
+                end
+
+                ERASE_GHOST3: begin
+                    // Erase ghost 3's previous position
+                    if (dx < 4) begin
+                        dx <= dx + 1;
+                    end
+                    else if (dy < 4) begin
+                        dx <= 0;
+                        dy <= dy + 1;
+                    end else begin
+                        dx <= 0;
+                        dy <= 0;
+                    end
+                    bg_x <= g3_game_x_ * 5 + dx;
+                    bg_y <= g3_game_y_ * 5 + dy;
                     VGA_X_ <= bg_x;
                     VGA_Y_ <= bg_y;
                     VGA_X <= VGA_X_;
@@ -191,13 +267,16 @@ module m_renderer (
                         pl_game_x_ <= pl_game_x;
                         pl_game_y_ <= pl_game_y;
                     end
-                    VGA_X <= pl_game_x * 5 + dx;
-                    VGA_Y <= pl_game_y * 5 + dy;
-                    VGA_COLOR <= selected_data;  // Assuming player data is directly accessible
+                    VGA_X_ <= pl_game_x * 5 + dx;
+                    VGA_Y_ <= pl_game_y * 5 + dy;
+                    VGA_X <= VGA_X_;
+                    VGA_Y <= VGA_Y_;
+                    VGA_COLOR_ <= selected_data;
+                    VGA_COLOR <= VGA_COLOR_;  // Assuming player data is directly accessible
                 end
 
-                DRAW_GHOST1, DRAW_GHOST2, DRAW_GHOST3: begin
-                    // Draw ghost
+                DRAW_GHOST1: begin
+                    // Draw ghost 1
                     if (dx < 4) begin
                         dx <= dx + 1;
                     end
@@ -210,33 +289,70 @@ module m_renderer (
                         dy <= 0;
                         g1_game_x_ <= g1_game_x;
                         g1_game_y_ <= g1_game_y;
+                    end
+                    VGA_X_ <= g1_game_x * 5 + dx;
+                    VGA_Y_ <= g1_game_y * 5 + dy;
+                    VGA_X <= VGA_X_;
+                    VGA_Y <= VGA_Y_;
+                    VGA_COLOR_ <= selected_data;
+                    VGA_COLOR <= VGA_COLOR_;  // Assuming ghost data is directly accessible
+                end
+
+                DRAW_GHOST2: begin
+                    // Draw ghost 2
+                    if (dx < 4) begin
+                        dx <= dx + 1;
+                    end
+                    else if (dy < 4) begin
+                        dx <= 0;
+                        dy <= dy + 1;
+                    end
+                    else begin
+                        dx <= 0;
+                        dy <= 0;
                         g2_game_x_ <= g2_game_x;
                         g2_game_y_ <= g2_game_y;
+                    end
+                    VGA_X_ <= g2_game_x * 5 + dx;
+                    VGA_Y_ <= g2_game_y * 5 + dy;
+                    VGA_X <= VGA_X_;
+                    VGA_Y <= VGA_Y_;
+                    VGA_COLOR_ <= selected_data;
+                    VGA_COLOR <= VGA_COLOR_;  // Assuming ghost data is directly accessible
+                end
+
+                DRAW_GHOST3: begin
+                    // Draw ghost 3
+                    if (dx < 4) begin
+                        dx <= dx + 1;
+                    end
+                    else if (dy < 4) begin
+                        dx <= 0;
+                        dy <= dy + 1;
+                    end
+                    else begin
+                        dx <= 0;
+                        dy <= 0;
                         g3_game_x_ <= g3_game_x;
                         g3_game_y_ <= g3_game_y;
                     end
-                    
-                    case (state)
-                        DRAW_GHOST1: begin
-                            VGA_X <= g1_game_x * 5 + dx;
-                            VGA_Y <= g1_game_y * 5 + dy;
-                            VGA_COLOR <= selected_data;
-                        end
-                        DRAW_GHOST2: begin
-                            VGA_X <= g2_game_x * 5 + dx;
-                            VGA_Y <= g2_game_y * 5 + dy;
-                            VGA_COLOR <= selected_data;
-                        end
-                        DRAW_GHOST3: begin
-                            VGA_X <= g3_game_x * 5 + dx;
-                            VGA_Y <= g3_game_y * 5 + dy;
-                            VGA_COLOR <= selected_data;
-                        end
-                    endcase
+                    VGA_X_ <= g3_game_x * 5 + dx;
+                    VGA_Y_ <= g3_game_y * 5 + dy;
+                    VGA_X <= VGA_X_;
+                    VGA_Y <= VGA_Y_;
+                    VGA_COLOR_ <= selected_data;
+                    VGA_COLOR <= VGA_COLOR_;  // Assuming ghost data is directly accessible
                 end
 
                 DONE: begin
-                    finished <= 1;
+                    // Done state
+                    if (done_counter < 2) begin
+                        done_counter <= done_counter + 1;
+                    end
+                    else begin
+                        done_counter <= 0;
+                        finished <= 1;
+                    end
                 end
             endcase
         end else begin
@@ -262,7 +378,7 @@ module m_player_ghost_data (
     output reg [11:0] data // the data of the player or ghost
 );
 
-    // for convinience, we just define the player and ghost picture here
+    // for convenience, we just define the player and ghost picture here
     // they are 5x5 blocks
     // player_data
     wire [11:0] player_data [4:0][4:0];
@@ -301,9 +417,9 @@ module m_player_ghost_data (
     wire [11:0] ghost_data [4:0][4:0];
     //line 1
     assign ghost_data[0][0] = 12'h000;
-    assign ghost_data[0][1] = 12'h000;
+    assign ghost_data[0][1] = 12'hFFF;
     assign ghost_data[0][2] = 12'hFFF;
-    assign ghost_data[0][3] = 12'h000;
+    assign ghost_data[0][3] = 12'hFFF;
     assign ghost_data[0][4] = 12'h000;
     // line 2
     assign ghost_data[1][0] = 12'h000;
@@ -314,7 +430,7 @@ module m_player_ghost_data (
     // line 3
     assign ghost_data[2][0] = 12'hFFF;
     assign ghost_data[2][1] = 12'hFFF;
-    assign ghost_data[2][2] = 12'hF00; // the red eye
+    assign ghost_data[2][2] = 12'hF88; // the red eye
     assign ghost_data[2][3] = 12'hFFF;
     assign ghost_data[2][4] = 12'hFFF;
     // line 4

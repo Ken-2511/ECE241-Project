@@ -52,7 +52,6 @@ add wave -noupdate -divider internal_signals
 add wave -noupdate -label state -radix unsigned /renderer_tb/uut/state
 add wave -noupdate -label dx -radix unsigned /renderer_tb/uut/dx
 add wave -noupdate -label dy -radix unsigned /renderer_tb/uut/dy
-add wave -noupdate -label render_index -radix unsigned /renderer_tb/uut/render_index
 
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {10000 ps} 0}
