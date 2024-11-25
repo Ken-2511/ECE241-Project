@@ -19,7 +19,6 @@ add wave -noupdate -label VGA_COLOR -radix hexadecimal /renderer_tb/uut/VGA_COLO
 add wave -noupdate -divider player_signals
 add wave -noupdate -label pl_game_x -radix unsigned /renderer_tb/uut/pl_game_x
 add wave -noupdate -label pl_game_y -radix unsigned /renderer_tb/uut/pl_game_y
-add wave -noupdate -label pl_color -radix hexadecimal /renderer_tb/uut/pl_color
 
 # Ghost Signals
 add wave -noupdate -divider ghost_signals
@@ -36,6 +35,8 @@ add wave -noupdate -label g3_color -radix hexadecimal /renderer_tb/g3_color
 # Background Signals
 add wave -noupdate -divider background_signals
 add wave -noupdate -label bg_color -radix hexadecimal /renderer_tb/bg_color
+add wave -noupdate -label bg_x -radix unsigned /renderer_tb/bg_x
+add wave -noupdate -label bg_y -radix unsigned /renderer_tb/bg_y
 
 # Internal Rendering Signals
 add wave -noupdate -divider internal_signals

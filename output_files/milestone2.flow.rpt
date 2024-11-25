@@ -1,6 +1,6 @@
 Flow report for milestone2
-Sun Nov 24 19:26:42 2024
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Mon Nov 25 02:18:01 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
 ---------------------
@@ -21,9 +21,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2024  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -33,33 +33,29 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sun Nov 24 19:26:34 2024       ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                   ; milestone2                                  ;
-; Top-level Entity Name           ; main                                        ;
-; Family                          ; Cyclone V                                   ;
-; Device                          ; 5CSEMA5F31C6                                ;
-; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 664 / 32,070 ( 2 % )                        ;
-; Total registers                 ; 428                                         ;
-; Total pins                      ; 70 / 457 ( 15 % )                           ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 502,712 / 4,065,280 ( 12 % )                ;
-; Total DSP Blocks                ; 3 / 87 ( 3 % )                              ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 1 / 6 ( 17 % )                              ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
-+---------------------------------+---------------------------------------------+
++------------------------------------------------------------------------------+
+; Flow Summary                                                                 ;
++-----------------------------+------------------------------------------------+
+; Flow Status                 ; Flow Failed - Mon Nov 25 02:18:01 2024         ;
+; Quartus Prime Version       ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name               ; milestone2                                     ;
+; Top-level Entity Name       ; main                                           ;
+; Family                      ; Cyclone V                                      ;
+; Device                      ; 5CSEMA5F31C6                                   ;
+; Timing Models               ; Final                                          ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                      ;
+; Total registers             ; N/A until Partition Merge                      ;
+; Total pins                  ; N/A until Partition Merge                      ;
+; Total virtual pins          ; N/A until Partition Merge                      ;
+; Total block memory bits     ; N/A until Partition Merge                      ;
+; Total PLLs                  ; N/A until Partition Merge                      ;
+; Total DLLs                  ; N/A until Partition Merge                      ;
++-----------------------------+------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -67,7 +63,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/24/2024 19:24:32 ;
+; Start date & time ; 11/25/2024 02:17:57 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; milestone2          ;
 +-------------------+---------------------+
@@ -78,7 +74,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 24929605474875.173249427217076         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 234025576806457.173251907626696        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; NUM_PARALLEL_PROCESSORS             ; All                                    ; --            ; --          ; --         ;
@@ -97,11 +93,8 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4944 MB             ; 00:00:10                           ;
-; Fitter               ; 00:01:43     ; 1.1                     ; 7927 MB             ; 00:03:52                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 4871 MB             ; 00:00:06                           ;
-; Timing Analyzer      ; 00:00:07     ; 2.6                     ; 5367 MB             ; 00:00:12                           ;
-; Total                ; 00:02:07     ; --                      ; --                  ; 00:04:20                           ;
+; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 4781 MB             ; 00:00:11                           ;
+; Total                ; 00:00:05     ; --                      ; --                  ; 00:00:11                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -110,10 +103,7 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; IWMAIN           ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; IWMAIN           ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; IWMAIN           ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; IWMAIN           ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; LEGION           ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -121,9 +111,6 @@ refer to the applicable agreement for further details.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off milestone2 -c milestone2
-quartus_fit --read_settings_files=off --write_settings_files=off milestone2 -c milestone2
-quartus_asm --read_settings_files=off --write_settings_files=off milestone2 -c milestone2
-quartus_sta milestone2 -c milestone2
 
 
 
