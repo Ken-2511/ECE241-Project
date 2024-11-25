@@ -7,7 +7,8 @@ module fsm_game_state (
     output reg [6:0] VGA_Y,
     output reg [11:0] VGA_COLOR,
     input start_key,
-    input collided // for testing
+    input collided, // for testing
+    output [7:0] player_score // for testing
 );
 
     // State encoding
@@ -24,7 +25,7 @@ module fsm_game_state (
     reg e_logic, e_render, e_greeting, e_game_over, e_you_won;
 
     // Completion signals
-    wire greeting_done, logic_done, render_done, game_over_done;
+    wire greeting_done, logic_done, render_done, game_over_done, you_won_done;
 
     // Collision detection signal
     wire collision_detected;
@@ -37,7 +38,7 @@ module fsm_game_state (
     // Player and ghosts data
     wire [4:0] player_x, ghost1_x, ghost2_x, ghost3_x;
     wire [3:0] player_y, ghost1_y, ghost2_y, ghost3_y;
-    wire [7:0] player_score;
+    //wire [7:0] player_score;
 
     // VGA signals from submodules
     wire [7:0] vga_x_greeting, vga_x_render, vga_x_game_over;
@@ -98,9 +99,12 @@ module fsm_game_state (
 
             PLAYING_RENDER:
                 next_state = render_done ? WAITING : PLAYING_RENDER;
+            
+            YOU_WON:
+                next_state = YOU_WON;
 
             WAITING: 
-                next_state = (hs_enable == 1) ? PLAYING_LOGIC : WAITING;
+                next_state = (hs_enable == 1) ? (player_score == 8'd10) ? YOU_WON : PLAYING_LOGIC : WAITING;
 
             GAME_OVER: 
                 next_state = GAME_OVER;
@@ -167,6 +171,11 @@ module fsm_game_state (
                 VGA_X = vga_x_game_over;
                 VGA_Y = vga_y_game_over;
                 VGA_COLOR = vga_color_game_over;
+            end
+            YOU_WON: begin
+                VGA_X = vga_x_you_won;
+                VGA_Y = vga_y_you_won;
+                VGA_COLOR = vga_color_you_won;
             end
             default: begin
                 VGA_X = 8'd0;
@@ -279,5 +288,14 @@ module fsm_game_state (
     );
 
     //you won module - TODO
+    m_you_won you_won_inst (
+        .clock(clock),
+        .resetn(resetn),
+        .enable(e_you_won),
+        .finished(you_won_done), // Greeting done signal
+        .VGA_X(vga_x_you_won),
+        .VGA_Y(vga_y_you_won),
+        .VGA_COLOR(vga_color_you_won)
+    );
 
 endmodule

@@ -234,7 +234,7 @@ module m_game_logic (
             update_ghost_positions: begin
                 if (enable) begin
                     //update positions, set addresses to 0 if they reach the end of the path
-                    if(address1 == 63)
+                    if(address1 == 62)
                         address1 <= 7'b0;
                     else
                         address1 <= address1 + 1;

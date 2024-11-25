@@ -414,11 +414,11 @@ module m_player_ghost_data (
     assign player_data[0][3] = 12'h531;
     assign player_data[0][4] = 12'h531;
     // line 2
-    assign player_data[1][0] = 12'hFF3;
+    assign player_data[1][0] = 12'h531;
     assign player_data[1][1] = 12'hFF3;
     assign player_data[1][2] = 12'hFF3;
     assign player_data[1][3] = 12'hFF3;
-    assign player_data[1][4] = 12'hFF3;
+    assign player_data[1][4] = 12'h531;
     // line 3
     assign player_data[2][0] = 12'hFF3;
     assign player_data[2][1] = 12'hFF3;
@@ -426,11 +426,11 @@ module m_player_ghost_data (
     assign player_data[2][3] = 12'hFF3;
     assign player_data[2][4] = 12'hFF3;
     // line 4
-    assign player_data[3][0] = 12'hFF3;
+    assign player_data[3][0] = 12'h531;
     assign player_data[3][1] = 12'hFF3;
     assign player_data[3][2] = 12'hFF3;
     assign player_data[3][3] = 12'hFF3;
-    assign player_data[3][4] = 12'hFF3;
+    assign player_data[3][4] = 12'h531;
     // line 5
     assign player_data[4][0] = 12'h531;
     assign player_data[4][1] = 12'h531;

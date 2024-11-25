@@ -40,8 +40,9 @@ module main (
     end
 
     // Display the key data on HEX displays
-    hex7seg H3 (_last_key_received[7:4], HEX3);
-    hex7seg H2 (_last_key_received[3:0], HEX2);
+    wire [7:0] player_score; // for testing
+    hex7seg H3 (player_score[7:4], HEX3);
+    hex7seg H2 (player_score[3:0], HEX2);
 
     // Instantiate the game FSM
     fsm_game_state game_fsm (
@@ -53,7 +54,8 @@ module main (
         .VGA_Y(VGA_Y),
         .VGA_COLOR(VGA_COLOR),
         .start_key(~(last_key_received == 8'h29)),
-        .collided(~KEY[3])
+        .collided(~KEY[3]),
+        .player_score(player_score)
     );
 
     // VGA Adapter

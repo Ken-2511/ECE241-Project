@@ -86,9 +86,9 @@ if __name__ == '__main__':
     monocolor = True      # Convert to monochrome or not
 
     # Convert and process the image
-    converted_image = convert_picture("game_over_screen.png", bits_per_color_channel=bits_per_channel,
+    converted_image = convert_picture("you_won_screen.png", bits_per_color_channel=bits_per_channel,
                                       target_width=target_width, target_height=target_height, pad=pad, monocolor=monocolor)
 
     # Generate memory file
     depth = target_width * target_height
-    memory = array2memory(converted_image, 1 if monocolor else bits_per_channel, depth, "game_over_screen.mif")
+    memory = array2memory(converted_image, 1 if monocolor else bits_per_channel, depth, "you_won_screen.mif")
