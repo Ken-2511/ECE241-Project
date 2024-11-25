@@ -254,8 +254,6 @@ module m_game_logic (
 
 endmodule
 
-
-
 // ghost collision detection module
 module m_ghost_collision (
     clock,

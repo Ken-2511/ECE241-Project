@@ -45,6 +45,7 @@ module m_renderer (
 
     // Done counter for making sure the delay is correct
     reg [3:0] done_counter;
+    reg [3:0] erase_counter;
 
     // State encoding
     parameter IDLE = 4'b0000, 
@@ -88,7 +89,7 @@ module m_renderer (
             ERASE_GHOST2:
                 next_state = (dx == 4 && dy == 4) ? ERASE_GHOST3 : ERASE_GHOST2;
             ERASE_GHOST3:
-                next_state = (dx == 4 && dy == 4) ? DRAW_PLAYER : ERASE_GHOST3;
+                next_state = (dx == 4 && dy == 4 && erase_counter == 1) ? DRAW_PLAYER : ERASE_GHOST3;
             DRAW_PLAYER:
                 next_state = (dx == 4 && dy == 4) ? DRAW_GHOST1 : DRAW_PLAYER;
             DRAW_GHOST1:
@@ -98,7 +99,7 @@ module m_renderer (
             DRAW_GHOST3:
                 next_state = (dx == 4 && dy == 4) ? DONE : DRAW_GHOST3;
             DONE: 
-                next_state = IDLE;
+                next_state = (done_counter == 2) ? IDLE : DONE;
             default: 
                 next_state = IDLE;
         endcase
@@ -132,6 +133,7 @@ module m_renderer (
             g3_game_x_ <= 5'b00001;
             g3_game_y_ <= 4'b0001;
             done_counter <= 4'b0;
+            erase_counter <= 4'b0;
         end
         else if (enable) begin
             case (state)
@@ -239,7 +241,20 @@ module m_renderer (
                     else if (dy < 4) begin
                         dx <= 0;
                         dy <= dy + 1;
-                    end else begin
+                    end else if (erase_counter < 1) begin
+                        erase_counter <= erase_counter + 1;
+                        // VGA_X__ <= VGA_X_;
+                        // VGA_Y__ <= VGA_Y_;
+                        // VGA_COLOR__ <= VGA_COLOR_;
+                        VGA_X_ <= VGA_X__;
+                        VGA_Y_ <= VGA_Y__;
+                        VGA_COLOR_ <= VGA_COLOR__;
+                        VGA_X <= VGA_X_;
+                        VGA_Y <= VGA_Y_;
+                        VGA_COLOR <= VGA_COLOR_;
+                    end
+                    else begin
+                        erase_counter <= 0;
                         dx <= 0;
                         dy <= 0;
                     end
@@ -348,6 +363,15 @@ module m_renderer (
                     // Done state
                     if (done_counter < 2) begin
                         done_counter <= done_counter + 1;
+                        // VGA_X__ <= VGA_X___;
+                        // VGA_Y__ <= VGA_Y___;
+                        // VGA_COLOR__ <= VGA_COLOR___;
+                        VGA_X_ <= VGA_X__;
+                        VGA_Y_ <= VGA_Y__;
+                        VGA_COLOR_ <= VGA_COLOR__;
+                        VGA_X <= VGA_X_;
+                        VGA_Y <= VGA_Y_;
+                        VGA_COLOR <= VGA_COLOR_;
                     end
                     else begin
                         done_counter <= 0;
@@ -386,7 +410,7 @@ module m_player_ghost_data (
     assign player_data[0][0] = 12'hF00;
     assign player_data[0][1] = 12'hFF3;
     assign player_data[0][2] = 12'hFF3;
-    assign player_data[0][3] = 12'h000;
+    assign player_data[0][3] = 12'h531;
     assign player_data[0][4] = 12'hFF3;
     // line 2
     assign player_data[1][0] = 12'hFF3;
@@ -401,8 +425,8 @@ module m_player_ghost_data (
     assign player_data[2][3] = 12'hFF3;
     assign player_data[2][4] = 12'hFF3;
     // line 4
-    assign player_data[3][0] = 12'h000;
-    assign player_data[3][1] = 12'h000;
+    assign player_data[3][0] = 12'h531;
+    assign player_data[3][1] = 12'h531;
     assign player_data[3][2] = 12'hFF3;
     assign player_data[3][3] = 12'hFF3;
     assign player_data[3][4] = 12'hFF3;
@@ -410,23 +434,23 @@ module m_player_ghost_data (
     assign player_data[4][0] = 12'hFF3;
     assign player_data[4][1] = 12'hFF3;
     assign player_data[4][2] = 12'hFF3;
-    assign player_data[4][3] = 12'h000;
+    assign player_data[4][3] = 12'h531;
     assign player_data[4][4] = 12'hF00;
 
     // ghost_data
     wire [11:0] ghost_data [4:0][4:0];
     //line 1
-    assign ghost_data[0][0] = 12'h000;
+    assign ghost_data[0][0] = 12'h531;
     assign ghost_data[0][1] = 12'hFFF;
     assign ghost_data[0][2] = 12'hFFF;
     assign ghost_data[0][3] = 12'hFFF;
-    assign ghost_data[0][4] = 12'h000;
+    assign ghost_data[0][4] = 12'h531;
     // line 2
-    assign ghost_data[1][0] = 12'h000;
+    assign ghost_data[1][0] = 12'h531;
     assign ghost_data[1][1] = 12'hFFF;
     assign ghost_data[1][2] = 12'hFFF;
     assign ghost_data[1][3] = 12'hFFF;
-    assign ghost_data[1][4] = 12'h000;
+    assign ghost_data[1][4] = 12'h531;
     // line 3
     assign ghost_data[2][0] = 12'hFFF;
     assign ghost_data[2][1] = 12'hFFF;
@@ -441,9 +465,9 @@ module m_player_ghost_data (
     assign ghost_data[3][4] = 12'hFFF;
     // line 5
     assign ghost_data[4][0] = 12'hFFF;
-    assign ghost_data[4][1] = 12'h000;
+    assign ghost_data[4][1] = 12'h531;
     assign ghost_data[4][2] = 12'hFFF;
-    assign ghost_data[4][3] = 12'h000;
+    assign ghost_data[4][3] = 12'h531;
     assign ghost_data[4][4] = 12'hFFF;
 
     always @(*) begin
