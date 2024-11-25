@@ -22,9 +22,6 @@ module fsm_game_state (
 
     // Signals for logic and rendering
     reg e_logic, e_render, e_greeting, e_game_over, e_you_won;
-    wire game_over, you_won;
-    assign game_over = e_game_over;
-    assign you_won = e_you_won;
 
     // Completion signals
     wire greeting_done, logic_done, render_done, game_over_done;
@@ -196,7 +193,6 @@ module fsm_game_state (
     m_game_logic game_logic_inst (
         .clock(clock),
         .resetn(resetn),
-        .hs_enable(hs_enable),
         .enable(e_logic),
         .finished(logic_done), // Logic done signal
         .player_x(player_x),
@@ -259,6 +255,27 @@ module fsm_game_state (
         .ghost3_x(ghost3_x),
         .ghost3_y(ghost3_y),
         .ghost_collision(collision_detected)
+    );
+
+    // module background (
+    //     address,
+    //     clock,
+    //     data,
+    //     wren,
+    //     q);
+
+    //     input	[14:0]  address;
+    //     input	  clock;
+    //     input	[11:0]  data;
+    //     input	  wren;
+    //     output	[11:0]  q;
+
+    background background_inst (
+        .address(bg_address),
+        .clock(clock),
+        .data(bg_write_data),
+        .wren(bg_wren),
+        .q(bg_color)
     );
 
     //you won module - TODO

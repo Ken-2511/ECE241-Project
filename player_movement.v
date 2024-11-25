@@ -1,12 +1,11 @@
 // Get the inputs for FSM from WASD keyboard input
-module get_direction(key, enable, w);
+module get_direction(key, w);
     input [7:0] key;
-    input enable;
     output reg [2:0] w;
 
     parameter W = 8'b00011101, A = 8'b00011100, S = 8'b00011011, D = 8'b00100011;
 
-    always @(enable or key) begin
+    always @(key) begin
         case (key)
             W: w = 3'b001;
             A: w = 3'b010;
@@ -18,8 +17,8 @@ module get_direction(key, enable, w);
 endmodule
 
 // Handles states of moving
-module movement_FSM(clock, resetn, enable, w, z); // Add wall collision later
-    input clock, resetn, enable;
+module movement_FSM(clock, resetn, w, z); 
+    input clock, resetn;
     input [2:0] w;
     output reg [1:0] z;
 
@@ -27,7 +26,7 @@ module movement_FSM(clock, resetn, enable, w, z); // Add wall collision later
     parameter up = 2'b00, left = 2'b01, down = 2'b10, right = 2'b11;
 
     // State selection
-    always @(enable or resetn or w or state) begin
+    always @(resetn or w or state) begin
         case (state)
             up:
                 if (w == 3'b010) next_state <= left;

@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/IWMAI/Desktop/ECE241-Project/ModelSim3
 vbackground
-Z1 !s110 1732482543
+Z1 !s110 1732494255
 !i10b 1
 !s100 MVL@QJ`Io7b9NW@mb[8540
 INSGHcQmHP@A?8<QkPhA<<0
@@ -23,7 +23,7 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1732482543.000000
+Z6 !s108 1732494255.000000
 Z7 !s107 ../utils.v|../top.v|../renderer.v|../ps2.v|../player_movement.v|../player.v|../old_code.v|../main.v|../greeting_win_over.v|../greeting_screen.v|../ghosts_movement.v|../ghost3.v|../ghost2.v|../ghost1.v|../game_over_screen.v|../fsm.v|../food.v|../canvas.v|../blocks.v|../background.v|../_modules.v|
 Z8 !s90 -reportprogress|300|../_modules.v|../background.v|../blocks.v|../canvas.v|../food.v|../fsm.v|../game_over_screen.v|../ghost1.v|../ghost2.v|../ghost3.v|../ghosts_movement.v|../greeting_screen.v|../greeting_win_over.v|../main.v|../old_code.v|../player.v|../player_movement.v|../ps2.v|../renderer.v|../top.v|../utils.v|
 !i113 1
@@ -191,11 +191,11 @@ R9
 vfsm_game_state
 R1
 !i10b 1
-!s100 A>SW=3`o9gF_3bJ<c`1<O0
-IM7KX`aM9@4gg5A@X<lCL12
+!s100 ?FA^b4P<[JGY@lJ;UeIJD3
+Ie95jMeK?DEHb9k7eRKUlH1
 R2
 R0
-R3
+w1732488281
 8../fsm.v
 F../fsm.v
 L0 1
@@ -251,11 +251,11 @@ R9
 vget_direction
 R1
 !i10b 1
-!s100 leAVG@WWFZV5]VGMjM>Y53
-I[ADQ:0?YfO3CA0gX3^kk@0
+!s100 Vge[XFK1_[ONECBmCShSI1
+IUMba?l;=lY=I>n=oP_kO>2
 R2
 R0
-Z13 w1732477873
+Z13 w1732489695
 Z14 8../player_movement.v
 Z15 F../player_movement.v
 L0 2
@@ -451,11 +451,11 @@ R9
 vm_game_logic
 R1
 !i10b 1
-!s100 kINBnoHFMoQEX@19aOQZb3
-IfV]Z_2e<;;6dniKmFQ=L41
+!s100 TnVU==LnCPi9Gi8Ti7Foj2
+IRR<=26Pi^9kR=ATc3lC3a0
 R2
 R0
-Z18 w1732481892
+Z18 w1732494249
 Z19 8../_modules.v
 Z20 F../_modules.v
 L0 2
@@ -491,14 +491,14 @@ R9
 vm_ghost_collision
 R1
 !i10b 1
-!s100 K=_=7agRkkkdk<GfTlL^f3
-IA;>gc]gabYo5:J>ezM;bN3
+!s100 F1e`n3@G@hjZF=n5j^L=B3
+Ibz43Y?dgFI@lBTbQ60lkf1
 R2
 R0
 R18
 R19
 R20
-L0 247
+L0 260
 R5
 r1
 !s85 0
@@ -571,14 +571,14 @@ R9
 vmovement_FSM
 R1
 !i10b 1
-!s100 4RRCHL>g_z5CWL@lU4aHg3
-I]L_1SPRSIk]T0fIL`S43c2
+!s100 mW^74hCI0NL@_1mbY?dMR1
+IU[ZfNMfjDEdUTYbnmLNGO0
 R2
 R0
 R13
 R14
 R15
-L0 21
+L0 20
 R5
 r1
 !s85 0
@@ -650,13 +650,13 @@ R8
 !i113 1
 R9
 vtestbench
-!s110 1732482544
+R1
 !i10b 1
-!s100 ClMYk4@bDBl?2`jD@g=S70
-I:8[KMMYVi1g@OkETl2^bE3
+!s100 TUZBfih_m^>7gkCLK@N8m0
+ImUSa_Ij32U55Mz:J;k0UY0
 R2
 R0
-w1732471373
+w1732491339
 8testbench.v
 Ftestbench.v
 L0 5
@@ -664,7 +664,7 @@ R5
 r1
 !s85 0
 31
-!s108 1732482544.000000
+R6
 !s107 testbench.v|
 !s90 -reportprogress|300|testbench.v|
 !i113 1
